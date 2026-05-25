@@ -1,16 +1,28 @@
 # Chatbot IIS
 
-## Iniciar entorno
+## Crear entorno virtual
 
+```bash
+python -m venv venv
+```
+
+## Activar entorno virtual
+
+```bash
 source venv/bin/activate
+```
 
-## Instalación
+## Instalar dependencias
 
+```bash
 pip install -r requirements.txt
+```
 
-## Ejecutar
+## Ejecutar servidor
 
+```bash
 uvicorn backend.main:app --reload
+```
 
 # 📘 Arquitectura del Sistema
 
