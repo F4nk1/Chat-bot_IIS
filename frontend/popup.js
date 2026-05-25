@@ -1,12 +1,22 @@
 const botonEnviar = document.getElementById("boton_enviar");
+const mensajeInput = document.getElementById("mensaje_input");
 const respuestaDiv = document.getElementById("contenedor_respuesta");
 
-botonEnviar.addEventListener("click", async () => {
-    const mensajeInput = document.getElementById("mensaje_input");
+botonEnviar.addEventListener("click", enviarConsulta);
+
+mensajeInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        enviarConsulta();
+    }
+});
+
+async function enviarConsulta() {
     const mensaje = mensajeInput.value;
 
     if (!mensaje) return;
 
+    mensajeInput.value = "";
     respuestaDiv.innerHTML = "<em>Procesando su consulta...</em>";
 
     try {
@@ -41,4 +51,4 @@ botonEnviar.addEventListener("click", async () => {
         respuestaDiv.innerHTML = "Error al conectar con el asistente acad&eacute;mico.";
         console.error("Error:", error);
     }
-});
+}

@@ -1,5 +1,9 @@
 # Chatbot IIS
 
+## Iniciar entorno
+
+source venv/bin/activate
+
 ## Instalación
 
 pip install -r requirements.txt
