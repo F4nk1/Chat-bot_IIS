@@ -3,8 +3,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 from backend.services.nlp.preprocess import preprocess
+from backend.config.settings import settings
 
-FAQ_PATH = "data/faq/faq.json"
+FAQ_PATH = settings.FAQ_PATH
 
 
 class Retriever:

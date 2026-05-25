@@ -1,3 +1,13 @@
+# Chatbot IIS
+
+## Instalación
+
+pip install -r requirements.txt
+
+## Ejecutar
+
+uvicorn backend.main:app --reload
+
 # 📘 Arquitectura del Sistema
 
 ```text
