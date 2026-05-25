@@ -1,28 +1,23 @@
 from fastapi import FastAPI
-
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.routes.chat import router as chat_router
+from backend.routes.chat import enrutador as enrutador_chat
 
-app = FastAPI()
+app = FastAPI(title="API del Chatbot Académico")
 
 app.add_middleware(
     CORSMiddleware,
-
     allow_origins=["*"],
-
     allow_credentials=True,
-
     allow_methods=["*"],
-
     allow_headers=["*"],
 )
 
-app.include_router(chat_router)
+app.include_router(enrutador_chat)
 
 
 @app.get("/")
-def root():
+def inicio():
     return {
-        "message": "Chatbot API funcionando"
+        "mensaje": "API del Chatbot Académico funcionando correctamente"
     }

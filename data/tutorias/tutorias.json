@@ -1,0 +1,12 @@
+[
+  {
+    "pregunta": "¿Cómo solicito una tutoría académica?",
+    "respuesta": "Puedes solicitar una tutoría a través del portal del estudiante, en la sección de 'Servicios Académicos'.",
+    "categoria": "Tutorías"
+  },
+  {
+    "pregunta": "¿En qué horario son las tutorías?",
+    "respuesta": "Los horarios varían según el docente, pero generalmente son entre las 14:00 y 18:00 horas.",
+    "categoria": "Tutorías"
+  }
+]

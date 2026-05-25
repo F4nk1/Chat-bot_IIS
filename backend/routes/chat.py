@@ -1,15 +1,14 @@
 from fastapi import APIRouter
 
-from backend.models.chat_models import ChatRequest
+from backend.models.chat_models import SolicitudChat
+from backend.services.chatbot.chatbot import obtener_respuesta
 
-from backend.services.chatbot.chatbot import ask_question
-
-router = APIRouter()
+enrutador = APIRouter()
 
 
-@router.post("/chat")
-def chat(request: ChatRequest):
+@enrutador.post("/chat")
+def chat(solicitud: SolicitudChat):
 
-    response = ask_question(request.message)
+    respuesta = obtener_respuesta(solicitud.mensaje)
 
-    return response
+    return respuesta

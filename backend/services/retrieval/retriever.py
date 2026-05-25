@@ -1,56 +1,78 @@
-import json
+import sqlite3
+import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-from backend.services.nlp.preprocess import preprocess
-from backend.config.settings import settings
+from backend.services.nlp.preprocess import preprocesar
+from backend.config.settings import ajustes
+from backend.database.gestion_bd import obtener_conexion
 
-FAQ_PATH = settings.FAQ_PATH
 
-
-class Retriever:
+class Recuperador:
 
     def __init__(self):
-        self.data = self.load_data()
+        self.datos = []
+        self.preguntas_limpias = []
+        self.vectorizador = TfidfVectorizer()
+        self.vectores_preguntas = None
+        self.recargar_conocimiento()
 
-        self.questions = [
-            preprocess(item["pregunta"])
-            for item in self.data
-        ]
+    def recargar_conocimiento(self):
+        """Carga los datos desde SQLite y entrena el vectorizador."""
+        try:
+            conexion = obtener_conexion()
+            cursor = conexion.cursor()
+            cursor.execute("SELECT categoria, pregunta, respuesta, pregunta_limpia FROM conocimiento")
+            filas = cursor.fetchall()
+            conexion.close()
 
-        self.vectorizer = TfidfVectorizer()
+            if not filas:
+                print("Advertencia: No hay datos en la base de datos.")
+                return
 
-        self.question_vectors = self.vectorizer.fit_transform(
-            self.questions
+            self.datos = [
+                {
+                    "categoria": fila["categoria"],
+                    "pregunta": fila["pregunta"],
+                    "respuesta": fila["respuesta"]
+                }
+                for fila in filas
+            ]
+
+            self.preguntas_limpias = [fila["pregunta_limpia"] for fila in filas]
+            self.vectores_preguntas = self.vectorizador.fit_transform(self.preguntas_limpias)
+            
+        except Exception as e:
+            print(f"Error al cargar conocimiento desde SQLite: {e}")
+
+    def buscar(self, consulta: str):
+        if not self.datos or self.vectores_preguntas is None:
+            return {
+                "pregunta": consulta,
+                "respuesta": "Lo siento, mi base de conocimientos está vacía en este momento.",
+                "categoria": "Error",
+                "confianza": 0.0
+            }
+
+        consulta_limpia = preprocesar(consulta)
+        vector_consulta = self.vectorizador.transform([consulta_limpia])
+
+        similitudes = cosine_similarity(
+            vector_consulta,
+            self.vectores_preguntas
         )
 
-    def load_data(self):
-        with open(FAQ_PATH, "r", encoding="utf-8") as file:
-            return json.load(file)
+        indice_mejor = similitudes.argmax()
+        puntaje_mejor = similitudes[0][indice_mejor]
 
-    def search(self, query: str):
-
-        clean_query = preprocess(query)
-
-        query_vector = self.vectorizer.transform([clean_query])
-
-        similarities = cosine_similarity(
-            query_vector,
-            self.question_vectors
-        )
-
-        best_index = similarities.argmax()
-
-        best_score = similarities[0][best_index]
-
-        result = self.data[best_index]
+        resultado = self.datos[indice_mejor]
 
         return {
-            "question": result["pregunta"],
-            "answer": result["respuesta"],
-            "category": result["categoria"],
-            "confidence": float(best_score)
+            "pregunta": resultado["pregunta"],
+            "respuesta": resultado["respuesta"],
+            "categoria": resultado["categoria"],
+            "confianza": float(puntaje_mejor)
         }
 
 
-retriever = Retriever()
+recuperador = Recuperador()

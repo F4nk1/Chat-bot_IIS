@@ -1,46 +1,44 @@
-const sendBtn = document.getElementById("sendBtn");
+const botonEnviar = document.getElementById("boton_enviar");
+const respuestaDiv = document.getElementById("contenedor_respuesta");
 
-const responseDiv = document.getElementById("response");
+botonEnviar.addEventListener("click", async () => {
+    const mensajeInput = document.getElementById("mensaje_input");
+    const mensaje = mensajeInput.value;
 
-sendBtn.addEventListener("click", async () => {
+    if (!mensaje) return;
 
-    const message = document
-        .getElementById("message")
-        .value;
+    respuestaDiv.innerHTML = "<em>Procesando su consulta...</em>";
 
     try {
-
-        const response = await fetch(
+        const respuestaServidor = await fetch(
             "http://127.0.0.1:8000/chat",
             {
                 method: "POST",
-
                 headers: {
                     "Content-Type": "application/json"
                 },
-
                 body: JSON.stringify({
-                    message: message
+                    mensaje: mensaje
                 })
             }
         );
 
-        const data = await response.json();
+        const datos = await respuestaServidor.json();
 
-        responseDiv.innerHTML = `
-            <strong>Respuesta:</strong><br>
-            ${data.answer}
-            <br><br>
-            <strong>Confianza:</strong>
-            ${data.confidence}
+        respuestaDiv.innerHTML = `
+            <div class="resultado">
+                <strong>Respuesta:</strong><br>
+                <p>${datos.respuesta}</p>
+                <br>
+                <small>
+                    <strong>Categoría:</strong> ${datos.categoria} | 
+                    <strong>Confianza:</strong> ${(datos.confianza * 100).toFixed(2)}%
+                </small>
+            </div>
         `;
 
     } catch (error) {
-
-        responseDiv.innerHTML =
-            "Error conectando con el servidor";
-
-        console.error(error);
+        respuestaDiv.innerHTML = "Error al conectar con el asistente acad&eacute;mico.";
+        console.error("Error:", error);
     }
-
 });

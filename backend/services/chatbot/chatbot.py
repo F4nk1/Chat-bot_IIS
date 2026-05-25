@@ -1,14 +1,17 @@
-from backend.services.retrieval.retriever import retriever
-from backend.config.settings import settings
+from backend.services.retrieval.retriever import recuperador
+from backend.config.settings import ajustes
 
-def ask_question(message: str):
 
-    result = retriever.search(message)
+def obtener_respuesta(mensaje: str):
 
-    if result["confidence"] < settings.SIMILARITY_THRESHOLD:
+    resultado = recuperador.buscar(mensaje)
+
+    if resultado["confianza"] < ajustes.UMBRAL_SIMILITUD:
         return {
-            "answer": "No encontré información relacionada.",
-            "confidence": result["confidence"]
+            "pregunta": mensaje,
+            "respuesta": "Lo siento, no tengo una respuesta precisa para esa pregunta. ¿Podrías ser más específico?",
+            "categoria": "Desconocido",
+            "confianza": resultado["confianza"]
         }
 
-    return result
+    return resultado

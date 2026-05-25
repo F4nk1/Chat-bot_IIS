@@ -1,5 +1,12 @@
 from pydantic import BaseModel
 
 
-class ChatRequest(BaseModel):
-    message: str
+class SolicitudChat(BaseModel):
+    mensaje: str
+
+
+class RespuestaChat(BaseModel):
+    pregunta: str
+    respuesta: str
+    categoria: str
+    confianza: float
