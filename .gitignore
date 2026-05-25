@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env/
+.venv/
+
+# Environment variables
+.env
+
+# FastAPI / logs
+*.log
+
+# SQLite
+*.db
+*.sqlite3
+
+# VSCode
+.vscode/
+
+# JetBrains
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Testing / cache
+.pytest_cache/
+.mypy_cache/
+
+# Build
+dist/
+build/
+
+# Node (por si luego usan npm)
+node_modules/
+
+# Coverage
+htmlcov/
+.coverage
+
+# Temporary
+tmp/
+temp/
