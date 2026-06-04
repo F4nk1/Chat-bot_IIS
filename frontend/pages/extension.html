@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Académico IIS - Extensión</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body { width: 350px; padding: 10px; background-color: #171717; color: white; }
+        .contenedor { display: flex; flex-direction: column; gap: 10px; }
+        textarea { width: 100%; height: 80px; background: #262626; color: white; border: 1px solid #333; border-radius: 4px; padding: 8px; resize: none; }
+        button { background: #2563eb; color: white; border: none; padding: 10px; border-radius: 4px; cursor: pointer; }
+        #contenedor_respuesta { margin-top: 10px; font-size: 0.9rem; line-height: 1.4; color: #ececec; }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h3>Chatbot IIS</h3>
+        <textarea id="mensaje_input" placeholder="Pregunta algo..."></textarea>
+        <button id="boton_enviar">Enviar</button>
+        <div id="contenedor_respuesta"></div>
+    </div>
+    <script src="../js/popup.js"></script>
+</body>
+</html>

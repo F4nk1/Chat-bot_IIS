@@ -24,6 +24,10 @@ pip install -r requirements.txt
 uvicorn backend.main:app --reload
 ```
 
+>**Nota:** Asegúrate de que el servidor `uvicorn` esté corriendo antes de ingresar a los enlaces.
+* **Documentación API (Swagger):** ➡️ [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+* **Interfaz de la Página Web:** ➡️ [http://127.0.0.1:8000/frontend/index.html](http://127.0.0.1:8000/frontend/index.html)
+
 # 📘 Arquitectura del Sistema
 
 ```text
@@ -38,12 +42,12 @@ uvicorn backend.main:app --reload
            │
            ▼
 ┌──────────────────────┐
-│   Chatbot Service    │
+│   Conversation Service│
 └──────────┬───────────┘
            │
            ▼
 ┌──────────────────────┐
-│      NLP Service     │
+│   Knowledge Service  │
 └──────────┬───────────┘
            │
            ▼
@@ -76,10 +80,10 @@ Frontend (Extensión Web)
 FastAPI Route
    │
    ▼
-Chatbot Service
+Conversation Service
    │
    ▼
-NLP Service
+Knowledge Service
    │
    ▼
 Retrieval Service
@@ -100,35 +104,31 @@ project/
 ├── backend/
 │   ├── config/              # Configuraciones generales
 │   │
-│   ├── models/              # Modelos de datos
+│   ├── models/              # Modelos de datos (Chat, Historial)
 │   │
-│   ├── routes/              # Rutas FastAPI
+│   ├── routes/              # Rutas FastAPI (Chat, Conversations)
 │   │
 │   ├── services/
-│   │   ├── chatbot/         # Lógica del chatbot
-│   │   ├── nlp/             # Procesamiento NLP
-│   │   └── retrieval/       # Recuperación de información
+│   │   ├── conversation/    # Lógica de chat (antes chatbot)
+│   │   ├── knowledge/       # Procesamiento NLP (antes nlp)
+│   │   ├── retrieval/       # Recuperación de información
+│   │   └── memory/          # Módulo de memoria de usuario
 │   │
-│   ├── database/            # SQLite y conexión DB
-│   │
-│   ├── utils/               # Utilidades auxiliares
+│   ├── database/            # SQLite y controladores (DB, Historial)
 │   │
 │   └── main.py              # Punto de entrada FastAPI
 │
-├── data/
-│   ├── faq/                 # Preguntas frecuentes
-│   ├── tutorias/            # Información de tutorías
-│   ├── reglamentos/         # Reglamentos institucionales
-│   └── servicios/           # Servicios universitarios
+├── data/                    # Corpus de conocimiento (JSON)
 │
 ├── frontend/
-│   ├── popup.html           # Interfaz principal
-│   ├── popup.js             # Lógica frontend
-│   └── style.css            # Estilos CSS
+│   ├── index.html           # Interfaz principal
+│   ├── manifest.json        # Manifiesto extensión
+│   ├── css/                 # Estilos (style.css, popup.css)
+│   ├── js/                  # Lógica (popup.js, content.js)
+│   ├── assets/              # Recursos visuales
+│   └── components/          # Componentes modulares
 │
-├── docs/                    # Documentación
-│
-├── tests/                   # Pruebas del sistema
+├── tests/                   # Pruebas unitarias y CRUD
 │
 ├── requirements.txt         # Dependencias Python
 ├── .env                     # Variables de entorno

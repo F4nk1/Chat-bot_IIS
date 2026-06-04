@@ -7,6 +7,12 @@
 
   "description": "Asistente académico UNSAAC",
 
+  "icons": {
+    "16": "assets/logo.svg",
+    "48": "assets/logo.svg",
+    "128": "assets/logo.svg"
+  },
+
   "permissions": [],
 
   "host_permissions": [
@@ -14,7 +20,7 @@
   ],
 
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "pages/extension.html"
   },
 
   "content_scripts": [
@@ -24,11 +30,11 @@
       ],
 
       "js": [
-        "content.js"
+        "js/content.js"
       ],
 
       "css": [
-        "popup.css"
+        "css/popup.css"
       ]
     }
   ]

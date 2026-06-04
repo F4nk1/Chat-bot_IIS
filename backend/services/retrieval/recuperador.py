@@ -3,9 +3,9 @@ import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-from backend.services.nlp.preprocess import preprocesar
+from backend.services.knowledge.preprocesamiento import preprocesar
 from backend.config.settings import ajustes
-from backend.database.gestion_bd import obtener_conexion
+from backend.database.bd_gestion import obtener_conexion
 
 
 class Recuperador:
