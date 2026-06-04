@@ -1,4 +1,4 @@
-from backend.services.retrieval.retriever import recuperador
+from backend.services.retrieval.recuperador import recuperador
 from backend.config.settings import ajustes
 
 

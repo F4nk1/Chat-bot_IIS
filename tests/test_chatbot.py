@@ -1,7 +1,7 @@
 import unittest
-from backend.services.nlp.preprocess import preprocesar
-from backend.services.chatbot.chatbot import obtener_respuesta
-from backend.services.retrieval.retriever import recuperador
+from backend.services.knowledge.preprocesamiento import preprocesar
+from backend.services.conversation.asistente import obtener_respuesta
+from backend.services.retrieval.recuperador import recuperador
 
 class PruebasChatbot(unittest.TestCase):
 
