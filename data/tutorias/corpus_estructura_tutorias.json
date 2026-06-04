@@ -1,0 +1,102 @@
+[
+  {
+    "pregunta": "¿Quién organiza el sistema tutorial en cada Escuela Profesional?",
+    "respuesta": "Cada Escuela Profesional de pregrado se encarga de organizar el sistema de tutoría para sus estudiantes. Esto también incluye a los estudiantes de Estudios Generales.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿Cuál es la estructura tutorial en una Escuela Profesional?",
+    "respuesta": "La estructura tutorial de una Escuela Profesional está formada principalmente por el Comité Tutorial de Escuela y por los docentes tutores.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿Quiénes integran el Comité Tutorial de Escuela?",
+    "respuesta": "El Comité Tutorial de Escuela está integrado por el Decano, el Director de Escuela Profesional y un docente elegido por el Consejo de Facultad. Si no se elige, puede ser nominado por el Decano a propuesta del Departamento Académico correspondiente.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿Quiénes pueden ser tutores académicos?",
+    "respuesta": "Pueden ser tutores los docentes que forman parte de la plana docente de la Escuela Profesional y que están adscritos a un departamento académico de la Facultad correspondiente.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿Cuál es la función principal del Comité Tutorial?",
+    "respuesta": "El Comité Tutorial se encarga de que la tutoría académica funcione de manera adecuada, permanente y eficaz dentro de la Escuela Profesional.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿El Comité Tutorial propone tutores para los estudiantes?",
+    "respuesta": "Sí. El Comité Tutorial organiza la actividad tutorial y propone a los docentes que serán tutores de los estudiantes. Luego, estos tutores son nombrados mediante resolución de decanato.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿Quién administra la información tutorial?",
+    "respuesta": "La información tutorial es administrada por el Comité Tutorial. Este comité también revisa las recomendaciones relacionadas con estudiantes que necesitan una atención especial.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿Qué hace el Comité Tutorial cuando un estudiante necesita atención especial?",
+    "respuesta": "Cuando un estudiante necesita atención especial, el Comité Tutorial evalúa el caso y coordina las acciones necesarias, como la derivación a servicios de apoyo universitario, por ejemplo Bienestar Universitario.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿Cada Comité Tutorial puede aprobar una directiva de funcionamiento?",
+    "respuesta": "Sí. Cada Comité Tutorial puede aprobar una directiva propia para organizar la tutoría, tomando en cuenta las características y necesidades de su Escuela Profesional.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿Qué papel cumple el Director de Escuela Profesional en la tutoría?",
+    "respuesta": "El Director de Escuela Profesional cumple un papel de coordinación, porque articula el trabajo de los docentes tutores con el Comité Tutorial.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿Qué debe elaborar cada tutor académico?",
+    "respuesta": "Cada tutor académico debe elaborar un expediente del estudiante tutorado. En ese expediente se registra información sobre su diagnóstico, las estrategias de apoyo, el seguimiento y los resultados obtenidos.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿Qué contiene el expediente del tutorado?",
+    "respuesta": "El expediente del tutorado contiene el diagnóstico inicial del estudiante, las estrategias de atención tutorial, el seguimiento de su rendimiento académico y los resultados semestrales alcanzados.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿Qué diagnóstico realiza el tutor académico?",
+    "respuesta": "El tutor académico realiza un diagnóstico inicial del estudiante tomando como referencia su desempeño académico. Esto permite identificar sus necesidades y orientar mejor el apoyo tutorial.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿Qué hace el tutor después del diagnóstico inicial?",
+    "respuesta": "Después del diagnóstico inicial, el tutor aplica estrategias de atención tutorial y hace seguimiento al rendimiento académico del estudiante para verificar si existe mejora.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿El tutor debe informar los resultados del estudiante?",
+    "respuesta": "Sí. El tutor debe organizar los resultados semestrales del estudiante y presentarlos en un informe dirigido al Director de Escuela Profesional.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿Qué ocurre si el tutor detecta que el estudiante necesita atención especializada?",
+    "respuesta": "Si el tutor considera que el estudiante necesita una atención más especializada, puede derivarlo a la Unidad de Bienestar Universitario de la Dirección de Bienestar y Responsabilidad Social.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿Quién proporciona el material para formar el expediente tutorial?",
+    "respuesta": "La UNSAAC proporciona el material necesario para que los tutores puedan formar el expediente tutorial de cada estudiante.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿Dónde se encuentran los expedientes tutoriales?",
+    "respuesta": "Los expedientes tutoriales quedan a cargo de la Dirección de la Escuela Profesional, que es la instancia responsable de su resguardo.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿Quién supervisa la actividad tutorial?",
+    "respuesta": "La actividad tutorial es supervisada por el Vicerrectorado Académico, tanto en el caso de los tutores como de los Comités Tutoriales de las Escuelas Profesionales.",
+    "categoria": "Estructura tutorial"
+  },
+  {
+    "pregunta": "¿Qué puede solicitar el Vicerrectorado Académico sobre la tutoría?",
+    "respuesta": "El Vicerrectorado Académico puede solicitar informes sobre la actividad tutorial y también emitir directivas o indicaciones cuando lo considere necesario.",
+    "categoria": "Estructura tutorial"
+  }
+]
