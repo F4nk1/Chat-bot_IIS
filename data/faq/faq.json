@@ -2,19 +2,19 @@
   {
     "id": 1,
     "categoria": "Tutorias",
-    "pregunta": "¿Qué es tutoría integral?",
-    "respuesta": "La tutoría integral es un acompañamiento académico para estudiantes."
+    "pregunta": "¿Que es tutoria integral?",
+    "respuesta": "La tutoria integral es un acompanamiento academico para estudiantes."
   },
   {
     "id": 2,
     "categoria": "Servicios",
-    "pregunta": "¿Qué servicios ofrece bienestar universitario?",
-    "respuesta": "Bienestar universitario ofrece apoyo psicológico y social."
+    "pregunta": "¿Que servicios ofrece bienestar universitario?",
+    "respuesta": "Bienestar universitario ofrece apoyo psicologico y social."
   },
   {
     "id": 3,
     "categoria": "Practicas",
-    "pregunta": "¿Cómo acceder a prácticas pre profesionales?",
-    "respuesta": "Las prácticas pre profesionales se gestionan mediante convenios de la escuela."
+    "pregunta": "¿Como acceder a practicas pre profesionales?",
+    "respuesta": "Las practicas pre profesionales se gestionan mediante convenios de la escuela."
   }
 ]
