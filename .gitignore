@@ -47,3 +47,11 @@ htmlcov/
 # Temporary
 tmp/
 temp/
+
+# --- Project Specific ---
+# TTS Models (Large files)
+backend/assets/models/*.onnx
+backend/assets/models/*.json
+
+# Generated Audio (Transient files)
+backend/static/audio/*.wav

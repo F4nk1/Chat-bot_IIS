@@ -5,6 +5,7 @@ from fastapi.responses import StreamingResponse
 
 from backend.models.modelos_chat import SolicitudChat
 from backend.services.conversation.asistente import obtener_respuesta
+from backend.services.tts.servicio_tts import servicio_tts
 
 enrutador = APIRouter()
 
@@ -12,6 +13,12 @@ enrutador = APIRouter()
 @enrutador.post("/chat")
 def chat(solicitud: SolicitudChat):
     respuesta = obtener_respuesta(solicitud.mensaje)
+    
+    # Opcional: Generar audio para la respuesta
+    nombre_audio = servicio_tts.generar_audio(respuesta["respuesta"])
+    if nombre_audio:
+        respuesta["audio_url"] = f"/static/audio/{nombre_audio}"
+        
     return respuesta
 
 

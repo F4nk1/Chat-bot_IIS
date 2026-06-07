@@ -204,7 +204,53 @@ body {
     max-width: 800px;
     padding: 1.5rem;
     display: flex;
+    flex-direction: column; /* Cambiado para permitir feedback abajo */
+    gap: 0.8rem;
+}
+
+.msg-header {
+    display: flex;
     gap: 1.5rem;
+    width: 100%;
+}
+
+.msg-feedback {
+    display: flex;
+    gap: 0.8rem;
+    margin-left: 4.5rem;
+    margin-top: 0.5rem;
+    align-items: center;
+}
+
+.btn-icon {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-icon:hover {
+    background-color: #2b2b2b;
+    color: var(--text-primary);
+    border-color: var(--text-secondary);
+}
+
+.btn-icon.active {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.feedback-gracias {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-style: italic;
 }
 
 .message.user {

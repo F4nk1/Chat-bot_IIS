@@ -4,12 +4,14 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 from backend.services.knowledge.preprocesamiento import preprocesar
-from backend.config.settings import ajustes
-from backend.database.bd_gestion import obtener_conexion
+from backend.services.knowledge.base_conocimiento import KnowledgeBase
 
 
-class Recuperador:
-
+class EmbeddingEngine:
+    """
+    Clase equivalente a EmbeddingEngine segun requerimientos.
+    Maneja la vectorizacion y busqueda semantica.
+    """
     def __init__(self):
         self.datos = []
         self.preguntas_limpias = []
@@ -18,13 +20,9 @@ class Recuperador:
         self.recargar_conocimiento()
 
     def recargar_conocimiento(self):
-        """Carga los datos desde SQLite y entrena el vectorizador."""
+        """Carga los datos usando KnowledgeBase y entrena el vectorizador."""
         try:
-            conexion = obtener_conexion()
-            cursor = conexion.cursor()
-            cursor.execute("SELECT categoria, pregunta, respuesta, pregunta_limpia FROM conocimiento")
-            filas = cursor.fetchall()
-            conexion.close()
+            filas = KnowledgeBase.obtener_todo()
 
             if not filas:
                 print("Advertencia: No hay datos en la base de datos.")
@@ -43,7 +41,7 @@ class Recuperador:
             self.vectores_preguntas = self.vectorizador.fit_transform(self.preguntas_limpias)
             
         except Exception as e:
-            print(f"Error al cargar conocimiento desde SQLite: {e}")
+            print(f"Error en EmbeddingEngine al cargar conocimiento: {e}")
 
     def buscar(self, consulta: str):
         if not self.datos or self.vectores_preguntas is None:
@@ -75,4 +73,5 @@ class Recuperador:
         }
 
 
-recuperador = Recuperador()
+# Instancia global para ser usada en el servicio de conversacion
+motor_embeddings = EmbeddingEngine()

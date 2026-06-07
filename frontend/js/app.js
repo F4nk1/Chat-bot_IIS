@@ -48,7 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
             contenedor_mensajes.innerHTML = '';
             
             datos.mensajes.forEach(msg => {
-                agregar_mensaje_a_interfaz(msg.rol === 'usuario' ? 'user' : 'bot', msg.contenido);
+                const div_msg = agregar_mensaje_a_interfaz(msg.rol === 'usuario' ? 'user' : 'bot', msg.contenido);
+                if (msg.rol === 'asistente') {
+                    agregar_botones_feedback(div_msg, msg.id);
+                }
             });
             
             if (window.innerWidth <= 768) {
@@ -151,8 +154,18 @@ document.addEventListener('DOMContentLoaded', () => {
             
             div_contenido.classList.remove('typing-cursor');
             
-            // 6. Guardar respuesta del bot en BD
-            await guardar_mensaje_en_bd(id_conversacion_activa, 'asistente', texto_completo);
+            // 6. Generar y reproducir audio si hay respuesta
+            if (texto_completo) {
+                reproducir_audio(texto_completo);
+            }
+
+            // 7. Guardar respuesta del bot en BD
+            const intencion_detectada = await obtener_intencion_desde_respuesta(texto_completo);
+            const msg_bot_guardado = await guardar_mensaje_en_bd(id_conversacion_activa, 'asistente', texto_completo, intencion_detectada);
+            if (msg_bot_guardado && msg_bot_guardado.id) {
+                agregar_botones_feedback(div_mensaje_bot, msg_bot_guardado.id);
+            }
+
 
         } catch (error) {
             console.error('Error:', error);
@@ -160,19 +173,118 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    async function guardar_mensaje_en_bd(id_conv, rol, contenido) {
+    async function obtener_intencion_desde_respuesta(texto) {
+        // En un flujo real, la intencion podria venir en los metadatos del stream
+        // Aqui, por simplicidad para el registro, podriamos hacer una peticion rapida 
+        // o extraerla si el backend la enviara en el stream.
+        // Dado que el backend ya tiene detector_intenciones, lo ideal es que el backend
+        // guarde la intencion directamente. 
+        return "Detectada"; // Placeholder o logica de extraccion
+    }
+
+    async function reproducir_audio(texto) {
         try {
-            await fetch(`${URL_API}/conversaciones/${id_conv}/mensajes`, {
+            const respuesta = await fetch(`${URL_API}/tts/generar`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ texto: texto })
+            });
+            
+            if (respuesta.status === 503) {
+                alert("El servicio de voz no está configurado. Por favor, descarga los modelos ONNX según las instrucciones del README.");
+                return;
+            }
+
+            const datos = await respuesta.json();
+            
+            if (datos.url) {
+                const audio = new Audio(`${URL_API}${datos.url}`);
+                audio.play().catch(e => console.error("Error al reproducir audio:", e));
+            }
+        } catch (error) {
+            console.error('Error al generar audio:', error);
+        }
+    }
+
+    function agregar_botones_feedback(elemento_mensaje, mensaje_id) {
+        const div_feedback = document.createElement('div');
+        div_feedback.className = 'msg-feedback';
+        
+        // Boton de Reproduccion de Audio
+        const boton_play = document.createElement('button');
+        boton_play.className = 'btn-icon';
+        boton_play.innerHTML = '<i class="fas fa-volume-up"></i>';
+        boton_play.title = 'Escuchar respuesta';
+        
+        // Extraer texto del mensaje para reproducir
+        const texto_mensaje = elemento_mensaje.querySelector('.msg-content').textContent;
+        boton_play.onclick = () => {
+            boton_play.classList.add('active');
+            reproducir_audio(texto_mensaje).finally(() => {
+                setTimeout(() => boton_play.classList.remove('active'), 2000);
+            });
+        };
+
+        const div_sep = document.createElement('div');
+        div_sep.style.width = '1px';
+        div_sep.style.height = '15px';
+        div_sep.style.backgroundColor = 'var(--border)';
+        div_sep.style.margin = '0 5px';
+
+        const boton_arriba = document.createElement('button');
+        boton_arriba.className = 'btn-icon';
+        boton_arriba.innerHTML = '<i class="far fa-thumbs-up"></i>';
+        boton_arriba.title = 'Me fue útil';
+        boton_arriba.onclick = () => enviar_feedback(mensaje_id, 1, div_feedback);
+        
+        const boton_abajo = document.createElement('button');
+        boton_abajo.className = 'btn-icon';
+        boton_abajo.innerHTML = '<i class="far fa-thumbs-down"></i>';
+        boton_abajo.title = 'No me fue útil';
+        boton_abajo.onclick = () => enviar_feedback(mensaje_id, -1, div_feedback);
+        
+        div_feedback.appendChild(boton_play);
+        div_feedback.appendChild(div_sep);
+        div_feedback.appendChild(boton_arriba);
+        div_feedback.appendChild(boton_abajo);
+        elemento_mensaje.appendChild(div_feedback);
+    }
+
+    async function enviar_feedback(mensaje_id, puntuacion, contenedor) {
+        try {
+            const respuesta = await fetch(`${URL_API}/feedback/`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    mensaje_id: mensaje_id,
+                    puntuacion: puntuacion
+                })
+            });
+            
+            if (respuesta.ok) {
+                contenedor.innerHTML = '<span class="feedback-gracias">¡Gracias por tu opinión!</span>';
+            }
+        } catch (error) {
+            console.error('Error al enviar feedback:', error);
+        }
+    }
+
+    async function guardar_mensaje_en_bd(id_conv, rol, contenido, intencion = null) {
+        try {
+            const respuesta = await fetch(`${URL_API}/conversaciones/${id_conv}/mensajes`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     conversacion_id: id_conv,
                     rol: rol,
-                    contenido: contenido
+                    contenido: contenido,
+                    intencion: intencion
                 })
             });
+            return await respuesta.json();
         } catch (error) {
             console.error('Error al guardar mensaje:', error);
+            return null;
         }
     }
 
@@ -182,6 +294,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const div_mensaje = document.createElement('div');
         div_mensaje.className = `message ${rol}`;
         
+        const div_header = document.createElement('div');
+        div_header.className = 'msg-header';
+
         const div_avatar = document.createElement('div');
         div_avatar.className = 'msg-avatar';
         div_avatar.innerHTML = rol === 'user' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
@@ -190,8 +305,9 @@ document.addEventListener('DOMContentLoaded', () => {
         div_contenido.className = 'msg-content';
         div_contenido.textContent = contenido;
         
-        div_mensaje.appendChild(div_avatar);
-        div_mensaje.appendChild(div_contenido);
+        div_header.appendChild(div_avatar);
+        div_header.appendChild(div_contenido);
+        div_mensaje.appendChild(div_header);
         contenedor_mensajes.appendChild(div_mensaje);
         
         contenedor_mensajes.scrollTop = contenedor_mensajes.scrollHeight;

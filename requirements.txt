@@ -3,3 +3,5 @@ uvicorn
 scikit-learn
 numpy
 python-dotenv
+piper-tts
+onnxruntime

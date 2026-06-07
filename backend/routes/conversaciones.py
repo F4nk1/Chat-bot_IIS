@@ -47,5 +47,6 @@ def guardar_mensaje(id_conversacion: int, mensaje: MensajeCrear):
         "conversacion_id": id_conversacion,
         "rol": mensaje.rol,
         "contenido": mensaje.contenido,
+        "intencion": mensaje.intencion,
         "fecha_creacion": datetime.now()
     }
