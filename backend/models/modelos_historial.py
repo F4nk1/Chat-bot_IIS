@@ -6,6 +6,7 @@ from datetime import datetime
 class MensajeBase(BaseModel):
     rol: str
     contenido: str
+    intencion: Optional[str] = None
 
 
 class MensajeCrear(MensajeBase):
@@ -15,6 +16,7 @@ class MensajeCrear(MensajeBase):
 class Mensaje(MensajeBase):
     id: int
     conversacion_id: int
+    intencion: Optional[str] = None
     fecha_creacion: datetime
 
     class Config:

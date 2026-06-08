@@ -39,6 +39,7 @@ def inicializar_base_de_datos():
             conversacion_id INTEGER,
             rol TEXT CHECK(rol IN ('usuario', 'asistente')),
             contenido TEXT NOT NULL,
+            intencion TEXT,
             fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (conversacion_id) REFERENCES conversaciones (id) ON DELETE CASCADE
         )
@@ -52,6 +53,17 @@ def inicializar_base_de_datos():
             valor TEXT NOT NULL,
             fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             UNIQUE(usuario_id, clave)
+        )
+    """)
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS valoraciones (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            mensaje_id INTEGER,
+            puntuacion INTEGER CHECK(puntuacion IN (1, -1)),
+            comentario TEXT,
+            fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (mensaje_id) REFERENCES mensajes (id) ON DELETE CASCADE
         )
     """)
     

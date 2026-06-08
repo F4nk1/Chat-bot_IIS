@@ -11,6 +11,11 @@ class Configuracion:
     DEPURACION = os.getenv("DEBUG") == "True"
     RUTA_FAQ = os.getenv("FAQ_PATH", "data/faq/faq.json")
     UMBRAL_SIMILITUD = float(os.getenv("SIMILARITY_THRESHOLD", 0.5))
+    
+    # TTS Configuration
+    RUTA_MODELO_TTS = os.getenv("TTS_MODEL_PATH", "backend/assets/models/es_ES-sharvard-medium.onnx")
+    RUTA_CONFIG_TTS = os.getenv("TTS_CONFIG_PATH", "backend/assets/models/es_ES-sharvard-medium.onnx.json")
+    CARPETA_AUDIO = os.getenv("TTS_OUTPUT_DIR", "backend/static/audio")
 
 
 ajustes = Configuracion()

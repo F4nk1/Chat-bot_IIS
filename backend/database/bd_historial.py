@@ -39,8 +39,8 @@ def agregar_mensaje(mensaje: MensajeCrear) -> int:
     conexion = obtener_conexion()
     cursor = conexion.cursor()
     cursor.execute(
-        "INSERT INTO mensajes (conversacion_id, rol, contenido) VALUES (?, ?, ?)",
-        (mensaje.conversacion_id, mensaje.rol, mensaje.contenido)
+        "INSERT INTO mensajes (conversacion_id, rol, contenido, intencion) VALUES (?, ?, ?, ?)",
+        (mensaje.conversacion_id, mensaje.rol, mensaje.contenido, mensaje.intencion)
     )
     id_mensaje = cursor.lastrowid
     conexion.commit()
