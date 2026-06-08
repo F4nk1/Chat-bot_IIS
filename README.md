@@ -1,10 +1,10 @@
-# 🎓 Chatbot Académico IIS - UNSAAC
+# Chatbot Académico IIS - UNSAAC
 
 Chatbot inteligente de arquitectura RAG (Retrieval-Augmented Generation) diseñado para la Escuela Profesional de Ingeniería Informática y de Sistemas de la UNSAAC. Orientado a resolver dudas sobre reglamentos, tutorías, trámites y servicios.
 
 ---
 
-## 🌟 Características Principales
+##  Características Principales
 - **IA / RAG**: Recuperación de información precisa usando Similitud Coseno.
 - **Voz ONNX (TTS)**: Síntesis de voz femenina de alta fidelidad integrada con Piper.
 - **Detección de Intenciones**: Clasificador de consultas (Tutorías, Bienestar, etc.).
@@ -14,7 +14,7 @@ Chatbot inteligente de arquitectura RAG (Retrieval-Augmented Generation) diseña
 
 ---
 
-## 🛠️ Requisitos Previos
+##  Requisitos Previos
 - **Python 3.12+**
 - **Dependencias de Sistema**:
   - **Linux**: `sudo apt-get install libsndfile1`
@@ -22,7 +22,7 @@ Chatbot inteligente de arquitectura RAG (Retrieval-Augmented Generation) diseña
 
 ---
 
-## 🚀 Instalación y Configuración Paso a Paso
+##  Instalación y Configuración Paso a Paso
 
 ### 1. Preparación del Proyecto
 ```bash
@@ -74,7 +74,7 @@ uvicorn backend.main:aplicacion --reload
 
 ---
 
-## 🏗️ Arquitectura y Nomenclatura
+##  Arquitectura y Nomenclatura
 Para auditorías técnicas, el proyecto sigue estrictamente esta estructura de clases:
 - **`KnowledgeBase`**: Acceso centralizado a la base de datos de conocimiento.
 - **`EmbeddingEngine`**: Motor de búsqueda semántica y vectorización TF-IDF.
@@ -85,7 +85,7 @@ Para auditorías técnicas, el proyecto sigue estrictamente esta estructura de c
 
 ---
 
-## 📊 Herramientas de Administración
+##  Herramientas de Administración
 - **Exportar Historial**: Descarga logs detallados en CSV.
   - [http://127.0.0.1:8000/admin/exportar-logs](http://127.0.0.1:8000/admin/exportar-logs)
 - **Consulta de Reglamento**: Busca artículos específicos por ID.
@@ -93,7 +93,7 @@ Para auditorías técnicas, el proyecto sigue estrictamente esta estructura de c
 
 ---
 
-## 🧪 Suite de Pruebas
+##  Suite de Pruebas
 Ejecuta los tests para verificar la integridad del sistema:
 
 **En Linux/macOS:**
@@ -116,7 +116,7 @@ python tests/test_chatbot.py
 
 ---
 
-## ❓ Solución de Problemas
+##  Solución de Problemas
 - **Error 416 (Audio)**: Se soluciona automáticamente con la nueva lógica de escritura sincrónica. Asegúrate de que `backend/static/audio` tenga permisos de escritura.
 - **Error 503 (TTS)**: Verifica que los archivos `.onnx` y `.json` estén en `backend/assets/models/`.
 - **ModuleNotFoundError**: Asegúrate de haber activado el `venv` y configurado el `PYTHONPATH=.`.
