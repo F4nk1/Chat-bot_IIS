@@ -36,7 +36,7 @@ aplicacion.include_router(enrutador_admin)
 aplicacion.include_router(enrutador_reglamento)
 
 # Montaje de archivos estaticos para el frontend
-aplicacion.mount("/frontend", StaticFiles(directory="frontend"), name="frontend")
+aplicacion.mount("/frontend", StaticFiles(directory="frontend/dist"), name="frontend")
 
 # Montaje para archivos de audio generados
 if not os.path.exists(ajustes.CARPETA_AUDIO):

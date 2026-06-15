@@ -16,6 +16,7 @@ Chatbot inteligente de arquitectura RAG (Retrieval-Augmented Generation) diseña
 
 ##  Requisitos Previos
 - **Python 3.12+**
+- **Node.js (LTS)** (Requerido para compilar y ejecutar el nuevo frontend en React)
 - **Dependencias de Sistema**:
   - **Linux**: `sudo apt-get install libsndfile1`
   - **Windows**: No requiere dependencias adicionales (las librerías se instalan via `pip`).
@@ -37,8 +38,13 @@ source venv/bin/activate
 # ACTIVAR (Windows):
 venv\Scripts\activate
 
-# Instalar dependencias
+# Instalar dependencias del backend
 pip install -r requirements.txt
+
+# Instalar dependencias del frontend (React)
+cd frontend
+npm install
+cd ..
 ```
 
 ### 2. Configuración del Motor de Voz (TTS)
@@ -65,12 +71,36 @@ python backend/database/bd_gestion.py
 python backend/database/migrar_datos.py
 ```
 
-### 4. Ejecución
-```bash
-uvicorn backend.main:aplicacion --reload
-```
-- **Interfaz Web**: [http://127.0.0.1:8000/frontend/index.html](http://127.0.0.1:8000/frontend/index.html)
-- **Documentación API**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+### 4. Ejecución y Modos de Uso
+
+Podemos correr el proyecto en dos modos según si estamos en etapa de desarrollo o producción:
+
+#### **Modo Desarrollo (Recomendado para realizar cambios en caliente):**
+* **Terminal 1 (Backend FastAPI):**
+  ```bash
+  source venv/bin/activate  # o venv\Scripts\activate en Windows
+  uvicorn backend.main:aplicacion --reload
+  ```
+* **Terminal 2 (Frontend React + Vite):**
+  ```bash
+  cd frontend
+  npm run dev
+  ```
+  - **Dirección del Frontend en desarrollo**: [http://localhost:5173](http://localhost:5173) (Vite compila los cambios al instante).
+  - **Documentación API**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
+#### **Modo Producción (Servido integrado directamente por FastAPI):**
+* **Paso A: Compilar el frontend** (genera la carpeta `dist/` optimizada):
+  ```bash
+  cd frontend
+  npm run build
+  cd ..
+  ```
+* **Paso B: Levantar el servidor de FastAPI:**
+  ```bash
+  uvicorn backend.main:aplicacion --reload
+  ```
+  - **Interfaz Web Integrada**: [http://127.0.0.1:8000/frontend/index.html](http://127.0.0.1:8000/frontend/index.html)
 
 ---
 

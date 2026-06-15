@@ -37,5 +37,16 @@
         "css/popup.css"
       ]
     }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/DinoBot01.png",
+        "assets/DinoBot02.png"
+      ],
+      "matches": [
+        "https://in.unsaac.edu.pe/*"
+      ]
+    }
   ]
 }

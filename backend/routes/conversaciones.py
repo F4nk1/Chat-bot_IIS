@@ -50,3 +50,11 @@ def guardar_mensaje(id_conversacion: int, mensaje: MensajeCrear):
         "intencion": mensaje.intencion,
         "fecha_creacion": datetime.now()
     }
+
+# Eliminar conversación
+@enrutador.delete("/{id_conversacion}")
+def eliminar_conversacion(id_conversacion: int):
+    exito = historial_bd.eliminar_conversacion(id_conversacion)
+    if not exito:
+        raise HTTPException(status_code=404, detail="Conversación no encontrada")
+    return {"mensaje": "Conversación eliminada con éxito"}

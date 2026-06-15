@@ -1,79 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot IIS - Asistente Académico</title>
-    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-    <link rel="stylesheet" href="css/modern.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body class="dark-mode">
-    <div class="app-container">
-        <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <button class="new-chat-btn" id="new-chat-btn">
-                    <i class="fas fa-plus"></i> Nueva Conversación
-                </button>
-            </div>
-            <nav class="chat-history" id="chat-history">
-                <div class="history-group">
-                    <span class="history-label">Recientes</span>
-                    <ul id="history-list">
-                        <!-- History items will be injected here -->
-                    </ul>
-                </div>
-            </nav>
-            <div class="sidebar-footer">
-                <div class="user-profile">
-                    <div class="avatar">U</div>
-                    <span class="username">Usuario Académico</span>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Main Chat Area -->
-        <main class="main-content">
-            <header class="chat-header">
-                <button class="menu-toggle" id="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="model-info">
-                    <span class="model-name">Asistente IIS v1.0</span>
-                </div>
-                <div class="header-actions">
-                    <i class="fas fa-share-nodes"></i>
-                </div>
-            </header>
-
-            <div class="messages-container" id="messages-container">
-                <div class="welcome-screen" id="welcome-screen">
-                    <div class="logo-large">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h1>¿En qué puedo ayudarte hoy?</h1>
-                    <div class="suggestions">
-                        <div class="suggestion-card">¿Cómo solicito una tutoría?</div>
-                        <div class="suggestion-card">¿Cuáles son los requisitos de matrícula?</div>
-                        <div class="suggestion-card">Ver reglamentos de la facultad</div>
-                    </div>
-                </div>
-                <!-- Messages will be injected here -->
-            </div>
-
-            <footer class="chat-footer">
-                <form class="input-container" id="chat-form">
-                    <textarea id="chat-input" placeholder="Escribe tu mensaje aquí..." rows="1"></textarea>
-                    <button id="send-btn" type="submit" class="send-btn">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
-                <p class="disclaimer">El Asistente IIS puede cometer errores. Verifica la información importante.</p>
-            </footer>
-        </main>
-    </div>
-
-    <script src="js/app.js"></script>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
