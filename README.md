@@ -67,8 +67,8 @@ Invoke-WebRequest -Uri "https://huggingface.co/rhasspy/piper-voices/resolve/main
 ### 3. Inicialización de Datos
 ```bash
 # Crear tablas en SQLite e importar conocimiento inicial
-python backend/database/bd_gestion.py
-python backend.database.migrar_datos
+python -m backend.database.bd_gestion
+python -m backend.database.migrar_datos
 ```
 
 ### 4. Ejecución y Modos de Uso
