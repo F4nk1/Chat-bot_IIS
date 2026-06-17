@@ -108,5 +108,10 @@
     "pregunta": "¿Que comprende la dimension profesional de la tutoria?",
     "respuesta": "La dimension profesional orienta al estudiante para reconocer sus intereses, aptitudes y habilidades, ademas de comprender como su rendimiento academico se relaciona con su futuro profesional.",
     "categoria": "Normas generales"
+  },
+  {
+    "pregunta": "¿Que sucede en caso de matricula condicionada?",
+    "respuesta": "Segun el Reglamento de Tutoria de la UNSAAC, el estudiante con matricula condicionada (por desaprobar una materia por segunda vez) tiene la obligacion de recibir acompañamiento tutorial obligatorio para mejorar su rendimiento.",
+    "categoria": "Normas generales"
   }
 ]
