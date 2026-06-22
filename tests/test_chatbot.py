@@ -15,13 +15,13 @@ class PruebasChatbot(unittest.TestCase):
         pregunta = "¿Que regula el Reglamento de Tutoria Academica de la UNSAAC?"
         resultado = ChatbotEngine.obtener_respuesta(pregunta)
         # La intencion detectada deberia ser Tutorias o Reglamentos
-        self.assertIn(resultado["intencion_detectada"], ["Tutorias", "Reglamentos"])
+        self.assertIn(resultado["categoria"], ["Tutorias", "Reglamentos"])
         self.assertGreater(resultado["confianza"], 0.7)
 
     def test_obtener_respuesta_similar(self):
         pregunta = "quien organiza las tutorias en mi escuela"
         resultado = ChatbotEngine.obtener_respuesta(pregunta)
-        self.assertEqual(resultado["intencion_detectada"], "Tutorias")
+        self.assertEqual(resultado["categoria"], "Tutorias")
         self.assertGreater(resultado["confianza"], 0.4)
 
     def test_respuesta_desconocida(self):

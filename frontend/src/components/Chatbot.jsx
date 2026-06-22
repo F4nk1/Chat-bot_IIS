@@ -115,8 +115,15 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null }) {
       let fullResponse = '';
       setStreamingContent('');
 
+      // Formatear historial para el backend
+      const historialChat = mensajes.map(m => ({
+        role: m.rol === 'usuario' ? 'user' : 'assistant',
+        content: m.contenido
+      }));
+
       await api.streamChat(
         texto,
+        historialChat,
         (chunk, final) => {
           fullResponse += chunk;
           setStreamingContent(fullResponse);
