@@ -150,3 +150,5 @@ python tests/test_chatbot.py
 - **Error 416 (Audio)**: Se soluciona automáticamente con la nueva lógica de escritura sincrónica. Asegúrate de que `backend/static/audio` tenga permisos de escritura.
 - **Error 503 (TTS)**: Verifica que los archivos `.onnx` y `.json` estén en `backend/assets/models/`.
 - **ModuleNotFoundError**: Asegúrate de haber activado el `venv` y configurado el `PYTHONPATH=.`.
+
+Este es un cambio solo para exposición
