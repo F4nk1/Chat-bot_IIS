@@ -6,7 +6,10 @@
     "categoria": "Bienestar",
     "subtema": "Servicios generales",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "Dirección de Bienestar Universitario",
+      "url": "https://www.unsaac.edu.pe/bienestar-universitario/"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "Dirección de Bienestar Universitario de la UNSAAC"
@@ -19,7 +22,10 @@
     "categoria": "Bienestar",
     "subtema": "Comedor universitario",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "Manual del Comedor Universitario",
+      "url": "https://bienestar.unsaac.edu.pe/ManualComedor_.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "Dirección de Bienestar Universitario de la UNSAAC"
@@ -32,7 +38,10 @@
     "categoria": "Bienestar",
     "subtema": "Comedor universitario",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "Becas de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/becas/"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "Dirección de Bienestar Universitario de la UNSAAC"
@@ -45,7 +54,10 @@
     "categoria": "Bienestar",
     "subtema": "Centro de salud",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "Centro Universitario de Salud",
+      "url": "https://www.unsaac.edu.pe/centro-universitario-de-salud/"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "Dirección de Bienestar Universitario de la UNSAAC"
@@ -58,7 +70,10 @@
     "categoria": "Bienestar",
     "subtema": "Centro de salud",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "Centro Universitario de Salud",
+      "url": "https://www.unsaac.edu.pe/centro-universitario-de-salud/"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "Dirección de Bienestar Universitario de la UNSAAC"
@@ -71,7 +86,10 @@
     "categoria": "Bienestar",
     "subtema": "Vivienda universitaria",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "Dirección de Bienestar Universitario",
+      "url": "https://www.unsaac.edu.pe/bienestar-universitario/"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "Dirección de Bienestar Universitario de la UNSAAC"

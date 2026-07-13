@@ -6,7 +6,10 @@
     "categoria": "Trámites",
     "subtema": "Información general",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, aprobado por Res. CU-520-2024-UNSAAC"
@@ -19,7 +22,10 @@
     "categoria": "Trámites",
     "subtema": "Trámite documentario",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "Sistema de Trámite Documentario",
+      "url": "https://tramite.unsaac.edu.pe/"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "Portal institucional de la UNSAAC, acceso Trámite Virtual"
@@ -32,7 +38,10 @@
     "categoria": "Trámites",
     "subtema": "Seguimiento documentario",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "Sistema de Trámite Documentario",
+      "url": "https://tramite.unsaac.edu.pe/"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "Sistema de Trámite Documentario de la UNSAAC, módulo Ver Seguimiento"
@@ -45,7 +54,10 @@
     "categoria": "Trámites",
     "subtema": "Pagos",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "Portal institucional de la UNSAAC, acceso Pagos Virtuales y TUPA vigente"
@@ -58,7 +70,10 @@
     "categoria": "Trámites",
     "subtema": "Matrícula regular",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "reglamento_academico",
       "referencia": "Arts. 1, 2 y 4, Res. CU-093-2017-UNSAAC; TUPA, servicio SE5100DB61"
@@ -71,7 +86,10 @@
     "categoria": "Trámites",
     "subtema": "Calendario de matrícula",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "reglamento_academico",
       "referencia": "Arts. 33 y 34, Res. CU-093-2017-UNSAAC"
@@ -84,7 +102,10 @@
     "categoria": "Trámites",
     "subtema": "Matrícula condicionada",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "reglamento_academico",
       "referencia": "Art. 31, Res. CU-093-2017-UNSAAC; TUPA, procedimiento PA510052E7"
@@ -97,7 +118,10 @@
     "categoria": "Trámites",
     "subtema": "Reserva de matrícula",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "reglamento_academico",
       "referencia": "Arts. 35 al 38, Res. CU-093-2017-UNSAAC; TUPA, procedimiento PA51007C22"
@@ -110,7 +134,10 @@
     "categoria": "Trámites",
     "subtema": "Reinicio de estudios",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, servicio Reinicio de Estudios, código SE5100D179"
@@ -123,7 +150,10 @@
     "categoria": "Trámites",
     "subtema": "Cursos dirigidos",
     "perfil": "egresado",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, procedimiento Matrícula en Cursos Dirigidos, código PA5100AFC2"
@@ -136,7 +166,10 @@
     "categoria": "Trámites",
     "subtema": "Traslado interno",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, procedimiento de traslado interno, código PA51001A31"
@@ -149,7 +182,10 @@
     "categoria": "Trámites",
     "subtema": "Traslado interno",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, traslado interno entre facultades, código PA5100B706"
@@ -162,7 +198,10 @@
     "categoria": "Trámites",
     "subtema": "Traslado externo",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, procedimiento Traslado Externo, código PA51004007"
@@ -175,7 +214,10 @@
     "categoria": "Trámites",
     "subtema": "Convalidación",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, procedimiento Convalidación de Asignaturas, código PA5100711B"
@@ -188,7 +230,10 @@
     "categoria": "Trámites",
     "subtema": "Homologación",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, procedimiento Homologación de Asignaturas, código PA51003723"
@@ -201,7 +246,10 @@
     "categoria": "Trámites",
     "subtema": "Certificado de estudios",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, servicio Certificado de Estudios, código SE51004D55"
@@ -214,7 +262,10 @@
     "categoria": "Trámites",
     "subtema": "Constancias académicas",
     "perfil": "egresado",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, servicio Constancia de Créditos Acumulados o de Egresado, código SE5100B580"
@@ -227,7 +278,10 @@
     "categoria": "Trámites",
     "subtema": "Orden de mérito",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, servicio Constancia de Tercio, Quinto y Décimo Superior, código SE510073ED"
@@ -240,7 +294,10 @@
     "categoria": "Trámites",
     "subtema": "Constancia de no deuda",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, servicio Constancia de no ser deudor, código SE5100DCFE"
@@ -253,7 +310,10 @@
     "categoria": "Trámites",
     "subtema": "Seguimiento académico",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, servicio Ficha de Seguimiento Académico, código SE5100E4E4"
@@ -266,7 +326,10 @@
     "categoria": "Trámites",
     "subtema": "Duplicados",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, servicio Duplicado de Constancia de Matrícula, código SE5100C57C"
@@ -279,7 +342,10 @@
     "categoria": "Trámites",
     "subtema": "Carné universitario",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, servicio Duplicado de Carné Universitario, código SE510018D2"
@@ -292,7 +358,10 @@
     "categoria": "Trámites",
     "subtema": "Sílabos",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, servicio Copia Visada de Sílabos, código SE5100706D"
@@ -305,7 +374,10 @@
     "categoria": "Trámites",
     "subtema": "Rectificación de datos",
     "perfil": "general",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, servicio Rectificación de Nombre en Base de Datos, código SE5100E38E"
@@ -318,7 +390,10 @@
     "categoria": "Trámites",
     "subtema": "Grado de bachiller",
     "perfil": "egresado",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, procedimiento de Bachiller y Rotulado de Diploma, código PA51003F07"
@@ -331,10 +406,29 @@
     "categoria": "Trámites",
     "subtema": "Título profesional",
     "perfil": "egresado",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, título profesional por sustentación de tesis, código PA51008A2B"
+    }
+  },
+  {
+    "id": "TRA-027",
+    "pregunta": "¿Dónde consulto información oficial sobre la admisión a la UNSAAC?",
+    "respuesta": "La información sobre procesos, modalidades, cronogramas, requisitos y resultados de admisión se publica en el portal de la Dirección General de Admisión de la UNSAAC.",
+    "categoria": "Trámites",
+    "subtema": "Admisión",
+    "perfil": "ingresante",
+    "enlace": {
+      "texto": "Dirección General de Admisión",
+      "url": "https://admision.unsaac.edu.pe/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal oficial de la Dirección General de Admisión de la UNSAAC"
     }
   }
 ]

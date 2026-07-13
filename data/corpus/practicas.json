@@ -58,7 +58,10 @@
     "categoria": "Prácticas",
     "subtema": "Requisito académico",
     "perfil": "egresado",
-    "enlace": null,
+    "enlace": {
+      "texto": "Plan de estudios semestralizado",
+      "url": "https://in.unsaac.edu.pe/wp-content/uploads/2025/03/plan-estudios-semestralizado-ing-informatica-2025.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "Plan de Estudios Semestralizado 2025 de la EP-IIS, décimo semestre, asignatura IFI66"
@@ -71,7 +74,10 @@
     "categoria": "Prácticas",
     "subtema": "Créditos",
     "perfil": "egresado",
-    "enlace": null,
+    "enlace": {
+      "texto": "Malla curricular publicada para el plan 2025",
+      "url": "https://in.unsaac.edu.pe/wp-content/uploads/2025/03/malla-curricular-ing-informatica-2025.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "Malla Curricular y Plan de Estudios Semestralizado 2025 de la EP-IIS"
@@ -84,7 +90,10 @@
     "categoria": "Prácticas",
     "subtema": "Planes de estudios",
     "perfil": "egresado",
-    "enlace": null,
+    "enlace": {
+      "texto": "Malla curricular de Ingeniería Informática y de Sistemas",
+      "url": "https://in.unsaac.edu.pe/malla-curricular/"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "Mallas curriculares 2017 y 2025 publicadas por la EP-IIS de la UNSAAC"
@@ -214,7 +223,10 @@
     "categoria": "Prácticas",
     "subtema": "Carta de presentación",
     "perfil": "egresado",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, Carta de Presentación de Decano, código SE51002B1A"
@@ -227,7 +239,10 @@
     "categoria": "Prácticas",
     "subtema": "Reconocimiento",
     "perfil": "egresado",
-    "enlace": null,
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
     "fuente": {
       "tipo": "reglamento_academico",
       "referencia": "Art. 109, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"

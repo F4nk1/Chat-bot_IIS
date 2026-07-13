@@ -7,7 +7,7 @@
     "subtema": "Conceptos generales",
     "perfil": "general",
     "enlace": {
-      "texto": "Internacionalización y movilidad de la UNSAAC",
+      "texto": "Internacionalización de la UNSAAC",
       "url": "https://octi.unsaac.edu.pe/internacionalizacion/"
     },
     "fuente": {
@@ -23,7 +23,7 @@
     "subtema": "Modalidades",
     "perfil": "general",
     "enlace": {
-      "texto": "Movilidad saliente de la UNSAAC",
+      "texto": "Movilidad estudiantil saliente",
       "url": "https://octi.unsaac.edu.pe/movilidad-saliente-outgoing/"
     },
     "fuente": {
@@ -39,7 +39,7 @@
     "subtema": "Modalidades",
     "perfil": "general",
     "enlace": {
-      "texto": "Oportunidades de movilidad saliente",
+      "texto": "Movilidad estudiantil saliente",
       "url": "https://octi.unsaac.edu.pe/movilidad-saliente-outgoing/"
     },
     "fuente": {
@@ -55,7 +55,7 @@
     "subtema": "Modalidades",
     "perfil": "general",
     "enlace": {
-      "texto": "Movilidad entrante en la UNSAAC",
+      "texto": "Movilidad estudiantil entrante",
       "url": "https://octi.unsaac.edu.pe/movilidad-entrante-2/"
     },
     "fuente": {
@@ -87,7 +87,7 @@
     "subtema": "Convocatorias",
     "perfil": "general",
     "enlace": {
-      "texto": "Convocatorias de movilidad saliente",
+      "texto": "Movilidad estudiantil saliente",
       "url": "https://octi.unsaac.edu.pe/movilidad-saliente-outgoing/"
     },
     "fuente": {
@@ -103,8 +103,8 @@
     "subtema": "Postulación",
     "perfil": "general",
     "enlace": {
-      "texto": "Ejemplo oficial de convocatoria de movilidad",
-      "url": "https://octi.unsaac.edu.pe/1675-2/"
+      "texto": "Movilidad estudiantil saliente",
+      "url": "https://octi.unsaac.edu.pe/movilidad-saliente-outgoing/"
     },
     "fuente": {
       "tipo": "portal_institucional",
@@ -119,7 +119,7 @@
     "subtema": "Requisitos",
     "perfil": "general",
     "enlace": {
-      "texto": "Portal oficial de movilidad saliente",
+      "texto": "Movilidad estudiantil saliente",
       "url": "https://octi.unsaac.edu.pe/movilidad-saliente-outgoing/"
     },
     "fuente": {
@@ -135,8 +135,8 @@
     "subtema": "Documentación",
     "perfil": "general",
     "enlace": {
-      "texto": "Documentos de una convocatoria oficial",
-      "url": "https://octi.unsaac.edu.pe/1675-2/"
+      "texto": "Movilidad estudiantil saliente",
+      "url": "https://octi.unsaac.edu.pe/movilidad-saliente-outgoing/"
     },
     "fuente": {
       "tipo": "portal_institucional",
@@ -151,8 +151,8 @@
     "subtema": "Requisitos",
     "perfil": "general",
     "enlace": {
-      "texto": "Convocatoria con requisito de seguro médico",
-      "url": "https://octi.unsaac.edu.pe/1675-2/"
+      "texto": "Movilidad estudiantil saliente",
+      "url": "https://octi.unsaac.edu.pe/movilidad-saliente-outgoing/"
     },
     "fuente": {
       "tipo": "portal_institucional",
@@ -183,8 +183,8 @@
     "subtema": "Postulación",
     "perfil": "general",
     "enlace": {
-      "texto": "Convocatoria con indicación de cursos",
-      "url": "https://octi.unsaac.edu.pe/1675-2/"
+      "texto": "Movilidad estudiantil saliente",
+      "url": "https://octi.unsaac.edu.pe/movilidad-saliente-outgoing/"
     },
     "fuente": {
       "tipo": "portal_institucional",
@@ -295,7 +295,7 @@
     "subtema": "Financiamiento",
     "perfil": "general",
     "enlace": {
-      "texto": "Becas difundidas por Cooperación Internacional",
+      "texto": "Becas de Cooperación Internacional",
       "url": "https://octi.unsaac.edu.pe/redes-de-cooperacion/becas/"
     },
     "fuente": {
@@ -311,8 +311,8 @@
     "subtema": "Financiamiento",
     "perfil": "general",
     "enlace": {
-      "texto": "Ejemplo oficial de beneficios de intercambio",
-      "url": "https://octi.unsaac.edu.pe/1675-2/"
+      "texto": "Movilidad estudiantil saliente",
+      "url": "https://octi.unsaac.edu.pe/movilidad-saliente-outgoing/"
     },
     "fuente": {
       "tipo": "portal_institucional",
