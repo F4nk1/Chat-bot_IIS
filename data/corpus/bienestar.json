@@ -1,0 +1,80 @@
+[
+  {
+    "id": "BIE-001",
+    "pregunta": "¿Qué servicios ofrece la Dirección de Bienestar Universitario de la UNSAAC?",
+    "respuesta": "La Dirección de Bienestar Universitario ofrece servicios de comedor universitario, atención de salud, asistencia social, apoyo psicológico, vivienda universitaria y actividades deportivas dirigidas a los estudiantes.",
+    "categoria": "Bienestar",
+    "subtema": "Servicios generales",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Dirección de Bienestar Universitario de la UNSAAC"
+    }
+  },
+  {
+    "id": "BIE-002",
+    "pregunta": "¿Cómo se reserva el cupo para el Comedor Universitario?",
+    "respuesta": "La reserva se realiza a través del portal institucional usando el código de estudiante y la clave del voucher de matrícula.",
+    "categoria": "Bienestar",
+    "subtema": "Comedor universitario",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Dirección de Bienestar Universitario de la UNSAAC"
+    }
+  },
+  {
+    "id": "BIE-003",
+    "pregunta": "¿Cuáles son los requisitos para la Beca Comedor?",
+    "respuesta": "Los requisitos de la Beca Comedor se establecen en cada convocatoria y pueden considerar la situación socioeconómica, la condición académica y la documentación solicitada. El estudiante debe revisar las bases vigentes publicadas por Bienestar Universitario.",
+    "categoria": "Bienestar",
+    "subtema": "Comedor universitario",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Dirección de Bienestar Universitario de la UNSAAC"
+    }
+  },
+  {
+    "id": "BIE-004",
+    "pregunta": "¿Dónde queda el Centro Universitario de Salud?",
+    "respuesta": "La sede principal del Centro Universitario de Salud se ubica en la Ciudad Universitaria de Perayoc (Pabellón A) y también se brinda atención en la filial de Kayra de acuerdo con los horarios vigentes establecidos.",
+    "categoria": "Bienestar",
+    "subtema": "Centro de salud",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Dirección de Bienestar Universitario de la UNSAAC"
+    }
+  },
+  {
+    "id": "BIE-005",
+    "pregunta": "¿Qué servicios ofrece el Centro Universitario de Salud?",
+    "respuesta": "El Centro Universitario de Salud ofrece atención gratuita en medicina general, odontología, psicología, enfermería y farmacia. Para acceder, el estudiante debe presentar su carné médico o constancia de matrícula vigente.",
+    "categoria": "Bienestar",
+    "subtema": "Centro de salud",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Dirección de Bienestar Universitario de la UNSAAC"
+    }
+  },
+  {
+    "id": "BIE-006",
+    "pregunta": "¿Qué es la Vivienda Universitaria?",
+    "respuesta": "La Vivienda Universitaria es un programa de residencia destinado a estudiantes de provincias que cumplen con requisitos socioeconómicos específicos evaluados por Asistencia Social.",
+    "categoria": "Bienestar",
+    "subtema": "Vivienda universitaria",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Dirección de Bienestar Universitario de la UNSAAC"
+    }
+  }
+]

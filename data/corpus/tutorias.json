@@ -1,0 +1,691 @@
+[
+  {
+    "id": "TUT-001",
+    "pregunta": "¿Quién organiza el sistema tutorial en cada Escuela Profesional?",
+    "respuesta": "Cada Escuela Profesional de pregrado se encarga de organizar el sistema de tutoría para sus estudiantes. Esto también incluye a los estudiantes de Estudios Generales.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-002",
+    "pregunta": "¿Cuál es la estructura tutorial en una Escuela Profesional?",
+    "respuesta": "La estructura tutorial de una Escuela Profesional está formada principalmente por el Comite Tutorial de Escuela y por los docentes tutores.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-003",
+    "pregunta": "¿Quiénes integran el Comite Tutorial de Escuela?",
+    "respuesta": "El Comite Tutorial de Escuela está integrado por el Decano, el Director de Escuela Profesional y un docente elegido por el Consejo de Facultad. Si no se elige, puede ser nominado por el Decano a propuesta del Departamento Academico correspondiente.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-004",
+    "pregunta": "¿Quiénes pueden ser tutores académicos?",
+    "respuesta": "Pueden ser tutores los docentes que forman parte de la plana docente de la Escuela Profesional y que están adscritos a un departamento académico de la Facultad correspondiente.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-005",
+    "pregunta": "¿Cuál es la función principal del Comite Tutorial?",
+    "respuesta": "El Comite Tutorial se encarga de que la tutoría académica funcione de manera adecuada, permanente y eficaz dentro de la Escuela Profesional.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-006",
+    "pregunta": "¿El Comite Tutorial propone tutores para los estudiantes?",
+    "respuesta": "Si. El Comite Tutorial organiza la actividad tutorial y propone a los docentes que seran tutores de los estudiantes. Luego, estos tutores son nombrados mediante resolución de decanato.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-007",
+    "pregunta": "¿Quién administra la informacion tutorial?",
+    "respuesta": "La informacion tutorial es administrada por el Comite Tutorial. Este comité también revisa las recomendaciones relacionadas con estudiantes que necesitan una atención especial.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-008",
+    "pregunta": "¿Qué hace el Comite Tutorial cuando un estudiante necesita atención especial?",
+    "respuesta": "Cuando un estudiante necesita atención especial, el Comite Tutorial evalua el caso y coordina las acciones necesarias, como la derivacion a servicios de apoyo universitario, por ejemplo Bienestar Universitario.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-009",
+    "pregunta": "¿Cada Comite Tutorial puede aprobar una directiva de funcionamiento?",
+    "respuesta": "Si. Cada Comite Tutorial puede aprobar una directiva propia para organizar la tutoría, tomando en cuenta las caracteristicas y necesidades de su Escuela Profesional.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-010",
+    "pregunta": "¿Qué papel cumple el Director de Escuela Profesional en la tutoría?",
+    "respuesta": "El Director de Escuela Profesional cumple un papel de coordinacion, porque articula el trabajo de los docentes tutores con el Comite Tutorial.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-011",
+    "pregunta": "¿Qué debe elaborar cada tutor académico?",
+    "respuesta": "Cada tutor académico debe elaborar un expediente del estudiante tutorado. En ese expediente se registra informacion sobre su diagnóstico, las estrategias de apoyo, el seguimiento y los resultados obtenidos.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-012",
+    "pregunta": "¿Qué contiene el expediente del tutorado?",
+    "respuesta": "El expediente del tutorado contiene el diagnóstico inicial del estudiante, las estrategias de atención tutorial, el seguimiento de su rendimiento académico y los resultados semestrales alcanzados.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-013",
+    "pregunta": "¿Qué diagnóstico realiza el tutor académico?",
+    "respuesta": "El tutor académico realiza un diagnóstico inicial del estudiante tomando como referencia su desempeno académico. Esto permite identificar sus necesidades y orientar mejor el apoyo tutorial.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-014",
+    "pregunta": "¿Qué hace el tutor después del diagnóstico inicial?",
+    "respuesta": "Despues del diagnóstico inicial, el tutor aplica estrategias de atención tutorial y hace seguimiento al rendimiento académico del estudiante para verificar si existe mejora.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-015",
+    "pregunta": "¿El tutor debe informar los resultados del estudiante?",
+    "respuesta": "Si. El tutor debe organizar los resultados semestrales del estudiante y presentarlos en un informe dirigido al Director de Escuela Profesional.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-016",
+    "pregunta": "¿Qué ocurre si el tutor detecta que el estudiante necesita atención especializada?",
+    "respuesta": "Si el tutor considera que el estudiante necesita una atención más especializada, puede derivarlo a la Unidad de Bienestar Universitario de la Direccion de Bienestar y Responsabilidad Social.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-017",
+    "pregunta": "¿Quién proporciona el material para formar el expediente tutorial?",
+    "respuesta": "La UNSAAC proporciona el material necesario para que los tutores puedan formar el expediente tutorial de cada estudiante.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-018",
+    "pregunta": "¿Dónde se encuentran los expedientes tutoriales?",
+    "respuesta": "Los expedientes tutoriales quedan a cargo de la Direccion de la Escuela Profesional, que es la instancia responsable de su resguardo.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-019",
+    "pregunta": "¿Quién supervisa la actividad tutorial?",
+    "respuesta": "La actividad tutorial es supervisada por el Vicerrectorado Academico, tanto en el caso de los tutores como de los Comites Tutoriales de las Escuelas Profesionales.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-020",
+    "pregunta": "¿Qué puede solicitar el Vicerrectorado Academico sobre la tutoría?",
+    "respuesta": "El Vicerrectorado Academico puede solicitar informes sobre la actividad tutorial y también emitir directivas o indicaciones cuando lo considere necesario.",
+    "categoria": "Tutorías",
+    "subtema": "Estructura tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Estructura tutorial"
+    }
+  },
+  {
+    "id": "TUT-021",
+    "pregunta": "¿Cómo se realiza la tutoría académica?",
+    "respuesta": "La tutoría académica se realiza mediante entrevistas programadas, revision o comentarios de trabajos y otras actividades que ayuden al estudiante en su formación.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-022",
+    "pregunta": "¿Quién organiza la atención tutorial a los estudiantes?",
+    "respuesta": "El docente tutor organiza la atención tutorial de sus estudiantes, procurando que se ajuste a su programacion docente y que ayude a cumplir los objetivos de la tutoría.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-023",
+    "pregunta": "¿Quién determina la frecuencia minima de las entrevistas tutoriales?",
+    "respuesta": "La frecuencia minima de las entrevistas tutoriales la determina el Comite Tutorial de la Escuela Profesional.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-024",
+    "pregunta": "¿De qué depende la frecuencia de las tutorías?",
+    "respuesta": "La frecuencia de las tutorías depende de la necesidad, el interes y la iniciativa del estudiante. Tambien puede variar segun las asignaturas que este cursando.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-025",
+    "pregunta": "¿Cuáles son los momentos clave para realizar tutorías durante el semestre?",
+    "respuesta": "Durante el semestre hay tres momentos importantes para realizar tutorías: al inicio del semestre, después de la primera evaluación parcial y una semana antes de finalizar el semestre.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-026",
+    "pregunta": "¿El estudiante puede solicitar más reuniones de tutoría?",
+    "respuesta": "Si. Si el estudiante necesita más orientacion o apoyo, puede solicitar reuniones adicionales con su tutor académico.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-027",
+    "pregunta": "¿El tutor puede convocar más reuniones durante el semestre?",
+    "respuesta": "Si. El tutor puede convocar más reuniones durante el semestre si considera que el estudiante necesita mayor seguimiento o apoyo.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-028",
+    "pregunta": "¿Qué informacion debe recibir el tutor académico?",
+    "respuesta": "El tutor académico debe recibir informacion de los docentes que enseñan a sus tutorados, para poder conocer mejor su situacion académica y tomar medidas de apoyo cuando sea necesario.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-029",
+    "pregunta": "¿Qué debe hacer el tutor si un estudiante falta frecuentemente a clases?",
+    "respuesta": "Si un estudiante falta con frecuencia, el tutor debe comunicarse con el para conocer las razones de sus ausencias y buscar formas de ayudar a que esa situacion no continue.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-030",
+    "pregunta": "¿A quien comunica el tutor los aspectos relevantes sobre la formación del estudiante?",
+    "respuesta": "El tutor comunica los aspectos importantes sobre la formación del estudiante al Comite Tutorial de la Escuela, por medio del Director de Escuela Profesional.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-031",
+    "pregunta": "¿El tutor debe informar sobre los estudiantes bajo su responsabilidad?",
+    "respuesta": "Si. El tutor debe informar sobre los estudiantes que tiene a su cargo cuando lo solicite el Comite Tutorial, los organos de gobierno universitario u otras dependencias correspondientes.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-032",
+    "pregunta": "¿Qué atención especial se brinda en el primer semestre académico?",
+    "respuesta": "En el primer semestre, el tutor brinda especial apoyo para que el estudiante pueda adaptarse mejor a la vida universitaria y a las exigencias de la enseñanza superior.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-033",
+    "pregunta": "¿Cómo orienta el tutor académico al estudiante?",
+    "respuesta": "El tutor orienta al estudiante en su aprendizaje, en la organización de su tiempo, en el uso de una metodología de estudio adecuada y en la comprension de su plan de formación universitaria.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-034",
+    "pregunta": "¿El tutor atiende a estudiantes con discapacidad o necesidades educativas especiales?",
+    "respuesta": "Si. El tutor debe considerar las necesidades especificas de los estudiantes con discapacidad o con necesidades educativas especiales, para brindarles una orientacion adecuada.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-035",
+    "pregunta": "¿Qué orientacion brinda el tutor en los ultimos ciclos de pregrado?",
+    "respuesta": "En los ultimos ciclos, el tutor orienta al estudiante pensando también en su futura vida profesional, en coordinacion con los servicios y organos correspondientes de la universidad.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-036",
+    "pregunta": "¿Qué seguimiento debe realizar el tutor académico?",
+    "respuesta": "El tutor debe registrar las visitas, reuniones, dificultades presentadas y cualquier informacion importante que permita hacer seguimiento al avance académico del estudiante.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-037",
+    "pregunta": "¿La tutoría utiliza una plataforma informatica de apoyo?",
+    "respuesta": "Si. La tutoría puede apoyarse en una plataforma informatica donde se registra informacion del seguimiento realizado y una valoracion general al final del curso.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-038",
+    "pregunta": "¿El tutor puede informar a los padres o representantes del estudiante?",
+    "respuesta": "Si, pero solo en casos graves de caracter personal o académico. Esta accion debe coordinarse con el Comite Tutorial y, de preferencia, debe procurarse que el propio estudiante tome la iniciativa.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-039",
+    "pregunta": "¿El tutor puede derivar al estudiante a otros servicios universitarios?",
+    "respuesta": "Si. Si el tutor considera que el estudiante necesita apoyo adicional, puede orientarlo o derivarlo a otros servicios de atención de la universidad.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-040",
+    "pregunta": "¿Cuándo se asigna un tutor académico al estudiante?",
+    "respuesta": "El estudiante tiene asignado un tutor académico desde el primer semestre de estudios hasta que culmina el plan curricular de su Escuela Profesional.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-041",
+    "pregunta": "¿Quién vela por el cumplimiento de las tutorías?",
+    "respuesta": "El cumplimiento de las tutorías es supervisado por los organos de gobierno universitario y por las Direcciones de Escuela Profesional de cada Facultad.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-042",
+    "pregunta": "¿Cuántos estudiantes puede tener un tutor académico?",
+    "respuesta": "En lo posible, cada tutor académico no debe tener más de veinticinco estudiantes tutorados.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-043",
+    "pregunta": "¿Puede un tutor tener más de veinticinco estudiantes?",
+    "respuesta": "Si, puede ocurrir de manera excepcional cuando la cantidad de estudiantes lo requiera. En esos casos, también se puede contar con apoyo de docentes becarios u otros colaboradores, siempre bajo supervision.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-044",
+    "pregunta": "¿El estudiante puede solicitar cambio de tutor académico?",
+    "respuesta": "Si. El estudiante puede solicitar el cambio de tutor académico, pero debe hacerlo de manera razonada ante el Comite Tutorial de su Escuela Profesional.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-045",
+    "pregunta": "¿Quién resuelve el cambio de tutor solicitado por un estudiante?",
+    "respuesta": "El cambio de tutor lo evalua y resuelve el Comite Tutorial de la Escuela. Si es necesario, la decision final puede ser tomada por el Vicerrectorado Academico.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-046",
+    "pregunta": "¿El tutor académico puede solicitar cambio de tutoría de estudiantes?",
+    "respuesta": "Si. El tutor también puede solicitar cambios en la tutoría de estudiantes al Director de Escuela Profesional, quien deriva el caso al Comite Tutorial correspondiente.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-047",
+    "pregunta": "¿El tutor debe guardar confidencialidad?",
+    "respuesta": "Si. El tutor académico debe guardar confidencialidad sobre la informacion que recibe de los estudiantes, especialmente cuando no sea necesario compartirla para cumplir sus funciones.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-048",
+    "pregunta": "¿Cómo debe tratarse la informacion personal de los estudiantes?",
+    "respuesta": "La informacion personal de los estudiantes debe manejarse con cuidado y respetando las normas de proteccion de datos personales.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-049",
+    "pregunta": "¿Cuándo se evalua el programa tutorial?",
+    "respuesta": "El programa tutorial se evalua al finalizar el año académico. Esta evaluación está a cargo del Comite Tutorial de la Escuela Profesional.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-050",
+    "pregunta": "¿Qué se analiza en la evaluación del programa tutorial?",
+    "respuesta": "En la evaluación se revisa si el programa de tutorías cumplio sus objetivos generales y específicos, y si realmente contribuyo al apoyo de los estudiantes.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-051",
+    "pregunta": "¿Qué indicadores se consideran para evaluar el programa de tutorías?",
+    "respuesta": "Para evaluar el programa se consideran indicadores como la participacion de docentes y estudiantes, el cumplimiento de objetivos, el impacto en la deserción y permanencia, y el nivel de satisfaccion de estudiantes y docentes.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-052",
+    "pregunta": "¿A quien se informa el resultado de la evaluación del programa tutorial?",
+    "respuesta": "El resultado de la evaluación se informa al Vicerrectorado Academico, junto con las sugerencias que correspondan.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-053",
+    "pregunta": "¿Qué puede hacer el Vicerrectorado Academico después de recibir las evaluaciones?",
+    "respuesta": "Despues de recibir las evaluaciones, el Vicerrectorado Academico puede emitir medidas correctivas mediante directivas de cumplimiento obligatorio.",
+    "categoria": "Tutorías",
+    "subtema": "Ejecución y funcionamiento",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
+    }
+  }
+]
