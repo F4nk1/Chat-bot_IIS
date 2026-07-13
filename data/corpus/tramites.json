@@ -1,0 +1,340 @@
+[
+  {
+    "id": "TRA-001",
+    "pregunta": "¿Dónde consulto los requisitos, costos y plazos de un trámite en la UNSAAC?",
+    "respuesta": "La UNSAAC publica los requisitos, costos, plazos, canales de atención y unidades responsables en su Texto Único de Procedimientos Administrativos. Antes de presentar una solicitud, revisa el TUPA vigente y el calendario académico correspondiente.",
+    "categoria": "Trámites",
+    "subtema": "Información general",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, aprobado por Res. CU-520-2024-UNSAAC"
+    }
+  },
+  {
+    "id": "TRA-002",
+    "pregunta": "¿Dónde puedo presentar un trámite virtual en la UNSAAC?",
+    "respuesta": "La UNSAAC dispone de una plataforma de Trámite Documentario Virtual para presentar solicitudes y documentos. Antes de enviarlos, verifica en el TUPA los requisitos del procedimiento y conserva el número de expediente generado.",
+    "categoria": "Trámites",
+    "subtema": "Trámite documentario",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal institucional de la UNSAAC, acceso Trámite Virtual"
+    }
+  },
+  {
+    "id": "TRA-003",
+    "pregunta": "¿Cómo hago seguimiento a un expediente en la UNSAAC?",
+    "respuesta": "En el sistema de seguimiento documentario puedes buscar por año y número de expediente, documento de identidad o código de alumno, número de documento o nombre del interesado. El sistema muestra el destino, el estado y el detalle del recorrido.",
+    "categoria": "Trámites",
+    "subtema": "Seguimiento documentario",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Sistema de Trámite Documentario de la UNSAAC, módulo Ver Seguimiento"
+    }
+  },
+  {
+    "id": "TRA-004",
+    "pregunta": "¿Dónde realizo los pagos de trámites y servicios académicos de la UNSAAC?",
+    "respuesta": "La UNSAAC ofrece un acceso institucional de Pagos Virtuales. Antes de pagar, identifica correctamente el concepto del servicio y confirma el monto vigente en el TUPA, porque las tasas pueden ser actualizadas por la universidad.",
+    "categoria": "Trámites",
+    "subtema": "Pagos",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal institucional de la UNSAAC, acceso Pagos Virtuales y TUPA vigente"
+    }
+  },
+  {
+    "id": "TRA-005",
+    "pregunta": "¿Cómo se realiza la matrícula regular en la UNSAAC?",
+    "respuesta": "Para la matrícula regular debes figurar en el sistema como estudiante regular, no mantener deudas con dependencias de la UNSAAC y efectuar el pago que corresponda. Luego seleccionas las asignaturas del plan de estudios dentro del cronograma aprobado.",
+    "categoria": "Trámites",
+    "subtema": "Matrícula regular",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Arts. 1, 2 y 4, Res. CU-093-2017-UNSAAC; TUPA, servicio SE5100DB61"
+    }
+  },
+  {
+    "id": "TRA-006",
+    "pregunta": "¿Puedo matricularme después de que termine el cronograma de matrícula?",
+    "respuesta": "No. El Reglamento Académico de la UNSAAC prohíbe registrar matrícula una vez concluido el proceso establecido en el calendario aprobado. Por eso debes revisar y cumplir las fechas oficiales publicadas para cada semestre.",
+    "categoria": "Trámites",
+    "subtema": "Calendario de matrícula",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Arts. 33 y 34, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "TRA-007",
+    "pregunta": "¿Qué es la matrícula condicionada por bajo rendimiento académico?",
+    "respuesta": "Es la autorización para matricularse con el compromiso de superar una situación de bajo rendimiento. Si desapruebas por segunda vez la misma asignatura, mantienes la condición de observado y se te asigna un docente tutor para el seguimiento académico.",
+    "categoria": "Trámites",
+    "subtema": "Matrícula condicionada",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 31, Res. CU-093-2017-UNSAAC; TUPA, procedimiento PA510052E7"
+    }
+  },
+  {
+    "id": "TRA-008",
+    "pregunta": "¿Cómo solicito una reserva de matrícula en la UNSAAC?",
+    "respuesta": "Debes presentar una solicitud dirigida al Rector, adjuntar tu ficha de seguimiento académico, sustentar la causa con documentos y efectuar el pago vigente. La reserva procede por salud, trabajo u otra causa acreditada y no puede exceder seis semestres.",
+    "categoria": "Trámites",
+    "subtema": "Reserva de matrícula",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Arts. 35 al 38, Res. CU-093-2017-UNSAAC; TUPA, procedimiento PA51007C22"
+    }
+  },
+  {
+    "id": "TRA-009",
+    "pregunta": "¿Cómo solicito el reinicio de estudios en la UNSAAC?",
+    "respuesta": "Para reiniciar estudios debes presentar una solicitud dirigida al Rector, la constancia de notas del último semestre cursado y el pago correspondiente. Si tu caso lo requiere, también debes adjuntar la constancia de homologación o convalidación.",
+    "categoria": "Trámites",
+    "subtema": "Reinicio de estudios",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, servicio Reinicio de Estudios, código SE5100D179"
+    }
+  },
+  {
+    "id": "TRA-010",
+    "pregunta": "¿Cómo solicito matrícula en un curso dirigido en la UNSAAC?",
+    "respuesta": "Este trámite está destinado a estudiantes en situación de egresar cuando la asignatura no se ofrece en el semestre. Se presenta una solicitud, la ficha de seguimiento académico, el formato firmado por la Dirección de la Escuela Profesional y el pago vigente. Se permiten como máximo dos cursos.",
+    "categoria": "Trámites",
+    "subtema": "Cursos dirigidos",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, procedimiento Matrícula en Cursos Dirigidos, código PA5100AFC2"
+    }
+  },
+  {
+    "id": "TRA-011",
+    "pregunta": "¿Qué necesito para un traslado interno dentro de la misma facultad de la UNSAAC?",
+    "respuesta": "Debes presentar una solicitud dirigida al Rector, una ficha de seguimiento que acredite al menos setenta y dos créditos aprobados, no estar comprendido en bajo rendimiento académico y realizar el pago vigente. Este traslado se tramita en el segundo semestre académico.",
+    "categoria": "Trámites",
+    "subtema": "Traslado interno",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, procedimiento de traslado interno, código PA51001A31"
+    }
+  },
+  {
+    "id": "TRA-012",
+    "pregunta": "¿Qué necesito para un traslado interno a una escuela de otra facultad de la UNSAAC?",
+    "respuesta": "Debes presentar una solicitud dirigida al Rector, acreditar mediante la ficha de seguimiento un mínimo de setenta y dos créditos aprobados, no estar comprendido en bajo rendimiento académico y efectuar el pago vigente. El trámite se realiza en el segundo semestre.",
+    "categoria": "Trámites",
+    "subtema": "Traslado interno",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, traslado interno entre facultades, código PA5100B706"
+    }
+  },
+  {
+    "id": "TRA-013",
+    "pregunta": "¿Qué requisitos tiene el traslado externo hacia la UNSAAC?",
+    "respuesta": "Se solicita al Rector y se presenta el certificado original de estudios que acredite cuatro semestres o setenta y dos créditos, los sílabos aprobados, constancias de no deuda y de no separación disciplinaria o por bajo rendimiento, además de los demás documentos y el pago señalados en el TUPA.",
+    "categoria": "Trámites",
+    "subtema": "Traslado externo",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, procedimiento Traslado Externo, código PA51004007"
+    }
+  },
+  {
+    "id": "TRA-014",
+    "pregunta": "¿Cómo solicito la convalidación de asignaturas en la UNSAAC?",
+    "respuesta": "Debes presentar una solicitud dirigida al Rector, el certificado original de estudios, los sílabos certificados de las asignaturas aprobadas, el plan de estudios autenticado de la institución de origen y el pago vigente. La convalidación reconoce cursos aprobados en otra institución o facultad.",
+    "categoria": "Trámites",
+    "subtema": "Convalidación",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, procedimiento Convalidación de Asignaturas, código PA5100711B"
+    }
+  },
+  {
+    "id": "TRA-015",
+    "pregunta": "¿Cómo solicito la homologación de asignaturas en la UNSAAC?",
+    "respuesta": "Debes presentar una solicitud dirigida al Rector con la relación de asignaturas que deseas homologar, indicando nombre, código, créditos y demás datos; adjuntar la ficha de seguimiento académico y efectuar el pago vigente por el cuadro de homologación.",
+    "categoria": "Trámites",
+    "subtema": "Homologación",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, procedimiento Homologación de Asignaturas, código PA51003723"
+    }
+  },
+  {
+    "id": "TRA-016",
+    "pregunta": "¿Cómo solicito un certificado de estudios en la UNSAAC?",
+    "respuesta": "Debes presentar una solicitud dirigida al Rector, fotografías tamaño carné según el número de hojas, la ficha de seguimiento académico y el pago vigente. El certificado informa oficialmente los promedios finales de las asignaturas cursadas y se expide por semestre académico.",
+    "categoria": "Trámites",
+    "subtema": "Certificado de estudios",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, servicio Certificado de Estudios, código SE51004D55"
+    }
+  },
+  {
+    "id": "TRA-017",
+    "pregunta": "¿Cómo solicito una constancia de créditos acumulados o de egresado?",
+    "respuesta": "Debes presentar una solicitud dirigida al Rector, adjuntar la ficha de seguimiento académico y efectuar el pago vigente. La constancia sirve para acreditar oficialmente tu situación académica, incluidos los créditos acumulados o la condición de egresado.",
+    "categoria": "Trámites",
+    "subtema": "Constancias académicas",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, servicio Constancia de Créditos Acumulados o de Egresado, código SE5100B580"
+    }
+  },
+  {
+    "id": "TRA-018",
+    "pregunta": "¿Cómo solicito una constancia de tercio, quinto o décimo superior?",
+    "respuesta": "Debes presentar una solicitud dirigida al Rector, contar con el informe del Centro de Cómputo sobre el cuadro de promedios del semestre concluido y realizar el pago vigente. La constancia acredita el orden de mérito alcanzado por el estudiante.",
+    "categoria": "Trámites",
+    "subtema": "Orden de mérito",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, servicio Constancia de Tercio, Quinto y Décimo Superior, código SE510073ED"
+    }
+  },
+  {
+    "id": "TRA-019",
+    "pregunta": "¿Cómo solicito una constancia de no ser deudor de la UNSAAC?",
+    "respuesta": "Debes presentar una solicitud dirigida al Rector y efectuar el pago vigente por la constancia. Este documento permite acreditar si tienes pagos pendientes o bienes de la universidad que aún no hayan sido devueltos.",
+    "categoria": "Trámites",
+    "subtema": "Constancia de no deuda",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, servicio Constancia de no ser deudor, código SE5100DCFE"
+    }
+  },
+  {
+    "id": "TRA-020",
+    "pregunta": "¿Qué información contiene la ficha de seguimiento académico de la UNSAAC?",
+    "respuesta": "La ficha de seguimiento académico es un reporte emitido por el Centro de Cómputo. Contiene el código y la categoría de las asignaturas, así como las notas registradas por cada semestre de acuerdo con el plan de estudios.",
+    "categoria": "Trámites",
+    "subtema": "Seguimiento académico",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, servicio Ficha de Seguimiento Académico, código SE5100E4E4"
+    }
+  },
+  {
+    "id": "TRA-021",
+    "pregunta": "¿Cómo solicito un duplicado de mi constancia de matrícula?",
+    "respuesta": "Debes presentar una solicitud dirigida al Rector y efectuar el pago vigente por el duplicado. La constancia de matrícula acredita tu condición de estudiante y puede utilizarse en los trámites administrativos que la requieran.",
+    "categoria": "Trámites",
+    "subtema": "Duplicados",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, servicio Duplicado de Constancia de Matrícula, código SE5100C57C"
+    }
+  },
+  {
+    "id": "TRA-022",
+    "pregunta": "¿Cómo solicito un duplicado del carné universitario de la UNSAAC?",
+    "respuesta": "Debes presentar una solicitud dirigida al Rector, una declaración jurada por pérdida o sustracción y el pago vigente por duplicado. La Dirección de Registro y Servicios Académicos gestiona la solicitud y distribución del carné.",
+    "categoria": "Trámites",
+    "subtema": "Carné universitario",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, servicio Duplicado de Carné Universitario, código SE510018D2"
+    }
+  },
+  {
+    "id": "TRA-023",
+    "pregunta": "¿Cómo solicito una copia visada de mis sílabos en la UNSAAC?",
+    "respuesta": "Debes presentar una solicitud dirigida al Rector y efectuar el pago vigente por los sílabos. La copia visada certifica el documento que contiene los objetivos, contenidos, metodología, evaluación y referencias de cada asignatura.",
+    "categoria": "Trámites",
+    "subtema": "Sílabos",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, servicio Copia Visada de Sílabos, código SE5100706D"
+    }
+  },
+  {
+    "id": "TRA-024",
+    "pregunta": "¿Cómo corrijo mi nombre en la base de datos de la UNSAAC?",
+    "respuesta": "Debes presentar una solicitud dirigida al Rector, indicar tu número de documento de identidad y efectuar el pago vigente. La corrección del nombre registrado en la base de datos del Centro de Cómputo se realiza de acuerdo con los datos de tu documento de identidad.",
+    "categoria": "Trámites",
+    "subtema": "Rectificación de datos",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, servicio Rectificación de Nombre en Base de Datos, código SE5100E38E"
+    }
+  },
+  {
+    "id": "TRA-025",
+    "pregunta": "¿Qué necesito para iniciar el trámite del grado académico de bachiller en la UNSAAC?",
+    "respuesta": "El egresado presenta una solicitud dirigida al Rector, certificados de idioma extranjero y computación básica, la ficha de seguimiento con conformidad, las declaraciones y fotografías requeridas, y el pago vigente. También debe haber cumplido los créditos exigidos por su plan curricular.",
+    "categoria": "Trámites",
+    "subtema": "Grado de bachiller",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, procedimiento de Bachiller y Rotulado de Diploma, código PA51003F07"
+    }
+  },
+  {
+    "id": "TRA-026",
+    "pregunta": "¿Qué necesito para iniciar el trámite del título profesional por tesis en la UNSAAC?",
+    "respuesta": "El bachiller presenta una solicitud dirigida al Rector, copia simple del diploma de bachiller, declaración jurada de no tener antecedentes penales ni judiciales y el pago vigente. La facultad califica el expediente antes de declarar al solicitante apto para la sustentación de tesis.",
+    "categoria": "Trámites",
+    "subtema": "Título profesional",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, título profesional por sustentación de tesis, código PA51008A2B"
+    }
+  }
+]

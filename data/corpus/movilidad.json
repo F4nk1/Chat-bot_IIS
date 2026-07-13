@@ -1,0 +1,322 @@
+[
+  {
+    "id": "MOV-001",
+    "pregunta": "¿Qué es la movilidad estudiantil en la UNSAAC?",
+    "respuesta": "La movilidad estudiantil permite cursar temporalmente estudios en otra universidad del país o del extranjero mediante programas de intercambio y convenios. Las asignaturas aprobadas pueden solicitarse para convalidación al retornar.",
+    "categoria": "Movilidad",
+    "subtema": "Conceptos generales",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Internacionalización y movilidad de la UNSAAC",
+      "url": "https://octi.unsaac.edu.pe/internacionalizacion/"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento Académico de la UNSAAC, artículo 99, inciso e, y portal institucional de Internacionalización"
+    }
+  },
+  {
+    "id": "MOV-002",
+    "pregunta": "¿Qué diferencia hay entre movilidad nacional e internacional?",
+    "respuesta": "La movilidad nacional se realiza hacia una universidad ubicada en el Perú, mientras que la movilidad internacional se desarrolla en una institución del extranjero. La oficina responsable publica oportunidades de ambas modalidades.",
+    "categoria": "Movilidad",
+    "subtema": "Modalidades",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Movilidad saliente de la UNSAAC",
+      "url": "https://octi.unsaac.edu.pe/movilidad-saliente-outgoing/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de la Oficina de Cooperación y Relaciones Internacionales de la UNSAAC, sección Movilidad saliente"
+    }
+  },
+  {
+    "id": "MOV-003",
+    "pregunta": "¿Qué es la movilidad estudiantil saliente?",
+    "respuesta": "La movilidad saliente corresponde al estudiante de la UNSAAC que realiza una estancia académica temporal en otra universidad nacional o extranjera, de acuerdo con una convocatoria y las condiciones del programa correspondiente.",
+    "categoria": "Movilidad",
+    "subtema": "Modalidades",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Oportunidades de movilidad saliente",
+      "url": "https://octi.unsaac.edu.pe/movilidad-saliente-outgoing/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de la Oficina de Cooperación y Relaciones Internacionales de la UNSAAC, sección Movilidad saliente"
+    }
+  },
+  {
+    "id": "MOV-004",
+    "pregunta": "¿Qué es la movilidad estudiantil entrante?",
+    "respuesta": "La movilidad entrante corresponde al estudiante de otra universidad peruana o extranjera que realiza estudios temporales en la UNSAAC. Su matrícula puede efectuarse como estudiante especial mediante un convenio de movilidad.",
+    "categoria": "Movilidad",
+    "subtema": "Modalidades",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Movilidad entrante en la UNSAAC",
+      "url": "https://octi.unsaac.edu.pe/movilidad-entrante-2/"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento Académico de la UNSAAC, artículo 3, numeral 3.3"
+    }
+  },
+  {
+    "id": "MOV-005",
+    "pregunta": "¿Qué oficina de la UNSAAC orienta sobre movilidad estudiantil?",
+    "respuesta": "La Oficina de Cooperación y Relaciones Internacionales de la UNSAAC facilita convenios, movilidad de estudiantes y difusión de becas. También publica oportunidades y brinda sus canales institucionales de contacto.",
+    "categoria": "Movilidad",
+    "subtema": "Orientación institucional",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Contacto de Cooperación y Relaciones Internacionales",
+      "url": "https://octi.unsaac.edu.pe/contacto/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de la Oficina de Cooperación y Relaciones Internacionales de la UNSAAC, páginas Misión y Visión y Contacto"
+    }
+  },
+  {
+    "id": "MOV-006",
+    "pregunta": "¿Dónde se publican las convocatorias de movilidad estudiantil?",
+    "respuesta": "Las oportunidades de movilidad se publican en el portal de la Oficina de Cooperación y Relaciones Internacionales de la UNSAAC. Allí se presentan convocatorias nacionales e internacionales y los documentos de cada programa.",
+    "categoria": "Movilidad",
+    "subtema": "Convocatorias",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Convocatorias de movilidad saliente",
+      "url": "https://octi.unsaac.edu.pe/movilidad-saliente-outgoing/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de la Oficina de Cooperación y Relaciones Internacionales de la UNSAAC, sección Movilidad saliente"
+    }
+  },
+  {
+    "id": "MOV-007",
+    "pregunta": "¿Cómo puedo postular a una movilidad estudiantil?",
+    "respuesta": "Debes revisar la convocatoria vigente, reunir los documentos solicitados y seguir el canal de postulación indicado. Algunas convocatorias requieren cargar archivos en línea y gestionar una carta de presentación institucional.",
+    "categoria": "Movilidad",
+    "subtema": "Postulación",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Ejemplo oficial de convocatoria de movilidad",
+      "url": "https://octi.unsaac.edu.pe/1675-2/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Convocatoria de Movilidad Estudiantil 2025-II de la Universidad Peruana Cayetano Heredia, sección Documentos para postular"
+    }
+  },
+  {
+    "id": "MOV-008",
+    "pregunta": "¿Los requisitos de movilidad son iguales en todas las convocatorias?",
+    "respuesta": "No. Los requisitos académicos, documentos, etapa de estudios y condiciones de participación dependen de cada universidad y convocatoria. Por eso debes revisar siempre las bases vigentes publicadas por la oficina responsable.",
+    "categoria": "Movilidad",
+    "subtema": "Requisitos",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Portal oficial de movilidad saliente",
+      "url": "https://octi.unsaac.edu.pe/movilidad-saliente-outgoing/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de la Oficina de Cooperación y Relaciones Internacionales de la UNSAAC, convocatorias de movilidad saliente"
+    }
+  },
+  {
+    "id": "MOV-009",
+    "pregunta": "¿Qué documentos pueden pedirme para postular a movilidad?",
+    "respuesta": "Según la convocatoria, pueden solicitar carta de motivación, carta de presentación de la UNSAAC, foto, documento de identidad, ficha de seguimiento de notas, constancia de rendimiento, ficha de la red universitaria y seguro médico.",
+    "categoria": "Movilidad",
+    "subtema": "Documentación",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Documentos de una convocatoria oficial",
+      "url": "https://octi.unsaac.edu.pe/1675-2/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Convocatoria de Movilidad Estudiantil 2025-II de la Universidad Peruana Cayetano Heredia, sección Documentos para postular"
+    }
+  },
+  {
+    "id": "MOV-010",
+    "pregunta": "¿El seguro médico puede ser obligatorio para una movilidad?",
+    "respuesta": "Sí, una convocatoria puede exigir seguro médico estatal o particular como parte de la postulación. Como está condición depende del programa, debes comprobar el tipo de cobertura solicitado en la convocatoria vigente.",
+    "categoria": "Movilidad",
+    "subtema": "Requisitos",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Convocatoria con requisito de seguro médico",
+      "url": "https://octi.unsaac.edu.pe/1675-2/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Convocatoria de Movilidad Estudiantil 2025-II de la Universidad Peruana Cayetano Heredia, sección Documentos para postular"
+    }
+  },
+  {
+    "id": "MOV-011",
+    "pregunta": "¿Cómo puedo saber con qué universidades tiene convenios la UNSAAC?",
+    "respuesta": "La Oficina de Cooperación y Relaciones Internacionales publica información anual y fichas de convenios nacionales e internacionales. Debes verificar la vigencia y el objetivo de cada convenio antes de considerar una postulación.",
+    "categoria": "Movilidad",
+    "subtema": "Convenios",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Información institucional de convenios",
+      "url": "https://octi.unsaac.edu.pe/informacion-de-convenios-2025/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de la Oficina de Cooperación y Relaciones Internacionales de la UNSAAC, sección Información de Convenios"
+    }
+  },
+  {
+    "id": "MOV-012",
+    "pregunta": "¿Cómo indico los cursos que deseo llevar durante la movilidad?",
+    "respuesta": "La convocatoria puede solicitar una carta de presentación emitida por la oficina de cooperación de la UNSAAC en la que se indiquen los cursos que deseas llevar. La oferta y las condiciones finales dependen de la universidad de destino.",
+    "categoria": "Movilidad",
+    "subtema": "Postulación",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Convocatoria con indicación de cursos",
+      "url": "https://octi.unsaac.edu.pe/1675-2/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Convocatoria de Movilidad Estudiantil 2025-II de la Universidad Peruana Cayetano Heredia, sección Documentos para postular"
+    }
+  },
+  {
+    "id": "MOV-013",
+    "pregunta": "¿Puedo solicitar el reconocimiento de los cursos aprobados durante un intercambio?",
+    "respuesta": "Sí. El estudiante que realiza estudios temporales mediante un programa de intercambio académico puede solicitar la convalidación de las asignaturas aprobadas. La evaluación se realiza según el caso y la universidad de destino.",
+    "categoria": "Movilidad",
+    "subtema": "Reconocimiento académico",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Reglamento Académico de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento Académico de la UNSAAC, artículo 99, inciso e"
+    }
+  },
+  {
+    "id": "MOV-014",
+    "pregunta": "¿Qué es la convalidación de asignaturas?",
+    "respuesta": "La convalidación es el reconocimiento de una o más asignaturas aprobadas en universidades peruanas o extranjeras. Permite reconocer en la UNSAAC los cursos que correspondan conforme al currículo y al procedimiento académico.",
+    "categoria": "Movilidad",
+    "subtema": "Reconocimiento académico",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Reglamento sobre convalidación",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento Académico de la UNSAAC, artículo 97"
+    }
+  },
+  {
+    "id": "MOV-015",
+    "pregunta": "¿Qué criterio académico se usa para convalidar una asignatura?",
+    "respuesta": "Como regla general, el reglamento exige que la asignatura corresponda al currículo vigente y que exista una coincidencia mínima del ochenta por ciento entre los contenidos de los sílabos. En intercambios también se evalúa cada caso concreto.",
+    "categoria": "Movilidad",
+    "subtema": "Reconocimiento académico",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Reglamento Académico de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento Académico de la UNSAAC, artículos 97 y 99, inciso e"
+    }
+  },
+  {
+    "id": "MOV-016",
+    "pregunta": "¿Quién evalúa la convalidación de cursos realizados durante la movilidad?",
+    "respuesta": "La Comisión Académica de la Escuela Profesional procesa la convalidación y emite un informe. Con ese fundamento, el Decano de la Facultad correspondiente expide la resolución de las asignaturas que sean convalidadas.",
+    "categoria": "Movilidad",
+    "subtema": "Reconocimiento académico",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Procedimiento oficial de convalidación",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento Académico de la UNSAAC, artículos 98 y 101"
+    }
+  },
+  {
+    "id": "MOV-017",
+    "pregunta": "¿Qué documentos debo conservar durante la movilidad para convalidar mis cursos?",
+    "respuesta": "Debes conservar los certificados originales de estudios, los sílabos certificados de las asignaturas aprobadas y el plan de estudios autenticado de la institución de destino, porque serán necesarios para solicitar la convalidación.",
+    "categoria": "Movilidad",
+    "subtema": "Obligaciones",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Documentos oficiales para convalidación",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento Académico de la UNSAAC, artículo 100"
+    }
+  },
+  {
+    "id": "MOV-018",
+    "pregunta": "¿Dónde inicio la convalidación de cursos después de regresar?",
+    "respuesta": "La solicitud se presenta con los documentos exigidos ante la Unidad de Trámite Documentario. Luego se deriva a la Escuela Profesional para su evaluación y el Decano emite la resolución que corresponda.",
+    "categoria": "Movilidad",
+    "subtema": "Retorno",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Procedimiento de convalidación de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento Académico de la UNSAAC, artículos 98, 100 y 101"
+    }
+  },
+  {
+    "id": "MOV-019",
+    "pregunta": "¿La UNSAAC publica becas relacionadas con estudios en el extranjero?",
+    "respuesta": "Sí. La Oficina de Cooperación y Relaciones Internacionales difunde convocatorias de becas y oportunidades académicas. Los requisitos, áreas, beneficios y fechas dependen de cada programa, por lo que debe revisarse la convocatoria vigente.",
+    "categoria": "Movilidad",
+    "subtema": "Financiamiento",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Becas difundidas por Cooperación Internacional",
+      "url": "https://octi.unsaac.edu.pe/redes-de-cooperacion/becas/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de la Oficina de Cooperación y Relaciones Internacionales de la UNSAAC, sección Becas"
+    }
+  },
+  {
+    "id": "MOV-020",
+    "pregunta": "¿Una movilidad estudiantil siempre cubre todos los costos?",
+    "respuesta": "No. La cobertura económica depende de cada convenio y convocatoria. Algunas oportunidades pueden exonerar costos académicos en la universidad de destino, pero esa condición no debe asumirse para todos los programas.",
+    "categoria": "Movilidad",
+    "subtema": "Financiamiento",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Ejemplo oficial de beneficios de intercambio",
+      "url": "https://octi.unsaac.edu.pe/1675-2/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Convocatoria de Movilidad Estudiantil 2025-II de la Universidad Peruana Cayetano Heredia, sección Programa de estudiantes de intercambio"
+    }
+  }
+]

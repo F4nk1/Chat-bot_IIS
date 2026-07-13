@@ -1,0 +1,275 @@
+[
+  {
+    "id": "PRA-001",
+    "pregunta": "¿Qué son las prácticas preprofesionales en la UNSAAC?",
+    "respuesta": "Las prácticas preprofesionales son actividades académicas calificadas que el estudiante próximo a egresar realiza en una entidad pública o privada. Permiten aplicar las competencias adquiridas durante la formación universitaria en un entorno laboral real.",
+    "categoria": "Prácticas",
+    "subtema": "Definición",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 112, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-002",
+    "pregunta": "¿Cuál es el objetivo de las prácticas preprofesionales?",
+    "respuesta": "Las prácticas buscan desarrollar habilidades profesionales, complementar la formación académica y relacionar los conocimientos teóricos con situaciones reales. También permiten fortalecer la responsabilidad, el trabajo en equipo, la capacidad crítica y el contacto con el mercado laboral.",
+    "categoria": "Prácticas",
+    "subtema": "Objetivos",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 113, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-003",
+    "pregunta": "¿Dónde puedo realizar mis prácticas preprofesionales?",
+    "respuesta": "Las prácticas preprofesionales pueden desarrollarse en una entidad pública o privada. Las actividades asignadas deben permitir al estudiante aplicar las competencias de su carrera y corresponder a las áreas de formación establecidas por su Escuela Profesional.",
+    "categoria": "Prácticas",
+    "subtema": "Entidad receptora",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 112, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-004",
+    "pregunta": "¿Las prácticas preprofesionales son obligatorias para obtener el bachillerato?",
+    "respuesta": "Sí. El Reglamento Académico establece que las prácticas preprofesionales forman parte del plan de estudios de cada Escuela Profesional y se exigen como requisito para alcanzar el grado académico de bachiller.",
+    "categoria": "Prácticas",
+    "subtema": "Requisito de bachillerato",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 112, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-005",
+    "pregunta": "¿A partir de qué semestre puedo realizar mis prácticas en el Plan de Estudios 2025 de Ingeniería Informática?",
+    "respuesta": "En el Plan de Estudios 2025 de Ingeniería Informática y de Sistemas, la Práctica Preprofesional está ubicada en el décimo semestre. Para llevarla se exige haber acumulado como mínimo 180 créditos.",
+    "categoria": "Prácticas",
+    "subtema": "Requisito académico",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Plan de Estudios Semestralizado 2025 de la EP-IIS, décimo semestre, asignatura IFI66"
+    }
+  },
+  {
+    "id": "PRA-006",
+    "pregunta": "¿Cuántos créditos tiene la Práctica Preprofesional en el Plan de Estudios 2025?",
+    "respuesta": "La Práctica Preprofesional de la Escuela Profesional de Ingeniería Informática y de Sistemas tiene 8 créditos en el Plan de Estudios 2025. Está registrada con el código IFI66 dentro del décimo semestre.",
+    "categoria": "Prácticas",
+    "subtema": "Créditos",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Malla Curricular y Plan de Estudios Semestralizado 2025 de la EP-IIS"
+    }
+  },
+  {
+    "id": "PRA-007",
+    "pregunta": "¿Las prácticas tienen los mismos requisitos en todos los planes de estudios?",
+    "respuesta": "No necesariamente. Los créditos, prerrequisitos y ubicación semestral de las prácticas dependen del plan de estudios al que pertenece el estudiante. Por eso debes revisar tu malla curricular y confirmar tu situación con la Dirección de la Escuela Profesional.",
+    "categoria": "Prácticas",
+    "subtema": "Planes de estudios",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Mallas curriculares 2017 y 2025 publicadas por la EP-IIS de la UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-008",
+    "pregunta": "¿Quién organiza las prácticas preprofesionales en la Escuela Profesional?",
+    "respuesta": "Cada Escuela Profesional propone el nombramiento de docentes coordinadores de prácticas para el año académico. El coordinador organiza las prácticas, coordina el cumplimiento del plan con la Dirección de la Escuela y gestiona los convenios necesarios.",
+    "categoria": "Prácticas",
+    "subtema": "Coordinación",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 114, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-009",
+    "pregunta": "¿Es necesario que la entidad donde realizaré mis prácticas tenga un convenio con la UNSAAC?",
+    "respuesta": "La coordinación de prácticas es responsable de gestionar convenios con las entidades donde se desarrollarán las actividades. Antes de comenzar, debes confirmar con la Dirección o el coordinador si la entidad cuenta con convenio o si necesita formalizarse.",
+    "categoria": "Prácticas",
+    "subtema": "Convenios",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 114, literal c, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-010",
+    "pregunta": "¿Quién puede ser mi asesor de prácticas preprofesionales?",
+    "respuesta": "Puede ser asesor un docente ordinario adscrito al departamento académico que atiende asignaturas de la especialidad. El estudiante elige al docente ante la Dirección de la Escuela Profesional y el Decano formaliza su nombramiento.",
+    "categoria": "Prácticas",
+    "subtema": "Asesor de prácticas",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 115, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-011",
+    "pregunta": "¿Qué funciones cumple el asesor de prácticas preprofesionales?",
+    "respuesta": "El asesor orienta la preparación del plan de prácticas, supervisa la elaboración del informe final, acompaña la presentación oral y realiza visitas programadas a la entidad donde el estudiante desarrolla sus prácticas.",
+    "categoria": "Prácticas",
+    "subtema": "Funciones del asesor",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 116, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-012",
+    "pregunta": "¿Qué es el plan de prácticas preprofesionales?",
+    "respuesta": "El plan de prácticas es el documento que organiza las actividades que realizará el estudiante en la entidad receptora. Debe prepararse con la orientación del docente asesor y presentarse utilizando el formato establecido por la UNSAAC.",
+    "categoria": "Prácticas",
+    "subtema": "Plan de prácticas",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 116, literal a, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-013",
+    "pregunta": "¿Quién me orienta para elaborar el plan de prácticas?",
+    "respuesta": "El docente asesor es responsable de orientar al estudiante en la preparación, redacción y presentación del plan de prácticas. El documento debe seguir el formato establecido por la Dirección de Registro y Servicios Académicos.",
+    "categoria": "Prácticas",
+    "subtema": "Orientación del plan",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 116, literal a, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-014",
+    "pregunta": "¿Debo presentar un informe final de prácticas preprofesionales?",
+    "respuesta": "Sí. Al concluir las prácticas debes preparar y presentar un informe final con la supervisión del docente asesor. El informe debe exponer las actividades desarrolladas, la aplicación de competencias profesionales y los resultados obtenidos.",
+    "categoria": "Prácticas",
+    "subtema": "Informe final",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 116, literal b, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-015",
+    "pregunta": "¿El informe final de prácticas debe presentarse oralmente?",
+    "respuesta": "Sí. El Reglamento Académico contempla una presentación oral del informe final ante la Dirección de la Escuela Profesional. El docente asesor acompaña al estudiante durante está presentación.",
+    "categoria": "Prácticas",
+    "subtema": "Presentación del informe",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 116, literal c, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-016",
+    "pregunta": "¿El asesor puede visitar el lugar donde realizo mis prácticas?",
+    "respuesta": "Sí. Entre las funciones del docente asesor se encuentra realizar visitas programadas a las entidades públicas o privadas donde el estudiante desarrolla sus prácticas preprofesionales.",
+    "categoria": "Prácticas",
+    "subtema": "Supervisión",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 116, literal d, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-017",
+    "pregunta": "¿Cómo solicito una carta de presentación para realizar prácticas?",
+    "respuesta": "Para solicitar la carta de presentación del Decano debes presentar una solicitud dirigida al Rector, adjuntar tu ficha de seguimiento académico y efectuar el pago vigente por el trámite. La carta sirve para presentarte formalmente ante la entidad receptora.",
+    "categoria": "Prácticas",
+    "subtema": "Carta de presentación",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, Carta de Presentación de Decano, código SE51002B1A"
+    }
+  },
+  {
+    "id": "PRA-018",
+    "pregunta": "¿Puedo solicitar el reconocimiento de prácticas realizadas anteriormente?",
+    "respuesta": "Las prácticas preprofesionales y otras modalidades susceptibles de convalidación pueden ser reconocidas mediante resolución del Decano. La resolución asigna los créditos y la categoría que correspondan según el currículo del estudiante.",
+    "categoria": "Prácticas",
+    "subtema": "Reconocimiento",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 109, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-019",
+    "pregunta": "¿Las prácticas preprofesionales reciben una calificación?",
+    "respuesta": "Sí. Las prácticas preprofesionales son actividades académicas calificadas y están sujetas a evaluación. El docente responsable debe planificar, ejecutar y comunicar los resultados de la evaluación de acuerdo con el calendario académico.",
+    "categoria": "Prácticas",
+    "subtema": "Evaluación",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Arts. 59 y 77, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-020",
+    "pregunta": "¿La nota de prácticas aparece en mis documentos académicos?",
+    "respuesta": "Sí. Los promedios finales de las prácticas preprofesionales forman parte de los registros académicos oficiales. Pueden aparecer en la constancia de notas y en el certificado de estudios emitidos por la UNSAAC.",
+    "categoria": "Prácticas",
+    "subtema": "Registro de calificaciones",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Arts. 84, 87 y 88, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-021",
+    "pregunta": "¿Qué áreas son válidas para realizar prácticas en Ingeniería Informática y de Sistemas?",
+    "respuesta": "Las actividades deben relacionarse con las competencias y áreas profesionales establecidas por la Escuela, como desarrollo de software, sistemas de información, datos, inteligencia artificial, redes, infraestructura tecnológica o gestión de proyectos informáticos.",
+    "categoria": "Prácticas",
+    "subtema": "Áreas profesionales",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Perfil del egresado y campo ocupacional de la EP-IIS; Art. 112 del Reglamento Académico"
+    }
+  }
+]

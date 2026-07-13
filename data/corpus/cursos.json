@@ -1,0 +1,322 @@
+[
+  {
+    "id": "CUR-001",
+    "pregunta": "¿Cómo se organizan los estudios de pregrado en la UNSAAC?",
+    "respuesta": "Los estudios profesionales de pregrado se organizan por semestres y créditos. Cada semestre tiene una duración de diecisiete semanas y se desarrolla con un currículo flexible.",
+    "categoria": "Cursos",
+    "subtema": "Régimen académico",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Reglamento Académico de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento Académico de la UNSAAC, artículo V"
+    }
+  },
+  {
+    "id": "CUR-002",
+    "pregunta": "¿Qué es un plan de estudios?",
+    "respuesta": "El plan de estudios es el conjunto organizado de asignaturas, talleres, seminarios, módulos, prácticas, laboratorios y actividades necesarios para concluir la formación profesional y obtener el grado o título correspondiente.",
+    "categoria": "Cursos",
+    "subtema": "Plan de estudios",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Plan de estudios de Ingeniería Informática y de Sistemas",
+      "url": "https://in.unsaac.edu.pe/wp-content/uploads/2025/03/plan-estudios-ing-informatica-2025.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Plan Curricular 2024 de la Escuela Profesional de Ingeniería Informática y de Sistemas, aprobado mediante Resolución CU-031-2025-UNSAAC, sección II.2"
+    }
+  },
+  {
+    "id": "CUR-003",
+    "pregunta": "¿Dónde puedo consultar la malla curricular de Ingeniería Informática y de Sistemas?",
+    "respuesta": "La Escuela Profesional publica en su portal oficial la malla curricular y los documentos del plan de estudios. Desde esa página se pueden consultar y descargar las versiones institucionales disponibles.",
+    "categoria": "Cursos",
+    "subtema": "Malla curricular",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Malla curricular de Ingeniería Informática y de Sistemas",
+      "url": "https://in.unsaac.edu.pe/malla-curricular/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal oficial de la Escuela Profesional de Ingeniería Informática y de Sistemas, sección Malla Curricular"
+    }
+  },
+  {
+    "id": "CUR-004",
+    "pregunta": "¿Qué mallas curriculares publica la Escuela de Ingeniería Informática y de Sistemas?",
+    "respuesta": "El portal oficial de la Escuela publica las mallas curriculares correspondientes a los planes 2025, 2017 y 1997. El estudiante debe consultar la versión que corresponda a su plan curricular.",
+    "categoria": "Cursos",
+    "subtema": "Malla curricular",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Versiones oficiales de la malla curricular",
+      "url": "https://in.unsaac.edu.pe/malla-curricular/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal oficial de la Escuela Profesional de Ingeniería Informática y de Sistemas, descargas de mallas curriculares"
+    }
+  },
+  {
+    "id": "CUR-005",
+    "pregunta": "¿Cuánto dura la carrera de Ingeniería Informática y de Sistemas?",
+    "respuesta": "La carrera tiene una duración académica de diez semestres. La Escuela señala como grado académico el Bachiller en Ingeniería Informática y de Sistemas y como título profesional el de Ingeniero Informático y de Sistemas.",
+    "categoria": "Cursos",
+    "subtema": "Información de la carrera",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Información oficial de la Escuela Profesional",
+      "url": "https://in.unsaac.edu.pe/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal oficial de la Escuela Profesional de Ingeniería Informática y de Sistemas, sección información académica"
+    }
+  },
+  {
+    "id": "CUR-006",
+    "pregunta": "¿Cuántos cursos y créditos tiene la malla curricular publicada como plan 2025?",
+    "respuesta": "El resumen oficial de la malla curricular publicada como plan 2025 registra cincuenta y nueve componentes curriculares y un total de doscientos veinte créditos para completar la formación profesional.",
+    "categoria": "Cursos",
+    "subtema": "Plan curricular 2025",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Malla curricular publicada para el plan 2025",
+      "url": "https://in.unsaac.edu.pe/wp-content/uploads/2025/03/malla-curricular-ing-informatica-2025.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Plan Curricular 2024 de la Escuela Profesional de Ingeniería Informática y de Sistemas, aprobado mediante Resolución CU-031-2025-UNSAAC, resumen de la malla curricular"
+    }
+  },
+  {
+    "id": "CUR-007",
+    "pregunta": "¿Cómo se distribuyen los créditos del plan curricular publicado en 2025?",
+    "respuesta": "El plan distribuye doscientos veinte créditos en estudios generales, estudios específicos, estudios de especialidad, actividades extracurriculares y prácticas preprofesionales. Cada bloque contribuye a una parte distinta de la formación.",
+    "categoria": "Cursos",
+    "subtema": "Áreas curriculares",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Resumen oficial de créditos del plan",
+      "url": "https://in.unsaac.edu.pe/wp-content/uploads/2025/03/malla-curricular-ing-informatica-2025.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Plan Curricular 2024 de la Escuela Profesional de Ingeniería Informática y de Sistemas, aprobado mediante Resolución CU-031-2025-UNSAAC, sección II.1"
+    }
+  },
+  {
+    "id": "CUR-008",
+    "pregunta": "¿Qué información contiene el plan de estudios de cada asignatura?",
+    "respuesta": "El plan de estudios registra la categoría curricular, el semestre, el código, el nombre de la asignatura, las horas académicas, el número de créditos y los prerrequisitos que correspondan.",
+    "categoria": "Cursos",
+    "subtema": "Plan de estudios",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Plan de estudios de Ingeniería Informática y de Sistemas",
+      "url": "https://in.unsaac.edu.pe/wp-content/uploads/2025/03/plan-estudios-ing-informatica-2025.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Plan Curricular 2024 de la Escuela Profesional de Ingeniería Informática y de Sistemas, aprobado mediante Resolución CU-031-2025-UNSAAC, sección II.2"
+    }
+  },
+  {
+    "id": "CUR-009",
+    "pregunta": "¿Cuántos créditos puede llevar un estudiante regular por semestre?",
+    "respuesta": "Un estudiante regular puede matricularse normalmente entre doce y veintidós créditos. Si obtiene un promedio ponderado igual o mayor a dieciséis, puede matricularse hasta en veintiséis créditos.",
+    "categoria": "Cursos",
+    "subtema": "Matrícula académica",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Reglamento Académico de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento Académico de la UNSAAC, artículos 3, 8 y 9"
+    }
+  },
+  {
+    "id": "CUR-010",
+    "pregunta": "¿Qué es un curso dirigido?",
+    "respuesta": "Un curso dirigido es una asignatura no ofrecida en el catálogo del semestre que necesita un estudiante próximo a egresar. Puede matricularse hasta en dos cursos dirigidos, por una sola vez, con autorización del Decano y previo informe del Director de Escuela.",
+    "categoria": "Cursos",
+    "subtema": "Curso dirigido",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "Reglamento sobre cursos dirigidos",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento Académico de la UNSAAC, artículos 16 al 18"
+    }
+  },
+  {
+    "id": "CUR-011",
+    "pregunta": "¿Cuál es la nota mínima aprobatoria de una asignatura?",
+    "respuesta": "El Reglamento Académico establece que las calificaciones de catorce a veinte puntos corresponden a la condición de aprobado. Las notas de diez a trece son desaprobatorias y las de cero a nueve son reprobatorias.",
+    "categoria": "Cursos",
+    "subtema": "Evaluación",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Reglamento de evaluación académica",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento Académico de la UNSAAC, artículo 67"
+    }
+  },
+  {
+    "id": "CUR-012",
+    "pregunta": "¿Cómo se calcula el promedio ponderado?",
+    "respuesta": "El promedio ponderado se obtiene multiplicando la nota final de cada asignatura por su número de créditos, sumando esos resultados y dividiendo el total entre la suma de créditos considerados.",
+    "categoria": "Cursos",
+    "subtema": "Evaluación",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Reglamento Académico de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento Académico de la UNSAAC, artículo 64"
+    }
+  },
+  {
+    "id": "CUR-013",
+    "pregunta": "¿Las evaluaciones indicadas en el sílabo son obligatorias?",
+    "respuesta": "Sí. El estudiante debe rendir las evaluaciones previstas en el sílabo de cada asignatura. Si no rinde una evaluación y no cuenta con una postergación justificada, se registra la nota cero para el promedio correspondiente.",
+    "categoria": "Cursos",
+    "subtema": "Evaluación",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Reglamento de evaluación académica",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento Académico de la UNSAAC, artículos 49 y 66"
+    }
+  },
+  {
+    "id": "CUR-014",
+    "pregunta": "¿Qué formación básica recibe el estudiante al inicio de Ingeniería Informática y de Sistemas?",
+    "respuesta": "En los primeros semestres se desarrollan bases en matemática, física, comunicación, estadística, pensamiento computacional, inteligencia artificial, fundamentos de programación y matemáticas discretas.",
+    "categoria": "Cursos",
+    "subtema": "Formación inicial",
+    "perfil": "ingresante",
+    "enlace": {
+      "texto": "Plan de estudios semestralizado",
+      "url": "https://in.unsaac.edu.pe/wp-content/uploads/2025/03/plan-estudios-semestralizado-ing-informatica-2025.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Plan Curricular 2024 de la Escuela Profesional de Ingeniería Informática y de Sistemas, aprobado mediante Resolución CU-031-2025-UNSAAC, primer y segundo semestre"
+    }
+  },
+  {
+    "id": "CUR-015",
+    "pregunta": "¿Qué cursos fortalecen la formación en programación y algoritmos?",
+    "respuesta": "El plan incluye Fundamentos de Programación, Programación I, II y III, Algoritmos y Estructuras de Datos I y II, Análisis y Diseño de Algoritmos y Teoría de la Computación, además de electivos avanzados relacionados.",
+    "categoria": "Cursos",
+    "subtema": "Programación y algoritmos",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Plan de estudios de Ingeniería Informática y de Sistemas",
+      "url": "https://in.unsaac.edu.pe/wp-content/uploads/2025/03/plan-estudios-ing-informatica-2025.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Plan Curricular 2024 de la Escuela Profesional de Ingeniería Informática y de Sistemas, aprobado mediante Resolución CU-031-2025-UNSAAC, estudios específicos y de especialidad"
+    }
+  },
+  {
+    "id": "CUR-016",
+    "pregunta": "¿Qué cursos forman la línea de ingeniería de software?",
+    "respuesta": "La formación incluye Análisis y Diseño de Sistemas de Información, Metodología y Desarrollo de Software, Ingeniería de Software I y II, Formulación de Proyectos de Tecnologías de la Información y Desarrollo de Proyectos de Ingeniería de Software.",
+    "categoria": "Cursos",
+    "subtema": "Ingeniería de software",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Plan de estudios de Ingeniería Informática y de Sistemas",
+      "url": "https://in.unsaac.edu.pe/wp-content/uploads/2025/03/plan-estudios-ing-informatica-2025.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Plan Curricular 2024 de la Escuela Profesional de Ingeniería Informática y de Sistemas, aprobado mediante Resolución CU-031-2025-UNSAAC, asignaturas obligatorias"
+    }
+  },
+  {
+    "id": "CUR-017",
+    "pregunta": "¿Qué cursos ofrece la carrera en inteligencia artificial y datos?",
+    "respuesta": "El plan contempla Inteligencia Artificial, Aprendizaje Automático, Ciencia de Datos y Aprendizaje Profundo. También ofrece electivos como Procesamiento de Lenguaje Natural, Visión Computacional, Inteligencia Artificial Robótica y Bioinformática.",
+    "categoria": "Cursos",
+    "subtema": "Inteligencia artificial y datos",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Plan de estudios de Ingeniería Informática y de Sistemas",
+      "url": "https://in.unsaac.edu.pe/wp-content/uploads/2025/03/plan-estudios-ing-informatica-2025.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Plan Curricular 2024 de la Escuela Profesional de Ingeniería Informática y de Sistemas, aprobado mediante Resolución CU-031-2025-UNSAAC, estudios de especialidad obligatorios y electivos"
+    }
+  },
+  {
+    "id": "CUR-018",
+    "pregunta": "¿Qué cursos forman la línea de redes y ciberseguridad?",
+    "respuesta": "El plan incluye Redes de Computadoras I, Redes de Computadoras II, Sistemas de Internet de las Cosas y Ciberseguridad. Entre los electivos relacionados aparecen Tópicos Avanzados en Redes, Arquitectura de Alto Rendimiento y Blockchain.",
+    "categoria": "Cursos",
+    "subtema": "Redes y ciberseguridad",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Plan de estudios de Ingeniería Informática y de Sistemas",
+      "url": "https://in.unsaac.edu.pe/wp-content/uploads/2025/03/plan-estudios-ing-informatica-2025.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Plan Curricular 2024 de la Escuela Profesional de Ingeniería Informática y de Sistemas, aprobado mediante Resolución CU-031-2025-UNSAAC, estudios de especialidad obligatorios y electivos"
+    }
+  },
+  {
+    "id": "CUR-019",
+    "pregunta": "¿Qué cursos apoyan la investigación y el desarrollo de proyectos?",
+    "respuesta": "El plan incorpora Seminario de Investigación y Trabajo de Investigación. También incluye Formulación de Proyectos de Tecnologías de la Información y Desarrollo de Proyectos de Ingeniería de Software.",
+    "categoria": "Cursos",
+    "subtema": "Investigación y proyectos",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Plan de estudios semestralizado",
+      "url": "https://in.unsaac.edu.pe/wp-content/uploads/2025/03/plan-estudios-semestralizado-ing-informatica-2025.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Plan Curricular 2024 de la Escuela Profesional de Ingeniería Informática y de Sistemas, aprobado mediante Resolución CU-031-2025-UNSAAC, octavo, noveno y décimo semestre"
+    }
+  },
+  {
+    "id": "CUR-020",
+    "pregunta": "¿Qué asignaturas electivas ofrece el plan curricular publicado en 2025?",
+    "respuesta": "El catálogo incluye electivos en desarrollo web y móvil, compiladores, redes complejas, procesamiento de lenguaje natural, computación gráfica, visión computacional, robótica, blockchain, algoritmos avanzados, computación cuántica y otras áreas.",
+    "categoria": "Cursos",
+    "subtema": "Asignaturas electivas",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Catálogo de electivos del plan curricular",
+      "url": "https://in.unsaac.edu.pe/wp-content/uploads/2025/03/plan-estudios-ing-informatica-2025.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Plan Curricular 2024 de la Escuela Profesional de Ingeniería Informática y de Sistemas, aprobado mediante Resolución CU-031-2025-UNSAAC, estudios de especialidad electivos"
+    }
+  }
+]
