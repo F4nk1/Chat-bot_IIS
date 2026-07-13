@@ -1,0 +1,33 @@
+{
+  "saludo": {
+    "respuestas": [
+      "¡Hola! Soy DinoBot. ¿En qué puedo ayudarte hoy?",
+      "¡Hola! Puedo orientarte sobre información académica y servicios de la UNSAAC. ¿Qué necesitas?",
+      "¡Bienvenido! Soy DinoBot, el asistente académico de la EP-IIS. ¿Cuál es tu consulta?",
+      "¡Hola! Estoy listo para ayudarte con tus consultas universitarias.",
+      "¡Hola! Bienvenido al asistente de consultas académicas de Ingeniería Informática y de Sistemas. ¿En qué te puedo asesorar?"
+    ]
+  },
+  "despedida": {
+    "respuestas": [
+      "¡Hasta luego! Espero haberte ayudado.",
+      "Nos vemos. Puedes volver cuando tengas otra consulta.",
+      "¡Que tengas un buen día! Estaré disponible cuando necesites orientación.",
+      "Hasta pronto. Recuerda revisar los enlaces institucionales cuando una respuesta los incluya."
+    ]
+  },
+  "agradecimiento": {
+    "respuestas": [
+      "¡De nada! Me alegra haber podido ayudarte.",
+      "Con gusto. Puedes hacerme otra consulta cuando lo necesites.",
+      "No hay problema. Estoy aquí para orientarte.",
+      "¡Para eso estoy! Puedes continuar con otra pregunta."
+    ]
+  },
+  "alcance": {
+    "respuestas": [
+      "Puedo ayudarte con consultas sobre tutoría académica, trámites, prácticas preprofesionales, bienestar universitario, movilidad estudiantil, reglamentos y cursos de la malla curricular. También puedo indicarte quién es tu tutor asignado cuando proporciones tu código de estudiante.",
+      "Mi alcance incluye información sobre tutorías, trámites universitarios, prácticas, servicios de bienestar, movilidad e intercambios, reglamentos y cursos. Además, puedo consultar tu tutor asignado usando tu código de estudiante."
+    ]
+  }
+}
