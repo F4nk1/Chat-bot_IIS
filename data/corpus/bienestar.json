@@ -94,5 +94,53 @@
       "tipo": "portal_institucional",
       "referencia": "Dirección de Bienestar Universitario de la UNSAAC"
     }
+  },
+  {
+    "id": "BIE-007",
+    "pregunta": "¿Dónde puedo solicitar apoyo psicológico si recién ingresé a la universidad?",
+    "respuesta": "Puedes solicitar orientación y atención psicológica en el Centro Universitario de Salud o en la Unidad de Salud y Psicopedagogía. Estos servicios atienden dificultades emocionales, académicas y de adaptación universitaria.",
+    "categoria": "Bienestar",
+    "subtema": "Apoyo psicológico",
+    "perfil": "ingresante",
+    "enlace": {
+      "texto": "Centro Universitario de Salud de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/centro-universitario-de-salud/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Centro Universitario de Salud de la UNSAAC, servicio de Psicología"
+    }
+  },
+  {
+    "id": "BIE-008",
+    "pregunta": "¿Qué apoyo ofrece Asistencia Social a los estudiantes ingresantes?",
+    "respuesta": "La Unidad de Asistencia Social realiza orientación, evaluaciones socioeconómicas y gestión de beneficios estudiantiles. También desarrolla programas de apoyo para estudiantes que se encuentran en situación de vulnerabilidad.",
+    "categoria": "Bienestar",
+    "subtema": "Asistencia social",
+    "perfil": "ingresante",
+    "enlace": {
+      "texto": "Bienestar Universitario de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/bienestar-universitario/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Dirección de Bienestar Universitario de la UNSAAC, Unidad de Asistencia Social"
+    }
+  },
+  {
+    "id": "BIE-009",
+    "pregunta": "¿Puedo participar en actividades deportivas desde el primer semestre?",
+    "respuesta": "Los estudiantes pueden informarse sobre campeonatos, escuelas deportivas, actividades recreativas y programas de actividad física organizados por la Unidad de Deportes y Recreación de Bienestar Universitario.",
+    "categoria": "Bienestar",
+    "subtema": "Deporte y recreación",
+    "perfil": "ingresante",
+    "enlace": {
+      "texto": "Unidad de Deportes y Recreación de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/bienestar-universitario/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Dirección de Bienestar Universitario de la UNSAAC, Unidad de Deportes y Recreación"
+    }
   }
 ]

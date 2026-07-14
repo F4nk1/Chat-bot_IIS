@@ -430,5 +430,284 @@
       "tipo": "portal_institucional",
       "referencia": "Portal oficial de la Dirección General de Admisión de la UNSAAC"
     }
+  },
+  {
+    "id": "TRA-028",
+    "pregunta": "¿Dónde puedo acceder al Sistema de Matrícula de la UNSAAC?",
+    "respuesta": "Puedes acceder al Sistema de Matrícula desde la página oficial de Servicios Académicos de la UNSAAC. En esa misma página también se encuentra disponible el Manual del Alumno.",
+    "categoria": "Trámites",
+    "subtema": "Matrícula",
+    "perfil": "ingresante",
+    "enlace": {
+      "texto": "Servicios Académicos de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/servicios-academicos/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de Servicios Académicos de la UNSAAC, acceso al Sistema de Matrícula"
+    }
+  },
+  {
+    "id": "TRA-029",
+    "pregunta": "¿Dónde encuentro el Manual del Alumno de la UNSAAC?",
+    "respuesta": "El Manual del Alumno está disponible en el portal de Servicios Académicos. Este documento orienta al estudiante sobre el uso de los sistemas académicos y los procedimientos relacionados con su matrícula.",
+    "categoria": "Trámites",
+    "subtema": "Orientación inicial",
+    "perfil": "ingresante",
+    "enlace": {
+      "texto": "Manual del Alumno y Servicios Académicos",
+      "url": "https://www.unsaac.edu.pe/servicios-academicos/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de Servicios Académicos de la UNSAAC, enlace Manual del Alumno"
+    }
+  },
+  {
+    "id": "TRA-030",
+    "pregunta": "¿Dónde puedo consultar el calendario académico de la UNSAAC?",
+    "respuesta": "El calendario académico puede consultarse desde el portal de Servicios Académicos. Allí se publican los accesos institucionales relacionados con las actividades y periodos académicos de la universidad.",
+    "categoria": "Trámites",
+    "subtema": "Calendario académico",
+    "perfil": "ingresante",
+    "enlace": {
+      "texto": "Calendario y Servicios Académicos de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/servicios-academicos/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de Servicios Académicos de la UNSAAC, acceso al Calendario Académico"
+    }
+  },
+  {
+    "id": "TRA-031",
+    "pregunta": "¿Cómo sé si la UNSAAC ya me reconoce oficialmente como egresado?",
+    "respuesta": "La condición de egresado es determinada al finalizar el semestre por el Centro de Cómputo y la Dirección de la Escuela Profesional. Puedes verificarla mediante tu ficha de seguimiento académico y solicitar una constancia de egresado cuando corresponda.",
+    "categoria": "Trámites",
+    "subtema": "Verificación de egreso",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 121, Reglamento Académico de la UNSAAC; TUPA, servicio SE5100B580"
+    }
+  },
+  {
+    "id": "TRA-032",
+    "pregunta": "¿Qué puedo hacer si estoy por egresar y tengo asignaturas desaprobadas?",
+    "respuesta": "El TUPA contempla la subsanación para estudiantes por egresar que tengan como máximo dos asignaturas desaprobadas y una nota mínima de diez. Debes presentar la solicitud, la ficha de seguimiento académico y cumplir el pago vigente.",
+    "categoria": "Trámites",
+    "subtema": "Subsanación de asignaturas",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, Subsanación de Asignaturas para estudiantes por egresar, código PA510042A6"
+    }
+  },
+  {
+    "id": "TRA-033",
+    "pregunta": "¿Puedo comenzar mi plan de tesis antes de terminar la carrera?",
+    "respuesta": "Sí. El servicio institucional permite que estudiantes del séptimo semestre o uno posterior desarrollen su plan de tesis. Para solicitar formalmente la inscripción y el nombramiento de asesor, el TUPA exige tener más del ochenta por ciento de los créditos aprobados.",
+    "categoria": "Trámites",
+    "subtema": "Inicio de tesis",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, servicio SE510057CA, Nombramiento de Asesor e Inscripción de Tema de Tesis"
+    }
+  },
+  {
+    "id": "TRA-034",
+    "pregunta": "¿Cómo solicito un asesor y registro mi tema de tesis?",
+    "respuesta": "Debes presentar una solicitud dirigida al Rector, dos ejemplares del plan de tesis refrendados por el asesor, la carta de aceptación del asesor, la ficha de seguimiento académico cuando corresponda y el pago vigente por el trámite.",
+    "categoria": "Trámites",
+    "subtema": "Inscripción de tesis",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, servicio SE510057CA"
+    }
+  },
+  {
+    "id": "TRA-035",
+    "pregunta": "¿Qué función cumple el asesor de mi tesis de Ingeniería Informática?",
+    "respuesta": "El asesor debe ser un docente especialista en el tema elegido y orienta el desarrollo del trabajo de investigación. También revisa el plan, supervisa la elaboración de la tesis y emite los informes requeridos para continuar con la evaluación.",
+    "categoria": "Trámites",
+    "subtema": "Asesor de tesis",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, servicio SE510057CA; Reglamento Académico, arts. 136 y 137"
+    }
+  },
+  {
+    "id": "TRA-036",
+    "pregunta": "¿Puedo modificar mi plan de tesis después de haberlo registrado?",
+    "respuesta": "La UNSAAC contempla un procedimiento para solicitar la modificación del plan de tesis o trabajo de investigación. La modificación debe justificarse y tramitarse formalmente antes de aplicar cambios sustanciales al tema, los objetivos o la metodología aprobada.",
+    "categoria": "Trámites",
+    "subtema": "Modificación de tesis",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, Modificación del Plan de Tesis o Trabajo de Investigación, código PA5100B165"
+    }
+  },
+  {
+    "id": "TRA-037",
+    "pregunta": "¿Cómo solicito el nombramiento de dictaminadores para mi tesis?",
+    "respuesta": "Debes presentar una solicitud, el informe del asesor, la resolución que aprueba tu expediente de título, dos ejemplares anillados de la tesis, el certificado de originalidad firmado por el asesor y el pago vigente por el trámite.",
+    "categoria": "Trámites",
+    "subtema": "Dictaminadores de tesis",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, Nombramiento de Dictaminadores de Tesis, código SE5100CBB9"
+    }
+  },
+  {
+    "id": "TRA-038",
+    "pregunta": "¿La tesis debe pasar por un sistema antiplagio?",
+    "respuesta": "Sí. Para solicitar el nombramiento de dictaminadores, la tesis debe contar con un certificado de originalidad firmado por el asesor. El TUPA indica que el trabajo debe ser evaluado mediante el sistema antiplagio utilizado por la universidad.",
+    "categoria": "Trámites",
+    "subtema": "Originalidad de tesis",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, servicio SE5100CBB9"
+    }
+  },
+  {
+    "id": "TRA-039",
+    "pregunta": "¿Cómo solicito fecha, hora y lugar para sustentar mi tesis?",
+    "respuesta": "Debes presentar una solicitud dirigida al Rector, una copia de la resolución que aprueba el dictamen de tesis y los ejemplares requeridos del trabajo. La solicitud se presenta en la mesa de partes de la facultad.",
+    "categoria": "Trámites",
+    "subtema": "Sustentación de tesis",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, Determinación de Fecha, Hora y Lugar para Sustentación, código SE5100E625"
+    }
+  },
+  {
+    "id": "TRA-040",
+    "pregunta": "¿Qué documentos generales necesito para titularme por suficiencia profesional?",
+    "respuesta": "Debes presentar una solicitud dirigida al Rector, copia simple del diploma de bachiller, declaración jurada de no tener antecedentes penales ni judiciales y el comprobante del pago vigente correspondiente a esta modalidad.",
+    "categoria": "Trámites",
+    "subtema": "Suficiencia profesional",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, Titulación por Suficiencia Profesional, código PA5100955F"
+    }
+  },
+  {
+    "id": "TRA-041",
+    "pregunta": "¿Qué ocurre si mi expediente de bachillerato tiene observaciones?",
+    "respuesta": "Si el expediente no cumple todos los requisitos, se devuelve al interesado para que subsane las observaciones. Después de presentar la documentación faltante o corregida, el expediente vuelve a ser evaluado para continuar con la declaración de apto.",
+    "categoria": "Trámites",
+    "subtema": "Observaciones de bachillerato",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 124, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "TRA-042",
+    "pregunta": "¿Qué ocurre después de que soy declarado apto para obtener el bachillerato?",
+    "respuesta": "Con el informe favorable, el Decano emite la resolución que declara apto al egresado. Después de aprobarse el procedimiento correspondiente, la Facultad remite el expediente al Consejo Universitario para conferir el grado y emitir el diploma.",
+    "categoria": "Trámites",
+    "subtema": "Emisión del grado de bachiller",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Arts. 125 y 129, Reglamento Académico de la UNSAAC"
+    }
+  },
+  {
+    "id": "TRA-043",
+    "pregunta": "¿Necesito participar en una ceremonia para recibir el grado de bachiller?",
+    "respuesta": "No. El Reglamento Académico indica que no es necesaria una ceremonia para conferir el grado. Sin embargo, el graduado debe cumplir el registro correspondiente y seguir el procedimiento establecido para la emisión y entrega de su diploma.",
+    "categoria": "Trámites",
+    "subtema": "Entrega de diploma",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 129, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "TRA-044",
+    "pregunta": "¿Qué trámite sigue después de aprobar la sustentación para obtener mi diploma de título profesional?",
+    "respuesta": "Después de cumplir la modalidad de titulación debes continuar con el rotulado del diploma de título profesional. La UNSAAC incorpora la información requerida, asigna el código correspondiente y gestiona su inscripción en el registro nacional.",
+    "categoria": "Trámites",
+    "subtema": "Diploma de título profesional",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, Rotulado de Diploma de Título Profesional, código SE510085A1"
+    }
+  },
+  {
+    "id": "TRA-045",
+    "pregunta": "¿Puedo seguir utilizando la Biblioteca Central después de egresar?",
+    "respuesta": "Sí. La UNSAAC ofrece un carné de biblioteca para egresados. Para solicitarlo debes llenar el formato de la Biblioteca Central, presentar tu documento de identidad, adjuntar la copia del documento del garante y realizar el pago vigente.",
+    "categoria": "Trámites",
+    "subtema": "Servicios para egresados",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "TUPA de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/planeamiento/documentos/TUPAUNSAAC_NuevoFormato2021.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, Carné de Biblioteca para Egresados, código SE51008E52"
+    }
   }
 ]

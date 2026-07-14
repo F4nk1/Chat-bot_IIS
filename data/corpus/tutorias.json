@@ -687,5 +687,44 @@
       "tipo": "reglamento_tutoria",
       "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Ejecución y funcionamiento"
     }
+  },
+  {
+    "id": "TUT-054",
+    "pregunta": "¿Qué temas puedo conversar con mi tutor en mi primera reunión?",
+    "respuesta": "En la primera reunión puedes conversar sobre tu adaptación a la universidad, organización del tiempo, métodos de estudio, dificultades académicas y cualquier situación personal que pueda afectar tu formación.",
+    "categoria": "Tutorías",
+    "subtema": "Primera reunión tutorial",
+    "perfil": "ingresante",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, secciones sobre orientación y atención tutorial"
+    }
+  },
+  {
+    "id": "TUT-055",
+    "pregunta": "¿Puedo pedir ayuda a mi tutor para organizar mis estudios?",
+    "respuesta": "Sí. El tutor puede orientarte en la organización de tu tiempo, el uso de métodos de estudio adecuados, la comprensión de tu plan de formación y la toma de decisiones relacionadas con tu avance académico.",
+    "categoria": "Tutorías",
+    "subtema": "Organización académica",
+    "perfil": "ingresante",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, sección Ejecución y funcionamiento"
+    }
+  },
+  {
+    "id": "TUT-056",
+    "pregunta": "¿Qué hago si una dificultad personal está afectando mis estudios?",
+    "respuesta": "Puedes comunicar la situación a tu tutor académico. El tutor debe orientarte y, cuando necesites atención especializada, puede derivarte a los servicios universitarios correspondientes, respetando la confidencialidad de tu información.",
+    "categoria": "Tutorías",
+    "subtema": "Derivación a servicios de apoyo",
+    "perfil": "ingresante",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_tutoria",
+      "referencia": "Reglamento de Tutoría Académica de la UNSAAC, secciones sobre atención especializada y confidencialidad"
+    }
   }
 ]

@@ -98,17 +98,17 @@
   {
     "id": "CUR-007",
     "pregunta": "¿Cómo se distribuyen los créditos del plan curricular publicado en 2025?",
-    "respuesta": "El plan distribuye doscientos veinte créditos en estudios generales, estudios específicos, estudios de especialidad, actividades extracurriculares y prácticas preprofesionales. Cada bloque contribuye a una parte distinta de la formación.",
+    "respuesta": "Los 220 créditos se distribuyen en 37 de estudios generales, 94 de estudios específicos, 75 de especialidad, 6 de actividades extracurriculares y 8 de prácticas preprofesionales.",
     "categoria": "Cursos",
     "subtema": "Áreas curriculares",
-    "perfil": "general",
+    "perfil": "egresado",
     "enlace": {
       "texto": "Resumen oficial de créditos del plan",
       "url": "https://in.unsaac.edu.pe/wp-content/uploads/2025/03/malla-curricular-ing-informatica-2025.pdf"
     },
     "fuente": {
       "tipo": "portal_institucional",
-      "referencia": "Plan Curricular 2024 de la Escuela Profesional de Ingeniería Informática y de Sistemas, aprobado mediante Resolución CU-031-2025-UNSAAC, sección II.1"
+      "referencia": "Plan de Estudios 2025 de la EP-IIS de la UNSAAC, resumen de la malla curricular"
     }
   },
   {
@@ -317,6 +317,173 @@
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "Plan Curricular 2024 de la Escuela Profesional de Ingeniería Informática y de Sistemas, aprobado mediante Resolución CU-031-2025-UNSAAC, estudios de especialidad electivos"
+    }
+  },
+  {
+    "id": "CUR-021",
+    "pregunta": "¿Dónde puedo consultar el plan curricular que me corresponde?",
+    "respuesta": "Puedes consultar las mallas curriculares publicadas en el portal oficial de la Escuela Profesional. Debes revisar el plan con el que fuiste admitido, porque los cursos, códigos y prerrequisitos pueden variar entre planes.",
+    "categoria": "Cursos",
+    "subtema": "Malla curricular",
+    "perfil": "ingresante",
+    "enlace": {
+      "texto": "Mallas curriculares de Ingeniería Informática y de Sistemas",
+      "url": "https://in.unsaac.edu.pe/malla-curricular/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal oficial de la Escuela Profesional de Ingeniería Informática y de Sistemas, sección Malla Curricular"
+    }
+  },
+  {
+    "id": "CUR-022",
+    "pregunta": "¿Qué es un prerrequisito de una asignatura?",
+    "respuesta": "Un prerrequisito es una asignatura que debes aprobar antes de matricularte en otra que depende de sus conocimientos. Los prerrequisitos correspondientes a cada curso se encuentran establecidos en el plan de estudios.",
+    "categoria": "Cursos",
+    "subtema": "Prerrequisitos",
+    "perfil": "ingresante",
+    "enlace": {
+      "texto": "Plan de estudios de Ingeniería Informática y de Sistemas",
+      "url": "https://in.unsaac.edu.pe/malla-curricular/"
+    },
+    "fuente": {
+      "tipo": "elaboracion_propia",
+      "referencia": "Definición elaborada a partir de la organización de prerrequisitos del plan de estudios oficial de la Escuela Profesional"
+    }
+  },
+  {
+    "id": "CUR-023",
+    "pregunta": "¿Dónde puedo consultar mis notas y los sílabos de mis cursos?",
+    "respuesta": "La UNSAAC dispone de un Sistema de Notas y Sílabos dentro de sus servicios académicos. Desde la página institucional puedes acceder al sistema y consultar la información académica disponible.",
+    "categoria": "Cursos",
+    "subtema": "Notas y sílabos",
+    "perfil": "ingresante",
+    "enlace": {
+      "texto": "Servicios Académicos de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/servicios-academicos/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de Servicios Académicos de la UNSAAC, acceso al Sistema de Notas y Sílabos"
+    }
+  },
+  {
+    "id": "CUR-024",
+    "pregunta": "¿Cuántos créditos necesito para egresar del Plan de Estudios 2025 de Ingeniería Informática y de Sistemas?",
+    "respuesta": "El Plan de Estudios 2025 de Ingeniería Informática y de Sistemas comprende un total de 220 créditos. Para obtener la condición de egresado debes completar satisfactoriamente todos los componentes curriculares obligatorios establecidos en dicho plan.",
+    "categoria": "Cursos",
+    "subtema": "Créditos para egresar",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "Malla curricular de Ingeniería Informática y de Sistemas",
+      "url": "https://in.unsaac.edu.pe/malla-curricular/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Plan de Estudios 2025 de la EP-IIS de la UNSAAC, resumen de la malla curricular"
+    }
+  },
+  {
+    "id": "CUR-025",
+    "pregunta": "¿Es suficiente acumular 220 créditos para ser considerado egresado?",
+    "respuesta": "Además de alcanzar los 220 créditos del Plan 2025, debes haber aprobado los componentes curriculares obligatorios correspondientes a tu plan. No basta con acumular créditos si todavía tienes pendiente una asignatura, práctica o actividad exigida para concluir la carrera.",
+    "categoria": "Cursos",
+    "subtema": "Cumplimiento curricular",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "Reglamento Académico de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 121, Reglamento Académico de la UNSAAC; Plan de Estudios 2025 de la EP-IIS"
+    }
+  },
+  {
+    "id": "CUR-026",
+    "pregunta": "¿Puedo egresar si me falta una asignatura obligatoria aunque ya tenga los créditos requeridos?",
+    "respuesta": "No. Para obtener la condición de egresado debes concluir los estudios conforme al currículo de tu Escuela Profesional. Si una asignatura obligatoria continúa pendiente, primero debes aprobarla o regularizarla mediante un procedimiento permitido por la UNSAAC.",
+    "categoria": "Cursos",
+    "subtema": "Asignaturas pendientes",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "Reglamento Académico de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 121, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "CUR-027",
+    "pregunta": "¿Cómo puedo verificar cuántos créditos y asignaturas me faltan para egresar?",
+    "respuesta": "Debes revisar tu ficha de seguimiento académico y compararla con el plan de estudios al que perteneces. La ficha permite identificar asignaturas aprobadas, desaprobadas, homologadas y pendientes, así como el total de créditos acumulados.",
+    "categoria": "Cursos",
+    "subtema": "Avance curricular",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "TUPA de la UNSAAC, servicio Ficha de Seguimiento Académico, código SE5100E4E4"
+    }
+  },
+  {
+    "id": "CUR-028",
+    "pregunta": "¿Los estudiantes del Plan 2017 también necesitan 220 créditos para egresar?",
+    "respuesta": "No se debe aplicar automáticamente el total del Plan 2025 a estudiantes de otro plan. Los créditos y componentes exigidos dependen del plan curricular asignado al estudiante, por lo que debes revisar tu ficha académica y la malla correspondiente al Plan 2017.",
+    "categoria": "Cursos",
+    "subtema": "Planes curriculares",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "Reglamento Académico de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 121, Reglamento Académico de la UNSAAC; planes curriculares de la EP-IIS"
+    }
+  },
+  {
+    "id": "CUR-029",
+    "pregunta": "¿Qué componentes debo revisar antes de terminar el último semestre de Ingeniería Informática?",
+    "respuesta": "Debes verificar que hayas aprobado las asignaturas obligatorias y electivas, las actividades extracurriculares, la práctica preprofesional y los componentes de investigación establecidos por tu plan. También debes comprobar que todas las notas estén registradas correctamente.",
+    "categoria": "Cursos",
+    "subtema": "Cierre curricular",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Plan de Estudios 2025 de la EP-IIS de la UNSAAC"
+    }
+  },
+  {
+    "id": "CUR-030",
+    "pregunta": "¿Qué temas puedo desarrollar para una tesis de Ingeniería Informática y de Sistemas?",
+    "respuesta": "El tema debe relacionarse con las áreas de formación de la carrera. Puede abordar ingeniería de software, sistemas de información, inteligencia artificial, ciencia de datos, redes, ciberseguridad, computación distribuida o gestión de tecnologías de información.",
+    "categoria": "Cursos",
+    "subtema": "Áreas para investigación",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Plan de Estudios 2025 y áreas de formación de la EP-IIS de la UNSAAC"
+    }
+  },
+  {
+    "id": "CUR-031",
+    "pregunta": "¿Un proyecto de software puede ser utilizado como parte de una tesis profesional?",
+    "respuesta": "Un sistema o producto de software puede formar parte de una tesis si se desarrolla dentro de un problema de investigación, utiliza una metodología verificable y presenta resultados o aportes evaluables. El plan debe ser revisado y aprobado por las instancias académicas correspondientes.",
+    "categoria": "Cursos",
+    "subtema": "Investigación aplicada",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "Reglamento Académico de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 134, Reglamento Académico de la UNSAAC; Plan de Estudios 2025 de la EP-IIS"
     }
   }
 ]

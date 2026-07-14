@@ -401,5 +401,57 @@
       "tipo": "reglamento_tutoria",
       "referencia": "Reglamento de Tutoría Académica de la UNSAAC, Res. CU-0220-2017-UNSAAC, sección Disposiciones complementarias y transitorias"
     }
+  },
+  {
+    "id": "REG-032",
+    "pregunta": "¿Qué significa tener la condición de egresado en la UNSAAC?",
+    "respuesta": "Es egresado quien ha concluido los estudios establecidos en el currículo de su Escuela Profesional y ha alcanzado el número de créditos exigidos por su plan de estudios. La UNSAAC determina esta condición al finalizar el semestre académico.",
+    "categoria": "Reglamentos",
+    "subtema": "Condición de egresado",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 121, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "REG-033",
+    "pregunta": "¿Cuál es la diferencia entre egresado, bachiller y titulado?",
+    "respuesta": "El egresado ha concluido su plan de estudios. El bachiller es el egresado al que la universidad ha otorgado el grado académico correspondiente. El titulado es el bachiller que cumplió y aprobó la modalidad de titulación establecida por la UNSAAC.",
+    "categoria": "Reglamentos",
+    "subtema": "Grados y títulos",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Arts. 121, 122, 130 y 131, Reglamento Académico de la UNSAAC"
+    }
+  },
+  {
+    "id": "REG-034",
+    "pregunta": "¿Necesito ser bachiller antes de solicitar el título profesional?",
+    "respuesta": "Sí. Para optar al título profesional de Ingeniero Informático y de Sistemas es indispensable contar previamente con el grado académico de bachiller otorgado por la UNSAAC.",
+    "categoria": "Reglamentos",
+    "subtema": "Requisito para titulación",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 131, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
+  },
+  {
+    "id": "REG-035",
+    "pregunta": "¿Qué modalidades generales reconoce la UNSAAC para obtener el título profesional?",
+    "respuesta": "El Reglamento Académico establece que el bachiller puede optar al título profesional mediante la aprobación de una tesis o de un trabajo de suficiencia profesional, de acuerdo con las normas y procedimientos aplicables a su Escuela Profesional.",
+    "categoria": "Reglamentos",
+    "subtema": "Modalidades de titulación",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Art. 120, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
+    }
   }
 ]
