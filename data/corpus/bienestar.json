@@ -142,5 +142,309 @@
       "tipo": "portal_institucional",
       "referencia": "Dirección de Bienestar Universitario de la UNSAAC, Unidad de Deportes y Recreación"
     }
+  },
+  {
+    "id": "BIE-010",
+    "pregunta": "¿Qué apoyo brinda la Unidad de Asistencia Social de la UNSAAC?",
+    "respuesta": "La Unidad de Asistencia Social brinda orientación social, realiza evaluaciones socioeconómicas y gestiona beneficios, campañas solidarias y programas de apoyo para estudiantes que se encuentran en situaciones de vulnerabilidad.",
+    "categoria": "Bienestar",
+    "subtema": "Asistencia social",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Bienestar Universitario de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/bienestar-universitario/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de la Dirección de Bienestar Universitario de la UNSAAC, Unidad de Asistencia Social"
+    }
+  },
+  {
+    "id": "BIE-011",
+    "pregunta": "¿Quién evalúa mi situación socioeconómica para acceder a un beneficio estudiantil?",
+    "respuesta": "La evaluación socioeconómica corresponde a la Unidad de Asistencia Social de Bienestar Universitario. Esta unidad revisa la situación del estudiante de acuerdo con los criterios y documentos establecidos para cada beneficio o convocatoria.",
+    "categoria": "Bienestar",
+    "subtema": "Evaluación socioeconómica",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Bienestar Universitario de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/bienestar-universitario/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de la Dirección de Bienestar Universitario de la UNSAAC, Unidad de Asistencia Social"
+    }
+  },
+  {
+    "id": "BIE-012",
+    "pregunta": "¿Los requisitos para una beca o beneficio interno de la UNSAAC son siempre los mismos?",
+    "respuesta": "No. Los requisitos pueden variar según el beneficio, la convocatoria y el periodo académico. Debes consultar las bases vigentes y no utilizar requisitos de convocatorias anteriores como si fueran permanentes.",
+    "categoria": "Bienestar",
+    "subtema": "Beneficios estudiantiles",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Becas publicadas por la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/becas/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal institucional de Becas de la UNSAAC"
+    }
+  },
+  {
+    "id": "BIE-013",
+    "pregunta": "¿Dónde puedo consultar las becas publicadas por la UNSAAC?",
+    "respuesta": "La UNSAAC cuenta con una sección institucional de becas donde publica oportunidades de pregrado y posgrado. Para cada convocatoria debes revisar la fecha, población beneficiaria, requisitos, documentación y entidad que ofrece el financiamiento.",
+    "categoria": "Bienestar",
+    "subtema": "Becas",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Portal de Becas de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/becas/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal institucional de Becas de la UNSAAC"
+    }
+  },
+  {
+    "id": "BIE-014",
+    "pregunta": "¿El Comedor Universitario está dirigido especialmente a estudiantes con necesidad económica?",
+    "respuesta": "Sí. El servicio de Comedor Universitario está orientado especialmente a estudiantes que presentan condiciones socioeconómicas que requieren apoyo institucional. Su finalidad es favorecer la alimentación, permanencia y rendimiento académico.",
+    "categoria": "Bienestar",
+    "subtema": "Comedor Universitario",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Bienestar Universitario de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/bienestar-universitario/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de la Dirección de Bienestar Universitario de la UNSAAC, Unidad de Comedor Universitario"
+    }
+  },
+  {
+    "id": "BIE-015",
+    "pregunta": "¿En qué situaciones puedo solicitar atención psicológica en la UNSAAC?",
+    "respuesta": "Puedes solicitar atención por ansiedad, estrés, síntomas depresivos, violencia, problemas relacionados con alcohol o drogas, ludopatía, bajo rendimiento académico, dudas vocacionales u otras dificultades que afecten tu bienestar emocional.",
+    "categoria": "Bienestar",
+    "subtema": "Atención psicológica",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Centro Universitario de Salud de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/centro-universitario-de-salud/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal del Centro Universitario de Salud de la UNSAAC, Consultorio de Psicología"
+    }
+  },
+  {
+    "id": "BIE-016",
+    "pregunta": "¿Puedo pedir apoyo psicológico si el estrés está afectando mis cursos?",
+    "respuesta": "Sí. El Consultorio de Psicología atiende casos de estrés, ansiedad y bajo rendimiento académico. Puedes solicitar orientación aunque el problema se relacione principalmente con exámenes, carga académica, dificultades de adaptación o desempeño universitario.",
+    "categoria": "Bienestar",
+    "subtema": "Estrés académico",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Centro Universitario de Salud de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/centro-universitario-de-salud/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal del Centro Universitario de Salud de la UNSAAC, Consultorio de Psicología"
+    }
+  },
+  {
+    "id": "BIE-017",
+    "pregunta": "¿La UNSAAC brinda orientación vocacional y consejería psicológica?",
+    "respuesta": "Sí. El Consultorio de Psicología ofrece orientación vocacional, orientación y consejo psicológico, además de psicoterapia individual, de pareja y grupal según la situación que sea evaluada por el profesional.",
+    "categoria": "Bienestar",
+    "subtema": "Orientación psicológica",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Centro Universitario de Salud de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/centro-universitario-de-salud/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal del Centro Universitario de Salud de la UNSAAC, Consultorio de Psicología"
+    }
+  },
+  {
+    "id": "BIE-018",
+    "pregunta": "¿Cómo solicito un cupo para atención psicológica en el Centro Universitario de Salud?",
+    "respuesta": "La solicitud de cupo se realiza inicialmente mediante el servicio de Admisión del Centro Universitario de Salud. Debes consultar el horario vigente de asignación de cupos y presentar los documentos requeridos para acreditar tu condición de estudiante.",
+    "categoria": "Bienestar",
+    "subtema": "Cita psicológica",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Centro Universitario de Salud de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/centro-universitario-de-salud/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal del Centro Universitario de Salud de la UNSAAC, servicio de Admisión"
+    }
+  },
+  {
+    "id": "BIE-019",
+    "pregunta": "¿Qué documentos debo presentar para atenderme en el Centro Universitario de Salud?",
+    "respuesta": "El portal del Centro Universitario de Salud solicita al estudiante carné médico, ficha o constancia de matrícula del semestre vigente y comprobante de pago de matrícula. Debes verificar estos requisitos antes de solicitar atención.",
+    "categoria": "Bienestar",
+    "subtema": "Requisitos de salud",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Centro Universitario de Salud de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/centro-universitario-de-salud/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal del Centro Universitario de Salud de la UNSAAC, requisitos para atención del alumnado"
+    }
+  },
+  {
+    "id": "BIE-020",
+    "pregunta": "¿Qué diferencia existe entre la orientación psicopedagógica y la atención del Consultorio de Psicología?",
+    "respuesta": "Bienestar Universitario brinda orientación y acompañamiento psicopedagógico para el bienestar académico y emocional. El Consultorio de Psicología del Centro Universitario de Salud atiende problemas psicológicos específicos y ofrece consejería y psicoterapia.",
+    "categoria": "Bienestar",
+    "subtema": "Psicopedagogía y psicología",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Bienestar Universitario de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/bienestar-universitario/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portales de Bienestar Universitario y del Centro Universitario de Salud de la UNSAAC"
+    }
+  },
+  {
+    "id": "BIE-021",
+    "pregunta": "¿Qué actividades deportivas organiza la UNSAAC para sus estudiantes?",
+    "respuesta": "La Unidad de Deportes y Recreación organiza campeonatos universitarios, escuelas deportivas, actividades recreativas, eventos de integración, capacitaciones y programas de actividad física para los estudiantes.",
+    "categoria": "Bienestar",
+    "subtema": "Actividades deportivas",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Bienestar Universitario de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/bienestar-universitario/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de Bienestar Universitario de la UNSAAC, Unidad de Deportes y Recreación"
+    }
+  },
+  {
+    "id": "BIE-022",
+    "pregunta": "¿La UNSAAC participa en competencias deportivas universitarias?",
+    "respuesta": "Sí. La Unidad de Deportes y Recreación promueve la participación estudiantil en competencias universitarias de nivel local, regional y nacional, además de organizar actividades deportivas dentro de la universidad.",
+    "categoria": "Bienestar",
+    "subtema": "Competencias deportivas",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Bienestar Universitario de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/bienestar-universitario/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de Bienestar Universitario de la UNSAAC, Unidad de Deportes y Recreación"
+    }
+  },
+  {
+    "id": "BIE-023",
+    "pregunta": "¿Puedo participar en actividades deportivas si no pertenezco a una selección universitaria?",
+    "respuesta": "Bienestar Universitario también organiza escuelas deportivas, programas de actividad física y actividades recreativas. Para conocer las opciones abiertas a estudiantes debes consultar las convocatorias y horarios de la Unidad de Deportes y Recreación.",
+    "categoria": "Bienestar",
+    "subtema": "Participación deportiva",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Bienestar Universitario de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/bienestar-universitario/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de Bienestar Universitario de la UNSAAC, Unidad de Deportes y Recreación"
+    }
+  },
+  {
+    "id": "BIE-024",
+    "pregunta": "¿Dónde consulto los horarios y convocatorias de actividades deportivas?",
+    "respuesta": "Los horarios, disciplinas y convocatorias pueden variar durante el año. Debes consultar la información publicada por Bienestar Universitario o comunicarte con la Unidad de Deportes y Recreación antes de acudir a una actividad.",
+    "categoria": "Bienestar",
+    "subtema": "Convocatorias deportivas",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Bienestar Universitario de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/bienestar-universitario/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de Bienestar Universitario de la UNSAAC, Unidad de Deportes y Recreación"
+    }
+  },
+  {
+    "id": "BIE-025",
+    "pregunta": "¿A qué estudiantes está dirigido el servicio de Vivienda Universitaria?",
+    "respuesta": "El servicio de Vivienda Universitaria brinda alojamiento a estudiantes provenientes de diferentes distritos, provincias y regiones del país. El acceso depende de los criterios, vacantes y procedimientos que establezca la unidad responsable.",
+    "categoria": "Bienestar",
+    "subtema": "Residencia estudiantil",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Bienestar Universitario de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/bienestar-universitario/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de Bienestar Universitario de la UNSAAC, Unidad de Vivienda Universitaria"
+    }
+  },
+  {
+    "id": "BIE-026",
+    "pregunta": "¿Qué unidad administra la residencia estudiantil de la UNSAAC?",
+    "respuesta": "La Unidad de Vivienda Universitaria administra y supervisa los servicios de residencia estudiantil. Esta unidad se encarga de procurar condiciones adecuadas de alojamiento y convivencia para los estudiantes residentes.",
+    "categoria": "Bienestar",
+    "subtema": "Administración de residencia",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Bienestar Universitario de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/bienestar-universitario/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de Bienestar Universitario de la UNSAAC, Unidad de Vivienda Universitaria"
+    }
+  },
+  {
+    "id": "BIE-027",
+    "pregunta": "¿Cómo puedo solicitar una vacante en la Vivienda Universitaria?",
+    "respuesta": "Debes consultar la convocatoria y los requisitos vigentes de la Unidad de Vivienda Universitaria. La publicación correspondiente debe indicar las vacantes, documentos, criterios de evaluación, fechas y procedimiento de postulación.",
+    "categoria": "Bienestar",
+    "subtema": "Postulación a residencia",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Bienestar Universitario de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/bienestar-universitario/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de Bienestar Universitario de la UNSAAC, Unidad de Vivienda Universitaria"
+    }
+  },
+  {
+    "id": "BIE-028",
+    "pregunta": "¿Qué apoyo ofrece la Vivienda Universitaria además del alojamiento?",
+    "respuesta": "La Unidad de Vivienda Universitaria promueve espacios de convivencia, integración, desarrollo personal y apoyo académico. Su finalidad es contribuir a mejorar las condiciones de vida de los estudiantes residentes.",
+    "categoria": "Bienestar",
+    "subtema": "Servicios de residencia",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Bienestar Universitario de la UNSAAC",
+      "url": "https://www.unsaac.edu.pe/bienestar-universitario/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de Bienestar Universitario de la UNSAAC, Unidad de Vivienda Universitaria"
+    }
   }
 ]

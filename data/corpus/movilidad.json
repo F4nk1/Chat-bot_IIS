@@ -226,7 +226,7 @@
   {
     "id": "MOV-015",
     "pregunta": "¿Qué criterio académico se usa para convalidar una asignatura?",
-    "respuesta": "Como regla general, el reglamento exige que la asignatura corresponda al currículo vigente y que exista una coincidencia mínima del ochenta por ciento entre los contenidos de los sílabos. En intercambios también se evalúa cada caso concreto.",
+    "respuesta": "El Reglamento Académico señala que las asignaturas deben tener contenidos analíticos silábicos equivalentes en no menos del setenta y cinco por ciento (75%) y equivalencia de créditos. Por ello, antes de postular debes comparar estos aspectos con tu plan de estudios y consultar a tu Escuela Profesional para asegurar su posterior convalidación.",
     "categoria": "Movilidad",
     "subtema": "Reconocimiento académico",
     "perfil": "general",
@@ -306,7 +306,7 @@
   {
     "id": "MOV-020",
     "pregunta": "¿Una movilidad estudiantil siempre cubre todos los costos?",
-    "respuesta": "No. La cobertura económica depende de cada convenio y convocatoria. Algunas oportunidades pueden exonerar costos académicos en la universidad de destino, pero esa condición no debe asumirse para todos los programas.",
+    "respuesta": "No. El financiamiento depende de la convocatoria específica. Debes revisar la sección de beneficios y obligaciones de las bases, donde se detalla si cubre matrícula, transporte, alojamiento, alimentación, seguro u otros conceptos, y qué costos permanecen a cargo del estudiante.",
     "categoria": "Movilidad",
     "subtema": "Financiamiento",
     "perfil": "general",
@@ -317,6 +317,54 @@
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "Convocatoria de Movilidad Estudiantil 2025-II de la Universidad Peruana Cayetano Heredia, sección Programa de estudiantes de intercambio"
+    }
+  },
+  {
+    "id": "MOV-021",
+    "pregunta": "¿Necesito que exista un convenio para participar en un intercambio?",
+    "respuesta": "Muchas convocatorias de intercambio se desarrollan mediante convenios entre la UNSAAC y la institución de destino. Debes verificar en las bases si el convenio es obligatorio y si tu Escuela Profesional está comprendida en la oportunidad.",
+    "categoria": "Movilidad",
+    "subtema": "Convenios",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Internacionalización de la UNSAAC",
+      "url": "https://octi.unsaac.edu.pe/internacionalizacion/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de Internacionalización de la Oficina de Cooperación y Relaciones Internacionales"
+    }
+  },
+  {
+    "id": "MOV-022",
+    "pregunta": "¿Un estudiante de Ingeniería Informática puede postular a movilidad?",
+    "respuesta": "Sí, cuando la convocatoria incluya Ingeniería Informática, Ingeniería de Sistemas, Computación o áreas compatibles. Debes comprobar que la universidad de destino ofrezca asignaturas o actividades relacionadas con tu formación.",
+    "categoria": "Movilidad",
+    "subtema": "Movilidad para Informática",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Movilidad estudiantil saliente",
+      "url": "https://octi.unsaac.edu.pe/movilidad-saliente-outgoing/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Convocatorias de movilidad nacional e internacional publicadas por la UNSAAC"
+    }
+  },
+  {
+    "id": "MOV-023",
+    "pregunta": "¿Los convenios de la UNSAAC sirven solamente para intercambios de cursos?",
+    "respuesta": "No. Los convenios también pueden facilitar investigación, prácticas preprofesionales y profesionales, voluntariados, desarrollo de tesis, capacitación y otras actividades de cooperación académica.",
+    "categoria": "Movilidad",
+    "subtema": "Oportunidades mediante convenios",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Internacionalización de la UNSAAC",
+      "url": "https://octi.unsaac.edu.pe/internacionalizacion/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Portal de Internacionalización de la Oficina de Cooperación y Relaciones Internacionales"
     }
   }
 ]
