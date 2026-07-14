@@ -1,0 +1,190 @@
+codigo_curso,nombre,plan,semestre,creditos,tipo,area,prerrequisitos
+LC901,Redacción de Textos,2017,1,4,obligatorio,Formación general,
+ME901,Matemática I,2017,1,4,obligatorio,Ciencias básicas,
+ED901,Estrategias de Aprendizaje Autónomo,2017,1,4,obligatorio,Formación general,
+FP901,Filosofía y Ética,2017,1,3,obligatorio,Formación general,
+AS901,Sociedad y Cultura,2017,1,3,obligatorio,Formación general,
+DR901,Constitución Política y Derechos Humanos,2017,1,3,obligatorio,Formación general,
+IF468,Fundamentos de Programación,2017,2,4,obligatorio,Programación y algoritmos,
+ME307,Matemáticas Discretas I,2017,2,4,obligatorio,Ciencias básicas,
+ME903,Cálculo I,2017,2,4,obligatorio,Ciencias básicas,ME901
+FI902,Física I,2017,2,4,obligatorio,Ciencias básicas,
+IF902,Tecnología de la Información y Comunicación,2017,2,3,obligatorio,Formación general,
+FP902,Liderazgo y Habilidades Sociales,2017,2,3,obligatorio,Formación general,
+IF450,Abstracción de Datos y Objetos,2017,3,4,obligatorio,Programación y algoritmos,IF468
+FI370,Física Aplicada a la Informática,2017,3,4,obligatorio,Ciencias básicas,FI902
+ME350,Cálculo II,2017,3,4,obligatorio,Ciencias básicas,ME903
+ME351,Álgebra Lineal Computacional,2017,3,4,obligatorio,Ciencias básicas,ME307;IF468
+ME352,Probabilidades y Estadística,2017,3,4,obligatorio,Ciencias básicas,ME903
+IF451,Programación I,2017,3,2,obligatorio,Programación y algoritmos,IF468
+IF452,Algoritmos y Estructura de Datos,2017,4,4,obligatorio,Programación y algoritmos,IF450
+LI371,Electrónica y Diseño Digital,2017,4,3,obligatorio,"Sistemas, arquitectura y hardware",FI370
+IF480,Administración de Tecnologías de Información,2017,4,3,obligatorio,Gestión de tecnologías de información,ME352
+ME354,Investigación Operativa,2017,4,4,obligatorio,Ciencias básicas,ME351
+ME355,Matemáticas Discretas II,2017,4,4,obligatorio,Ciencias básicas,ME307
+IF453,Programación II,2017,4,2,obligatorio,Programación y algoritmos,IF451
+EXT17-01,Actividad Extracurricular I,2017,4,2,electivo,Actividades extracurriculares,CRED_60
+IF650,Modelos Probabilísticos,2017,5,4,obligatorio,Inteligencia artificial y ciencia de datos,ME352;CRED_80
+IF550,Organización y Arquitectura del Computador,2017,5,4,obligatorio,"Sistemas, arquitectura y hardware",LI371
+IF454,Teoría de la Computación,2017,5,3,obligatorio,Programación y algoritmos,IF452;ME355
+IF610,Análisis y Diseño de Sistemas de Información,2017,5,4,obligatorio,Ingeniería de software,IF450;IF480
+IF481,Ingeniería Económica,2017,5,3,obligatorio,Gestión de tecnologías de información,IF480
+ME356,Ecuaciones Diferenciales,2017,5,4,obligatorio,Ciencias básicas,ME350
+IF455,Algoritmos Paralelos y Distribuidos,2017,6,4,obligatorio,Programación y algoritmos,IF452
+IF611,Metodología de Desarrollo de Software,2017,6,3,obligatorio,Ingeniería de software,IF610
+IF612,Fundamentos y Diseño de Bases de Datos,2017,6,4,obligatorio,Datos y bases de datos,IF610
+IF551,Sistemas Operativos,2017,6,4,obligatorio,"Sistemas, arquitectura y hardware",IF550
+IF457,Métodos Numéricos,2017,6,3,obligatorio,Ciencias básicas,ME356
+ELE17-01,Electivo de Especialidad I,2017,6,4,electivo,Electivo de especialidad,
+IF456,Algoritmos Avanzados,2017,7,4,obligatorio,Programación y algoritmos,IF454
+IF651,Inteligencia Artificial,2017,7,4,obligatorio,Inteligencia artificial y ciencia de datos,IF650;IF612
+IF613,Desarrollo de Software I,2017,7,2,obligatorio,Ingeniería de software,IF612
+IF552,Redes de Computadoras I,2017,7,4,obligatorio,Redes y ciberseguridad,IF551
+ELE17-02,Electivo de Especialidad II,2017,7,3,electivo,Electivo de especialidad,
+ELE17-03,Electivo de Especialidad III,2017,7,3,electivo,Electivo de especialidad,
+EXT17-02,Actividad Extracurricular II,2017,7,2,electivo,Actividades extracurriculares,CRED_100
+IF710,Seminario de Investigación I,2017,8,3,obligatorio,Investigación,CRED_150
+IF652,Aprendizaje Automático,2017,8,4,obligatorio,Inteligencia artificial y ciencia de datos,IF651
+IF614,Ingeniería de Software I,2017,8,4,obligatorio,Ingeniería de software,IF611;IF613
+IF482,Planeamiento y Dirección Estratégica de Tecnología de Información,2017,8,3,obligatorio,Gestión de tecnologías de información,CRED_140
+ELE17-04,Electivo de Especialidad IV,2017,8,4,electivo,Electivo de especialidad,
+ELE17-05,Electivo de Especialidad V,2017,8,4,electivo,Electivo de especialidad,
+IF483,Formulación de Proyectos de Tecnología de Información,2017,9,3,obligatorio,Gestión de tecnologías de información,IF482
+ELE17-06,Electivo de Especialidad VI,2017,9,3,electivo,Electivo de especialidad,
+ELE17-07,Electivo de Especialidad VII,2017,9,3,electivo,Electivo de especialidad,
+ELE17-08,Electivo de Especialidad VIII,2017,9,4,electivo,Electivo de especialidad,
+ELE17-09,Electivo de Especialidad IX,2017,9,3,electivo,Electivo de especialidad,
+ELE17-10,Electivo de Especialidad X,2017,9,4,electivo,Electivo de especialidad,
+EXT17-03,Actividad Extracurricular III,2017,9,2,electivo,Actividades extracurriculares,CRED_170
+IF711,Seminario de Investigación II,2017,10,3,obligatorio,Investigación,IF710
+ELE17-11,Electivo de Especialidad XI,2017,10,4,electivo,Electivo de especialidad,
+ELE17-12,Electivo de Especialidad XII,2017,10,3,electivo,Electivo de especialidad,
+ELE17-13,Electivo de Especialidad XIII,2017,10,3,electivo,Electivo de especialidad,
+IF020,Prácticas Preprofesionales,2017,10,9,obligatorio,Prácticas preprofesionales,CRED_200
+QUG01,Química General,2025,1,4,obligatorio,Ciencias básicas,
+MEG01,Álgebra y Geometría Analítica,2025,1,4,obligatorio,Ciencias básicas,
+HIG01,Historia Crítica del Perú e Identidad Nacional,2025,1,3,obligatorio,Formación general,
+FIG01,Física I,2025,1,4,obligatorio,Ciencias básicas,
+CBG01,Ecología y Medio Ambiente,2025,1,3,obligatorio,Formación general,
+MEG02,Cálculo I,2025,1,4,obligatorio,Ciencias básicas,
+LCG01,Lingüística y Comunicación Humana,2025,2,4,obligatorio,Formación general,
+MEG03,Estadística General,2025,2,4,obligatorio,Ciencias básicas,
+IFG01,Pensamiento Computacional e Inteligencia Artificial,2025,2,3,obligatorio,Programación y algoritmos,
+MEG04,Cálculo II,2025,2,4,obligatorio,Ciencias básicas,MEG02
+IFI01,Fundamentos de Programación,2025,2,3,obligatorio,Programación y algoritmos,
+MEI04,Matemáticas Discretas I,2025,2,4,obligatorio,Ciencias básicas,MEG01
+IFI02,Algoritmos y Estructuras de Datos I,2025,3,4,obligatorio,Programación y algoritmos,IFI01;IFG01
+IFI03,Programación I,2025,3,2,obligatorio,Programación y algoritmos,IFI01
+MEI05,Álgebra Lineal Computacional,2025,3,4,obligatorio,Ciencias básicas,MEG01
+FII02,Física Aplicada a la Informática,2025,3,4,obligatorio,Ciencias básicas,FIG01
+MEI06,Matemáticas Discretas II,2025,3,4,obligatorio,Ciencias básicas,MEI04
+MEI09,Calculo III,2025,3,4,obligatorio,Ciencias básicas,MEG04
+IFI04,Algoritmos y Estructuras de Datos II,2025,4,4,obligatorio,Programación y algoritmos,IFI02;IFI03
+IFI05,Programación II,2025,4,2,obligatorio,Programación y algoritmos,IFI02;IFI03
+ADI01,Organización y Dirección de Empresas,2025,4,4,obligatorio,Gestión de tecnologías de información,CRED_60
+ELI01,Electrónica y Diseño Digital,2025,4,4,obligatorio,"Sistemas, arquitectura y hardware",FII02
+IFI07,Modelos Probabilísticos,2025,4,4,obligatorio,Inteligencia artificial y ciencia de datos,MEI06;MEG03
+MEI08,Ecuaciones Diferenciales,2025,4,4,obligatorio,Ciencias básicas,MEI09
+IFI08,Análisis y Diseño de Algoritmos,2025,5,4,obligatorio,Programación y algoritmos,IFI04
+IFI09,Programación III,2025,5,2,obligatorio,Programación y algoritmos,IFI05
+IFI10,Análisis y Diseño de Sistemas de Información,2025,5,4,obligatorio,Ingeniería de software,IFI04;ADI01
+IFI11,Organización y Arquitectura del Computador,2025,5,4,obligatorio,"Sistemas, arquitectura y hardware",ELI01
+IFI12,Métodos Numéricos,2025,5,4,obligatorio,Ciencias básicas,MEI08
+IFI13,Teoría de la Computación,2025,5,4,obligatorio,Programación y algoritmos,IFI04
+IFI14,Inteligencia Artificial,2025,6,4,obligatorio,Inteligencia artificial y ciencia de datos,MEI05;IFI07
+IFI15,Fundamentos y Diseño de Bases de Datos,2025,6,4,obligatorio,Datos y bases de datos,IFI10
+IFI16,Sistemas Operativos,2025,6,4,obligatorio,"Sistemas, arquitectura y hardware",IFI11
+IFI17,Modelado y Simulación,2025,6,4,obligatorio,Inteligencia artificial y ciencia de datos,IFI07;IFI12
+EUI01,Deporte,2025,6,2,obligatorio,Actividades extracurriculares,CRED_100
+IFI19,Aprendizaje Automático,2025,7,4,obligatorio,Inteligencia artificial y ciencia de datos,IFI14
+IFI20,Metodología y Desarrollo de Software,2025,7,5,obligatorio,Ingeniería de software,IFI15
+IFI21,Redes de Computadoras I,2025,7,4,obligatorio,Redes y ciberseguridad,IFI16
+IFI22,Ciencia de Datos,2025,7,3,obligatorio,Inteligencia artificial y ciencia de datos,IFI14
+IFI23,Proyección Social,2025,7,2,obligatorio,Actividades extracurriculares,CRED_120
+IFI24,Programación Paralela y Distribuida,2025,8,4,obligatorio,Programación y algoritmos,IFI21;IFI08
+IFI25,Aprendizaje Profundo,2025,8,4,obligatorio,Inteligencia artificial y ciencia de datos,IFI19
+IFI26,Ingeniería de Software I,2025,8,4,obligatorio,Ingeniería de software,IFI20
+IFI27,Redes de Computadoras II,2025,8,4,obligatorio,Redes y ciberseguridad,IFI21
+IFI28,Formulación de Proyectos de Tecnologías de la Información,2025,8,3,obligatorio,Gestión de tecnologías de información,IFI20
+IFI29,Seminario de Investigación,2025,9,3,obligatorio,Investigación,CRED_170
+IFI30,Ingeniería de Software II,2025,9,4,obligatorio,Ingeniería de software,IFI26
+IFI31,Sistemas de Internet de las Cosas,2025,9,4,obligatorio,Redes y ciberseguridad,IFI27;IFI19
+IFI32,Ciberseguridad,2025,9,4,obligatorio,Redes y ciberseguridad,IFI27
+IFI33,Trabajo de Investigación,2025,10,4,obligatorio,Investigación,IFI29
+IFI34,Desarrollo de Proyectos de Ingeniería de Software,2025,10,4,obligatorio,Ingeniería de software,IFI28;IFI30
+IFI35,Administración de Tecnologías de la Información,2025,10,4,obligatorio,Gestión de tecnologías de información,IFI32
+IFI18,Debate,2025,10,2,obligatorio,Actividades extracurriculares,CRED_180
+IFI66,Prácticas Preprofesionales,2025,10,8,obligatorio,Prácticas preprofesionales,CRED_180
+ELE25-01,Electivo de Especialidad I,2025,6,4,electivo,Electivo de especialidad,
+ELE25-02,Electivo de Especialidad II,2025,7,4,electivo,Electivo de especialidad,
+ELE25-03,Electivo de Especialidad III,2025,8,3,electivo,Electivo de especialidad,
+ELE25-04,Electivo de Especialidad IV,2025,9,4,electivo,Electivo de especialidad,
+ELE25-05,Electivo de Especialidad V,2025,9,3,electivo,Electivo de especialidad,
+ME357,Matemáticas Avanzadas para Ingeniería,2017,0,4,electivo,Ciencias básicas,ME350
+ME358,Estadística Inferencial,2017,0,4,electivo,Ciencias básicas,ME352
+ME359,Estadística Aplicada,2017,0,4,electivo,Ciencias básicas,ME352
+IF458,Computación Gráfica I,2017,0,4,electivo,Programación y algoritmos,IF452;IF453
+IF459,Computación Gráfica II,2017,0,4,electivo,Programación y algoritmos,IF458
+IF460,Computación Cuántica,2017,0,4,electivo,Programación y algoritmos,IF456
+IF464,Computación Simbólica,2017,0,4,electivo,Programación y algoritmos,IF466
+IF465,Geometría Computacional,2017,0,4,electivo,Programación y algoritmos,IF458
+IF466,Compiladores,2017,0,4,electivo,Programación y algoritmos,IF454
+IF467,Análisis y Diseño de Algoritmos,2017,0,4,electivo,Programación y algoritmos,IF452;IF453
+IF484,Emprendimiento e Innovación,2017,0,3,electivo,Gestión de tecnologías de información,IF482
+IF485,Control y Auditoría de Sistemas,2017,0,3,electivo,Gestión de tecnologías de información,IF483
+IF553,Lenguaje Ensamblador,2017,0,3,electivo,"Sistemas, arquitectura y hardware",IF550
+IF554,Redes de Computadoras II,2017,0,4,electivo,Redes y ciberseguridad,IF552
+IF555,Tópicos Avanzados en Redes,2017,0,4,electivo,Redes y ciberseguridad,IF554
+IF556,Sistemas Embebidos,2017,0,4,electivo,"Sistemas, arquitectura y hardware",IF551
+IF557,Arquitecturas de Alto Rendimiento,2017,0,4,electivo,"Sistemas, arquitectura y hardware",IF554
+IF616,Desarrollo de Software II,2017,0,2,electivo,Ingeniería de software,IF614
+IF617,Ingeniería de Software II,2017,0,4,electivo,Ingeniería de software,IF614
+IF618,Tópicos Avanzados en Ingeniería de Software,2017,0,4,electivo,Ingeniería de software,IF614
+IF619,Análisis de Datos Empresariales,2017,0,4,electivo,Datos y bases de datos,IF612;ME352
+IF653,Minería de Datos,2017,0,4,electivo,Inteligencia artificial y ciencia de datos,IF652
+IF654,Robótica,2017,0,4,electivo,Inteligencia artificial y ciencia de datos,IF651
+IF655,Procesamiento Digital de Señales,2017,0,4,electivo,Inteligencia artificial y ciencia de datos,IF651
+IF656,Procesamiento del Lenguaje Natural,2017,0,4,electivo,Inteligencia artificial y ciencia de datos,IF651
+IF657,Visión Computacional,2017,0,4,electivo,Inteligencia artificial y ciencia de datos,IF651
+IF658,Redes Neuronales Artificiales,2017,0,4,electivo,Inteligencia artificial y ciencia de datos,IF652
+IF659,Redes Bayesianas,2017,0,4,electivo,Inteligencia artificial y ciencia de datos,IF652
+IF661,Búsqueda Heurística y Metaheurística,2017,0,4,electivo,Inteligencia artificial y ciencia de datos,IF651
+IF662,Deep Learning,2017,0,4,electivo,Inteligencia artificial y ciencia de datos,IF652
+IF663,Interacción Persona-Computador,2017,0,4,electivo,Inteligencia artificial y ciencia de datos,IF651
+IF664,Bioinformática,2017,0,4,electivo,Inteligencia artificial y ciencia de datos,IF650
+IF665,Modelación y Simulación de Estructuras Biomoleculares,2017,0,4,electivo,Inteligencia artificial y ciencia de datos,IF664
+IF666,Estadística para Bioinformática y Diseño Experimental,2017,0,4,electivo,Inteligencia artificial y ciencia de datos,IF664
+IF667,Análisis de Imágenes Biomédicas en 2D y 3D,2017,0,4,electivo,Inteligencia artificial y ciencia de datos,IF664
+IF668,Análisis de Datos de Expresión Génica,2017,0,4,electivo,Inteligencia artificial y ciencia de datos,IF664
+IF669,Modelado y Simulación,2017,0,4,electivo,Inteligencia artificial y ciencia de datos,IF650
+IF060,Música,2017,0,2,electivo,Actividades extracurriculares,CRED_60
+IF061,Coro,2017,0,2,electivo,Actividades extracurriculares,CRED_60
+IF062,Danza Moderna,2017,0,2,electivo,Actividades extracurriculares,CRED_100
+IF063,Quechua,2017,0,2,electivo,Actividades extracurriculares,CRED_100
+IF064,Taller de Debate,2017,0,2,electivo,Actividades extracurriculares,CRED_170
+IF065,Taller de Creatividad Musical,2017,0,2,electivo,Actividades extracurriculares,CRED_170
+IF066,Teatro,2017,0,2,electivo,Actividades extracurriculares,CRED_170
+IFI40,Desarrollo de Aplicaciones Web,2025,0,3,electivo,Ingeniería de software,IFI26
+IFI41,Desarrollo de Aplicaciones Móviles,2025,0,4,electivo,Ingeniería de software,IFI26
+IFI45,Compiladores,2025,0,4,electivo,Programación y algoritmos,IFI13
+IFI42,Redes Complejas,2025,0,4,electivo,Programación y algoritmos,IFI08
+IFI43,Procesamiento de Lenguaje Natural,2025,0,3,electivo,Inteligencia artificial y ciencia de datos,IFI25
+IFI44,Computación Gráfica I,2025,0,3,electivo,Programación y algoritmos,IFI04;IFI05
+IFI46,Tópicos Avanzados en Redes,2025,0,3,electivo,Redes y ciberseguridad,IFI27
+IFI47,Arquitectura de Alto Rendimiento,2025,0,3,electivo,"Sistemas, arquitectura y hardware",IFI27
+IFI48,Visión Computacional,2025,0,4,electivo,Inteligencia artificial y ciencia de datos,IFI25
+IFI49,Inteligencia Artificial Robótica,2025,0,4,electivo,Inteligencia artificial y ciencia de datos,IFI14
+IFI50,Bioinformática,2025,0,4,electivo,Inteligencia artificial y ciencia de datos,IFI19
+IFI51,Innovación y Emprendimiento,2025,0,3,electivo,Gestión de tecnologías de información,ADI01
+IFI52,Ingeniería Económica,2025,0,3,electivo,Gestión de tecnologías de información,ADI01
+IFI53,Gestion de Proyectos en Tecnologias de la Información,2025,0,3,electivo,Gestión de tecnologías de información,IFI28
+IFI54,Control y Auditoria Informática,2025,0,3,electivo,Gestión de tecnologías de información,IFI26
+IFI55,Blockchain,2025,0,3,electivo,Redes y ciberseguridad,IFI26;IFI27
+IFI56,Computación Gráfica II,2025,0,3,electivo,Programación y algoritmos,IFI44
+IFI57,Algoritmos Avanzados,2025,0,4,electivo,Programación y algoritmos,IFI13
+IFI58,Computación Cuántica,2025,0,4,electivo,Programación y algoritmos,IFI57
+IFI59,Computación Simbólica,2025,0,4,electivo,Programación y algoritmos,IFI45
+IFI60,Geometría Computacional,2025,0,4,electivo,Programación y algoritmos,IFI44
+MEI65,Investigación Operativa,2025,0,4,electivo,Ciencias básicas,MEI05
+IFI65,Ingenieria de Software III,2025,0,4,electivo,Ingeniería de software,IFI30
+IFI67,Actividades,2025,0,2,electivo,Actividades extracurriculares,CRED_60
