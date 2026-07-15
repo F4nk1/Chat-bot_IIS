@@ -12,22 +12,26 @@ class ChatbotEngine:
     usando un enfoque híbrido de IA clásica sin modelos generativos externos.
     """
     @staticmethod
-    def obtener_respuesta(mensaje: str, historial: list = None, session_id: str = "default_session"):
+    def obtener_respuesta(mensaje: str, historial: list = None):
         if historial is None:
             historial = []
 
-        # 1. NLU: Reconocimiento de Entidades y Resolución de Correferencia
-        mensaje_contextualizado = context_manager.resolver_correferencia(mensaje, session_id)
-        entidades = ner_engine.extraer_entidades(mensaje_contextualizado)
+        # 1. Recuperar contexto del historial (Stateless)
+        tema_previo, codigo_historial, semestre_historial = context_manager.extraer_contexto_historial(historial, motor_embeddings.modelo)
+
+        # 2. NLU: Resolución de Correferencia en el mensaje actual
+        mensaje_contextualizado = context_manager.resolver_correferencia(mensaje, tema_previo)
         
-        # 2. NLU: Detección de Intenciones (SVM Clasificador)
+        # Extraer entidades del mensaje actual
+        entidades_actuales = ner_engine.extraer_entidades(mensaje_contextualizado)
+        
+        # Fusionar entidades (priorizar el mensaje actual, fallback al historial)
+        codigo_activo = entidades_actuales.get("codigo_alumno") or codigo_historial
+        semestre_activo = entidades_actuales.get("semestre") or semestre_historial
+        
+        # 3. NLU: Detección de Intenciones del mensaje actual contextualizado
         intencion = detector_intenciones.detectar(mensaje_contextualizado, motor_embeddings.modelo)
         
-        # 3. Actualizar Contexto de Memoria
-        sesion = context_manager.actualizar_contexto(session_id, intencion, entidades)
-        codigo_activo = sesion.get("entidad_codigo")
-        semestre_activo = entidades.get("semestre")
-
         respuesta_final = ""
         confianza = 1.0
 
