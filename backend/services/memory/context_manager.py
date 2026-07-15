@@ -14,7 +14,10 @@ class ContextManager:
             "Tramites": "los trámites universitarios",
             "Bienestar": "el bienestar, salud y comedor",
             "Practicas": "las prácticas preprofesionales",
-            "Reglamentos": "el reglamento académico"
+            "Reglamentos": "el reglamento académico",
+            "Movilidad": "el intercambio y la movilidad estudiantil",
+            "Cursos_General": "la información general de cursos y créditos",
+            "Tutorias_General": "la información general del reglamento de tutorías"
         }
 
     def extraer_contexto_historial(self, historial: list, modelo_embeddings):

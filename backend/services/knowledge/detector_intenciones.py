@@ -34,6 +34,19 @@ DATOS_ENTRENAMIENTO = [
     ("qué pasa si me jalo un curso", "Reglamentos"),
     ("cuál es el estatuto sobre faltas disciplinarias", "Reglamentos"),
     
+    ("qué es la movilidad estudiantil", "Movilidad"),
+    ("quiero ir de intercambio", "Movilidad"),
+    ("cómo postulo a una beca en el extranjero", "Movilidad"),
+    ("programa pila o alianza del pacifico", "Movilidad"),
+
+    ("qué es un plan de estudios", "Cursos_General"),
+    ("cuántos créditos necesito para egresar", "Cursos_General"),
+    ("qué es un curso dirigido", "Cursos_General"),
+    
+    ("cómo solicito una tutoría académica", "Tutorias_General"),
+    ("la tutoría es obligatoria", "Tutorias_General"),
+    ("quiénes pueden ser tutores", "Tutorias_General"),
+    
     ("hola, qué tal", "Saludo"),
     ("buenos días", "Saludo"),
     ("hola bot", "Saludo"),

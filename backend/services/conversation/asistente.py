@@ -77,7 +77,7 @@ class ChatbotEngine:
                 else:
                     respuesta_final = f"No encontré información de cursos para el semestre {semestre_activo}."
                     
-        elif intencion in ["Tramites", "Bienestar", "Practicas", "Reglamentos", "General"]:
+        elif intencion in ["Tramites", "Bienestar", "Practicas", "Reglamentos", "Movilidad", "Cursos_General", "Tutorias_General", "General"]:
             # Búsqueda Vectorial RAG (Embedding)
             resultado = motor_embeddings.buscar(mensaje_contextualizado)
             
