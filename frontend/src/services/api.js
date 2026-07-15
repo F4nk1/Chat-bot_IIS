@@ -1,4 +1,5 @@
-const URL_BASE = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+const host = typeof window !== 'undefined' ? window.location.hostname : '127.0.0.1';
+const URL_BASE = import.meta.env.VITE_API_URL || `http://${host}:8000`;
 
 export const api = {
   // Obtener todas las conversaciones
@@ -85,12 +86,12 @@ export const api = {
   },
 
   // Consumir la respuesta en streaming mediante SSE (Server-Sent Events)
-  async streamChat(mensaje, onChunk, onDone, onError) {
+  async streamChat(mensaje, historial, onChunk, onDone, onError) {
     try {
       const res = await fetch(`${URL_BASE}/chat/stream`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ mensaje })
+        body: JSON.stringify({ mensaje, historial })
       });
 
       if (!res.ok) {

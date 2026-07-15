@@ -5,3 +5,5 @@ numpy
 python-dotenv
 piper-tts
 onnxruntime
+sentence-transformers
+requests

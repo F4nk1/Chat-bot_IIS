@@ -36,7 +36,14 @@ aplicacion.include_router(enrutador_admin)
 aplicacion.include_router(enrutador_reglamento)
 
 # Montaje de archivos estaticos para el frontend
-aplicacion.mount("/frontend", StaticFiles(directory="frontend/dist"), name="frontend")
+ruta_frontend = os.path.abspath(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "frontend", "dist"))
+if not os.path.exists(ruta_frontend):
+    os.makedirs(ruta_frontend, exist_ok=True)
+    # Crear un index.html básico de fallback por si no se ha compilado el frontend aún
+    with open(os.path.join(ruta_frontend, "index.html"), "w", encoding="utf-8") as f:
+        f.write("<!DOCTYPE html><html><head><title>Frontend</title></head><body><h1>El frontend no ha sido compilado. Por favor, ejecuta 'npm run build' en la carpeta frontend.</h1></body></html>")
+
+aplicacion.mount("/frontend", StaticFiles(directory=ruta_frontend), name="frontend")
 
 # Montaje para archivos de audio generados
 if not os.path.exists(ajustes.CARPETA_AUDIO):
