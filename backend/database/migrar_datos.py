@@ -45,9 +45,19 @@ def migrar_datos():
                                 cat = elemento.get("categoria", nombre_categoria.capitalize())
                                 pregunta_limpia = preprocesar(pregunta)
                                 
+                                enlace_url = ""
+                                enlace_texto = ""
+                                if "enlace" in elemento and isinstance(elemento["enlace"], dict):
+                                    enlace_url = elemento["enlace"].get("url", "")
+                                    enlace_texto = elemento["enlace"].get("texto", "")
+                                    
+                                fuente = ""
+                                if "fuente" in elemento and isinstance(elemento["fuente"], dict):
+                                    fuente = elemento["fuente"].get("referencia", "")
+                                
                                 cursor.execute(
-                                    "INSERT INTO conocimiento (categoria, pregunta, respuesta, pregunta_limpia) VALUES (?, ?, ?, ?)",
-                                    (cat, pregunta, respuesta, pregunta_limpia)
+                                    "INSERT INTO conocimiento (categoria, pregunta, respuesta, pregunta_limpia, enlace_url, enlace_texto, fuente) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                                    (cat, pregunta, respuesta, pregunta_limpia, enlace_url, enlace_texto, fuente)
                                 )
                                 total_insertados += 1
                             archivos_procesados += 1

@@ -21,7 +21,10 @@ def inicializar_base_de_datos():
             categoria TEXT NOT NULL,
             pregunta TEXT NOT NULL,
             respuesta TEXT NOT NULL,
-            pregunta_limpia TEXT
+            pregunta_limpia TEXT,
+            enlace_url TEXT,
+            enlace_texto TEXT,
+            fuente TEXT
         )
     """)
 

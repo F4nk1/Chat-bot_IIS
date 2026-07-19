@@ -9,7 +9,7 @@ class KnowledgeBase:
     def obtener_todo():
         conexion = obtener_conexion()
         cursor = conexion.cursor()
-        cursor.execute("SELECT categoria, pregunta, respuesta, pregunta_limpia FROM conocimiento")
+        cursor.execute("SELECT id, categoria, pregunta, respuesta, pregunta_limpia, enlace_url, enlace_texto, fuente FROM conocimiento")
         filas = cursor.fetchall()
         conexion.close()
         return filas
@@ -38,3 +38,17 @@ class KnowledgeBase:
         fila = cursor.fetchone()
         conexion.close()
         return dict(fila) if fila else None
+
+    @staticmethod
+    def insertar(pregunta: str, respuesta: str, categoria: str):
+        """Inserta un nuevo conocimiento en la base de datos."""
+        conexion = obtener_conexion()
+        cursor = conexion.cursor()
+        # Generar un pregunta limpia sencilla (minúsculas, sin signos básicos)
+        pregunta_limpia = pregunta.lower().replace("?", "").replace("¿", "").strip()
+        cursor.execute(
+            "INSERT INTO conocimiento (categoria, pregunta, respuesta, pregunta_limpia) VALUES (?, ?, ?, ?)",
+            (categoria, pregunta, respuesta, pregunta_limpia)
+        )
+        conexion.commit()
+        conexion.close()

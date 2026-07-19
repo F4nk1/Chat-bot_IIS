@@ -1,5 +1,6 @@
 import csv
 import os
+import networkx as nx
 from backend.config.settings import ajustes, BASE_DIR
 
 class KnowledgeGraph:
@@ -8,7 +9,9 @@ class KnowledgeGraph:
         self.docentes = {}
         self.asignaciones = {}
         self.cursos = {}
+        self.grafo = nx.DiGraph()
         self._cargar_datos()
+        self.cargar_grafo_malla()
 
     def _cargar_datos(self):
         ruta_base = os.path.join(BASE_DIR, "data", "estructurado")
@@ -52,6 +55,56 @@ class KnowledgeGraph:
         except Exception as e:
             print(f"Error cargando cursos: {e}")
 
+    def cargar_grafo_malla(self):
+        """
+        Construye el grafo donde:
+        - Nodos: Códigos de Curso (con atributos 'nombre', 'semestre', etc.)
+        - Aristas Dirigidas: Curso A -> Curso B (A es prerequisito de B)
+        """
+        self.grafo.clear() # Limpiar por si se recarga
+        
+        # 1. Añadir nodos
+        for cod, curso in self.cursos.items():
+            self.grafo.add_node(cod, nombre=curso['nombre'], semestre=curso['semestre'])
+            
+        # 2. Añadir aristas verdaderas desde el CSV
+        for cod, curso in self.cursos.items():
+            prerreq_str = curso.get('prerrequisitos', '').strip()
+            if prerreq_str:
+                separador = ';' if ';' in prerreq_str else ','
+                lista_prerreqs = [p.strip() for p in prerreq_str.split(separador) if p.strip()]
+                
+                for pre in lista_prerreqs:
+                    if pre in self.grafo.nodes:
+                        self.grafo.add_edge(pre, cod)
+
+    def obtener_cursos_bloqueados(self, curso_desaprobado: str):
+        """
+        Encuentra todos los cursos dependientes directa e indirectamente.
+        """
+        codigo_exacto = None
+        nombre_exacto = None
+        
+        for cod in self.grafo.nodes:
+            nombre_curso = self.grafo.nodes[cod].get('nombre', '')
+            # Cursos muy cortos como "I" podrían dar falsos positivos, requerimos un match estricto para el nombre
+            # o que el código esté en el texto.
+            if nombre_curso.lower() in curso_desaprobado.lower() or cod.lower() in curso_desaprobado.lower():
+                codigo_exacto = cod
+                nombre_exacto = nombre_curso
+                break
+                
+        if not codigo_exacto:
+            return None
+            
+        nodos_bloqueados = list(nx.descendants(self.grafo, codigo_exacto))
+        nombres_bloqueados = [self.grafo.nodes[c].get('nombre', c) for c in nodos_bloqueados]
+        
+        return {
+            "curso": nombre_exacto,
+            "bloqueados": nombres_bloqueados
+        }
+
     def obtener_tutor_de_alumno(self, codigo_alumno: str):
         if codigo_alumno in self.asignaciones:
             docentes_cods = self.asignaciones[codigo_alumno]
@@ -66,9 +119,15 @@ class KnowledgeGraph:
     def obtener_cursos_por_semestre(self, semestre: str):
         cursos_semestre = []
         for cod, curso in self.cursos.items():
-            if curso['semestre'] == str(semestre):
+            if str(curso['semestre']) == str(semestre):
                 cursos_semestre.append(curso)
         return cursos_semestre
+
+    def obtener_info_curso(self, nombre_o_codigo: str):
+        for cod, curso in self.cursos.items():
+            if nombre_o_codigo.lower() in curso['nombre'].lower() or nombre_o_codigo.lower() == cod.lower():
+                return curso
+        return None
 
 # Instancia global (Singleton)
 knowledge_graph = KnowledgeGraph()

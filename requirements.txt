@@ -7,3 +7,10 @@ piper-tts
 onnxruntime
 sentence-transformers
 requests
+symspellpy
+spacy
+rank_bm25
+networkx
+transformers
+accelerate
+chromadb
