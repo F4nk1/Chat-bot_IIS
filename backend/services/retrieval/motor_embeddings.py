@@ -2,7 +2,7 @@ import os
 import re
 import numpy as np
 import chromadb
-from sentence_transformers import SentenceTransformer, CrossEncoder
+from sentence_transformers import SentenceTransformer
 from rank_bm25 import BM25Okapi
 from backend.services.knowledge.base_conocimiento import KnowledgeBase
 from backend.config.settings import BASE_DIR
@@ -12,12 +12,11 @@ class HybridRetrievalEngine:
     Motor Híbrido con ChromaDB:
     1. Base de Datos Vectorial Persistente (ChromaDB)
     2. Búsqueda Lexical (BM25)
-    3. Fusión (RRF) y Re-Ranking (Cross-Encoder)
+    3. Fusión (RRF) y Re-Ranking mediante similitud de coseno del Bi-Encoder
     """
     def __init__(self):
         # Modelos
         self.modelo_semantico = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
-        self.cross_encoder = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
         
         # Configurar ChromaDB
         db_path = os.path.join(BASE_DIR, "data", "chroma_db")
@@ -45,6 +44,13 @@ class HybridRetrievalEngine:
         if not filas:
             print("Advertencia: No hay datos en la base de datos.")
             return
+
+        # Recrear la colección para evitar documentos huérfanos/obsoletos de migraciones anteriores
+        try:
+            self.chroma_client.delete_collection(name="conocimiento_unsaac")
+        except Exception:
+            pass
+        self.collection = self.chroma_client.get_or_create_collection(name="conocimiento_unsaac")
 
         # Limpiar listas en memoria para BM25
         self.corpus_ids = []
@@ -159,22 +165,33 @@ class HybridRetrievalEngine:
         # Obtener Top K absolutos
         top_k_indices = np.argsort(rrf_scores)[::-1][:top_k]
         
-        # 4. Re-Ranking con Cross-Encoder
-        pares_candidatos = [[consulta, self.corpus_preguntas[idx]] for idx in top_k_indices]
-        cross_scores = self.cross_encoder.predict(pares_candidatos)
+        # 4. Re-Ranking con Similitud de Coseno Multilingüe del Bi-Encoder
+        preguntas_candidatas = [self.corpus_preguntas[idx] for idx in top_k_indices]
+        embeddings_candidatas = self.modelo_semantico.encode(preguntas_candidatas)
+        vector_consulta = self.modelo_semantico.encode(consulta)
         
-        mejor_idx_relativo = np.argmax(cross_scores)
+        simil_scores = []
+        for emb in embeddings_candidatas:
+            # Similitud de coseno: producto punto normalizado
+            dot_prod = np.dot(vector_consulta, emb)
+            norm_q = np.linalg.norm(vector_consulta)
+            norm_d = np.linalg.norm(emb)
+            sim = dot_prod / (norm_q * norm_d) if norm_q > 0 and norm_d > 0 else 0.0
+            simil_scores.append(sim)
+            
+        mejor_idx_relativo = np.argmax(simil_scores)
         mejor_idx_absoluto = top_k_indices[mejor_idx_relativo]
-        mejor_score = cross_scores[mejor_idx_relativo]
+        mejor_score = simil_scores[mejor_idx_relativo]
         
-        # Confianza
-        confianza = 1.0 / (1.0 + np.exp(-mejor_score))
+        # El score de coseno ya está acotado entre -1 y 1 (o 0 y 1 para textos similares)
+        # Lo usamos directamente como medida de confianza
+        confianza = float(mejor_score)
 
         return {
             "pregunta": self.corpus_preguntas[mejor_idx_absoluto],
             "respuesta": self.corpus_respuestas[mejor_idx_absoluto],
             "categoria": self.corpus_categorias[mejor_idx_absoluto],
-            "confianza": float(confianza)
+            "confianza": confianza
         }
 
 # Instancia global

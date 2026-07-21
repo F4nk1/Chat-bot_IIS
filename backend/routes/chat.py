@@ -37,6 +37,6 @@ async def chat_stream(solicitud: SolicitudChat):
                 "final": i == len(palabras) - 1
             }
             yield f"data: {json.dumps(data)}\n\n"
-            await asyncio.sleep(0.05)  # Pequeño retraso para simular generación
+            await asyncio.sleep(0.01)  # Pequeño retraso para simular generación
 
     return StreamingResponse(generador_eventos(), media_type="text/event-stream")

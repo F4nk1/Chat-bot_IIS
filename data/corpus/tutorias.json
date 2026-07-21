@@ -726,5 +726,31 @@
       "tipo": "reglamento_tutoria",
       "referencia": "Reglamento de Tutoría Académica de la UNSAAC, secciones sobre atención especializada y confidencialidad"
     }
+  },
+  {
+    "id": "TUT-057",
+    "pregunta": "¿Cuándo es la próxima tutoría?",
+    "respuesta": "La próxima tutoría se realizará el 4 de agosto de 2026, desde las 11:00 a. m. hasta las 4:00 p. m.",
+    "categoria": "Tutorías",
+    "subtema": "Programación tutorial",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "elaboracion_propia",
+      "referencia": "Cronograma de tutorías de la Escuela Profesional de Ingeniería Informática y de Sistemas, 4 de agosto de 2026"
+    }
+  },
+  {
+    "id": "TUT-058",
+    "pregunta": "¿Cómo solicito una tutoría académica?",
+    "respuesta": "Para solicitar una tutoría con tu tutor puedes comunicarte con él mediante su correo electrónico para acordar la hora de la reunión en su respectivo cubículo. Si no sabes quién es tu tutor dame tu código de estudiante y yo te digo.",
+    "categoria": "Tutorías",
+    "subtema": "Solicitud de reunión",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "elaboracion_propia",
+      "referencia": "Procedimiento práctico sugerido"
+    }
   }
 ]

@@ -453,5 +453,31 @@
       "tipo": "reglamento_academico",
       "referencia": "Art. 120, Reglamento Académico de la UNSAAC, Res. CU-093-2017-UNSAAC"
     }
+  },
+  {
+    "id": "REG-036",
+    "pregunta": "¿Qué pasa si jalo o desapruebo un curso? (Régimen de permanencia académica)",
+    "respuesta": "Si desapruebas un curso por primera vez, puedes volver a matricularte en él en el siguiente semestre. Si desapruebas una asignatura por segunda vez, entrarás en condición de matrícula condicionada y recibirás acompañamiento tutorial obligatorio. Desaprobar por tercera vez conlleva a la separación temporal por un año, y una cuarta vez resulta en la separación definitiva de la universidad.",
+    "categoria": "Reglamentos",
+    "subtema": "Permanencia académica",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento Académico de la UNSAAC y Reglamento de Tutoría Académica"
+    }
+  },
+  {
+    "id": "REG-037",
+    "pregunta": "¿Cómo recupero o subsano un curso desaprobado o jalado?",
+    "respuesta": "Para recuperar un curso desaprobado, debes matricularte de nuevo en él en el siguiente semestre. También puedes llevarlo en el ciclo vacacional si se habilita la asignatura. Si eres estudiante por egresar y tienes como máximo dos cursos desaprobados, puedes solicitar la subsanación (examen extraordinario) bajo los requisitos del TUPA.",
+    "categoria": "Reglamentos",
+    "subtema": "Recuperación de cursos",
+    "perfil": "general",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento Académico y TUPA de la UNSAAC"
+    }
   }
 ]

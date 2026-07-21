@@ -54,22 +54,26 @@ class ContextManager:
         return tema_previo, codigo_alumno, semestre
 
     def resolver_correferencia(self, mensaje: str, tema_previo: str) -> str:
-        """Si hay pronombres o la frase es muy corta, agrega el tema previo como prefijo."""
+        """
+        Contextualiza la pregunta únicamente si es ultra corta o contiene pronombres
+        demostrativos o locativos muy específicos de continuación.
+        """
         if not tema_previo:
             return mensaje
             
-        pronombres = ["eso", "esa", "él", "la", "lo", "allí", "ahí", "ellos", "ellas", 
-                      "requisito", "obligatoria", "cuando", "dónde", "quién", "cuáles", 
-                      "cuales", "cuál", "cual", "cómo", "como", "qué", "que", "y"]
         mensaje_lc = mensaje.lower()
+        palabras = mensaje_lc.split()
         
-        # Si el mensaje ya tiene palabras clave fuertes, no contextualizar
-        keywords = ["tutoria", "comedor", "beca", "salud", "practica", "matricula", "tutor"]
-        if any(k in mensaje_lc for k in keywords):
-            return mensaje
-
-        # Si usa pronombres o es una frase corta
-        if any(p in mensaje_lc.split() for p in pronombres) or len(mensaje_lc.split()) <= 4:
+        # Pronombres demostrativos, personales o locativos de referencia directa
+        pronombres_referencia = ["eso", "esa", "este", "esta", "estos", "estas", "él", "ella", "ellos", "ellas", "allí", "alli", "ahí", "ahi"]
+        
+        # Caso A: Preguntas ultra cortas de seguimiento (1 o 2 palabras, ej: "¿Dónde?", "¿Cómo?")
+        es_ultra_corta = len(palabras) <= 2
+        
+        # Caso B: Preguntas cortas que usan un pronombre de referencia explícita (ej: "¿Cuáles son los requisitos de eso?")
+        tiene_referencia_directa = any(p in palabras for p in pronombres_referencia) and len(palabras) <= 4
+        
+        if es_ultra_corta or tiene_referencia_directa:
             sustantivo = self.mapa_temas.get(tema_previo, tema_previo)
             return f"Sobre {sustantivo}: {mensaje}"
             

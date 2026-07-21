@@ -1,5 +1,4 @@
 import os
-import pkg_resources
 from symspellpy import SymSpell
 
 class SpellChecker:

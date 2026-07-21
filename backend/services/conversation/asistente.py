@@ -40,7 +40,30 @@ class ChatbotEngine:
         # 3. NLU: Detección de Intenciones
         intencion = detector_intenciones.detectar(mensaje_contextualizado, motor_embeddings.modelo_semantico)
         
-        # Override intent using state machine context if user just provided missing slot
+        # Override intent using state machine context or assistant's prompt context if user just provided missing slot
+        ultimo_mensaje_asistente = None
+        if historial:
+            for msg in reversed(historial):
+                rol = msg.get("role") or msg.get("rol")
+                contenido = msg.get("content") or msg.get("contenido")
+                if rol in ["assistant", "asistente"] and contenido:
+                    ultimo_mensaje_asistente = contenido.lower()
+                    break
+
+        # Caso 1: Sobrescribir basándose en lo último que el bot preguntó/mencionó al usuario
+        if ultimo_mensaje_asistente:
+            # Solo sobreescribimos si el asistente realmente estaba formulando una pregunta de slot al usuario
+            es_pregunta_slot = any(p in ultimo_mensaje_asistente for p in ["indícame", "indicame", "dame", "escribe", "ingresa", "por favor", "cuál", "cual", "quién", "quien", "¿"])
+            
+            if es_pregunta_slot:
+                if "tutor" in ultimo_mensaje_asistente and codigo_activo:
+                    intencion = "Info_Tutor"
+                elif ("alumno" in ultimo_mensaje_asistente or "datos" in ultimo_mensaje_asistente or "código" in ultimo_mensaje_asistente or "codigo" in ultimo_mensaje_asistente) and codigo_activo:
+                    intencion = "Info_Alumno"
+                elif ("semestre" in ultimo_mensaje_asistente or "malla" in ultimo_mensaje_asistente) and semestre_activo:
+                    intencion = "Cursos_Semestre"
+
+        # Caso 2: Sobrescribir de respaldo basándose en la última intención del usuario (si la actual fue clasificada como General)
         if intencion == "General" and tema_previo:
             if tema_previo == "Info_Tutor" and codigo_activo:
                 intencion = "Info_Tutor"
@@ -58,12 +81,16 @@ class ChatbotEngine:
             respuestas = ["¡Hola! Soy DinoBot, tu asistente académico de la UNSAAC. ¿En qué te puedo ayudar hoy?", 
                           "¡Buenos días! Soy DinoBot. ¿Qué consulta universitaria tienes para mí?"]
             respuesta_final = random.choice(respuestas)
-            
         elif intencion == "Agradecimiento":
             respuesta_final = "¡De nada! Estoy aquí para ayudarte en lo que necesites."
             
         elif intencion == "Info_Tutor":
-            if not codigo_activo:
+            # Interceptor RAG: responder desde el corpus si la pregunta es de caracter conceptual/general
+            resultado_rag = motor_embeddings.buscar(mensaje_contextualizado)
+            if resultado_rag["confianza"] >= 0.55:
+                contexto_para_slm = resultado_rag['respuesta']
+                confianza = resultado_rag['confianza']
+            elif not codigo_activo:
                 # Slot faltante
                 respuesta_final = "Para decirte quién es tu tutor asignado, por favor indícame tu código de estudiante."
             else:
@@ -76,11 +103,18 @@ class ChatbotEngine:
                         respuesta_final += f" Pertenece al departamento de {depto}."
                     if correo:
                         respuesta_final += f" Su correo es {correo}."
+                    if tutor.get('cubiculo'):
+                        respuesta_final += f" Atiende en el cubículo número {tutor['cubiculo']}."
                 else:
                     respuesta_final = f"No hay ningún tutor activo registrado para el alumno con código {codigo_activo}."
                     
         elif intencion == "Info_Alumno":
-            if not codigo_activo:
+            # Interceptor RAG: responder desde el corpus si la pregunta es de caracter conceptual/general
+            resultado_rag = motor_embeddings.buscar(mensaje_contextualizado)
+            if resultado_rag["confianza"] >= 0.55:
+                contexto_para_slm = resultado_rag['respuesta']
+                confianza = resultado_rag['confianza']
+            elif not codigo_activo:
                 respuesta_final = "Por favor, indícame tu código de alumno de 6 dígitos para consultar tus datos."
             else:
                 alumno = knowledge_graph.obtener_info_alumno(codigo_activo)
@@ -96,7 +130,12 @@ class ChatbotEngine:
                     respuesta_final = f"No existe información para el código {codigo_activo}."
                     
         elif intencion == "Cursos_Semestre":
-            if not semestre_activo:
+            # Interceptor RAG: responder desde el corpus si la pregunta es de caracter conceptual/general
+            resultado_rag = motor_embeddings.buscar(mensaje_contextualizado)
+            if resultado_rag["confianza"] >= 0.55:
+                contexto_para_slm = resultado_rag['respuesta']
+                confianza = resultado_rag['confianza']
+            elif not semestre_activo:
                 respuesta_final = "Claro, ¿de qué semestre (del 1 al 10) deseas consultar la malla curricular?"
             else:
                 cursos = knowledge_graph.obtener_cursos_por_semestre(semestre_activo)
@@ -105,7 +144,7 @@ class ChatbotEngine:
                     respuesta_final = f"Los cursos obligatorios para el semestre {semestre_activo} son: {', '.join(nombres)}."
                 else:
                     respuesta_final = f"No hay cursos registrados para el semestre {semestre_activo}."
-
+ 
         elif intencion == "Cursos_Bloqueados": # Nueva intención inferida
             # Intentamos extraer un curso mencionado
             curso_desaprobado = mensaje_corregido # Simplificación, el SLM o NER debería extraerlo
@@ -118,7 +157,7 @@ class ChatbotEngine:
                 resultado = motor_embeddings.buscar(mensaje_contextualizado)
                 contexto_para_slm = resultado['respuesta']
                 confianza = resultado['confianza']
-
+ 
         elif intencion == "Info_Curso_Atributos":
             curso = knowledge_graph.obtener_info_curso(mensaje_corregido)
             if curso:
@@ -135,7 +174,7 @@ class ChatbotEngine:
             # Búsqueda Híbrida + RRF + Cross-Encoder
             resultado = motor_embeddings.buscar(mensaje_contextualizado)
             
-            umbral = 0.50 if intencion == "General" else 0.40 # Umbrales ajustados para cross-encoder
+            umbral = 0.45 if intencion == "General" else 0.35 # Umbral calibrado de 0.40 a 0.35
             
             if resultado["confianza"] < umbral:
                 if intencion == "General":

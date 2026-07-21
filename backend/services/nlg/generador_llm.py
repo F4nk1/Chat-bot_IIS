@@ -1,46 +1,34 @@
 import os
-from transformers import pipeline, AutoModelForCausalLM, AutoTokenizer
-import torch
+import google.generativeai as genai
 
 class LocalLLMGenerator:
     """
-    Generador NLG (Natural Language Generation) usando un SLM (Small Language Model) local.
-    Diseñado para correr en CPU o GPU, sin depender de APIs externas.
+    Generador NLG (Natural Language Generation) usando Google Gemini API.
+    Reemplaza al SLM local para mayor rapidez, precisión y evitar alucinaciones.
     """
     def __init__(self):
-        # Usamos un modelo instructivo pequeño. 
-        # Para producción, se puede cambiar por un modelo fine-tuneado propio de la UNSAAC.
-        # Qwen2.5-0.5B-Instruct es excelente y ligero, o SmolLM.
-        # Aquí usamos Qwen/Qwen2.5-0.5B-Instruct como ejemplo de SLM in-house base.
-        self.model_id = "Qwen/Qwen2.5-0.5B-Instruct"
+        self.model_id = "gemini-2.5-flash"  # Puedes cambiar a "gemini-1.5-pro" si prefieres usar Pro
         self.cargado = False
-        self.pipeline = None
+        self.model = None
 
     def cargar_modelo(self):
         if self.cargado:
             return
             
-        print(f"Cargando SLM local ({self.model_id})...")
+        api_key = os.getenv("GEMINI_API_KEY")
+        if not api_key or api_key == "TU-API-KEY":
+            print("Advertencia: GEMINI_API_KEY no configurada o es el valor por defecto. Usando fallback de contexto.")
+            self.cargado = False
+            return
+
+        print(f"Inicializando API de Gemini ({self.model_id})...")
         try:
-            tokenizer = AutoTokenizer.from_pretrained(self.model_id)
-            model = AutoModelForCausalLM.from_pretrained(
-                self.model_id, 
-                torch_dtype=torch.float32, # float32 para compatibilidad total CPU
-                device_map="auto"
-            )
-            self.pipeline = pipeline(
-                "text-generation",
-                model=model,
-                tokenizer=tokenizer,
-                max_new_tokens=150,
-                temperature=0.3, # Baja temperatura para respuestas factuales
-                do_sample=True,
-                repetition_penalty=1.1
-            )
+            genai.configure(api_key=api_key)
+            self.model = genai.GenerativeModel(self.model_id)
             self.cargado = True
-            print("SLM cargado correctamente.")
+            print("Gemini API configurada correctamente.")
         except Exception as e:
-            print(f"Error al cargar el SLM: {e}")
+            print(f"Error al inicializar la API de Gemini: {e}")
             self.cargado = False
 
     def generar_respuesta(self, contexto: str, pregunta: str) -> str:
@@ -50,41 +38,28 @@ class LocalLLMGenerator:
         if not self.cargado:
             self.cargar_modelo()
             
-        if not self.cargado or not self.pipeline:
-            # Fallback en caso de que falle la carga del modelo
+        if not self.cargado or not self.model:
+            # Fallback en caso de que no esté configurada la API o falle
             return f"{contexto}"
 
+        # Instrucciones del sistema integradas en el prompt
         prompt = (
-            "Eres DinoBot, el Asistente Académico de Ingeniería Informática y de Sistemas de la UNSAAC. "
-            "Responde a la pregunta del usuario utilizando ÚNICAMENTE la información del contexto. "
-            "Si la respuesta no está en el contexto, di que no tienes esa información. Sé amable y directo.\n\n"
+            "Eres DinoBot, el Asistente Académico de Ingeniería Informática y de Sistemas de la UNSAAC.\n"
+            "Responde a la pregunta del usuario utilizando ÚNICAMENTE la información proporcionada en el contexto.\n"
+            "Si la respuesta a la pregunta no se puede deducir del contexto, di estrictamente y de forma amable "
+            "que no dispones de esa información en los reglamentos.\n"
+            "Sé directo, claro y mantén un tono profesional.\n\n"
             f"Contexto: {contexto}\n"
             f"Pregunta: {pregunta}\n"
             "Respuesta:"
         )
 
         try:
-            # Formato de chat para modelos instructivos si lo soportan, 
-            # pero el prompt plano funciona bien en la mayoría.
-            mensajes = [
-                {"role": "system", "content": "Eres DinoBot, el Asistente Académico de Ingeniería Informática y de Sistemas de la UNSAAC. Responde usando solo el contexto."},
-                {"role": "user", "content": f"Contexto: {contexto}\nPregunta: {pregunta}"}
-            ]
-            
-            # Usar chat template
-            prompt_chat = self.pipeline.tokenizer.apply_chat_template(
-                mensajes, tokenize=False, add_generation_prompt=True
-            )
-            
-            salida = self.pipeline(prompt_chat)
-            texto_generado = salida[0]['generated_text']
-            
-            # Extraer solo la respuesta del asistente
-            respuesta_limpia = texto_generado.split("<|im_start|>assistant\n")[-1].replace("<|im_end|>", "").strip()
-            return respuesta_limpia
-            
+            # Generar contenido usando Gemini
+            response = self.model.generate_content(prompt)
+            return response.text.strip()
         except Exception as e:
-            print(f"Error en generación LLM: {e}")
+            print(f"Error en generación Gemini: {e}")
             return contexto # Fallback seguro
 
 generador_llm = LocalLLMGenerator()

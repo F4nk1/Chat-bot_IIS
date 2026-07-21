@@ -48,12 +48,12 @@ setup: venv ## Configura el entorno virtual de Python e instala dependencias de 
 
 db-init: ## Crea las tablas e inicializa la estructura de la base de datos SQLite
 	@echo -e "$(YELLOW)Inicializando estructura de base de datos SQLite...$(RESET)"
-	venv/bin/python backend/database/bd_gestion.py
+	venv/bin/python -m backend.database.bd_gestion
 	@echo -e "$(GREEN)Estructura de la base de datos inicializada.$(RESET)"
 
 db-migrate: ## Importa los datos JSON de FAQs y reglamentos a la base de datos
 	@echo -e "$(YELLOW)Migrando datos JSON a la base de datos SQLite...$(RESET)"
-	venv/bin/python backend/database/migrar_datos.py
+	venv/bin/python -m backend.database.migrar_datos
 	@echo -e "$(GREEN)Datos migrados con éxito.$(RESET)"
 
 db-reset: ## Elimina la base de datos actual y la vuelve a inicializar y migrar desde cero
