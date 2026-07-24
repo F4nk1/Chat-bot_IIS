@@ -33,7 +33,8 @@ class NormalizadorTTS:
         if not texto:
             return ""
 
-        # 1. Eliminar URLs primero para evitar que interfieran con otros simbolos
+        # 1. Eliminar enlaces Markdown [texto](url) y URLs directas completamente
+        texto = re.sub(r'\[([^\]]+)\]\([^)]+\)', '', texto)
         texto = re.sub(r'https?://\S+', '', texto)
 
         # 2. Expandir siglas y abreviaturas

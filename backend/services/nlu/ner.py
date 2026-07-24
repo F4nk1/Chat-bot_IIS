@@ -1,5 +1,8 @@
 import re
 import spacy
+import csv
+import os
+from backend.config.settings import BASE_DIR
 
 class NEREngine:
     def __init__(self):
@@ -23,11 +26,38 @@ class NEREngine:
             "noveno": "9", "9no": "9",
             "decimo": "10", "décimo": "10", "10mo": "10"
         }
+        self.nombres_cursos = []
+        self._cargar_lista_cursos()
+
+    def _cargar_lista_cursos(self):
+        ruta_csv = os.path.join(BASE_DIR, "data", "estructurado", "cursos_malla.csv")
+        try:
+            if os.path.exists(ruta_csv):
+                with open(ruta_csv, mode='r', encoding='utf-8') as f:
+                    reader = csv.DictReader(f)
+                    for row in reader:
+                        nombre = row.get('nombre', '').strip()
+                        if nombre and nombre not in self.nombres_cursos:
+                            self.nombres_cursos.append(nombre)
+        except Exception as e:
+            print(f"Advertencia al cargar lista de cursos en NER: {e}")
+
+    def extraer_curso(self, texto: str) -> str:
+        """Busca si en el texto se menciona alguna asignatura de la malla curricular."""
+        if not texto:
+            return None
+        texto_lower = texto.lower()
+        # Buscar coincidencias ordenando por longitud descendente para preferir nombres largos ("Cálculo II" sobre "I")
+        for curso in sorted(self.nombres_cursos, key=len, reverse=True):
+            if curso.lower() in texto_lower:
+                return curso
+        return None
 
     def extraer_entidades(self, texto: str) -> dict:
         entidades = {
             "codigo_alumno": None,
-            "semestre": None
+            "semestre": None,
+            "curso": None
         }
         
         texto_lower = texto.lower()
@@ -59,6 +89,9 @@ class NEREngine:
             if match_semestre:
                 val = match_semestre.group(0)
                 entidades["semestre"] = self.mapeo_semestre.get(val, val)
+
+        # 3. Extracción de Asignatura de la Malla
+        entidades["curso"] = self.extraer_curso(texto)
                 
         return entidades
 

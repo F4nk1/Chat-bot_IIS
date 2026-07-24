@@ -1,15 +1,17 @@
 import os
-import google.generativeai as genai
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class LocalLLMGenerator:
     """
-    Generador NLG (Natural Language Generation) usando Google Gemini API.
+    Generador NLG (Natural Language Generation) usando Google Gemini API (SDK google-genai).
     Reemplaza al SLM local para mayor rapidez, precisión y evitar alucinaciones.
     """
     def __init__(self):
-        self.model_id = "gemini-2.5-flash"  # Puedes cambiar a "gemini-1.5-pro" si prefieres usar Pro
+        self.model_id = "gemini-flash-latest"  # Modelo activo recomendado
         self.cargado = False
-        self.model = None
+        self.client = None
 
     def cargar_modelo(self):
         if self.cargado:
@@ -21,15 +23,29 @@ class LocalLLMGenerator:
             self.cargado = False
             return
 
-        print(f"Inicializando API de Gemini ({self.model_id})...")
         try:
-            genai.configure(api_key=api_key)
-            self.model = genai.GenerativeModel(self.model_id)
-            self.cargado = True
-            print("Gemini API configurada correctamente.")
-        except Exception as e:
-            print(f"Error al inicializar la API de Gemini: {e}")
+            from google import genai
+        except ImportError:
+            print("Advertencia: Paquete google-genai no instalado. Usando fallback de contexto.")
             self.cargado = False
+            return
+
+        modelos_a_probar = ["gemini-flash-latest", "gemini-2.0-flash", "gemini-2.0-flash-lite", "gemini-pro-latest"]
+
+        for mid in modelos_a_probar:
+            try:
+                print(f"Inicializando API de Gemini ({mid})...")
+                client = genai.Client(api_key=api_key)
+                response = client.models.generate_content(model=mid, contents="Hola")
+                if response and response.text:
+                    self.client = client
+                    self.model_id = mid
+                    self.cargado = True
+                    print(f"Gemini API configurada correctamente con {mid}.")
+                    break
+            except Exception as e:
+                print(f"No se pudo cargar el modelo {mid}: {e}")
+                self.cargado = False
 
     def generar_respuesta(self, contexto: str, pregunta: str) -> str:
         """
@@ -38,7 +54,7 @@ class LocalLLMGenerator:
         if not self.cargado:
             self.cargar_modelo()
             
-        if not self.cargado or not self.model:
+        if not self.cargado or not self.client:
             # Fallback en caso de que no esté configurada la API o falle
             return f"{contexto}"
 
@@ -55,8 +71,10 @@ class LocalLLMGenerator:
         )
 
         try:
-            # Generar contenido usando Gemini
-            response = self.model.generate_content(prompt)
+            response = self.client.models.generate_content(
+                model=self.model_id,
+                contents=prompt
+            )
             return response.text.strip()
         except Exception as e:
             print(f"Error en generación Gemini: {e}")

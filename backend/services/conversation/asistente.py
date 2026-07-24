@@ -51,11 +51,12 @@ class ChatbotEngine:
                     break
 
         # Caso 1: Sobrescribir basándose en lo último que el bot preguntó/mencionó al usuario
-        if ultimo_mensaje_asistente:
-            # Solo sobreescribimos si el asistente realmente estaba formulando una pregunta de slot al usuario
-            es_pregunta_slot = any(p in ultimo_mensaje_asistente for p in ["indícame", "indicame", "dame", "escribe", "ingresa", "por favor", "cuál", "cual", "quién", "quien", "¿"])
+        # SOLO si la intención actual no es de un tema específico ni de interacción social
+        if intencion in ["General", "Info_Tutor", "Info_Alumno", "Cursos_Semestre"] and ultimo_mensaje_asistente:
+            # Comprobar si el usuario realmente está proveyendo un código numérico o semestre
+            tiene_numero = any(char.isdigit() for char in mensaje_corregido)
             
-            if es_pregunta_slot:
+            if tiene_numero:
                 if "tutor" in ultimo_mensaje_asistente and codigo_activo:
                     intencion = "Info_Tutor"
                 elif ("alumno" in ultimo_mensaje_asistente or "datos" in ultimo_mensaje_asistente or "código" in ultimo_mensaje_asistente or "codigo" in ultimo_mensaje_asistente) and codigo_activo:
@@ -63,8 +64,8 @@ class ChatbotEngine:
                 elif ("semestre" in ultimo_mensaje_asistente or "malla" in ultimo_mensaje_asistente) and semestre_activo:
                     intencion = "Cursos_Semestre"
 
-        # Caso 2: Sobrescribir de respaldo basándose en la última intención del usuario (si la actual fue clasificada como General)
-        if intencion == "General" and tema_previo:
+        # Caso 2: Sobrescribir de respaldo basándose en la última intención del usuario (si la actual fue clasificada como General y trae número)
+        if intencion == "General" and tema_previo and any(char.isdigit() for char in mensaje_corregido):
             if tema_previo == "Info_Tutor" and codigo_activo:
                 intencion = "Info_Tutor"
             elif tema_previo == "Info_Alumno" and codigo_activo:
@@ -76,13 +77,30 @@ class ChatbotEngine:
         confianza = 1.0
         contexto_para_slm = ""
 
-        # 4. Enrutamiento Lógico basado en Máquina de Estados / Slot-Filling
+        # 4. Enrutamiento Lógico basado en Máquina de Estados / Interacción Social / Slot-Filling
         if intencion == "Saludo":
-            respuestas = ["¡Hola! Soy DinoBot, tu asistente académico de la UNSAAC. ¿En qué te puedo ayudar hoy?", 
-                          "¡Buenos días! Soy DinoBot. ¿Qué consulta universitaria tienes para mí?"]
-            respuesta_final = random.choice(respuestas)
+            respuestas_saludo = [
+                "¡Hola! Soy DinoBot, tu orientador académico de la UNSAAC. ¿En qué te puedo ayudar hoy?",
+                "¡Buenos días! Soy DinoBot. ¿Qué consulta o trámite académico deseas resolver?",
+                "¡Hola! Bienvenido al sistema de orientación de la EPIIS. ¿Cómo te puedo orientar hoy?"
+            ]
+            respuesta_final = random.choice(respuestas_saludo)
+
         elif intencion == "Agradecimiento":
-            respuesta_final = "¡De nada! Estoy aquí para ayudarte en lo que necesites."
+            respuestas_agradecimiento = [
+                "¡De nada! Ha sido un gusto ayudarte. Si tienes más dudas sobre trámites o servicios de la UNSAAC, aquí estaré.",
+                "¡Con mucho gusto! Éxitos en tu semestre académico antoniano.",
+                "¡A ti! Recuerda que puedes consultarme cualquier otra duda sobre la universidad, tus trámites o asignaturas."
+            ]
+            respuesta_final = random.choice(respuestas_agradecimiento)
+
+        elif intencion == "Despedida":
+            respuestas_despedida = [
+                "¡Hasta luego! Que tengas un excelente día académico. ¡Cuídate y muchos éxitos!",
+                "¡Chao! Recuerda que el sistema de orientación de DinoBot está disponible siempre que lo necesites. ¡Hasta pronto!",
+                "¡Nos vemos! Éxitos en tus estudios en la UNSAAC. ¡Cuídate!"
+            ]
+            respuesta_final = random.choice(respuestas_despedida)
             
         elif intencion == "Info_Tutor":
             # Interceptor RAG: responder desde el corpus si la pregunta es de caracter conceptual/general
@@ -145,9 +163,9 @@ class ChatbotEngine:
                 else:
                     respuesta_final = f"No hay cursos registrados para el semestre {semestre_activo}."
  
-        elif intencion == "Cursos_Bloqueados": # Nueva intención inferida
-            # Intentamos extraer un curso mencionado
-            curso_desaprobado = mensaje_corregido # Simplificación, el SLM o NER debería extraerlo
+        elif intencion == "Cursos_Bloqueados":
+            # Extraer entidad de curso mediante NER / Malla
+            curso_desaprobado = entidades_actuales.get("curso") or ner_engine.extraer_curso(mensaje_corregido) or mensaje_corregido
             resultado_grafo = knowledge_graph.obtener_cursos_bloqueados(curso_desaprobado)
             if resultado_grafo:
                 bloqueados = resultado_grafo["bloqueados"]
@@ -174,24 +192,15 @@ class ChatbotEngine:
             # Búsqueda Híbrida + RRF + Cross-Encoder
             resultado = motor_embeddings.buscar(mensaje_contextualizado)
             
-            umbral = 0.45 if intencion == "General" else 0.35 # Umbral calibrado de 0.40 a 0.35
+            umbral = 0.46  # Umbral calibrado (0.46) para filtrar consultas fuera de contexto mientras se aceptan variaciones válidas
             
             if resultado["confianza"] < umbral:
-                if intencion == "General":
-                    respuestas_general = [
-                        "Soy DinoBot, asistente académico de la UNSAAC. Solo puedo ayudarte con trámites, tutorías, mallas curriculares y reglamentos universitarios.",
-                        "Esa pregunta no parece tener relación con mis funciones académicas. Pregúntame sobre tus cursos o algún reglamento.",
-                        "Para eso no hay respuesta en mi base de datos, ya que solo domino temas académicos de la UNSAAC.",
-                        "No tengo información al respecto. Mi especialidad son los trámites y consultas universitarias."
-                    ]
-                    respuesta_final = random.choice(respuestas_general)
-                else:
-                    respuestas_vacias = [
-                        "No encontré información específica sobre eso en los reglamentos actuales. ¿Podrías detallar un poco más tu consulta?",
-                        "No tengo registros sobre ese tema en particular. Tal vez podrías consultar directamente con la dirección de escuela.",
-                        "Lamentablemente, no pude encontrar esa información en mis documentos base."
-                    ]
-                    respuesta_final = random.choice(respuestas_vacias)
+                respuestas_vacias = [
+                    "Soy DinoBot, orientador académico de la UNSAAC. No dispongo de información sobre ese tema en los reglamentos, ya que solo puedo orientarte sobre trámites, tutorías, mallas curriculares y servicios universitarios de la universidad.",
+                    "Esa pregunta no corresponde al ámbito académico de la UNSAAC. Recuerda que puedo ayudarte con información sobre tus cursos, reglamentos, trámites y bienestar universitario.",
+                    "No encontré información al respecto en la base de datos académica de la UNSAAC. Por favor, realiza una consulta relacionada con tus estudios o trámites universitarios."
+                ]
+                respuesta_final = random.choice(respuestas_vacias)
             else:
                 contexto_para_slm = resultado['respuesta']
                 confianza = resultado['confianza']
@@ -199,10 +208,17 @@ class ChatbotEngine:
         else:
             respuesta_final = "No estoy seguro de cómo responder a eso. Intenta preguntarme sobre trámites, tutorías o reglamentos."
 
-        # 5. NLG: Generación con el SLM In-House (Si no hay respuesta directa de Slot-Filling)
+        # 5. NLG: Generación con Gemini API / LLM (Si no hay respuesta directa de Slot-Filling)
         if not respuesta_final and contexto_para_slm:
-            # Pasamos el contexto riguroso recuperado y la pregunta corregida al SLM
             respuesta_final = generador_llm.generar_respuesta(contexto_para_slm, mensaje_corregido)
+            
+            # Garantizar que si el contexto RAG contiene un enlace, la indicación en negrita y el enlace se preserven intactos
+            import re
+            match_enlace = re.search(r'\[([^\]]+)\]\((https?://[^\)]+)\)', contexto_para_slm)
+            if match_enlace and match_enlace.group(0) not in respuesta_final:
+                if "**A continuación te muestro más información en pantalla**" not in respuesta_final:
+                    respuesta_final += "\n\n**A continuación te muestro más información en pantalla**"
+                respuesta_final += f"\n\n{match_enlace.group(0)}"
 
         return {
             "pregunta": mensaje,
