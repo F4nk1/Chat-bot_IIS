@@ -61,7 +61,19 @@ class ContextManager:
         if not tema_previo:
             return mensaje
             
-        mensaje_lc = mensaje.lower()
+        mensaje_lc = mensaje.lower().strip()
+
+        # No resolver correferencia si la frase es una expresión de interacción social
+        expresiones_sociales = [
+            "gracias", "muchas gracias", "gracias por la informacion", "gracias por la información",
+            "te agradezco", "mil gracias", "muy amable", "excelente gracias", "gracias dinobot",
+            "hola", "buenos días", "buenos dias", "buenas tardes", "buenas noches", "qué tal", "que tal",
+            "chau", "chao", "hasta luego", "nos vemos", "adiós", "adios", "hasta pronto", "cuídate", "cuidate", "eso es todo"
+        ]
+
+        if any(e in mensaje_lc for e in expresiones_sociales) or mensaje_lc in expresiones_sociales:
+            return mensaje
+
         palabras = mensaje_lc.split()
         
         # Pronombres demostrativos, personales o locativos de referencia directa

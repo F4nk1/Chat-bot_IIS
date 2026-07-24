@@ -105,11 +105,12 @@ export const api = {
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
       let accumulator = '';
+      let detectedCategory = 'General';
 
       while (true) {
         const { value, done } = await reader.read();
         if (done) {
-          if (onDone) onDone();
+          if (onDone) onDone(detectedCategory);
           break;
         }
 
@@ -124,8 +125,11 @@ export const api = {
             try {
               const jsonStr = trimmed.substring(6);
               const data = JSON.parse(jsonStr);
+              if (data.categoria) {
+                detectedCategory = data.categoria;
+              }
               if (data.chunk !== undefined) {
-                onChunk(data.chunk, data.final);
+                onChunk(data.chunk, data.final, data.categoria);
               }
             } catch (err) {
               console.error('Error al decodificar fragmento de stream:', err);

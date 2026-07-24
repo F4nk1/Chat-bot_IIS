@@ -2,7 +2,7 @@
   {
     "id": "TRA-001",
     "pregunta": "¿Dónde consulto los requisitos, costos y plazos de un trámite en la UNSAAC?",
-    "respuesta": "La UNSAAC publica los requisitos, costos, plazos, canales de atención y unidades responsables en su Texto Único de Procedimientos Administrativos. Antes de presentar una solicitud, revisa el TUPA vigente y el calendario académico correspondiente.",
+    "respuesta": "La UNSAAC publica los requisitos, costos, plazos, canales de atención y unidades responsables en su Texto Único de Procedimientos Administrativos (TUPA). Asimismo, puedes consultar y revisar los trámites y documentos a través de la plataforma PLADDES de la universidad.",
     "categoria": "Trámites",
     "subtema": "Información general",
     "perfil": "general",
@@ -708,6 +708,22 @@
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "TUPA de la UNSAAC, Carné de Biblioteca para Egresados, código SE51008E52"
+    }
+  },
+  {
+    "id": "TRA-046",
+    "pregunta": "¿Existe Bachillerato Automático en la UNSAAC?",
+    "respuesta": "No. En la UNSAAC no existe el bachillerato automático. Conforme a la Ley Universitaria N° 30220 y los reglamentos de la UNSAAC, para la obtención del Grado Académico de Bachiller es obligatorio elaborar, presentar y aprobar un Trabajo de Investigación (tesina), acreditar el conocimiento de un idioma extranjero (nivel básico o intermedio según el plan de estudios) y haber completado la totalidad de créditos y asignaturas del plan curricular.",
+    "categoria": "Trámites",
+    "subtema": "Grado de Bachiller",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "Reglamento Académico de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento Académico de la UNSAAC, requisitos para el Grado de Bachiller"
     }
   }
 ]

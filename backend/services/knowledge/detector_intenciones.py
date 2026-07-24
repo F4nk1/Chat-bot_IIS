@@ -205,10 +205,34 @@ class IntentDetector:
 
     def detectar(self, texto: str, modelo_embeddings) -> str:
         """
-        Analiza el texto y retorna la categoria detectada usando similitud de coseno.
+        Analiza el texto y retorna la categoria detectada usando regla directa o similitud de coseno.
         """
         if not texto or not texto.strip():
             return "General"
+
+        texto_norm = texto.lower().strip()
+
+        # Detección directa por reglas para Interacción Social (Agradecimiento, Saludo, Despedida)
+        palabras_agradecimiento = [
+            "gracias", "muchas gracias", "gracias por la informacion", "gracias por la información",
+            "te agradezco", "mil gracias", "muy amable", "excelente gracias", "gracias dinobot",
+            "muchisimas gracias", "muchísimas gracias", "ok gracias", "bien gracias", "gracias por la ayuda"
+        ]
+        palabras_despedida = [
+            "chau", "chao", "hasta luego", "nos vemos", "adiós", "adios", "hasta pronto",
+            "cuídate", "cuidate", "eso es todo gracias", "eso es todo", "nos vemos luego", "hasta mañana"
+        ]
+        palabras_saludo = [
+            "hola", "buenos días", "buenos dias", "buenas tardes", "buenas noches",
+            "qué tal", "que tal", "saludos", "buen día", "buen dia", "hey", "hola bot", "hola dinobot"
+        ]
+
+        if any(p == texto_norm for p in palabras_agradecimiento) or any(texto_norm.startswith(p) for p in palabras_agradecimiento):
+            return "Agradecimiento"
+        if any(p == texto_norm for p in palabras_despedida) or any(texto_norm.startswith(p) for p in palabras_despedida):
+            return "Despedida"
+        if any(p == texto_norm for p in palabras_saludo) or any(texto_norm.startswith(p) for p in palabras_saludo):
+            return "Saludo"
 
         if not self.entrenado:
             self.entrenar(modelo_embeddings)

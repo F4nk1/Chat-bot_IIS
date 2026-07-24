@@ -81,8 +81,8 @@
   },
   {
     "id": "MOV-006",
-    "pregunta": "¿Dónde se publican las convocatorias de movilidad estudiantil?",
-    "respuesta": "Las oportunidades de movilidad se publican en el portal de la Oficina de Cooperación y Relaciones Internacionales de la UNSAAC. Allí se presentan convocatorias nacionales e internacionales y los documentos de cada programa.",
+    "pregunta": "¿Dónde se publican o comunican las convocatorias de movilidad estudiantil?",
+    "respuesta": "Las convocatorias de movilidad estudiantil se difunden de forma prioritaria y en tiempo real a través del correo electrónico institucional de los estudiantes (@unsaac.edu.pe), además de publicarse en el portal web de la Oficina de Cooperación y Relaciones Internacionales (OCTI). Por ello, se aconseja a los estudiantes revisar frecuentemente su bandeja de entrada institucional.",
     "categoria": "Movilidad",
     "subtema": "Convocatorias",
     "perfil": "general",
@@ -162,7 +162,7 @@
   {
     "id": "MOV-011",
     "pregunta": "¿Cómo puedo saber con qué universidades tiene convenios la UNSAAC?",
-    "respuesta": "La Oficina de Cooperación y Relaciones Internacionales publica información anual y fichas de convenios nacionales e internacionales. Debes verificar la vigencia y el objetivo de cada convenio antes de considerar una postulación.",
+    "respuesta": "La Oficina de Cooperación y Relaciones Internacionales (OCTI) publica fichas de convenios nacionales e internacionales. Actualmente, la UNSAAC mantiene convenios de movilidad estudiantil con universidades de Colombia, México, Brasil, Argentina, España y con diversas universidades dentro del Perú.",
     "categoria": "Movilidad",
     "subtema": "Convenios",
     "perfil": "general",
@@ -365,6 +365,22 @@
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "Portal de Internacionalización de la Oficina de Cooperación y Relaciones Internacionales"
+    }
+  },
+  {
+    "id": "MOV-024",
+    "pregunta": "¿Por qué debo revisar mi correo institucional para enterarme de la movilidad estudiantil?",
+    "respuesta": "El correo electrónico institucional (@unsaac.edu.pe) es el canal oficial prioritario y en tiempo real donde la OCTI y la Escuela Profesional comunican de forma inmediata el lanzamiento de becas, intercambios y pasantías con plazos de postulación activos.",
+    "categoria": "Movilidad",
+    "subtema": "Canal de notificaciones",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Movilidad saliente OCTI",
+      "url": "https://octi.unsaac.edu.pe/movilidad-saliente-outgoing/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Oficina de Cooperación y Relaciones Internacionales de la UNSAAC"
     }
   }
 ]

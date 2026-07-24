@@ -9,7 +9,7 @@ class KnowledgeBase:
     def obtener_todo():
         conexion = obtener_conexion()
         cursor = conexion.cursor()
-        cursor.execute("SELECT id, categoria, pregunta, respuesta, pregunta_limpia, enlace_url, enlace_texto, fuente FROM conocimiento")
+        cursor.execute("SELECT id, codigo_regla, categoria, pregunta, respuesta, pregunta_limpia, enlace_url, enlace_texto, fuente FROM conocimiento")
         filas = cursor.fetchall()
         conexion.close()
         return filas

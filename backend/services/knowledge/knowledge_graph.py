@@ -11,6 +11,13 @@ class KnowledgeGraph:
         self.cursos = {}
         self.grafo = nx.DiGraph()
         self._cargar_datos()
+    def recargar(self):
+        """Recarga todos los datos desde los archivos CSV estructurados en tiempo real."""
+        self.alumnos.clear()
+        self.docentes.clear()
+        self.asignaciones.clear()
+        self.cursos.clear()
+        self._cargar_datos()
         self.cargar_grafo_malla()
 
     def _cargar_datos(self):

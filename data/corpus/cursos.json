@@ -2,7 +2,7 @@
   {
     "id": "CUR-001",
     "pregunta": "¿Cómo se organizan los estudios de pregrado en la UNSAAC?",
-    "respuesta": "Los estudios profesionales de pregrado se organizan por semestres y créditos. Cada semestre tiene una duración de diecisiete semanas y se desarrolla con un currículo flexible.",
+    "respuesta": "Los estudios profesionales de pregrado se organizan por semestres y créditos. Cada semestre tiene una duración de diecisiete semanas y se desarrolla con un currículo flexible. Para obtener información más detallada de las asignaturas de tu carrera, puedes consultar la malla curricular oficial de la Escuela Profesional de Ingeniería Informática y de Sistemas (EPIIS).",
     "categoria": "Cursos",
     "subtema": "Régimen académico",
     "perfil": "general",
@@ -274,7 +274,7 @@
   {
     "id": "CUR-018",
     "pregunta": "¿Qué cursos forman la línea de redes y ciberseguridad?",
-    "respuesta": "El plan incluye Redes de Computadoras I, Redes de Computadoras II, Sistemas de Internet de las Cosas y Ciberseguridad. Entre los electivos relacionados aparecen Tópicos Avanzados en Redes, Arquitectura de Alto Rendimiento y Blockchain.",
+    "respuesta": "El plan incluye Redes de Computadoras I, Redes de Computadoras II, Sistemas de Internet de las Cosas y Ciberseguridad. Entre los electivos relacionados aparecen Tópicos Avanzados en Redes, Arquitectura de Alto Rendimiento y Blockchain. Asimismo, los dos cursos prerrequisito fundamentales que inician esta línea de redes son Arquitectura del Computador y Sistemas Operativos.",
     "categoria": "Cursos",
     "subtema": "Redes y ciberseguridad",
     "perfil": "general",
@@ -418,20 +418,20 @@
   {
     "id": "CUR-027",
     "pregunta": "¿Cómo puedo verificar cuántos créditos y asignaturas me faltan para egresar?",
-    "respuesta": "Debes revisar tu ficha de seguimiento académico y compararla con el plan de estudios al que perteneces. La ficha permite identificar asignaturas aprobadas, desaprobadas, homologadas y pendientes, así como el total de créditos acumulados.",
+    "respuesta": "Debes revisar tu ficha de seguimiento académico y compararla con el plan de estudios al que perteneces. Asimismo, puedes ingresar al Portal del Estudiante (SIGA UNSAAC) para consultar en tiempo real el detalle de créditos acumulados y récord de notas.",
     "categoria": "Cursos",
     "subtema": "Avance curricular",
     "perfil": "egresado",
     "enlace": null,
     "fuente": {
       "tipo": "portal_institucional",
-      "referencia": "TUPA de la UNSAAC, servicio Ficha de Seguimiento Académico, código SE5100E4E4"
+      "referencia": "TUPA de la UNSAAC, servicio Ficha de Seguimiento Académico, código SE5100E4E4; Portal del Estudiante"
     }
   },
   {
     "id": "CUR-028",
     "pregunta": "¿Los estudiantes del Plan 2017 también necesitan 220 créditos para egresar?",
-    "respuesta": "No se debe aplicar automáticamente el total del Plan 2025 a estudiantes de otro plan. Los créditos y componentes exigidos dependen del plan curricular asignado al estudiante, por lo que debes revisar tu ficha académica y la malla correspondiente al Plan 2017.",
+    "respuesta": "No. Los créditos exigidos dependen de la malla curricular a la que perteneces. Para los estudiantes de la Malla Curricular Plan 2017 de la EPIIS, la exigencia requerida para egresar es de **219 créditos** en total (a diferencia del Plan 2025 que exige 220 créditos).",
     "categoria": "Cursos",
     "subtema": "Planes curriculares",
     "perfil": "egresado",
@@ -473,7 +473,7 @@
   {
     "id": "CUR-031",
     "pregunta": "¿Un proyecto de software puede ser utilizado como parte de una tesis profesional?",
-    "respuesta": "Un sistema o producto de software puede formar parte de una tesis si se desarrolla dentro de un problema de investigación, utiliza una metodología verificable y presenta resultados o aportes evaluables. El plan debe ser revisado y aprobado por las instancias académicas correspondientes.",
+    "respuesta": "Un sistema o producto de software puede formar parte de una tesis si se desarrolla dentro de un problema de investigación, utiliza una metodología verificable y presenta resultados evaluables. Para conocer mejor los temas y proyectos aplicables a tu tesis, se recomienda consultarlo directamente con tu tutor académico, quien te brindará guía y apoyo.",
     "categoria": "Cursos",
     "subtema": "Investigación aplicada",
     "perfil": "egresado",
@@ -484,6 +484,22 @@
     "fuente": {
       "tipo": "reglamento_academico",
       "referencia": "Art. 134, Reglamento Académico de la UNSAAC; Plan de Estudios 2025 de la EP-IIS"
+    }
+  },
+  {
+    "id": "CUR-032",
+    "pregunta": "¿Cuántos créditos necesito para egresar de la carrera de Ingeniería Informática y de Sistemas?",
+    "respuesta": "El total de créditos requeridos para egresar depende del plan curricular al que perteneces: en el **Plan 2025** se exigen **220 créditos acumulados** (59 componentes curriculares), mientras que en el **Plan 2017** se exigen **219 créditos acumulados**.",
+    "categoria": "Cursos",
+    "subtema": "Créditos para egresar",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "Malla curricular de Ingeniería Informática y de Sistemas",
+      "url": "https://in.unsaac.edu.pe/malla-curricular/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Planes Curriculares 2025 y 2017 de la Escuela Profesional de Ingeniería Informática y de Sistemas"
     }
   }
 ]

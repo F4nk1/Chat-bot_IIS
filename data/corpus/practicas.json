@@ -28,7 +28,7 @@
   {
     "id": "PRA-003",
     "pregunta": "¿Dónde puedo realizar mis prácticas preprofesionales?",
-    "respuesta": "Las prácticas preprofesionales pueden desarrollarse en una entidad pública o privada. Las actividades asignadas deben permitir al estudiante aplicar las competencias de su carrera y corresponder a las áreas de formación establecidas por su Escuela Profesional.",
+    "respuesta": "Las prácticas preprofesionales pueden desarrollarse en una entidad pública o privada. Las actividades asignadas deben permitir al estudiante aplicar las competencias de su carrera y corresponder a las áreas de formación establecidas por su Escuela Profesional. Si deseas conocer más opciones y recomendaciones sobre entidades receptoras, se aconseja consultarlo directamente con tu tutor académico.",
     "categoria": "Prácticas",
     "subtema": "Entidad receptora",
     "perfil": "egresado",
@@ -285,6 +285,48 @@
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "Perfil del egresado y campo ocupacional de la EP-IIS; Art. 112 del Reglamento Académico"
+    }
+  },
+  {
+    "id": "PRA-022",
+    "pregunta": "¿Cuánto tiempo o número de horas mínimo se debe realizar de Prácticas Preprofesionales (PPP)?",
+    "respuesta": "El Reglamento de Prácticas de la Escuela Profesional de Ingeniería Informática y de Sistemas exige un mínimo acumulado de **180 horas de prácticas preprofesionales** (o su equivalente de 8 créditos en el Plan 2025).",
+    "categoria": "Prácticas",
+    "subtema": "Duración de prácticas",
+    "perfil": "egresado",
+    "enlace": {
+      "texto": "Reglamento Académico de la UNSAAC",
+      "url": "https://transparencia.unsaac.edu.pe/links/disposiciones/documentos/resCU/RegAcademicoUNSAAC2017%28CU-093-2017-UNSAAC%29.pdf"
+    },
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento de Prácticas Preprofesionales de la EP-IIS de la UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-023",
+    "pregunta": "¿Se pueden realizar las Prácticas Preprofesionales (PPP) dentro de la misma UNSAAC?",
+    "respuesta": "Sí. Las Prácticas Preprofesionales pueden desarrollarse dentro de la propia universidad en centros de cómputo, laboratorios especializados, proyectos tecnológicos de software de la EPIIS o dependencias administrativas universitarias que requieran desarrollo de sistemas y soporte TI.",
+    "categoria": "Prácticas",
+    "subtema": "Prácticas internas",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Reglamento de Prácticas Preprofesionales de la EP-IIS de la UNSAAC"
+    }
+  },
+  {
+    "id": "PRA-024",
+    "pregunta": "¿Las Prácticas Preprofesionales (PPP) son remuneradas o subvencionadas?",
+    "respuesta": "Conforme a la Ley N° 28518 de Modalidades Formativas Laborales, las prácticas preprofesionales en empresas privadas o instituciones públicas pueden contar con una subvención económica mensual. En modalidades internas dentro de la universidad o convenios ad honórem, se valida el cumplimiento oficial de las horas requeridas para el egreso.",
+    "categoria": "Prácticas",
+    "subtema": "Subvención de prácticas",
+    "perfil": "egresado",
+    "enlace": null,
+    "fuente": {
+      "tipo": "reglamento_academico",
+      "referencia": "Ley N° 28518 de Modalidades Formativas Laborales y Reglamento de Prácticas de la UNSAAC"
     }
   }
 ]

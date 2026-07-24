@@ -18,13 +18,13 @@
   {
     "id": "BIE-002",
     "pregunta": "¿Cómo puedo coger, conseguir o acceder al comedor?",
-    "respuesta": "Para conseguir, coger o acceder al Comedor Universitario, debes realizar la reserva de tu cupo a través del portal institucional usando tu código de estudiante y la clave del voucher de matrícula. Recuerda estar al tanto de los cronogramas publicados por la Dirección de Bienestar Universitario.",
+    "respuesta": "Para acceder o conseguir vacante en el Comedor Universitario deben cumplirse cuatro pasos:\n\n1. **Ir al portal web de Bienestar:** [bienestar.unsaac.edu.pe](http://bienestar.unsaac.edu.pe/)\n2. **Autenticación:** Inicia sesión con tu código de estudiante y clave de voucher.\n3. **Verificación en pantalla:** El sistema mostrará ÉXITO si reservaste cupo o ERROR si no hay vacantes o estás fuera de fecha.\n4. **Pago de la tasa:** Realiza el pago presencial en la Caja Central UNSAAC o por internet en la Plataforma de Recaudación.\n\n*Nota: El proceso solo se habilita cuando la Dirección de Bienestar publica un calendario activo con vacantes disponibles.*",
     "categoria": "Bienestar",
     "subtema": "Comedor universitario",
     "perfil": "general",
     "enlace": {
       "texto": "Manual del Comedor Universitario",
-      "url": "https://bienestar.unsaac.edu.pe/ManualComedor_.pdf"
+      "url": "http://bienestar.unsaac.edu.pe/ManualComedor_.pdf"
     },
     "fuente": {
       "tipo": "portal_institucional",
@@ -98,7 +98,7 @@
   {
     "id": "BIE-007",
     "pregunta": "¿Dónde puedo solicitar apoyo psicológico si recién ingresé a la universidad?",
-    "respuesta": "Puedes solicitar orientación y atención psicológica en el Centro Universitario de Salud o en la Unidad de Salud y Psicopedagogía. Estos servicios atienden dificultades emocionales, académicas y de adaptación universitaria.",
+    "respuesta": "Puedes solicitar orientación y atención psicológica en el Centro Universitario de Salud o en la Unidad de Salud y Psicopedagogía. Estos servicios atienden dificultades emocionales, académicas y de adaptación universitaria. Asimismo, puedes acudir a tu tutor académico o a un docente de tu carrera para que conozcan tu situación y coordinen tu derivación a Asistencia Social o apoyo psicológico.",
     "categoria": "Bienestar",
     "subtema": "Apoyo psicológico",
     "perfil": "ingresante",
@@ -130,7 +130,7 @@
   {
     "id": "BIE-009",
     "pregunta": "¿Puedo participar en actividades deportivas desde el primer semestre?",
-    "respuesta": "Los estudiantes pueden informarse sobre campeonatos, escuelas deportivas, actividades recreativas y programas de actividad física organizados por la Unidad de Deportes y Recreación de Bienestar Universitario.",
+    "respuesta": "Los estudiantes pueden informarse sobre campeonatos, escuelas deportivas, actividades recreativas y programas organizados por la Unidad de Deportes. Además de los torneos institucionales, puedes enterarte de los campeonatos deportivos de tu propia carrera (EPIIS) a través de tu Centro Federado y los grupos de WhatsApp oficiales.",
     "categoria": "Bienestar",
     "subtema": "Deporte y recreación",
     "perfil": "ingresante",
@@ -194,7 +194,7 @@
   {
     "id": "BIE-013",
     "pregunta": "¿Dónde puedo consultar las becas publicadas por la UNSAAC?",
-    "respuesta": "La UNSAAC cuenta con una sección institucional de becas donde publica oportunidades de pregrado y posgrado. Para cada convocatoria debes revisar la fecha, población beneficiaria, requisitos, documentación y entidad que ofrece el financiamiento.",
+    "respuesta": "La UNSAAC publica becas en su portal institucional de becas y difunde convocatorias directamente al correo institucional (@unsaac.edu.pe) de cada estudiante, especialmente al iniciar el semestre. También puedes solicitar información y orientación sobre becas a tu tutor académico asignado.",
     "categoria": "Bienestar",
     "subtema": "Becas",
     "perfil": "general",
@@ -242,7 +242,7 @@
   {
     "id": "BIE-016",
     "pregunta": "¿Puedo pedir apoyo psicológico si el estrés está afectando mis cursos?",
-    "respuesta": "Sí. El Consultorio de Psicología atiende casos de estrés, ansiedad y bajo rendimiento académico. Puedes solicitar orientación aunque el problema se relacione principalmente con exámenes, carga académica, dificultades de adaptación o desempeño universitario.",
+    "respuesta": "Sí. El Consultorio de Psicología atiende estrés, ansiedad y problemas académicos. Además, se recomienda conversar con tu tutor académico para que pueda brindarte acompañamiento u orientar tu derivación a una atención psicológica especializada.",
     "categoria": "Bienestar",
     "subtema": "Estrés académico",
     "perfil": "general",
@@ -322,7 +322,7 @@
   {
     "id": "BIE-021",
     "pregunta": "¿Qué actividades deportivas organiza la UNSAAC para sus estudiantes?",
-    "respuesta": "La Unidad de Deportes y Recreación organiza campeonatos universitarios, escuelas deportivas, actividades recreativas, eventos de integración, capacitaciones y programas de actividad física para los estudiantes.",
+    "respuesta": "La Unidad de Deportes y Recreación organiza campeonatos universitarios, escuelas deportivas y programas de actividad física. Cada semestre académico se realiza un campeonato interescuelas de fútbol, vóley, básquet y tenis de mesa (en categorías de varones y damas).",
     "categoria": "Bienestar",
     "subtema": "Actividades deportivas",
     "perfil": "general",
@@ -370,7 +370,7 @@
   {
     "id": "BIE-024",
     "pregunta": "¿Dónde consulto los horarios y convocatorias de actividades deportivas?",
-    "respuesta": "Los horarios, disciplinas y convocatorias pueden variar durante el año. Debes consultar la información publicada por Bienestar Universitario o comunicarte con la Unidad de Deportes y Recreación antes de acudir a una actividad.",
+    "respuesta": "Los horarios, disciplinas y convocatorias se publican en el portal de Bienestar Universitario. Asimismo, se recomienda seguir la página oficial de Facebook de la Unidad de Deportes de la UNSAAC para enterarte a tiempo de los eventos.",
     "categoria": "Bienestar",
     "subtema": "Convocatorias deportivas",
     "perfil": "general",
@@ -386,7 +386,7 @@
   {
     "id": "BIE-025",
     "pregunta": "¿A qué estudiantes está dirigido el servicio de Vivienda Universitaria?",
-    "respuesta": "El servicio de Vivienda Universitaria brinda alojamiento a estudiantes provenientes de diferentes distritos, provincias y regiones del país. El acceso depende de los criterios, vacantes y procedimientos que establezca la unidad responsable.",
+    "respuesta": "El servicio de Vivienda Universitaria brinda alojamiento a estudiantes de escasos recursos económicos, con necesidad socioeconómica sustentada, provenientes de provincias o que presenten alguna condición de discapacidad.",
     "categoria": "Bienestar",
     "subtema": "Residencia estudiantil",
     "perfil": "general",
@@ -445,6 +445,102 @@
     "fuente": {
       "tipo": "portal_institucional",
       "referencia": "Portal de Bienestar Universitario de la UNSAAC, Unidad de Vivienda Universitaria"
+    }
+  },
+  {
+    "id": "BIE-029",
+    "pregunta": "¿Dónde o cómo se paga el Comedor Universitario?",
+    "respuesta": "El pago para el Comedor Universitario se realiza presencialmente en la Caja Central de la UNSAAC o en línea por internet a través del portal institucional de recaudación de servicios (https://servicios.unsaac.edu.pe/recaudacion/).",
+    "categoria": "Bienestar",
+    "subtema": "Comedor universitario",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Servicios Recaudación UNSAAC",
+      "url": "https://servicios.unsaac.edu.pe/recaudacion/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Dirección de Bienestar Universitario de la UNSAAC"
+    }
+  },
+  {
+    "id": "BIE-030",
+    "pregunta": "¿Qué condiciones se necesitan para conseguir cupo en el comedor universitario?",
+    "respuesta": "Para conseguir cupo y pagar el comedor universitario es indispensable que exista un calendario activo publicado por la Dirección de Bienestar Universitario y que aún existan cupos o vacantes disponibles en el sistema.",
+    "categoria": "Bienestar",
+    "subtema": "Comedor universitario",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Bienestar Universitario",
+      "url": "http://bienestar.unsaac.edu.pe/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Dirección de Bienestar Universitario de la UNSAAC"
+    }
+  },
+  {
+    "id": "BIE-031",
+    "pregunta": "¿Cuánto debo pagar para el Comedor Universitario?",
+    "respuesta": "El monto exacto o tarifa a pagar por el servicio del Comedor Universitario se indica en el sistema al momento de realizar la transacción, ya sea presencialmente en la Caja Central de la UNSAAC o en línea a través de la Plataforma de Recaudación de Servicios durante el calendario activo.",
+    "categoria": "Bienestar",
+    "subtema": "Comedor universitario",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Plataforma de Recaudación de Servicios UNSAAC",
+      "url": "https://servicios.unsaac.edu.pe/recaudacion/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Dirección de Bienestar Universitario de la UNSAAC"
+    }
+  },
+  {
+    "id": "BIE-032",
+    "pregunta": "¿Luego de pagar el comedor tengo que hacer algo más o debo realizar otro trámite?",
+    "respuesta": "No es necesario realizar ningún trámite o confirmación adicional. Una vez verificado y registrado tu pago en el sistema, solo debes acudir directamente al Comedor Universitario (ubicado en la Ciudad Universitaria - Perayoc) portando tu carné universitario o documento de identidad en los horarios de atención habilitados.",
+    "categoria": "Bienestar",
+    "subtema": "Comedor universitario",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Manual del Comedor Universitario",
+      "url": "http://bienestar.unsaac.edu.pe/ManualComedor_.pdf"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Dirección de Bienestar Universitario de la UNSAAC"
+    }
+  },
+  {
+    "id": "BIE-033",
+    "pregunta": "¿Puedo faltar al Comedor Universitario después de haber reservado mi vacante?",
+    "respuesta": "Si cuentas con Beca Comedor, la asistencia es estrictamente obligatoria. Si eres estudiante en modalidad regular (sin beca), se permite un máximo de hasta dos (2) inasistencias no justificadas; de superar este límite, se suspenderá automáticamente tu derecho de atención para el resto del calendario activo. Se recomienda asistir puntualmente para no perjudicar a otros estudiantes que requieren el servicio.",
+    "categoria": "Bienestar",
+    "subtema": "Comedor universitario",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Dirección de Bienestar Universitario",
+      "url": "http://bienestar.unsaac.edu.pe/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Reglamento y Directiva del Comedor Universitario de la UNSAAC"
+    }
+  },
+  {
+    "id": "BIE-034",
+    "pregunta": "¿Cuánto tiempo dura el servicio del Comedor Universitario en cada periodo?",
+    "respuesta": "Cada periodo o ciclo del Comedor Universitario tiene una duración de diez (10) días calendarios de atención. En caso de que se suspenda el servicio por alguna causa fortuita o feriado institucional, dichos días no brindados son reprogramados y recuperados dentro del calendario activo.",
+    "categoria": "Bienestar",
+    "subtema": "Comedor universitario",
+    "perfil": "general",
+    "enlace": {
+      "texto": "Dirección de Bienestar Universitario",
+      "url": "http://bienestar.unsaac.edu.pe/"
+    },
+    "fuente": {
+      "tipo": "portal_institucional",
+      "referencia": "Dirección de Bienestar Universitario de la UNSAAC"
     }
   }
 ]

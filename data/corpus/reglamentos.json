@@ -41,7 +41,7 @@
   {
     "id": "REG-004",
     "pregunta": "¿Qué es la tutoría académica?",
-    "respuesta": "La tutoría académica es un acompañamiento permanente que recibe el estudiante durante su formación universitaria. Este apoyo puede ser individual o grupal y está a cargo de docentes tutores.",
+    "respuesta": "La tutoría académica es un acompañamiento permanente que recibe el estudiante durante su formación universitaria. Este apoyo puede ser individual o grupal y está a cargo de docentes tutores. Asimismo, cada Escuela Profesional elabora su propio cronograma para cumplir obligatoriamente con las sesiones de tutoría programadas.",
     "categoria": "Reglamentos",
     "subtema": "Normas generales",
     "perfil": "general",
@@ -119,7 +119,7 @@
   {
     "id": "REG-010",
     "pregunta": "¿Qué tipo de apoyo recibe el estudiante tutorado?",
-    "respuesta": "El estudiante tutorado recibe apoyo académico integral, considerando sus necesidades, intereses, aptitudes y actitudes durante su formación universitaria.",
+    "respuesta": "El estudiante tutorado recibe apoyo académico integral, considerando sus necesidades, intereses, aptitudes y actitudes durante su formación universitaria. Asimismo, puede recibir apoyo psicológico, social, médico o de cualquier otra índole mediante los organismos especializados de Bienestar Universitario.",
     "categoria": "Reglamentos",
     "subtema": "Normas generales",
     "perfil": "general",
@@ -210,7 +210,7 @@
   {
     "id": "REG-017",
     "pregunta": "¿Durante cuanto tiempo se realiza la tutoría académica?",
-    "respuesta": "La tutoría se realiza durante toda la formación de pregrado, desde que el estudiante ingresa a la universidad hasta que culmina sus estudios.",
+    "respuesta": "La tutoría se realiza durante toda la formación de pregrado, desde que el estudiante ingresa a la universidad hasta que culmina sus estudios. Se debe llevar a cabo obligatoriamente como mínimo una vez por semestre y con la frecuencia adicional que el estudiante requiera.",
     "categoria": "Reglamentos",
     "subtema": "Normas generales",
     "perfil": "general",

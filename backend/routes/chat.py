@@ -26,6 +26,7 @@ def chat(solicitud: SolicitudChat):
 async def chat_stream(solicitud: SolicitudChat):
     respuesta = obtener_respuesta(solicitud.mensaje, solicitud.historial)
     contenido = respuesta["respuesta"]
+    categoria = respuesta.get("categoria", "General")
 
     async def generador_eventos():
         # Simular streaming palabra por palabra
@@ -34,7 +35,8 @@ async def chat_stream(solicitud: SolicitudChat):
             # Formato SSE: "data: <contenido>\n\n"
             data = {
                 "chunk": palabra + (" " if i < len(palabras) - 1 else ""),
-                "final": i == len(palabras) - 1
+                "final": i == len(palabras) - 1,
+                "categoria": categoria
             }
             yield f"data: {json.dumps(data)}\n\n"
             await asyncio.sleep(0.01)  # Pequeño retraso para simular generación

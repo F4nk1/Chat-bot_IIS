@@ -49,6 +49,9 @@ tmp/
 temp/
 
 # --- Project Specific ---
+# ChromaDB vector cache
+data/chroma_db/
+
 # TTS Models (Large files)
 backend/assets/models/*.onnx
 backend/assets/models/*.json

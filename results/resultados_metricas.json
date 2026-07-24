@@ -1,11 +1,17 @@
 {
-    "accuracy_global": 0.8880866425992779,
-    "latencias_segundos": {
-        "media": 0.28783450774369984,
-        "p50": 0.03430739100440405,
-        "p90": 0.5997498616023222,
-        "p95": 1.8789107399963532,
-        "p99": 3.842327237561112
+    "accuracy_clasificacion_transparente": 0.8790697674418605,
+    "recuperacion_rag": {
+        "total_consultas_evaluadas": 36,
+        "precision_at_1": 0.25,
+        "recall_at_3": 0.2777777777777778,
+        "mrr": 0.27731481481481474
     },
-    "total_casos": 277
+    "latencias_segundos": {
+        "media": 0.2987119370604602,
+        "p50": 0.15437301799988745,
+        "p90": 0.7514684758000385,
+        "p95": 0.8152032071000803,
+        "p99": 0.8936727012200617
+    },
+    "total_casos_evaluados": 215
 }

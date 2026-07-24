@@ -18,6 +18,7 @@ def inicializar_base_de_datos():
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS conocimiento (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
+            codigo_regla TEXT,
             categoria TEXT NOT NULL,
             pregunta TEXT NOT NULL,
             respuesta TEXT NOT NULL,

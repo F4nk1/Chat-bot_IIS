@@ -14,4 +14,4 @@ networkx
 transformers
 accelerate
 chromadb
-google-generativeai
+google-genai

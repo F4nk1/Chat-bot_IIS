@@ -55,9 +55,10 @@ def migrar_datos():
                                 if "fuente" in elemento and isinstance(elemento["fuente"], dict):
                                     fuente = elemento["fuente"].get("referencia", "")
                                 
+                                codigo_regla = elemento.get("id", "")
                                 cursor.execute(
-                                    "INSERT INTO conocimiento (categoria, pregunta, respuesta, pregunta_limpia, enlace_url, enlace_texto, fuente) VALUES (?, ?, ?, ?, ?, ?, ?)",
-                                    (cat, pregunta, respuesta, pregunta_limpia, enlace_url, enlace_texto, fuente)
+                                    "INSERT INTO conocimiento (codigo_regla, categoria, pregunta, respuesta, pregunta_limpia, enlace_url, enlace_texto, fuente) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                                    (codigo_regla, cat, pregunta, respuesta, pregunta_limpia, enlace_url, enlace_texto, fuente)
                                 )
                                 total_insertados += 1
                             archivos_procesados += 1

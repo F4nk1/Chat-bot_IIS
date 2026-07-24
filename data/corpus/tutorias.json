@@ -262,7 +262,7 @@
   {
     "id": "TUT-021",
     "pregunta": "¿Cómo se realiza la tutoría académica?",
-    "respuesta": "La tutoría académica se realiza mediante entrevistas programadas, revision o comentarios de trabajos y otras actividades que ayuden al estudiante en su formación.",
+    "respuesta": "La tutoría académica se realiza mediante entrevistas programadas, revisión o comentarios de trabajos y otras actividades que ayuden al estudiante en su formación. Asimismo, el alumno puede acudirse directamente al cubículo de su docente tutor para agendar o solicitar una sesión de tutoría.",
     "categoria": "Tutorías",
     "subtema": "Ejecución y funcionamiento",
     "perfil": "general",
@@ -288,7 +288,7 @@
   {
     "id": "TUT-023",
     "pregunta": "¿Quién determina la frecuencia minima de las entrevistas tutoriales?",
-    "respuesta": "La frecuencia minima de las entrevistas tutoriales la determina el Comite Tutorial de la Escuela Profesional.",
+    "respuesta": "La frecuencia mínima de las entrevistas tutoriales la determina el Comité Tutorial de la Escuela Profesional. Actualmente, la duración o tiempo mínimo establecido para una sesión de tutoría individual es de **10 minutos**.",
     "categoria": "Tutorías",
     "subtema": "Ejecución y funcionamiento",
     "perfil": "general",
@@ -301,7 +301,7 @@
   {
     "id": "TUT-024",
     "pregunta": "¿De qué depende la frecuencia de las tutorías?",
-    "respuesta": "La frecuencia de las tutorías depende de la necesidad, el interes y la iniciativa del estudiante. Tambien puede variar segun las asignaturas que este cursando.",
+    "respuesta": "La frecuencia de las tutorías depende de la necesidad, el interés y la iniciativa del estudiante. Asimismo, el plan de tutoría de cada Escuela Profesional garantiza la realización de al menos 1 o 2 sesiones tutoriales por semestre académico.",
     "categoria": "Tutorías",
     "subtema": "Ejecución y funcionamiento",
     "perfil": "general",
@@ -379,7 +379,7 @@
   {
     "id": "TUT-030",
     "pregunta": "¿A quien comunica el tutor los aspectos relevantes sobre la formación del estudiante?",
-    "respuesta": "El tutor comunica los aspectos importantes sobre la formación del estudiante al Comite Tutorial de la Escuela, por medio del Director de Escuela Profesional.",
+    "respuesta": "El tutor comunica los aspectos importantes sobre la formación del estudiante al Comité Tutorial de la Escuela, por medio del Director de Escuela Profesional. Únicamente en casos de extrema gravedad se notificará a los familiares del estudiante y a las autoridades universitarias competentes.",
     "categoria": "Tutorías",
     "subtema": "Ejecución y funcionamiento",
     "perfil": "general",
