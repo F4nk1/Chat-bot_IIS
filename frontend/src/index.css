@@ -72,3 +72,37 @@ body {
   color: #010080 !important;
 }
 
+/* Animaciones personalizadas de transición de secciones y tarjetas */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes highlightGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(223, 179, 32, 0.5);
+    border-color: #DFB320;
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(223, 179, 32, 0.25);
+    border-color: #010080;
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(223, 179, 32, 0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-highlight {
+  animation: highlightGlow 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1;
+}
+
