@@ -1,0 +1,311 @@
+ALCANCE Y PROPÓSITO ACTUAL
+DinoBot es un sistema de asistencia y orientación académica para estudiantes y docentes de la Escuela Profesional de Ingeniería Informática y de Sistemas (EP-IIS) de la Universidad Nacional de San Antonio Abad del Cusco (UNSAAC). El sistema resuelve consultas frecuentes sobre trámites universitarios, tutorías académicas, mallas curriculares, bienestar universitario, prácticas preprofesionales, reglamentos y movilidad estudiantil. Combina corrección ortográfica basada en SymSpell con jerga universitaria local, detección de intenciones mediante reglas y un clasificador k-NN sobre embeddings multilingües, extracción de entidades (NER) con SpaCy y expresiones regulares, consultas estructuradas sobre datos de alumnos, docentes y prerrequisitos mediante un grafo dirigido (NetworkX), un motor de búsqueda RAG híbrido (ChromaDB vectorial + BM25 + RRF + re-ranking por similitud de coseno), generación de respuesta en lenguaje natural (NLG) con la API oficial de Google Gemini (SDK google-genai), síntesis de voz (TTS) fuera de línea mediante modelos ONNX de Piper, y una API REST/SSE construida en FastAPI.
+
+ARQUITECTURA GENERAL
+Lista de componentes reales y sus responsabilidades:
+- ChatbotEngine (backend/services/conversation/asistente.py): Orquestador principal del pipeline. Recibe la consulta del usuario y el historial, coordina SymSpell, ContextManager, NEREngine, IntentDetector, KnowledgeGraph, HybridRetrievalEngine y LocalLLMGenerator.
+- SpellChecker (backend/services/nlu/symspell_checker.py): Corrector ortográfico que combina SymSpellPy (distancia de edición 1 y 2) con un diccionario de 35 términos dominio UNSAAC y un mapeo de 12 jergas universitarias locales (ej. "jalar" -> "desaprobar", "bika" -> "segunda matricula", "profe" -> "docente").
+- ContextManager (backend/services/memory/context_manager.py): Gestor de contexto sin estado que reconstruye el tema previo, código de alumno y semestre a partir del historial de conversación entregado por el cliente, y aplica resolución de correferencias para preguntas cortas de seguimiento.
+- NEREngine (backend/services/nlu/ner.py): Motor de reconocimiento de entidades nombradas que combina un modelo en español de SpaCy (es_core_news_sm) para detectar números de semestre (1 al 10) y cardinales/ordinales, expresiones regulares para codigo_alumno (6 dígitos numéricos según la regla institucional de la UNSAAC) y un extractor de nombres de asignaturas (extraer_curso) que valida las materias contra la malla curricular de cursos_malla.csv.
+- IntentDetector (backend/services/knowledge/detector_intenciones.py): Clasificador de intenciones que aplica primero reglas directas para interacciones sociales (Saludo, Agradecimiento, Despedida) y un clasificador k-NN mediante similitud de coseno sobre embeddings de SentenceTransformer (paraphrase-multilingual-MiniLM-L12-v2) entrenado con 187 frases de ejemplo.
+- KnowledgeGraph (backend/services/knowledge/knowledge_graph.py): Grafo de conocimiento en memoria construido con NetworkX (DiGraph) a partir de 4 archivos CSV estructurados (alumnos.csv, docentes.csv, asignacion_tutor.csv, cursos_malla.csv). Incluye el método recargar() para sincronizar en tiempo real modificaciones de los CSVs sin reiniciar el servidor. Permite consultar tutores asignados, datos de alumnos, asignaturas por semestre y recorrido de grafos de prerrequisitos bloqueados (nx.descendants).
+- HybridRetrievalEngine (backend/services/retrieval/motor_embeddings.py): Motor RAG híbrido que sincroniza la base SQLite con ChromaDB (PersistentClient). Guarda el identificador único de regla (codigo_regla) y realiza búsqueda léxica (BM25Okapi), búsqueda vectorial semántica en ChromaDB, fusión de rangos por Reciprocal Rank Fusion (RRF k=60) y re-ranking final con similitud de coseno mediante el Bi-Encoder paraphrase-multilingual-MiniLM-L12-v2. Incorpora el método buscar_top_k() para la evaluación de precisión de recuperación.
+- LocalLLMGenerator (backend/services/nlg/generador_llm.py): Módulo de generación del lenguaje natural (NLG) actualizado a la SDK oficial de Google google-genai (modelos gemini-flash-latest, gemini-2.0-flash, gemini-2.0-flash-lite) para redactar la respuesta a partir del contexto estricto recuperado por RAG, con fallback seguro al contexto textual en caso de falta de cuota o error.
+- ServicioTTS (backend/services/tts/servicio_tts.py): Servicio de síntesis de texto a voz (TTS) fuera de línea basado en la librería Piper (PiperVoice) y el modelo ONNX es_ES-sharvard-medium.onnx.
+- NormalizadorTTS (backend/services/tts/normalizador.py): Normalizador de texto para audio que elimina URLs y formato Markdown, y expande siglas institucionales (UNSAAC, IIS, VRA, VRIN, CEPU, DPA) y símbolos a su equivalente fonético.
+- KnowledgeBase (backend/services/knowledge/base_conocimiento.py): Capa de acceso a la base de datos relacional SQLite para recuperar y almacenar registros de la tabla conocimiento incluyendo codigo_regla.
+- ConversationSession (backend/services/memory/sesion_conversacion.py): Gestor de memoria persistente que guarda y recupera variables clave-valor por usuario en la tabla memoria de SQLite.
+- Modulo BD Gestion (backend/database/bd_gestion.py): Define la conexión a SQLite (chatbot.db) y la creación inicial de las 5 tablas relacionales.
+- Modulo BD Historial (backend/database/bd_historial.py): Provee funciones CRUD para gestionar conversaciones y mensajes guardados en SQLite.
+
+Tecnologías utilizadas por capa:
+- Backend Web API: FastAPI 0.110+, Uvicorn, Pydantic v2.
+- NLP / NLU: SymSpellPy, SpaCy 3.7+ (es_core_news_sm), Python re.
+- Embeddings / Representación Semántica: SentenceTransformers 2.5+ (paraphrase-multilingual-MiniLM-L12-v2), PyTorch, NumPy.
+- Búsqueda Vectorial y Léxica: ChromaDB 0.4+ (PersistentClient), rank_bm25 0.2+ (BM25Okapi).
+- Análisis de Grafos: NetworkX 3.2+ (DiGraph).
+- Modelos LLM / NLG: google-genai (Google Gemini API).
+- Audio TTS: Piper TTS (PiperVoice ONNX), Wave, Python uuid.
+- Base de Datos Relacional: SQLite 3.
+
+Diferencias explícitas respecto al artículo anterior:
+- esto difiere del artículo anterior en: el motor de búsqueda ya no utiliza TF-IDF básico sobre matriz dispersa con scikit-learn, sino un motor híbrido que combina ChromaDB (búsqueda vectorial densa), BM25 (búsqueda léxica), Reciprocal Rank Fusion (RRF) y re-ranking con el Bi-Encoder paraphrase-multilingual-MiniLM-L12-v2.
+- esto difiere del artículo anterior en: el detector de intenciones ya no aplica reglas regex únicamente cuando se falla el umbral de similitud TF-IDF, sino que se ejecuta al inicio del flujo usando un clasificador k-NN sobre embeddings densos con 187 ejemplos y reglas directas para interacciones sociales.
+- esto difiere del artículo anterior en: la base de conocimiento ya no se limita a consultas en una sola tabla relacional, sino que integra un grafo de conocimiento con NetworkX sobre 4 archivos CSV estructurados y una base de datos vectorial persistente con ChromaDB.
+
+FLUJO DE PROCESAMIENTO DE UNA CONSULTA
+Paso 0: Corrección Ortográfica Temprana (backend/services/nlu/symspell_checker.py, líneas 46-74). Se invoca spell_checker.corregir(mensaje). Primero traduce jergas locales universitarias (jalar -> desaprobar, bika -> segunda matricula, profe -> docente, epis -> ingenieria informatica y de sistemas) y luego aplica SymSpell para corregir errores tipográficos con distancia de edición 1.
+Paso 1: Extracción de Contexto del Historial (backend/services/memory/context_manager.py, líneas 23-54). Se invoca context_manager.extraer_contexto_historial(historial). Recorre los mensajes anteriores en orden inverso para identificar el último tema tratado (intención previa), así como codigo_alumno o semestre mencionados con anterioridad.
+Paso 2: Resolución de Correferencias y Extracción de Entidades (backend/services/memory/context_manager.py y backend/services/nlu/ner.py). Se ejecuta context_manager.resolver_correferencia(mensaje_corregido, tema_previo). Si la pregunta es ultracorta (<=2 palabras) o contiene demostrativos ("eso", "este"), le concatena la referencia explícita del tema previo. Luego ner_engine.extraer_entidades busca un código de 6 dígitos numéricos mediante regex, un número o nombre de semestre mediante SpaCy/Regex y el nombre oficial de la asignatura mediante ner_engine.extraer_curso. Se realiza el slot-filling fusionando las entidades actuales con las del historial (codigo_activo, semestre_activo).
+Paso 3: Detección de Intenciones (backend/services/knowledge/detector_intenciones.py, líneas 206-252). Se llama a detector_intenciones.detectar(mensaje_contextualizado). Evalúa primero reglas directas por coincidencia exacta o prefijo para Saludo, Despedida y Agradecimiento. Si no coincide, calcula la similitud de coseno del embedding de la pregunta contra 187 vectores de entrenamiento. Si la similitud máxima es menor a 0.45, retorna General. Posteriormente, en asistente.py (líneas 55-74) se aplica una sobrescritura por máquina de estados: si el último mensaje del asistente solicitaba un código o semestre y el usuario envió un número, la intención se fuerza a Info_Tutor, Info_Alumno o Cursos_Semestre.
+Paso 4: Enrutamiento Lógico y Recuperación (backend/services/conversation/asistente.py, líneas 80-207):
+- Si es Saludo, Agradecimiento o Despedida: Selecciona aleatoriamente una plantilla de respuesta predefinida y no consulta datos.
+- Si es Info_Tutor: Ejecuta primero una búsqueda RAG. Si la confianza RAG >= 0.55, usa esa respuesta conceptual. Si no, verifica codigo_activo; si falta, retorna "Para decirte quién es tu tutor asignado, por favor indícame tu código de estudiante." (slot-filling); si existe, consulta knowledge_graph.obtener_tutor_de_alumno(codigo_activo).
+- Si es Info_Alumno: Ejecuta primero RAG (confianza >= 0.55). Si no, exige codigo_activo de 6 dígitos y consulta knowledge_graph.obtener_info_alumno(codigo_activo).
+- Si es Cursos_Semestre: Ejecuta primero RAG (confianza >= 0.55). Si no, exige semestre_activo (1 al 10) y consulta knowledge_graph.obtener_cursos_por_semestre(semestre_activo).
+- Si es Cursos_Bloqueados: Extrae la asignatura con ner_engine.extraer_curso(mensaje_corregido) y consulta knowledge_graph.obtener_cursos_bloqueados(curso) usando nx.descendants en el grafo de prerrequisitos. Si no se encuentra el curso en el grafo, hace fallback al RAG.
+- Si es Info_Curso_Atributos: Consulta knowledge_graph.obtener_info_curso(nombre_o_codigo). Si no se encuentra, hace fallback al RAG.
+- Si es Tramites, Bienestar, Practicas, Reglamentos, Movilidad, Cursos_General, Tutorias_General o General: Invoca motor_embeddings.buscar(mensaje_contextualizado). El motor calcula BM25 + ChromaDB + RRF + Re-ranking Bi-Encoder. Si la confianza retornada es menor al umbral estricto calibrado de 0.46, se asigna una respuesta de fuera de dominio / alcance acotado.
+Paso 5: Generación en Lenguaje Natural NLG (backend/services/conversation/asistente.py, líneas 211-215). Si respuesta_final está vacía pero existe contexto_para_slm recuperado por RAG, se invoca generador_llm.generar_respuesta(contexto_para_slm, mensaje_corregido). Utiliza la API de Gemini mediante google-genai para redactar una respuesta fluida ajustada estrictamente al contexto recuperado.
+
+Aclaración explícita sobre el orden de evaluación:
+La detección de intención ocurre ANTES de la recuperación RAG (en el Paso 3). Esto difiere directamente de la versión documentada en el entregable 2, donde el IntentDetector se ejecutaba únicamente DESPUÉS de que la búsqueda por similitud TF-IDF no alcanzara el umbral de 0.5.
+
+INTENCIONES RECONOCIDAS
+Nombre de la intención | Qué la dispara (patrón o regla) | Qué responde o qué tabla consulta | Si pide algún dato adicional al usuario
+Saludo | Coincidencia exacta/prefijo ("hola", "buenos días") o similitud k-NN | Plantilla aleatoria de saludo de DinoBot | No
+Agradecimiento | Coincidencia exacta/prefijo ("gracias", "muchas gracias") o similitud k-NN | Plantilla aleatoria de cortesía | No
+Despedida | Coincidencia exacta/prefijo ("chau", "hasta luego") o similitud k-NN | Plantilla aleatoria de despedida | No
+Info_Tutor | Similitud k-NN ("quién es mi tutor") o override si usuario da código | RAG (si conf >= 0.55) o CSV asignacion_tutor.csv + docentes.csv | Sí (código de estudiante de 6 dígitos)
+Info_Alumno | Similitud k-NN ("quién soy", "mis datos") o override por código | RAG (si conf >= 0.55) o CSV alumnos.csv | Sí (código de estudiante de 6 dígitos)
+Cursos_Semestre | Similitud k-NN ("qué cursos hay en el 4to semestre") | RAG (si conf >= 0.55) o CSV cursos_malla.csv | Sí (semestre del 1 al 10)
+Cursos_Bloqueados | Similitud k-NN ("qué cursos se bloquean si jalo Cálculo I") | Grafo NetworkX (nx.descendants) en cursos_malla.csv o RAG fallback | No
+Info_Curso_Atributos | Similitud k-NN ("cuántos créditos tiene Base de Datos") | CSV cursos_malla.csv o RAG fallback | No
+Tramites | Similitud k-NN ("requisitos para bachillerato", "cómo pido carné") | Motor RAG Híbrido en tabla conocimiento de SQLite y ChromaDB | No
+Bienestar | Similitud k-NN ("cómo consigo comedor", "dónde queda la posta") | Motor RAG Híbrido en tabla conocimiento de SQLite y ChromaDB | No
+Practicas | Similitud k-NN ("cuántas horas de prácticas necesito") | Motor RAG Híbrido en tabla conocimiento de SQLite y ChromaDB | No
+Reglamentos | Similitud k-NN ("cuántas veces puedo jalar un curso") | Motor RAG Híbrido en tabla conocimiento de SQLite y ChromaDB | No
+Movilidad | Similitud k-NN ("intercambio", "beca en el extranjero") | Motor RAG Híbrido en tabla conocimiento de SQLite y ChromaDB | No
+Cursos_General | Similitud k-NN ("qué es un plan de estudios", "créditos para egresar") | Motor RAG Híbrido en tabla conocimiento de SQLite y ChromaDB | No
+Tutorias_General | Similitud k-NN ("cómo solicito tutoría", "cuándo es la reunión") | Motor RAG Híbrido en tabla conocimiento de SQLite y ChromaDB | No
+General | Similitud k-NN < 0.45 o frases de ruido ("receta de pizza") | Mensaje predefinido de fuera de dominio / alcance acotado | No
+
+MODELO DE DATOS (ESQUEMA COMPLETO)
+CREATE TABLE IF NOT EXISTS conocimiento (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    codigo_regla TEXT,
+    categoria TEXT NOT NULL,
+    pregunta TEXT NOT NULL,
+    respuesta TEXT NOT NULL,
+    pregunta_limpia TEXT,
+    enlace_url TEXT,
+    enlace_texto TEXT,
+    fuente TEXT
+);
+Uso: Almacena el corpus principal de FAQs, trámites y reglamentos universitarios procesados desde los archivos JSON, incluyendo la clave codigo_regla para trazabilidad, metadatos de enlaces web oficiales y referencias institucionales.
+
+CREATE TABLE IF NOT EXISTS conversaciones (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    titulo TEXT,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+Uso: Registra cada sesión o hilo de conversación iniciado por los usuarios en la aplicación web, junto con su título asignado y fecha de creación.
+
+CREATE TABLE IF NOT EXISTS mensajes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    conversacion_id INTEGER,
+    rol TEXT CHECK(rol IN ('usuario', 'asistente')),
+    contenido TEXT NOT NULL,
+    categoria TEXT,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (conversacion_id) REFERENCES conversaciones(id) ON DELETE CASCADE
+);
+Uso: Almacena los mensajes enviados por el usuario y los emitidos por el chatbot, incluyendo el rol del emisor y la categoría de intención detectada.
+
+CREATE TABLE IF NOT EXISTS memoria (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    usuario_id TEXT NOT NULL,
+    clave TEXT NOT NULL,
+    valor TEXT NOT NULL,
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(usuario_id, clave)
+);
+Uso: Mantiene variables persistentes del contexto de la conversación (ej. codigo_alumno, semestre_activo) por usuario para slot-filling entre turnos.
+
+CREATE TABLE IF NOT EXISTS valoraciones (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    mensaje_id INTEGER,
+    puntuacion INTEGER CHECK(puntuacion IN (-1, 1)),
+    comentario TEXT,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (mensaje_id) REFERENCES mensajes(id) ON DELETE CASCADE
+);
+Uso: Guarda la retroalimentación de los usuarios (+1 útil / -1 no útil) y comentarios opcionales sobre las respuestas generadas por DinoBot.
+
+Archivos CSV estructurados de datos universitarios (data/estructurado/):
+1. alumnos.csv (529 registros): Columnas (codigo, nombres, apellidos, escuela, semestre, promedio_ponderado, situacion_academica, creditos_aprobados, anio_ingreso).
+2. docentes.csv (47 registros): Columnas (codigo_docente, nombres, apellidos, categoria, departamento_academico, correo).
+3. asignacion_tutor.csv (529 registros): Columnas (codigo_alumno, codigo_docente, estado, fecha_asignacion).
+4. cursos_malla.csv (189 registros): Columnas (codigo_curso, nombre, creditos, tipo, semestre, prerrequisitos).
+
+ENDPOINTS DE LA API
+1. GET /
+- Descripción: Endpoint de salud para verificar si la API FastAPI está activa.
+- Payload de entrada: Ninguno.
+- Payload de salida (json): {"mensaje": "API de DinoBot funcionando correctamente"}
+
+2. POST /chat/stream
+- Descripción: Endpoint principal de interacción en tiempo real mediante streaming Server-Sent Events (SSE).
+- Payload de entrada (json): {"mensaje": "hola", "historial": []}
+- Payload de salida (text/event-stream): Eventos en tiempo real conteniendo la categoría detectada (event: categoria) y los fragmentos de texto generados palabra por palabra (event: message).
+
+3. POST /tts/generar
+- Descripción: Sintetiza texto en un archivo de audio WAV en español utilizando Piper ONNX en modo fuera de línea.
+- Payload de entrada (json): {"texto": "El horario de atención es de 8 a 1."}
+- Payload de salida (json): {"audio_url": "/audio_temp/tts_12345.wav"}
+
+4. POST /feedback/
+- Descripción: Registra la valoración enviada por el usuario (me gusta / no me gusta) sobre una respuesta.
+- Payload de entrada (json): {"mensaje_id": 12, "puntuacion": 1, "comentario": "Respuesta muy clara"}
+- Payload de salida (json): {"mensaje": "Feedback guardado exitosamente"}
+
+5. POST /conversaciones/
+- Descripción: Crea un nuevo hilo de conversación en la base relacional.
+- Payload de entrada (json): {"titulo": "Consulta sobre matrícula"}
+- Payload de salida (json): {"id": 1, "titulo": "Consulta sobre matrícula", "fecha_creacion": "2026-07-23 10:00:00"}
+
+6. GET /conversaciones/
+- Descripción: Obtiene el listado de todas las conversaciones guardadas.
+- Payload de entrada: Ninguno.
+- Payload de salida (json): [{"id": 1, "titulo": "Consulta sobre matrícula", "fecha_creacion": "2026-07-23 10:00:00"}]
+
+7. GET /conversaciones/{id}
+- Descripción: Obtiene el historial completo de mensajes asociados a una conversación.
+- Payload de entrada: Parámetro de ruta id (entero).
+- Payload de salida (json): [{"id": 1, "conversacion_id": 1, "rol": "usuario", "contenido": "hola", "categoria": "Saludo"}]
+
+8. POST /conversaciones/{id}/mensajes
+- Descripción: Inserta manualmente un mensaje en el historial de una conversación.
+- Payload de entrada (json): {"rol": "usuario", "contenido": "quién es mi tutor", "categoria": "Info_Tutor"}
+- Payload de salida (json): {"id": 2, "conversacion_id": 1, "rol": "usuario", "contenido": "quién es mi tutor", "categoria": "Info_Tutor"}
+
+9. DELETE /conversaciones/{id}
+- Descripción: Elimina una conversación y sus mensajes asociados en cascada.
+- Payload de entrada: Parámetro de ruta id (entero).
+- Payload de salida (json): {"mensaje": "Conversación eliminada"}
+
+10. POST /admin/conocimiento
+- Descripción: Agrega una nueva regla o par FAQ a la base de datos de conocimiento y sincroniza en caliente ChromaDB y BM25.
+- Payload de entrada (json): {"pregunta": "¿Cuándo inicia la matrícula?", "respuesta": "Inicia el 15 de agosto.", "categoria": "Trámites"}
+- Payload de salida (json): {"mensaje": "Conocimiento agregado exitosamente"}
+
+11. GET /admin/exportar-dataset
+- Descripción: Exporta el corpus y las interacciones registradas en formato JSONL para fine-tuning.
+- Payload de entrada: Ninguno.
+- Payload de salida (application/jsonlines): Archivo JSONL listo para descarga.
+
+12. GET /admin/exportar-logs
+- Descripción: Exporta los registros de consultas y valoraciones en formato CSV para análisis.
+- Payload de entrada: Ninguno.
+- Payload de salida (text/csv): Archivo CSV listo para descarga.
+
+13. GET /reglamento/{id_conocimiento}
+- Descripción: Consulta el detalle individual de un artículo o regla del reglamento por su ID numérico.
+- Payload de entrada: Parámetro de ruta id_conocimiento (entero).
+- Payload de salida (json): {"id": 5, "codigo_regla": "REG-001", "categoria": "Reglamentos", "pregunta": "¿Qué pasa si jalo un curso?", "respuesta": "El estudiante deberá llevarlo en condición de segunda matrícula."}
+
+ESQUEMA DEL CORPUS Y ESTADÍSTICAS
+Lista de campos actuales de una entrada en los archivos JSON de corpus:
+- categoria: Nombre de la categoría principal (string).
+- enlace: Objeto que contiene texto (string) y url (string).
+- fuente: Objeto que contiene tipo (string) y referencia (string).
+- id: Identificador alfanumérico único de la regla (string, ej. "BIE-001", "TRA-046", "PRA-022").
+- perfil: Perfil del destinatario (string, ej. "general").
+- pregunta: Formulación textual de la pregunta (string).
+- respuesta: Respuesta oficial en formato Markdown (string).
+- subtema: Descripción del subtema específico (string).
+
+Comparación contra el esquema del entregable 2:
+En el segundo entregable el corpus poseía únicamente 3 campos: {pregunta, respuesta, categoria}. Los nuevos campos añadidos son: id, subtema, perfil, enlace (con sus subclaves texto y url) y fuente (con sus subclaves tipo y referencia).
+
+Conteo real de entradas por categoría:
+- Bienestar: 34 entradas (data/corpus/bienestar.json)
+- Cursos: 32 entradas (data/corpus/cursos.json)
+- Movilidad: 24 entradas (data/corpus/movilidad.json)
+- Prácticas: 24 entradas (data/corpus/practicas.json)
+- Reglamentos: 37 entradas (data/corpus/reglamentos.json)
+- Trámites: 46 entradas (data/corpus/tramites.json)
+- Tutorías: 58 entradas (data/corpus/tutorias.json)
+Total real: 255 entradas distribuidas en 7 archivos JSON en la carpeta data/corpus/.
+
+MÉTRICAS Y PRUEBAS
+El sistema cuenta con un arnés de evaluación científica integral (tests/scripts/evaluacion_metricas.py) que mide tres dimensiones clave:
+
+1. Clasificación Transparente de Intenciones (Sin Re-mapeos Manuales):
+Se evalúa una batería balanceada de 450 consultas sobre las 9 intenciones principales. A diferencia de versiones preliminares, no se aplican re-mapeos manuales en código para sobreescribir errores de clasificación, reflejando el rendimiento estricto del clasificador k-NN.
+- Accuracy Global de Clasificación: 97.56%
+- Latencia Media de Inferencia: 0.007s (p95: 0.008s)
+
+2. Métricas de Recuperación del Motor RAG Híbrido (Information Retrieval):
+Se evalúa sobre un benchmark de consultas asociadas a su identificador único de regla (codigo_regla) en el corpus para verificar si el motor híbrido (BM25 + ChromaDB + RRF + Bi-Encoder) devuelve la regla correcta en las primeras posiciones.
+- Precision@1 (Porcentaje de veces que el documento exacto queda en posición 1): 94.44% - 100.00%
+- Recall@3 (Porcentaje de veces que el documento exacto está entre los top 3): 97.22% - 100.00%
+- MRR (Mean Reciprocal Rank): 0.9583 - 1.0000
+
+3. Auditoría de Fidelidad de Hechos / Grounding (Mitigación de Alucinaciones del LLM):
+Evaluación cualitativa y cuantitativa de las respuestas redactadas por Gemini comparadas contra el contexto estricto recuperado por RAG, guardada en results/evaluacion_fidelidad.csv.
+- Respuestas Fieles / Verificadas: 35/35 (100.00%)
+- Alucinaciones o Contradicciones Detectadas: 0 (0.00%)
+
+Los resultados gráficos y numéricos se guardan en el directorio results/:
+- reporte_clasificacion.csv: Reporte detallado por clase emitido por classification_report.
+- resultados_metricas.json: Resumen consolidado de accuracy, latencias y recuperación RAG.
+- metricas_rag.json: Métricas de Precision@1, Recall@3 y MRR del RAG.
+- evaluacion_fidelidad.csv: Matriz de auditoría de grounding.
+- matriz_confusion.png: Matriz de confusión gráfica generada con seaborn y matplotlib.
+- metricas_por_categoria.png: Gráfico de barras comparativo de Precision, Recall y F1-Score.
+- distribucion_latencia.png: Histograma y curva de densidad (KDE) de la latencia con línea del percentil p95.
+
+Pruebas de estrés (tests/scripts/generar_stress_test.py y tests/test_stress.py):
+Script generador que compila 900 pruebas unitarias con unittest organizadas en 9 baterías de test.
+
+Batería de Pruebas Unitarias e Integrales (tests/):
+- test_chatbot.py: Pruebas de integración de punta a punta (saludos, agradecimientos, fuera de dominio, corrección de jergas y ortografía con SymSpell, slot-filling con y sin código de alumno, búsqueda RAG en reglamentos y consulta de prerrequisitos en grafo).
+- test_arquitectura.py: Prueba rápida de verificación de pipeline de arquitectura.
+- test_intenciones.py: Validación unitaria del detector k-NN de intenciones.
+- test_normalizacion.py: Prueba de funciones de limpieza de acentos y preprocesamiento.
+- test_reglamento.py: Verificación del endpoint GET /reglamento/{id}.
+- test_exhaustivo.py: Batería extendida de pruebas de regresión.
+
+CAMBIOS RESPECTO AL SEGUNDO ENTREGABLE
+1. "El procesamiento de cada consulta sigue un pipeline de cinco pasos secuenciales"
+- ANTES (artículo v2): Pipeline lineal rígido de 5 pasos (Normalización de texto -> Embeddings TF-IDF -> Similitud de Coseno -> Evaluación de Umbral 0.5 -> Fallback a IntentDetector por expresiones regulares).
+- AHORA (código actual): Pipeline multietapa flexible de 6 fases: Paso 0 (SymSpell + Traductor de Jergas locales) -> Paso 1 (Extracción de Contexto del Historial) -> Paso 2 (Correferencia + NER con SpaCy/Regex/Malla + Slot-Filling) -> Paso 3 (Detector de Intenciones k-NN sobre SentenceTransformer + Reglas sociales + Máquina de estados) -> Paso 4 (Enrutamiento Lógico: Grafo NetworkX en CSVs o RAG Híbrido ChromaDB + BM25 + RRF + Re-ranking Bi-Encoder) -> Paso 5 (Generación NLG con Gemini LLM).
+- IMPLICA que las siguientes partes del artículo quedan desactualizadas: Sección III (Arquitectura del Sistema), Fig. 2 (Diagrama de Flujo del Pipeline) y Tabla V (Etapas de Procesamiento).
+
+2. "Si la similitud máxima no supera el umbral de 0.5, el IntentDetector aplica expresiones regulares"
+- ANTES (artículo v2): El IntentDetector actuaba como mecanismo secundario de rescate ejecutado únicamente DESPUÉS de que la similitud de vectores TF-IDF fuera menor a 0.5.
+- AHORA (código actual): La detección de intenciones ocurre en el Paso 3, ANTES de cualquier búsqueda RAG. Utiliza reglas directas de texto para saludos/agradecimientos/despedidas y un clasificador k-NN supervisado entrenado con 187 vectores de SentenceTransformer (paraphrase-multilingual-MiniLM-L12-v2). La evaluación de umbral (calibrada a 0.46) ocurre posteriormente en el motor RAG.
+- IMPLICA que las siguientes partes del artículo quedan desactualizadas: Sección III.B (Detector de Intenciones), Sección III.C y Fig. 2.
+
+3. "El corpus sigue el esquema {pregunta, respuesta, categoria}"
+- ANTES (artículo v2): Cada registro del corpus contenía únicamente 3 campos de texto plano: {pregunta, respuesta, categoria}.
+- AHORA (código actual): Cada registro posee un esquema estructurado de 8 campos: id (código de regla), pregunta, respuesta (en Markdown), categoria, subtema, perfil, enlace (texto, url) y fuente (tipo, referencia).
+- IMPLICA que las siguientes partes del artículo quedan desactualizadas: Sección III.C (Estructura de la Base de Conocimiento) y Tabla III (Esquema del Corpus).
+
+4. "El almacenamiento se centraliza en SQLite3... la tabla central conocimiento"
+- ANTES (artículo v2): Base de datos SQLite3 monolítica centrada en una única tabla relacional conocimiento.
+- AHORA (código actual): Arquitectura de datos híbrida de tres capas: 1) Base relacional SQLite3 con 5 tablas (conocimiento incluyendo codigo_regla, conversaciones, mensajes, memoria, valoraciones); 2) Base de datos vectorial persistente en disco ChromaDB (conocimiento_unsaac); 3) Colección de 4 archivos CSV de datos universitarios estructurados (alumnos.csv, docentes.csv, asignacion_tutor.csv, cursos_malla.csv) procesados mediante un grafo de conocimiento dirigido con NetworkX.
+- IMPLICA que las siguientes partes del artículo quedan desactualizadas: Sección III.D (Almacenamiento de Datos y Modelo Relacional), Fig. 3 y Tabla II.
+
+5. "El sistema no incluye módulos de autenticación de usuarios"
+- ANTES (artículo v2): El chatbot era completamente anónimo y despersonalizado, incapaz de distinguir la identidad de los estudiantes.
+- AHORA (código actual): Si bien no requiere un inicio de sesión tradicional con contraseña u OAuth, el motor NLU extrae dinámicamente el código de estudiante de 6 dígitos numéricos (codigo_alumno) y el nivel de semestre (1 al 10) mediante NER/Regex y slot-filling interactivo, lo que le permite consultar y retornar información personalizada (tutor asignado, condición de matrícula, plan de estudios) asociada a dicho código en la base relacional/CSV.
+- IMPLICA que las siguientes partes del artículo quedan desactualizadas: Sección I (Introducción), Sección III.E (Manejo de Contexto y Sesión) y Sección V (Conclusiones).
+
+6. Endpoints nuevos respecto a la lista original del artículo:
+- GET / (Verificación de estado del servidor)
+- POST /chat/stream (Streaming de respuesta palabra por palabra por Server-Sent Events con categoría)
+- POST /tts/generar (Síntesis de voz fuera de línea a través de Piper ONNX)
+- POST /feedback/ (Captura de valoraciones de utilidad +1/-1 y comentarios)
+- POST /conversaciones/, GET /conversaciones/, GET /conversaciones/{id}, POST /conversaciones/{id}/mensajes, DELETE /conversaciones/{id} (Gestión del historial de conversaciones)
+- POST /admin/conocimiento, GET /admin/exportar-dataset, GET /admin/exportar-logs (Administración de conocimientos, exportación para fine-tuning en JSONL y exportación de métricas en CSV)
+- GET /reglamento/{id_conocimiento} (Consulta individual de artículos por ID)
+- IMPLICA que las siguientes partes del artículo quedan desactualizadas: Sección IV (Servicios Web y API REST) y Tabla IV (Endpoints de la API).
+
+PENDIENTES Y LIMITACIONES DETECTADAS
+1. Dependencia de descarga del modelo binario ONNX de TTS (backend/services/tts/servicio_tts.py):
+- Limitación real: El servicio de síntesis de voz requiere la presencia física del archivo de modelo ONNX (es_ES-sharvard-medium.onnx) en el directorio backend/assets/models/. Si no está descargado, el endpoint /tts/generar responde HTTP 503.
+- Solución técnica propuesta: Incluir un script de inicio (download_assets.py) o empaquetar el modelo en una imagen Docker de despliegue para garantizar la disponibilidad del archivo desde la instalación.
+
+2. Cuota y conectividad externa de la API de Google Gemini para NLG (backend/services/nlg/generador_llm.py):
+- Limitación real: La redacción fluida depende de la API en la nube de Google Gemini. Si se supera el límite de cuota gratuita o se interrumpe la conexión a internet, el sistema conmuta al fallback seguro retornando el texto crudo del RAG sin reformular.
+- Solución técnica propuesta: Desplegar un modelo LLM local cuantizado (ej. Llama 3 8B u Ollama en formato GGUF/ONNX) en los servidores locales de la UNSAAC para garantizar independencia total fuera de línea.
+
+3. Orquestación paralela de desarrollo en Makefile (Makefile):
+- Limitación real: El comando make run ejecuta Uvicorn y Vite en paralelo en la misma sesión de terminal. Si un proceso falla al arrancar o se interrumpe, el otro puede quedar huérfano en segundo plano.
+- Solución técnica propuesta: Utilizar gestores de procesos de producción como Docker Compose o PM2 para la supervisión, reinicio automático y aislamiento de logs de cada servicio.
+
+4. Fuente de datos de grafos en archivos CSV estáticos (backend/services/knowledge/knowledge_graph.py):
+- Limitación real: Los datos de alumnos, docentes y mallas curriculares provienen de archivos CSV locales. Aunque se cuenta con el método recargar(), requiere sincronización manual en disco si el sistema académico actualiza matrículas.
+- Solución técnica propuesta: Conectar el KnowledgeGraph directamente a las vistas SQL o APIs del sistema de gestión académica oficial de la UNSAAC (SIU/ERP) para sincronización automática de registros.

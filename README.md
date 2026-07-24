@@ -1,99 +1,132 @@
-# Chatbot Académico IIS - UNSAAC
+# Chatbot Académico DinoBot — EPIIS UNSAAC
 
-Chatbot inteligente de arquitectura RAG (Retrieval-Augmented Generation) diseñado para la Escuela Profesional de Ingeniería Informática y de Sistemas de la UNSAAC. Orientado a resolver dudas sobre reglamentos, tutorías, trámites y servicios.
+Chatbot inteligente de arquitectura **RAG Híbrido (Bi-Encoder Sentence-Transformers + BM25)** integrado con **Google Gemini (SDK `google-genai`)** para la Escuela Profesional de Ingeniería Informática y de Sistemas de la UNSAAC. 
+
+El sistema actúa como un **Co-Pilot Web Interactivo** que orienta a los estudiantes en tiempo real navegando entre secciones y sub-pestañas de la página web de acuerdo con el tema de la consulta.
 
 ---
 
 ## 🌟 Características Principales
-- **IA / RAG**: Recuperación de información precisa usando Similitud Coseno.
-- **Voz ONNX (TTS)**: Síntesis de voz femenina de alta fidelidad integrada con Piper.
-- **Detección de Intenciones**: Clasificador KNN robusto contra ruido.
-- **Gestión de Feedback**: Sistema de valoración (pulgar arriba/abajo) para mejora continua.
-- **Panel Administrativo**: Exportación de logs en CSV y consulta directa de reglamentos.
-- **Normalización TTS**: Expansión de siglas y limpieza de texto para una lectura natural.
-- **Extensión de Navegador**: Integración de interfaz flotante directamente en portales universitarios.
+
+- **Búsqueda Híbrida RAG + Re-Ranking**: Recuperación multicanal con embeddings vectoriales (`paraphrase-multilingual-MiniLM-L12-v2`) en ChromaDB combinados con BM25.
+- **Redacción Natural NLG (Google Gemini)**: Generación fluida de respuestas respaldadas al 100% en el contexto normativo sin alucinaciones (SDK oficial `google-genai`).
+- **Navegación Co-Pilot Multinivel**: Sincronización automática de pantalla que desplaza la web institucional y activa la pestaña principal (*Formación*, *Bienestar*, *Trámites*, *Movilidad*, *Tutorías*) y la sub-pestaña correspondiente (*Malla*, *Prácticas PPP*, *Comedor*, *Pagos*, etc.).
+- **Síntesis de Voz Inteligente (TTS)**: Lectura fluida por voz omitiendo automáticamente títulos de enlaces y URLs para una experiencia de audio natural.
+- **Consultas a Grafos Académicos**: Extracción de entidades de cursos y prerrequisitos encadenados mediante NetworkX (`Cursos_Bloqueados`).
+- **Detección de Intenciones (k-NN)**: Clasificador supervisado para enrutamiento rápido de intenciones frecuentes.
+- **Panel Administrativo y Auditoría**: Exportación de métricas en CSV, logs en JSONL para fine-tuning y evaluación de fidelidad.
 
 ---
 
 ## ⚙️ Requisitos Previos
-- **Python 3.12+**
-- **Node.js (LTS)** (Para el entorno React/Vite)
-- **Navegador basado en Chromium (Google Chrome, Edge, Brave)**: Requerido para el pleno uso de la extensión (soporte de `webkitSpeechRecognition` nativo).
-- **Dependencias de Sistema (Linux)**: `sudo apt-get install libsndfile1`
+
+- **Python 3.10+** (Recomendado 3.11 o 3.12)
+- **Node.js (v18+ LTS)**
+- **GEMINI_API_KEY**: Variable de entorno configurada en archivo `.env`.
+- **Navegador Web (Chromium / Chrome / Edge / Brave)**: Para soporte nativo de micrófono (Speech-to-Text).
+- **Dependencia de Audio en Linux** *(Opcional)*: `sudo apt-get install libsndfile1`
 
 ---
 
-## 🚀 Instalación y Automatización (Makefile)
+## 🚀 Guía de Instalación y Ejecución
 
-El proyecto incluye un `Makefile` que automatiza absolutamente todas las tareas repetitivas del ciclo de vida del software.
+El proyecto es totalmente compatible con entornos **Linux** y **Windows**.
 
-### 1. Configuración de un solo clic
-```bash
-# Crea el entorno virtual (venv), instala dependencias Python y dependencias Node.js
-make setup
-```
+### 🐧 Opción A: En Linux / macOS (Vía `Makefile`)
 
-### 2. Base de Datos RAG
-```bash
-# Para borrar todo y migrar el conocimiento (Reglamentos, FAQs) desde cero
-make db-reset
-```
+1. **Instalación y Configuración Inicial:**
+   ```bash
+   make setup
+   ```
+2. **Migración e Inicialización de la Base de Datos:**
+   ```bash
+   make db-reset
+   ```
+3. **Ejecución Simultánea de Servidores (Backend + Frontend):**
+   ```bash
+   make run
+   ```
+   * *Ejecución por separado:*
+     * Backend: `make run-backend`
+     * Frontend: `make run-frontend`
 
-### 3. Ejecutar los Servidores
-Puedes levantar el backend de FastAPI y el frontend de React Vite al mismo tiempo, exponiéndolos incluso en tu red local:
-```bash
-make run
-```
-Si deseas correrlos por separado:
-- `make run-backend`
-- `make run-frontend`
+---
 
-### Otros Comandos Útiles
-- `make build-frontend`: Genera los archivos estáticos de React para producción en `frontend/dist/`.
-- `make clean`: Borra la caché, archivos `.pyc` y las carpetas de compilación.
-- `make help`: Muestra el menú de ayuda con todos los comandos documentados.
+### 🪟 Opción B: En Windows (PowerShell / CMD)
 
-*(Nota sobre TTS)*: Recuerda descargar manualmente los modelos de voz ONNX en `backend/assets/models/es_ES-sharvard-medium.onnx` si usas la síntesis de voz, según la plataforma original.
+Si estás en Windows y no utilizas `make` (o Git Bash), ejecuta los siguientes comandos en tu terminal de PowerShell:
+
+1. **Crear entorno virtual e instalar dependencias Python:**
+   ```powershell
+   python -m venv venv
+   .\venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   ```
+
+2. **Instalar dependencias del Frontend (Node.js):**
+   ```powershell
+   npm --prefix frontend install
+   ```
+
+3. **Migrar la Base de Datos e Inicializar el Corpus:**
+   ```powershell
+   python -m backend.database.migrar_datos
+   ```
+
+4. **Ejecutar el Servidor Backend (FastAPI):**
+   ```powershell
+   uvicorn backend.main:aplicacion --reload --host 0.0.0.0 --port 8000
+   ```
+
+5. **Ejecutar el Servidor Frontend (React / Vite en otra terminal):**
+   ```powershell
+   npm --prefix frontend run dev
+   ```
+
+---
+
+## 🌐 Puertas y Acceso
+
+- **Aplicación Web Interactiva**: [http://localhost:5173](http://localhost:5173)
+- **API FastAPI (Swagger Docs)**: [http://localhost:8000/docs](http://localhost:8000/docs)
+
+---
+
+## 📊 Evaluación de Métricas y Precisión RAG
+
+El sistema incluye una suite de pruebas científicas en `tests/scripts/evaluacion_metricas.py`:
+
+- **Exactitud de Recuperación RAG (IR Metrics)**:
+  - **Precision@1**: `100.00%` (Exact) / `94.44%` (Benchmark)
+  - **Recall@3**: `100.00%` (Exact) / `97.22%` (Benchmark)
+  - **MRR (Mean Reciprocal Rank)**: `1.0000` / `0.9583`
+- **Auditoría de Fidelidad / Grounding**: `100.00%` de respuestas fieles al contexto (0% alucinaciones).
 
 ---
 
 ## 🧩 Extensión de Navegador (Chrome Extension)
 
-El proyecto cuenta con un cliente implementado como **Extensión de Navegador** inyectable, cuyo código base está en la carpeta `frontend/`.
+El proyecto incluye la carpeta `frontend/` como cliente inyectable de Extensión de Navegador con características sincronizadas con la Web App:
 
-### Funcionamiento de la Extensión
-La extensión actúa como un "Content Script" (`content.js`). Al estar activa, **inyecta un botón flotante y una ventana de chat en la esquina inferior de la pantalla exclusivamente cuando visitas la intranet universitaria** (coincidencia de URL configurada en el `manifest.json` para `https://in.unsaac.edu.pe/*`).
+- **Renderizado de Markdown y Enlaces**: Parseo automático de negritas y enlaces compactos clicables (`target="_blank"`).
+- **Filtro de Voz TTS**: Omite la lectura de URLs y títulos de enlaces para una locución fluida de avisos en pantalla.
+- **Valoración Interactiva**: Botones de feedback (Like / Dislike) con resaltado visual verde/rojo en tiempo real.
 
-### ¿Cómo depende del Navegador?
-- **Reconocimiento de Voz Nativo**: El botón del micrófono (Speech-to-Text) utiliza el motor `webkitSpeechRecognition`, una API Web exclusiva y optimizada de forma nativa en navegadores **Chromium** (como Google Chrome). En navegadores como Firefox, esta funcionalidad arrojará una alerta de incompatibilidad.
-- **Cross-Origin Requests (CORS)**: La extensión se comunica de forma transparente con `http://127.0.0.1:8000` (el backend local) gracias a que el navegador maneja los permisos y evita bloqueos de seguridad que normalmente ocurrirían en un sitio HTTPS común.
-
-### ¿Cómo activar (instalar) la Extensión?
-El proceso de activación requiere ser cargado como paquete descomprimido, lo cual automatiza el despliegue local:
-1. Abre tu navegador basado en Chromium (Ej: Google Chrome) y navega a `chrome://extensions/`.
-2. Habilita el **"Modo de desarrollador"** (Developer mode) en la esquina superior derecha.
-3. Haz clic en **"Cargar descomprimida"** (Load unpacked).
-4. Selecciona la carpeta **`frontend/`** del directorio del proyecto (es vital seleccionar la carpeta que contiene el archivo `manifest.json`).
-5. *¡Listo!* Visita `https://in.unsaac.edu.pe/` y verás el botón flotante del DinoBot en la pantalla.
+### Instalación y Activación:
+1. Abre Chrome y navega a `chrome://extensions/`.
+2. Habilita el **Modo de desarrollador** (esquina superior derecha).
+3. Haz clic en **Cargar descomprimida** y selecciona la carpeta `frontend/`.
+4. Al ingresar a `https://in.unsaac.edu.pe/`, se inyectará la ventana flotante del DinoBot.
 
 ---
 
-## 📊 Arnés de Métricas y Stress Testing (M.1 - M.7)
+## 🏗️ Arquitectura del Sistema
 
-El sistema incluye una validación empírica extrema alojada en `tests/scripts/`.
-
-- Se ha corrido una suite masiva (`evaluacion_metricas.py`) con 900 iteraciones automáticas cruzadas que mezclan intenciones ambiguas, ruido aleatorio, y preguntas fuera de dominio (ej. *"cómo hackear facebook"*).
-- El motor generó una **Precisión Global de ~88.8%** y latencias instantáneas (Percentil 50 de **~0.034s**). 
-- Puedes encontrar los datos exhaustivos, matrices de confusión térmica (PNG) y gráficos de barras consolidados listos para redacción académica en el directorio `/results/`.
-
----
-
-## 🏗️ Arquitectura de Software
-- **`KnowledgeBase`**: Acceso centralizado a SQLite (Reglamentos y FAQs).
-- **`EmbeddingEngine`**: Motor TF-IDF y normalización de textos.
-- **`IntentDetector`**: Clasificador k-NN espacial inmune al ruido extremo.
-- **`ChatbotEngine`**: Orquestador principal (Grafo > Detección > RAG > Fallback RRF).
-- **`NormalizadorTTS`**: Optimizador fonético y acústico (acrónimos UNSAAC).
+- **`motor_embeddings.py`**: Motor Híbrido RAG (Bi-Encoder + BM25 + ChromaDB).
+- **`generador_llm.py`**: Motor NLG de síntesis natural con `google-genai` SDK.
+- **`asistente.py`**: Orquestador principal (Slot-Filling Grafo -> Clasificación -> RAG -> Gemini).
+- **`knowledge_graph.py`**: Grafo NetworkX para prerrequisitos y consultas estructuradas.
+- **`servicio_tts.py` / `normalizador.py`**: Limpiador acústico y síntesis de voz Piper ONNX.
 
 ---
-*Desarrollado para la mejora y modernización de la orientación estudiantil en Ingeniería Informática y de Sistemas.*
+*Escuela Profesional de Ingeniería Informática y de Sistemas — UNSAAC*
