@@ -59,7 +59,7 @@ class SpellChecker:
             sugerencias = self.sym_spell.lookup(
                 palabra, 
                 verbosity=0, 
-                max_edit_distance=2, 
+                max_edit_distance=1, 
                 include_unknown=True
             )
             if sugerencias:

@@ -40,7 +40,10 @@ class ServicioTTS:
             print("El servicio TTS no esta disponible (modelo no cargado).")
             return None
 
-        texto_normalizado = normalizador_tts.normalizar(texto)
+        # Prevenir ataques DoS a la CPU limitando el texto (máx ~1500 caracteres)
+        texto_seguro = texto[:1500] if len(texto) > 1500 else texto
+        
+        texto_normalizado = normalizador_tts.normalizar(texto_seguro)
         if not texto_normalizado:
             texto_normalizado = "No hay texto para reproducir."
 

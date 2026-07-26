@@ -11,8 +11,8 @@ enrutador = APIRouter()
 
 
 @enrutador.post("/chat")
-def chat(solicitud: SolicitudChat):
-    respuesta = obtener_respuesta(solicitud.mensaje, solicitud.historial)
+async def chat(solicitud: SolicitudChat):
+    respuesta = await asyncio.to_thread(obtener_respuesta, solicitud.mensaje, solicitud.historial)
     
     # Opcional: Generar audio para la respuesta
     nombre_audio = servicio_tts.generar_audio(respuesta["respuesta"])
@@ -24,7 +24,7 @@ def chat(solicitud: SolicitudChat):
 
 @enrutador.post("/chat/stream")
 async def chat_stream(solicitud: SolicitudChat):
-    respuesta = obtener_respuesta(solicitud.mensaje, solicitud.historial)
+    respuesta = await asyncio.to_thread(obtener_respuesta, solicitud.mensaje, solicitud.historial)
     contenido = respuesta["respuesta"]
 
     async def generador_eventos():

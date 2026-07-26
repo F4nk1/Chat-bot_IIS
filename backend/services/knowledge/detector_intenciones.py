@@ -12,6 +12,7 @@ DATOS_ENTRENAMIENTO = [
     ("necesito contactar a el tutor asignado", "Info_Tutor"),
     ("dime el nombre de el profe tutor", "Info_Tutor"),
     ("quién es el tutor", "Info_Tutor"),
+    ("Deseo información sobre mi tutor asignado, mi código es 123456", "Info_Tutor"),
     
     ("¿qué cursos hay en el semestre?", "Cursos_Semestre"),
     ("muéstrame la malla curricular", "Cursos_Semestre"),
@@ -69,6 +70,13 @@ DATOS_ENTRENAMIENTO = [
     ("qué no puedo llevar si repruebo", "Cursos_Bloqueados"),
     ("qué pasa si pierdo", "Cursos_Bloqueados"),
     ("me bloquean algo si biqueo", "Cursos_Bloqueados"),
+    ("estoy por jalar arquitectura de el computador", "Cursos_Bloqueados"),
+    ("no llevo apruebo el curso de", "Cursos_Bloqueados"),
+    
+    ("qué hago si jalo un curso", "Tutorias_General"),
+    ("tengo problemas personales", "Bienestar"),
+    ("me siento mal en la universidad", "Bienestar"),
+    ("necesito apoyo psicológico", "Bienestar"),
 
     ("qué es la movilidad estudiantil", "Movilidad"),
     ("quiero ir de intercambio", "Movilidad"),
@@ -199,7 +207,7 @@ class IntentDetector:
         puntaje_mejor = float(similitudes[indice_mejor])
         
         # Umbral para clasificar como General (Fuera de Dominio)
-        if puntaje_mejor < 0.45:
+        if puntaje_mejor < 0.35:
             return "General"
             
         return self.etiquetas[indice_mejor]

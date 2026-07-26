@@ -129,5 +129,47 @@ class KnowledgeGraph:
                 return curso
         return None
 
+    def obtener_alumnos_por_tutor(self, nombre_tutor: str):
+        codigos_tutor = []
+        # Buscar el código del docente
+        for cod_doc, docente in self.docentes.items():
+            nombre_completo = f"{docente.get('nombres','')} {docente.get('apellidos','')}".lower()
+            if nombre_tutor.lower() in nombre_completo:
+                codigos_tutor.append(cod_doc)
+        
+        if not codigos_tutor:
+            return None
+            
+        alumnos_asignados = []
+        for cod_alum, tutores_asignados in self.asignaciones.items():
+            for t_cod in tutores_asignados:
+                if t_cod in codigos_tutor:
+                    info_alumno = self.obtener_info_alumno(cod_alum)
+                    if info_alumno:
+                        alumnos_asignados.append(info_alumno)
+        return alumnos_asignados
+
+    def obtener_prerrequisitos(self, curso_objetivo: str):
+        codigo_exacto = None
+        nombre_exacto = None
+        
+        for cod in self.grafo.nodes:
+            nombre_curso = self.grafo.nodes[cod].get('nombre', '')
+            if nombre_curso.lower() in curso_objetivo.lower() or cod.lower() in curso_objetivo.lower():
+                codigo_exacto = cod
+                nombre_exacto = nombre_curso
+                break
+                
+        if not codigo_exacto:
+            return None
+            
+        nodos_prerreq = list(self.grafo.predecessors(codigo_exacto))
+        nombres_prerreq = [self.grafo.nodes[c].get('nombre', c) for c in nodos_prerreq]
+        
+        return {
+            "curso": nombre_exacto,
+            "prerrequisitos": nombres_prerreq
+        }
+
 # Instancia global (Singleton)
 knowledge_graph = KnowledgeGraph()

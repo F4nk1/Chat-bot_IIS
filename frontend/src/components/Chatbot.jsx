@@ -21,9 +21,17 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null }) {
   const messagesContainerRef = useRef(null);
   const recognitionRef = useRef(null);
 
-  // Cargar conversaciones al montar
+  // Cargar conversaciones al montar y cleanup del micrófono al desmontar
   useEffect(() => {
     cargarHistorial();
+    return () => {
+      // Cleanup: detener grabación si el usuario cierra el componente o tab de golpe
+      if (recognitionRef.current) {
+        try {
+          recognitionRef.current.stop();
+        } catch (e) {}
+      }
+    };
   }, []);
 
   // Hacer scroll automático al recibir mensajes
@@ -82,6 +90,7 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null }) {
 
   // Envío del mensaje
   const handleSend = async (textoAEnviar = '') => {
+    if (cargando) return;
     const texto = (textoAEnviar || input).trim();
     if (!texto) return;
 

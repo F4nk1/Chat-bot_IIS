@@ -11,6 +11,5 @@ symspellpy
 spacy
 rank_bm25
 networkx
-transformers
-accelerate
 chromadb
+google-generativeai
