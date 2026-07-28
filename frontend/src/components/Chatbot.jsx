@@ -323,12 +323,24 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null, onNavi
     rec.start();
   };
 
-  // Lista de preguntas sugeridas agrupadas por los 5 módulos principales del sistema
+  // Mapear nombre de categoría a la clave de pestaña principal de App.jsx
+  const mapCategoryToTabKey = (catName) => {
+    switch (catName) {
+      case 'Formación': return 'formacion';
+      case 'Bienestar': return 'bienestar';
+      case 'Trámites': return 'tramites';
+      case 'Movilidad': return 'movilidad';
+      case 'Tutorías': return 'tutoria';
+      default: return 'tutoria';
+    }
+  };
+
+  // Lista de preguntas sugeridas verificadas en el corpus RAG
   const categoriasPreguntas = {
     'Tutorías': [
       '¿La tutoría académica es obligatoria?',
-      '¿Cómo solicito una cita de tutoría académica?',
-      '¿Cómo solicito cambio de tutor académico?'
+      '¿Qué hace un tutor académico?',
+      '¿Cómo es la confidencialidad en las tutorías?'
     ],
     'Bienestar': [
       '¿Cómo obtengo un cupo para el Comedor Universitario?',
@@ -342,7 +354,7 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null, onNavi
     ],
     'Formación': [
       '¿Cuáles son los requisitos para Prácticas Preprofesionales (PPP)?',
-      '¿Dónde descargo la Malla Curricular 2025 de EPIIS?',
+      '¿Dónde descargo la Malla Curricular de EPIIS?',
       '¿Cuáles son los requisitos para obtener el Bachillerato?'
     ],
     'Trámites': [
@@ -514,8 +526,8 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null, onNavi
                   key={i}
                   onClick={() => {
                     if (onNavigateTab) {
-                      const tab = mapCategoryToTab(selectedCategory);
-                      if (tab) onNavigateTab(tab);
+                      const tabKey = mapCategoryToTabKey(selectedCategory);
+                      if (tabKey) onNavigateTab(tabKey);
                     }
                     handleSend(sug);
                   }}

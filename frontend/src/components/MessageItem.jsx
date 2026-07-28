@@ -16,8 +16,8 @@ const formatearPasosTexto = (texto) => {
 const limpiarTextoParaVoz = (texto) => {
   if (!texto) return '';
   return texto
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, '') // Eliminar enlaces Markdown [texto](url) completamente para no leer el link ni su título
-    .replace(/https?:\/\/\S+/g, '') // Eliminar URLs directas
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Conservar el nombre/título del enlace y omitir la URL
+    .replace(/https?:\/\/\S+/g, '') // Eliminar URLs crudas o sueltas
     .replace(/\*\*/g, '') // Eliminar negritas
     .replace(/\*/g, '') // Eliminar cursivas
     .trim();
@@ -28,13 +28,19 @@ const esMensajeFallback = (txt) => {
   if (!txt) return true;
   const t = txt.toLowerCase();
   return (
+    t.includes('sobrecargado') ||
+    t.includes('límite de peticiones') ||
+    t.includes('límite de cuota') ||
+    t.includes('saturado') ||
+    t.includes('espera un minuto') ||
     t.includes('no dispongo de información') ||
     t.includes('no encontré información') ||
     t.includes('no corresponde al ámbito') ||
     t.includes('por favor, indícame tu código') ||
     t.includes('no hay ningún tutor activo') ||
     t.includes('no estoy seguro de cómo responder') ||
-    t.includes('solo puedo orientarte sobre trámites')
+    t.includes('solo puedo orientarte sobre trámites') ||
+    t.includes('error al conectar')
   );
 };
 
@@ -76,7 +82,11 @@ export default function MessageItem({ message, isStreaming = false }) {
     }
 
     try {
-      const textoLimpio = limpiarTextoParaVoz(contenido);
+      let textoParaAudio = contenido || '';
+      if (!esMensajeFallback(textoParaAudio) && !textoParaAudio.includes('más información en pantalla')) {
+        textoParaAudio += '\n\nA continuación te muestro más información en pantalla';
+      }
+      const textoLimpio = limpiarTextoParaVoz(textoParaAudio);
       if (!textoLimpio) return;
 
       const data = await api.generarAudio(textoLimpio);
@@ -154,7 +164,11 @@ export default function MessageItem({ message, isStreaming = false }) {
                 {formatearPasosTexto(contenido)}
               </ReactMarkdown>
 
-
+              {!isStreaming && !esMensajeFallback(contenido) && (
+                <p className="mt-2.5 text-xs font-extrabold text-[#010080] border-t border-slate-100 pt-1.5 flex items-center gap-1.5">
+                  <span>A continuación te muestro más información en pantalla</span>
+                </p>
+              )}
 
               <span className="text-[9px] text-slate-400 block text-right mt-1.5">{formatTime(fecha_creacion)}</span>
             </div>

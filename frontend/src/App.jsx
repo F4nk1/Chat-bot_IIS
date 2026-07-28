@@ -23,15 +23,9 @@ export default function App() {
   });
   const [chatOpen, setChatOpen] = useState(false); // Widget flotante en móvil
 
-  // Navegación combinada Co-Pilot (Pestaña Principal + Sub-pestaña Interna)
-  const handleNavigateTab = (mainTabKey, subTabKey = null) => {
+  // Navegación Co-Pilot a nivel de Categoría Principal únicamente
+  const handleNavigateTab = (mainTabKey) => {
     if (mainTabKey) setActiveMainTab(mainTabKey);
-    if (mainTabKey && subTabKey) {
-      setSubTabs(prev => ({
-        ...prev,
-        [mainTabKey]: subTabKey
-      }));
-    }
   };
 
   // Guardar cambio de pestaña activa en localStorage
