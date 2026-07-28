@@ -147,10 +147,36 @@ function setListeningState(listening) {
     }
 }
 
-// Función de formateo de hora
+// Formateo de hora local
 function formatTime() {
     const d = new Date();
     return d.toLocaleTimeString('es-PE', { hour: '2-digit', minute: '2-digit', hour12: true });
+}
+
+// Limpieza de Markdown y enlaces para lectura por voz
+function limpiarTextoParaVoz(texto) {
+    if (!texto) return '';
+    return texto
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '')
+        .replace(/https?:\/\/\S+/g, '')
+        .replace(/\*\*/g, '')
+        .replace(/\*/g, '')
+        .trim();
+}
+
+// Parseo de Markdown (negrita y enlaces HTML)
+function parseMarkdown(texto) {
+    if (!texto) return '';
+    let html = texto
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    
+    html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="chatbot-link" style="font-size: 13px !important; font-weight: 700 !important; color: #010080 !important; text-decoration: underline !important; display: inline !important;">$1 🔗</a>');
+    html = html.replace(/\n/g, '<br/>');
+    
+    return html;
 }
 
 // Agregar mensaje a la interfaz
@@ -160,13 +186,16 @@ function agregarMensaje(usuario, texto, mensajeId = null, metadataHtml = '') {
     const esBot = (usuario === "Bot" || usuario === "asistente");
     
     div.className = `mensaje-wrapper ${esBot ? 'bot' : 'user'}`;
+    div.setAttribute("data-raw-text", encodeURIComponent(texto));
     
+    const textoHtml = parseMarkdown(texto);
+
     if (esBot) {
         div.innerHTML = `
             <div class="mensaje-container">
                 <div class="mensaje-avatar" style="background-image: url('${imgAvatarUrl}')"></div>
                 <div class="mensaje-bubble">
-                    <div class="mensaje-texto">${texto}</div>
+                    <div class="mensaje-texto">${textoHtml}</div>
                     ${metadataHtml ? `<div class="mensaje-metadata" style="opacity: 0.7; font-size: 10px; display: block; margin-top: 4px;">${metadataHtml}</div>` : ''}
                     <span class="mensaje-timestamp">${formatTime()}</span>
                 </div>
@@ -195,7 +224,7 @@ function agregarMensaje(usuario, texto, mensajeId = null, metadataHtml = '') {
         div.innerHTML = `
             <div class="mensaje-container">
                 <div class="mensaje-bubble">
-                    <div class="mensaje-texto">${texto}</div>
+                    <div class="mensaje-texto">${textoHtml}</div>
                     <span class="mensaje-timestamp">${formatTime()}</span>
                 </div>
             </div>
@@ -212,8 +241,10 @@ let botonAudioActual = null;
 ventana.addEventListener("click", async (e) => {
     const audioBtn = e.target.closest(".btn-audio");
     if (audioBtn) {
-        const textElement = audioBtn.closest(".mensaje-wrapper").querySelector(".mensaje-texto");
-        const texto = textElement.textContent || textElement.innerText;
+        const wrapper = audioBtn.closest(".mensaje-wrapper");
+        const rawTextAttr = wrapper ? wrapper.getAttribute("data-raw-text") : null;
+        const textoOriginal = rawTextAttr ? decodeURIComponent(rawTextAttr) : wrapper.querySelector(".mensaje-texto").innerText;
+        const textoLimpio = limpiarTextoParaVoz(textoOriginal);
         
         if (audioActual && botonAudioActual === audioBtn) {
             audioActual.pause();
@@ -235,7 +266,7 @@ ventana.addEventListener("click", async (e) => {
             const res = await fetch(`${URL_API}/tts/generar`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ texto: texto })
+                body: JSON.stringify({ texto: textoLimpio })
             });
             if (res.status === 503) {
                 alert("El servicio de voz no está configurado en el servidor.");
@@ -266,23 +297,37 @@ ventana.addEventListener("click", async (e) => {
     const likeBtn = e.target.closest(".btn-like");
     const dislikeBtn = e.target.closest(".btn-dislike");
     if (likeBtn || dislikeBtn) {
-        const btn = likeBtn || dislikeBtn;
-        const accionesDiv = btn.closest(".mensaje-acciones");
-        const msgId = accionesDiv.getAttribute("data-msg-id");
+        const accionesDiv = (likeBtn || dislikeBtn).closest(".mensaje-acciones");
+        const msgId = accionesDiv ? accionesDiv.getAttribute("data-msg-id") : null;
         if (!msgId) {
-            alert("No se puede valorar esta respuesta porque no tiene un ID asociado.");
             return;
         }
-        const valor = likeBtn ? 1 : -1;
+        const esLike = Boolean(likeBtn);
+        const targetLikeBtn = accionesDiv.querySelector(".btn-like");
+        const targetDislikeBtn = accionesDiv.querySelector(".btn-dislike");
+        const valor = esLike ? 1 : -1;
+
+        // Destacar visualmente el botón seleccionado (Verde para Like, Rojo para Dislike)
+        if (esLike) {
+            targetLikeBtn.style.color = "#059669";
+            targetLikeBtn.style.backgroundColor = "#ecfdf5";
+            targetLikeBtn.style.borderRadius = "4px";
+            targetDislikeBtn.style.color = "";
+            targetDislikeBtn.style.backgroundColor = "";
+        } else {
+            targetDislikeBtn.style.color = "#e11d48";
+            targetDislikeBtn.style.backgroundColor = "#fff1f2";
+            targetDislikeBtn.style.borderRadius = "4px";
+            targetLikeBtn.style.color = "";
+            targetLikeBtn.style.backgroundColor = "";
+        }
+
         try {
-            const res = await fetch(`${URL_API}/feedback/`, {
+            await fetch(`${URL_API}/feedback/`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ mensaje_id: parseInt(msgId), puntuacion: valor })
             });
-            if (res.ok) {
-                accionesDiv.innerHTML = '<span class="feedback-gracias">¡Gracias por tu valoración!</span>';
-            }
         } catch (err) {
             console.error("Error feedback:", err);
         }

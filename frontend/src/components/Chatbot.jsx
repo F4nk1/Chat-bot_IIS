@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
-  MessageSquare, Plus, Send, Mic, MicOff, Menu, X, HelpCircle, ChevronRight
+  MessageSquare, Plus, Send, Mic, MicOff, Menu, X, HelpCircle, ChevronRight, AlertCircle
 } from 'lucide-react';
 import { api } from '../services/api';
 import MessageItem from './MessageItem';
 import Sidebar from './Sidebar';
 import DinoBot02 from '../assets/DinoBot02.png';
 
-export default function Chatbot({ isWidget = false, onCloseWidget = null }) {
+export default function Chatbot({ isWidget = false, onCloseWidget = null, onNavigateTab = null }) {
   const [conversaciones, setConversaciones] = useState([]);
   const [conversacionActivaId, setConversacionActivaId] = useState(null);
   const [mensajes, setMensajes] = useState([]);
@@ -17,21 +17,94 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null }) {
   const [historyOpen, setHistoryOpen] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('Tutorías');
+  const [deleteModalId, setDeleteModalId] = useState(null);
 
   const messagesContainerRef = useRef(null);
   const recognitionRef = useRef(null);
+  const inputRef = useRef(null);
 
-  // Cargar conversaciones al montar y cleanup del micrófono al desmontar
+  // Mapeador Inteligente Co-Pilot de categorías y texto a pestañas principales y sub-pestañas
+  const mapCategoryAndQueryToTab = (categoria, queryTexto = '') => {
+    if (!categoria && !queryTexto) return { mainTab: 'tutoria', subTab: 'inicio' };
+    
+    const cat = (categoria || '').toLowerCase();
+    const text = (queryTexto || '').toLowerCase();
+
+    // 1. FORMACIÓN PROFESIONAL (Malla, Prácticas PPP, Egreso y Titulación)
+    if (cat.includes('practica') || cat.includes('práctica') || cat.includes('curso') || cat.includes('formacion') || cat.includes('formación') || cat.includes('malla') || cat.includes('titulacion') || cat.includes('bachiller')) {
+      let subTab = 'malla';
+      if (text.includes('practica') || text.includes('práctica') || text.includes('ppp') || text.includes('empresa') || text.includes('horas')) {
+        subTab = 'practicas';
+      } else if (text.includes('egreso') || text.includes('titula') || text.includes('título') || text.includes('bachiller') || text.includes('tesis') || text.includes('grado')) {
+        subTab = 'titulacion';
+      } else {
+        subTab = 'malla';
+      }
+      return { mainTab: 'formacion', subTab };
+    }
+
+    // 2. BIENESTAR UNIVERSITARIO (Comedor, CUS Salud, Psicología, Vivienda, Deportes)
+    if (cat.includes('bienestar') || text.includes('comedor') || text.includes('salud') || text.includes('vivienda') || text.includes('deporte')) {
+      let subTab = 'comedor';
+      if (text.includes('salud') || text.includes('posta') || text.includes('médic')) {
+        subTab = 'salud';
+      } else if (text.includes('psicolog') || text.includes('psicológ') || text.includes('mental')) {
+        subTab = 'psicologia';
+      } else if (text.includes('vivienda') || text.includes('residencia') || text.includes('cuarto') || text.includes('alojamiento')) {
+        subTab = 'vivienda';
+      } else if (text.includes('deporte') || text.includes('cultura') || text.includes('gimnasio')) {
+        subTab = 'deportes';
+      } else {
+        subTab = 'comedor';
+      }
+      return { mainTab: 'bienestar', subTab };
+    }
+
+    // 3. TRÁMITES ACADÉMICOS (Mesa Virtual, Pagos TUPA, Matrícula, Constancias)
+    if (cat.includes('tramite') || cat.includes('trámite') || text.includes('pago') || text.includes('recaud') || text.includes('matricula') || text.includes('matrícula') || text.includes('constancia') || text.includes('certificado')) {
+      let subTab = 'tramite_virtual';
+      if (text.includes('pago') || text.includes('pagar') || text.includes('recaudac') || text.includes('caja') || text.includes('costo') || text.includes('monto') || text.includes('tarifa')) {
+        subTab = 'pagos';
+      } else if (text.includes('matricul') || text.includes('matrícul') || text.includes('reserva') || text.includes('desaprob')) {
+        subTab = 'matricula';
+      } else if (text.includes('constancia') || text.includes('certificado') || text.includes('notas') || text.includes('documento')) {
+        subTab = 'constancias';
+      } else {
+        subTab = 'tramite_virtual';
+      }
+      return { mainTab: 'tramites', subTab };
+    }
+
+    // 4. MOVILIDAD ESTUDIANTIL (Modalidades, Postulación, Convalidación, Convenios)
+    if (cat.includes('movilidad') || text.includes('intercambio') || text.includes('convenio') || text.includes('saliente')) {
+      let subTab = 'modalidades';
+      if (text.includes('requisito') || text.includes('postul') || text.includes('documento')) {
+        subTab = 'postulacion';
+      } else if (text.includes('convalid') || text.includes('reconoc')) {
+        subTab = 'convalidacion';
+      } else if (text.includes('convenio') || text.includes('país') || text.includes('universidad')) {
+        subTab = 'convenios';
+      } else {
+        subTab = 'modalidades';
+      }
+      return { mainTab: 'movilidad', subTab };
+    }
+
+    // 5. TUTORÍAS ACADÉMICAS (Inicio, Momentos, Reglamento, Tutores, FAQ)
+    let subTab = 'inicio';
+    if (text.includes('tutor') || text.includes('docente') || text.includes('profesor') || text.includes('quién es mi')) {
+      subTab = 'tutores';
+    } else if (text.includes('reglamento') || text.includes('art') || text.includes('artículo') || text.includes('norma')) {
+      subTab = 'reglamento';
+    } else if (text.includes('momento') || text.includes('cuándo') || text.includes('fecha') || text.includes('calendario')) {
+      subTab = 'momentos';
+    }
+    return { mainTab: 'tutoria', subTab };
+  };
+
+  // Cargar conversaciones al montar
   useEffect(() => {
     cargarHistorial();
-    return () => {
-      // Cleanup: detener grabación si el usuario cierra el componente o tab de golpe
-      if (recognitionRef.current) {
-        try {
-          recognitionRef.current.stop();
-        } catch (e) {}
-      }
-    };
   }, []);
 
   // Hacer scroll automático al recibir mensajes
@@ -74,9 +147,16 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null }) {
     setStreamingContent('');
   };
 
-  // Eliminar una conversación y limpiar la pantalla si es activa
-  const handleDeleteConversacion = async (id) => {
-    if (!window.confirm('¿Estás seguro de que deseas eliminar esta conversación del historial?')) return;
+  // Abrir modal de confirmación de eliminación
+  const handleDeleteConversacion = (id) => {
+    setDeleteModalId(id);
+  };
+
+  // Confirmar eliminación de la conversación
+  const confirmDelete = async () => {
+    if (!deleteModalId) return;
+    const id = deleteModalId;
+    setDeleteModalId(null);
     try {
       await api.eliminarConversacion(id);
       if (conversacionActivaId === id) {
@@ -95,6 +175,11 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null }) {
     if (!texto) return;
 
     setInput('');
+    // Forzar foco inmediato en la caja de texto
+    requestAnimationFrame(() => {
+      inputRef.current?.focus();
+    });
+
     let idConv = conversacionActivaId;
 
     // 1. Crear conversación si no hay una activa
@@ -133,22 +218,40 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null }) {
       await api.streamChat(
         texto,
         historialChat,
-        (chunk, final) => {
+        (chunk, final, catStream) => {
           fullResponse += chunk;
           setStreamingContent(fullResponse);
+
+          // NAVEGACIÓN CO-PILOT INMEDIATA: Al recibir el streaming
+          if (catStream && onNavigateTab) {
+            const targetNav = mapCategoryAndQueryToTab(catStream, texto);
+            if (targetNav && targetNav.mainTab) {
+              onNavigateTab(targetNav.mainTab, targetNav.subTab);
+            }
+          }
         },
-        async () => {
+        async (catFinal) => {
           // Streaming finalizado con éxito
           setCargando(false);
           setStreamingContent('');
 
-          // 5. Guardar respuesta del bot en la BD
-          const msgGuardado = await api.guardarMensaje(idConv, 'asistente', fullResponse, 'General');
+          const catGuardar = catFinal || selectedCategory || 'General';
+
+          // 5. Guardar respuesta del bot en la BD con la categoría real
+          const msgGuardado = await api.guardarMensaje(idConv, 'asistente', fullResponse, catGuardar);
 
           // 6. Recargar detalles del chat para obtener los IDs correctos (necesarios para feedback)
           if (msgGuardado) {
             const data = await api.getDetalleConversacion(idConv);
             setMensajes(data.mensajes || []);
+          }
+
+          // NAVEGACIÓN CO-PILOT CONFIRMACIÓN
+          if (onNavigateTab && catGuardar) {
+            const targetNav = mapCategoryAndQueryToTab(catGuardar, texto);
+            if (targetNav && targetNav.mainTab) {
+              onNavigateTab(targetNav.mainTab, targetNav.subTab);
+            }
           }
 
           // 7. Auto-reproducir audio si lo desea el flujo
@@ -157,6 +260,11 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null }) {
           } catch (e) {
             console.warn('Audio auto-generation failed or model not loaded:', e.message);
           }
+
+          // Mantener el cursor activo enfocado
+          requestAnimationFrame(() => {
+            inputRef.current?.focus();
+          });
         },
         (err) => {
           console.error('Error durante el streaming:', err);
@@ -195,12 +303,11 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null }) {
     };
 
     rec.onresult = (event) => {
-      const transcript = event.results[0][0].transcript;
-      setInput(prev => {
-        const newVal = (prev + (prev ? ' ' : '') + transcript).trim();
-        handleSend(newVal);
-        return '';
-      });
+      const transcript = event.results[0][0]?.transcript;
+      if (transcript) {
+        setInput('');
+        handleSend(transcript.trim());
+      }
     };
 
     rec.onerror = (e) => {
@@ -216,33 +323,69 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null }) {
     rec.start();
   };
 
-  // Lista de preguntas sugeridas agrupadas por temas principales del reglamento
+  // Lista de preguntas sugeridas agrupadas por los 5 módulos principales del sistema
   const categoriasPreguntas = {
     'Tutorías': [
-      '¿Cómo solicito una tutoría académica?',
       '¿La tutoría académica es obligatoria?',
+      '¿Cómo solicito una cita de tutoría académica?',
       '¿Cómo solicito cambio de tutor académico?'
     ],
-    'Reglamento': [
-      '¿Qué regula el Reglamento de Tutoría Académica?',
-      '¿A quiénes comprende el reglamento de tutoría académica?',
-      '¿Cuál es la base legal de la tutoría académica?'
+    'Bienestar': [
+      '¿Cómo obtengo un cupo para el Comedor Universitario?',
+      '¿Dónde se realiza el pago del Comedor Universitario?',
+      '¿Qué servicios ofrece el Centro de Salud UNSAAC?'
     ],
-    'Funcionamiento': [
-      '¿Cómo se realiza la tutoría académica?',
-      '¿Cuáles son los momentos clave para realizar tutorías?',
-      '¿Cuántos estudiantes puede tener un tutor académico?'
+    'Movilidad': [
+      '¿Cuáles son los requisitos para movilidad estudiantil?',
+      '¿Cuál es la regla del 75% para convalidación de cursos?',
+      '¿Dónde reviso las convocatorias de movilidad y becas?'
     ],
-    'Tutores': [
-      '¿Quiénes integran el Comité Tutorial de Escuela?',
-      '¿Quiénes pueden ser tutores académicos?',
-      '¿Qué debe elaborar cada tutor académico?'
+    'Formación': [
+      '¿Cuáles son los requisitos para Prácticas Preprofesionales (PPP)?',
+      '¿Dónde descargo la Malla Curricular 2025 de EPIIS?',
+      '¿Cuáles son los requisitos para obtener el Bachillerato?'
+    ],
+    'Trámites': [
+      '¿Cómo presento un expediente en la Mesa de Partes Virtual?',
+      '¿Cómo hago seguimiento a un trámite en la UNSAAC?',
+      '¿Dónde realizo el pago de tasas y certificados (TUPA)?'
     ]
   };
 
   return (
     <div className={`flex flex-col bg-white border-2 border-[#010080]/40 hover:border-[#010080] transition-all duration-300 h-full relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl ${isWidget ? 'w-[390px] max-w-full' : 'w-full'
       }`}>
+
+      {/* Modal Personalizado de Confirmación de Eliminación */}
+      {deleteModalId && (
+        <div className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-fadeIn">
+          <div className="bg-white rounded-2xl p-5 max-w-xs w-full shadow-2xl border border-slate-200 space-y-4 text-center">
+            <div className="w-11 h-11 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto shrink-0">
+              <AlertCircle size={22} />
+            </div>
+            <div className="space-y-1">
+              <h3 className="text-sm font-bold text-slate-900">Eliminar Conversación</h3>
+              <p className="text-[11px] text-slate-500 font-medium leading-relaxed">
+                ¿Estás seguro de que deseas eliminar esta conversación del historial?
+              </p>
+            </div>
+            <div className="flex items-center gap-2 pt-1">
+              <button
+                onClick={() => setDeleteModalId(null)}
+                className="flex-1 py-2 px-3 rounded-xl border border-slate-200 text-slate-700 text-xs font-bold hover:bg-slate-100 transition-all cursor-pointer"
+              >
+                Cancelar
+              </button>
+              <button
+                onClick={confirmDelete}
+                className="flex-1 py-2 px-3 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition-all shadow-xs cursor-pointer"
+              >
+                Eliminar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Sidebar Historial */}
       <Sidebar
@@ -369,7 +512,13 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null }) {
               {categoriasPreguntas[selectedCategory].map((sug, i) => (
                 <button
                   key={i}
-                  onClick={() => handleSend(sug)}
+                  onClick={() => {
+                    if (onNavigateTab) {
+                      const tab = mapCategoryToTab(selectedCategory);
+                      if (tab) onNavigateTab(tab);
+                    }
+                    handleSend(sug);
+                  }}
                   className="w-full text-left p-2.5 rounded-xl border border-slate-200 bg-white hover:border-[#2E2EFF] hover:bg-[#2E2EFF]/5 text-xs text-slate-705 font-medium transition-all flex items-center justify-between group cursor-pointer shadow-sm animate-fade-in"
                 >
                   <span>{sug}</span>
@@ -418,10 +567,10 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null }) {
         >
           {/* Input Text */}
           <input
+            ref={inputRef}
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            disabled={cargando}
             placeholder="Haz una pregunta..."
             className="flex-1 bg-transparent text-sm focus:outline-none placeholder-slate-500 text-slate-800 py-1 font-medium"
           />
