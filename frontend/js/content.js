@@ -157,8 +157,8 @@ function formatTime() {
 function limpiarTextoParaVoz(texto) {
     if (!texto) return '';
     return texto
-        .replace(/\[([^\]]+)\]\([^)]+\)/g, '')
-        .replace(/https?:\/\/\S+/g, '')
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Leer el título del enlace y omitir la URL
+        .replace(/https?:\/\/\S+/g, '') // Eliminar URLs directas crudas
         .replace(/\*\*/g, '')
         .replace(/\*/g, '')
         .trim();
