@@ -252,6 +252,27 @@
 
 .mensaje-texto {
     word-break: break-word !important;
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+}
+
+/* Links dentro de los mensajes */
+#chatbot-ventana .mensaje-texto a,
+#chatbot-ventana .mensaje-bubble a,
+.chatbot-link {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #010080 !important;
+    text-decoration: underline !important;
+    display: inline !important;
+    line-height: 1.4 !important;
+    word-break: break-word !important;
+}
+
+#chatbot-ventana .mensaje-texto a:hover,
+#chatbot-ventana .mensaje-bubble a:hover,
+.chatbot-link:hover {
+    color: #1e40af !important;
 }
 
 .mensaje-timestamp {
