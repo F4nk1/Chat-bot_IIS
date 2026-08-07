@@ -365,7 +365,7 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null, onNavi
   };
 
   return (
-    <div className={`flex flex-col bg-white border-2 border-[#010080]/40 hover:border-[#010080] transition-all duration-300 h-full relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl ${isWidget ? 'w-[390px] max-w-full' : 'w-full'
+    <div className={`flex flex-col bg-white border-2 border-[#010080]/40 hover:border-[#010080] transition-all duration-300 h-full relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl ${isWidget ? 'w-[390px] max-w-full max-h-[85vh]' : 'w-full'
       }`}>
 
       {/* Modal Personalizado de Confirmación de Eliminación */}
@@ -553,14 +553,17 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null, onNavi
 
             {/* Burbuja escribiendo */}
             {cargando && !streamingContent && (
-              <div className="flex items-start gap-2.5 mb-4">
+              <div className="flex items-start gap-2.5 mb-4 animate-fadeIn">
                 <div className="w-8 h-8 rounded-full border border-[#DFB320] bg-white overflow-hidden shrink-0 shadow-sm flex items-center justify-center">
                   <img src={DinoBot02} alt="DinoBot" className="w-full h-full object-cover" />
                 </div>
-                <div className="flex items-center gap-1.5 px-4 py-3 bg-white border border-slate-200 rounded-2xl rounded-tl-none shadow-sm max-w-[80px]">
-                  <div className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                <div className="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-2xl rounded-tl-none shadow-sm">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#010080] animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#010080] animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#010080] animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                  </div>
+                  <span className="text-xs text-slate-500 font-semibold italic ml-1">DinoBot está pensando...</span>
                 </div>
               </div>
             )}
@@ -573,7 +576,9 @@ export default function Chatbot({ isWidget = false, onCloseWidget = null, onNavi
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            handleSend();
+            if (!cargando && !streamingContent) {
+              handleSend();
+            }
           }}
           className="flex items-center gap-1.5 bg-slate-50 rounded-xl px-2.5 py-1.5 border-2 border-[#061D6F]/40 hover:border-[#061D6F]/65 focus-within:border-[#061D6F] focus-within:bg-white transition-all shadow-sm"
         >
