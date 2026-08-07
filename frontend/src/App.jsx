@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { MessageSquare } from 'lucide-react';
 import Chatbot from './components/Chatbot';
 import BienestarSection from './components/BienestarSection';
@@ -23,9 +23,16 @@ export default function App() {
   });
   const [chatOpen, setChatOpen] = useState(false); // Widget flotante en móvil
 
-  // Navegación Co-Pilot a nivel de Categoría Principal únicamente
+  const mainContentRef = useRef(null);
+
+  // Navegación Co-Pilot a nivel de Categoría Principal únicamente con scroll suave
   const handleNavigateTab = (mainTabKey) => {
-    if (mainTabKey) setActiveMainTab(mainTabKey);
+    if (mainTabKey) {
+      setActiveMainTab(mainTabKey);
+      requestAnimationFrame(() => {
+        mainContentRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
   };
 
   // Guardar cambio de pestaña activa en localStorage
@@ -119,7 +126,7 @@ export default function App() {
       <div className="max-w-7x1 mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 grid grid-cols-1 lg:grid-cols-4 gap-6">
 
         {/* LADO IZQUIERDO Y CENTRAL: Portal Informativo Dinámico (75%) */}
-        <main className="lg:col-span-3 space-y-10">
+        <main ref={mainContentRef} className="lg:col-span-3 space-y-10">
           {activeMainTab === 'bienestar' ? (
             <BienestarSection subTab={subTabs.bienestar} onSubTabChange={(st) => setSubTabs(prev => ({ ...prev, bienestar: st }))} />
           ) : activeMainTab === 'movilidad' ? (

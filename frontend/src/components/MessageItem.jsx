@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Volume2, VolumeX, ThumbsUp, ThumbsDown, Check, Copy, User, ExternalLink, Compass } from 'lucide-react';
+import { Volume2, VolumeX, ThumbsUp, ThumbsDown, Check, Copy, User, ExternalLink, Compass, FileText } from 'lucide-react';
 import { api } from '../services/api';
 import DinoBot02 from '../assets/DinoBot02.png';
+
+// Instancia global de audio para evitar reproducción de voz simultánea
+let globalAudioInstance = null;
 
 // Helper para transformar viñetas inline "1) ... 2) ..." a listas numeradas Markdown "1. ... \n2. ..."
 const formatearPasosTexto = (texto) => {
@@ -45,13 +48,16 @@ const esMensajeFallback = (txt) => {
 };
 
 export default function MessageItem({ message, isStreaming = false }) {
-  const { id, rol, contenido, fecha_creacion } = message;
+  const { id, rol, contenido, fecha_creacion, fuentes, fuente } = message;
   const isBot = rol === 'asistente';
   
   const [isPlaying, setIsPlaying] = useState(false);
   const [audioElement, setAudioElement] = useState(null);
   const [feedback, setFeedback] = useState(null); // null, 1 (like), -1 (dislike)
   const [copied, setCopied] = useState(false);
+
+  // Lista de fuentes normalizadas (si existen)
+  const fuentesLista = fuentes || (fuente ? [fuente] : []);
 
   // Formateador de hora local
   const formatTime = (dateStr) => {
@@ -77,8 +83,18 @@ export default function MessageItem({ message, isStreaming = false }) {
         audioElement.pause();
         audioElement.currentTime = 0;
       }
+      if (globalAudioInstance === audioElement) {
+        globalAudioInstance = null;
+      }
       setIsPlaying(false);
       return;
+    }
+
+    // Detener cualquier audio previo en reproducción global
+    if (globalAudioInstance) {
+      globalAudioInstance.pause();
+      globalAudioInstance.currentTime = 0;
+      globalAudioInstance = null;
     }
 
     try {
@@ -92,22 +108,25 @@ export default function MessageItem({ message, isStreaming = false }) {
       const data = await api.generarAudio(textoLimpio);
       if (data && data.url) {
         const audio = new Audio(api.getAudioUrl(data.url));
+        globalAudioInstance = audio;
         setAudioElement(audio);
         setIsPlaying(true);
         
         audio.play().catch(e => {
           console.error("Error al reproducir audio:", e);
           setIsPlaying(false);
+          globalAudioInstance = null;
         });
 
         audio.onended = () => {
           setIsPlaying(false);
+          globalAudioInstance = null;
         };
       }
     } catch (err) {
       console.error('Error al reproducir voz:', err.message);
-      alert(err.message || 'Error al conectar con el servidor de voz.');
       setIsPlaying(false);
+      globalAudioInstance = null;
     }
   };
 
@@ -164,6 +183,14 @@ export default function MessageItem({ message, isStreaming = false }) {
                 {formatearPasosTexto(contenido)}
               </ReactMarkdown>
 
+              {/* Badge Formal de Fuente Oficial (solo si existen fuentes asociadas y no es mensaje de fallback) */}
+              {!isStreaming && !esMensajeFallback(contenido) && fuentesLista.length > 0 && (
+                <div className="mt-2 pt-2 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-slate-600 font-medium bg-slate-50/80 px-2.5 py-1 rounded-lg">
+                  <FileText size={13} className="text-[#010080] shrink-0" />
+                  <span>Fuente: <strong className="font-semibold text-slate-800">{fuentesLista.join(', ')}</strong></span>
+                </div>
+              )}
+
               {!isStreaming && !esMensajeFallback(contenido) && (
                 <p className="mt-2.5 text-xs font-extrabold text-[#010080] border-t border-slate-100 pt-1.5 flex items-center gap-1.5">
                   <span>A continuación te muestro más información en pantalla</span>
@@ -183,7 +210,7 @@ export default function MessageItem({ message, isStreaming = false }) {
 
       {/* Botones de acción (Solo para el Bot) */}
       {isBot && contenido && (
-        <div className="flex items-center gap-3 ml-10 mt-1.5 text-slate-400">
+        <div className="flex items-center gap-3 ml-10 mt-1.5 text-slate-400 relative">
           {/* Botón de reproducción de voz */}
           <button 
             onClick={handleVoice} 
@@ -197,14 +224,21 @@ export default function MessageItem({ message, isStreaming = false }) {
 
           <span className="w-[1px] h-3 bg-slate-200"></span>
 
-          {/* Botón de copiar */}
-          <button 
-            onClick={handleCopy} 
-            className="p-1 rounded hover:bg-slate-100 hover:text-[#010080] transition-colors cursor-pointer"
-            title="Copiar al portapapeles"
-          >
-            {copied ? <Check size={15} className="text-green-500" /> : <Copy size={15} />}
-          </button>
+          {/* Botón de copiar con Tooltip */}
+          <div className="relative flex items-center">
+            <button 
+              onClick={handleCopy} 
+              className="p-1 rounded hover:bg-slate-100 hover:text-[#010080] transition-colors cursor-pointer"
+              title="Copiar al portapapeles"
+            >
+              {copied ? <Check size={15} className="text-green-500" /> : <Copy size={15} />}
+            </button>
+            {copied && (
+              <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-sm whitespace-nowrap animate-fadeIn">
+                ¡Copiado al portapapeles!
+              </span>
+            )}
+          </div>
 
           <span className="w-[1px] h-3 bg-slate-200"></span>
 
