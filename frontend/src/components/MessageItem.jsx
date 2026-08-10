@@ -98,11 +98,7 @@ export default function MessageItem({ message, isStreaming = false }) {
     }
 
     try {
-      let textoParaAudio = contenido || '';
-      if (!esMensajeFallback(textoParaAudio) && !textoParaAudio.includes('más información en pantalla')) {
-        textoParaAudio += '\n\nA continuación te muestro más información en pantalla';
-      }
-      const textoLimpio = limpiarTextoParaVoz(textoParaAudio);
+      const textoLimpio = limpiarTextoParaVoz(contenido || '');
       if (!textoLimpio) return;
 
       const data = await api.generarAudio(textoLimpio);
@@ -189,12 +185,6 @@ export default function MessageItem({ message, isStreaming = false }) {
                   <FileText size={13} className="text-[#010080] shrink-0" />
                   <span>Fuente: <strong className="font-semibold text-slate-800">{fuentesLista.join(', ')}</strong></span>
                 </div>
-              )}
-
-              {!isStreaming && !esMensajeFallback(contenido) && (
-                <p className="mt-2.5 text-xs font-extrabold text-[#010080] border-t border-slate-100 pt-1.5 flex items-center gap-1.5">
-                  <span>A continuación te muestro más información en pantalla</span>
-                </p>
               )}
 
               <span className="text-[9px] text-slate-400 block text-right mt-1.5">{formatTime(fecha_creacion)}</span>

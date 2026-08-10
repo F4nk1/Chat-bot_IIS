@@ -62,31 +62,28 @@ export default function FormacionSection({ subTab = 'malla', onSubTabChange = nu
       <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-3">
         <button
           onClick={() => handleSelectSubTab('malla')}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-            activeSubTab === 'malla'
-              ? 'bg-[#010080] text-white shadow-sm'
-              : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
-          }`}
+          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${activeSubTab === 'malla'
+            ? 'bg-[#010080] text-white shadow-sm'
+            : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+            }`}
         >
           <BookOpen size={16} /> Plan de Estudios y Malla
         </button>
         <button
           onClick={() => handleSelectSubTab('practicas')}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-            activeSubTab === 'practicas'
-              ? 'bg-[#010080] text-white shadow-sm'
-              : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
-          }`}
+          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${activeSubTab === 'practicas'
+            ? 'bg-[#010080] text-white shadow-sm'
+            : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+            }`}
         >
           <Briefcase size={16} /> Prácticas Preprofesionales (PPP)
         </button>
         <button
           onClick={() => handleSelectSubTab('titulacion')}
-          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-            activeSubTab === 'titulacion'
-              ? 'bg-[#010080] text-white shadow-sm'
-              : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
-          }`}
+          className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${activeSubTab === 'titulacion'
+            ? 'bg-[#010080] text-white shadow-sm'
+            : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+            }`}
         >
           <GraduationCap size={16} /> Egreso y Titulación
         </button>
@@ -126,7 +123,7 @@ export default function FormacionSection({ subTab = 'malla', onSubTabChange = nu
                   Plan curricular estructurado por competencias profesionales. Aplicable a estudiantes ingresantes entre los periodos 2017 y 2024.
                 </p>
                 <a
-                  href="https://in.unsaac.edu.pe/malla-curricular/"
+                  href="https://in.unsaac.edu.pe/wp-content/uploads/2025/03/malla-curricular-ing-informatica-2017.jpg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-800 hover:underline pt-1"
@@ -142,7 +139,7 @@ export default function FormacionSection({ subTab = 'malla', onSubTabChange = nu
                   Plan de formación histórico para estudiantes adscritos bajo la normativa previa.
                 </p>
                 <a
-                  href="https://in.unsaac.edu.pe/malla-curricular/"
+                  href="https://in.unsaac.edu.pe/wp-content/uploads/2025/05/5.-MallaCurricular-1997.jpg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-800 hover:underline pt-1"
