@@ -67,7 +67,7 @@ ventana.innerHTML = `
 document.body.appendChild(ventana);
 
 // Estado de la conversación
-const URL_API = "http://127.0.0.1:8000";
+const URL_API = "http://127.0.0.1:8001";
 let id_conversacion_activa = null;
 
 // Event Listeners para abrir y cerrar

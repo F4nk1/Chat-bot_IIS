@@ -24,6 +24,7 @@ def migrar_datos():
     
     total_insertados = 0
     archivos_procesados = 0
+    errores = []
     
     for nombre_categoria in carpetas_categorias:
         ruta_categoria = os.path.join(directorio_datos, nombre_categoria)
@@ -64,6 +65,15 @@ def migrar_datos():
                             archivos_procesados += 1
                 except Exception as error:
                     print(f"Error migrando {ruta_completa}: {error}")
+                    errores.append((ruta_completa, str(error)))
+
+    if errores:
+        conexion.rollback()
+        conexion.close()
+        detalle = "; ".join(f"{ruta}: {error}" for ruta, error in errores)
+        raise RuntimeError(
+            f"La migracion fue cancelada; fallaron {len(errores)} archivo(s). {detalle}"
+        )
     
     conexion.commit()
     conexion.close()

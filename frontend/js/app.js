@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const boton_nuevo_chat = document.getElementById('new-chat-btn');
     const lista_historial = document.getElementById('history-list');
 
-    const URL_API = 'http://127.0.0.1:8000';
+    const URL_API = 'http://127.0.0.1:8001';
     let id_conversacion_activa = null;
 
     // --- Funciones Nucleo ---

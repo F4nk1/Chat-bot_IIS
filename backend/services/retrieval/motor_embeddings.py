@@ -6,6 +6,7 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 import numpy as np
 import chromadb
+from chromadb.errors import InternalError
 from sentence_transformers import SentenceTransformer
 from rank_bm25 import BM25Okapi
 from backend.services.knowledge.base_conocimiento import KnowledgeBase
@@ -20,7 +21,18 @@ class HybridRetrievalEngine:
     """
     def __init__(self):
         # Modelos
-        self.modelo_semantico = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+        nombre_modelo = "paraphrase-multilingual-MiniLM-L12-v2"
+        try:
+            # Evita consultar Hugging Face en cada arranque si el modelo ya esta
+            # en cache (especialmente util sin conexion o con firewall).
+            self.modelo_semantico = SentenceTransformer(
+                nombre_modelo,
+                local_files_only=True,
+            )
+        except OSError:
+            # En la primera ejecucion permite que sentence-transformers lo
+            # descargue y lo deje disponible para los siguientes arranques.
+            self.modelo_semantico = SentenceTransformer(nombre_modelo)
         
         # Configurar ChromaDB
         db_path = os.path.join(BASE_DIR, "data", "chroma_db")
@@ -101,12 +113,33 @@ class HybridRetrievalEngine:
         # Upsert en ChromaDB (calcula embeddings automáticamente con nuestra función)
         vectores = self.modelo_semantico.encode(documentos_chroma).tolist()
         
-        self.collection.upsert(
-            ids=ids_chroma,
-            embeddings=vectores,
-            documents=documentos_chroma,
-            metadatas=metadatos_chroma
-        )
+        try:
+            self.collection.upsert(
+                ids=ids_chroma,
+                embeddings=vectores,
+                documents=documentos_chroma,
+                metadatas=metadatos_chroma
+            )
+
+            # Quitar documentos que ya no existen en SQLite para que los
+            # resultados de Chroma y las listas en memoria permanezcan alineados.
+            ids_existentes = set(self.collection.get(include=[])["ids"])
+            ids_obsoletos = list(ids_existentes - set(ids_chroma))
+            if ids_obsoletos:
+                self.collection.delete(ids=ids_obsoletos)
+        except InternalError:
+            # Un cierre abrupto o un cambio grande de corpus puede dejar el
+            # indice HNSW ilegible. Chroma es solo un cache regenerable.
+            self.chroma_client.delete_collection(name="conocimiento_unsaac")
+            self.collection = self.chroma_client.create_collection(
+                name="conocimiento_unsaac"
+            )
+            self.collection.upsert(
+                ids=ids_chroma,
+                embeddings=vectores,
+                documents=documentos_chroma,
+                metadatas=metadatos_chroma
+            )
         print("ChromaDB y BM25 sincronizados exitosamente.")
 
     def agregar_documento(self, pregunta: str, respuesta: str, categoria: str):
@@ -159,19 +192,28 @@ class HybridRetrievalEngine:
         vector_consulta = self.modelo_semantico.encode(consulta)
         
         candidatos = []
+        max_bm25 = float(np.max(bm25_scores)) if len(bm25_scores) else 0.0
         for i, emb in enumerate(embeddings_candidatas):
             idx_abs = top_k_indices[i]
             dot_prod = np.dot(vector_consulta, emb)
             norm_q = np.linalg.norm(vector_consulta)
             norm_d = np.linalg.norm(emb)
             sim = dot_prod / (norm_q * norm_d) if norm_q > 0 and norm_d > 0 else 0.0
+            bm25_normalizado = (
+                float(bm25_scores[idx_abs]) / max_bm25
+                if max_bm25 > 0
+                else 0.0
+            )
+            confianza_hibrida = (0.65 * float(sim)) + (0.35 * bm25_normalizado)
             
             candidatos.append({
                 "codigo_regla": self.corpus_codigo_reglas[idx_abs],
                 "pregunta": self.corpus_preguntas[idx_abs],
                 "respuesta": self.corpus_respuestas[idx_abs],
                 "categoria": self.corpus_categorias[idx_abs],
-                "confianza": float(sim)
+                "confianza": confianza_hibrida,
+                "similitud_semantica": float(sim),
+                "coincidencia_lexica": bm25_normalizado,
             })
             
         candidatos.sort(key=lambda x: x["confianza"], reverse=True)

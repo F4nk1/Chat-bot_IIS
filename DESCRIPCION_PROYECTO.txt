@@ -1,0 +1,505 @@
+================================================================================
+       DESCRIPCION COMPLETA DEL PROYECTO: CHATBOT ACADEMICO IIS - DINOBOT
+           Universidad Nacional de San Antonio Abad del Cusco (UNSAAC)
+          Escuela Profesional de Ingenieria Informatica y de Sistemas (EPIIS)
+================================================================================
+
+AUTORES: EduAch2025 / F4nk1 (colaboradores del repositorio)
+REPOSITORIO: Chat-bot_IIS (rama principal: main)
+FECHA DE ULTIMA ACTUALIZACION: Junio 2026
+
+
+--------------------------------------------------------------------------------
+1. DESCRIPCION GENERAL DEL PROYECTO
+--------------------------------------------------------------------------------
+
+Este proyecto es un chatbot academico llamado "DinoBot", desarrollado para
+asistir a estudiantes, docentes y personal administrativo de la Escuela
+Profesional de Ingenieria Informatica y de Sistemas (EPIIS) de la UNSAAC.
+
+Su objetivo principal es resolver dudas relacionadas con el Reglamento de
+Tutorias Academicas de la escuela, brindando informacion clara, rapida y
+precisa sobre procedimientos, normas, derechos, obligaciones y servicios
+disponibles para los miembros de la comunidad universitaria.
+
+El sistema esta compuesto por:
+  - Un portal web informativo con el reglamento navegable.
+  - Un chatbot interactivo con inteligencia artificial (DinoBot).
+  - Un backend que procesa las consultas y busca respuestas en una base de
+    conocimiento estructurada.
+  - Un sistema de sintesis de voz (Text-To-Speech) que permite escuchar las
+    respuestas en espanol.
+
+El chatbot NO utiliza modelos generativos de lenguaje (como ChatGPT). En su
+lugar, implementa una arquitectura RAG simplificada (Retrieval-Augmented
+Generation) basada en TF-IDF y similitud coseno, lo que garantiza que todas
+las respuestas provienen directamente del corpus de conocimiento validado,
+sin riesgo de informacion inventada o "alucinaciones".
+
+
+--------------------------------------------------------------------------------
+2. TECNOLOGIAS UTILIZADAS
+--------------------------------------------------------------------------------
+
+FRONTEND (Interfaz de usuario):
+  - React 19.2.6         Libreria JavaScript para construir la interfaz visual.
+  - Vite 8.0.12          Herramienta de construccion y servidor de desarrollo.
+  - Tailwind CSS 4.3.1   Framework de estilos utilitarios (CSS).
+  - Lucide React         Biblioteca de iconos vectoriales.
+  - React Markdown       Renderizado de texto en formato Markdown.
+
+BACKEND (Servidor y logica de negocio):
+  - Python 3.12+         Lenguaje de programacion del servidor.
+  - FastAPI              Framework web para construir la API REST.
+  - Uvicorn              Servidor ASGI de alto rendimiento.
+  - scikit-learn         Motor de busqueda semantica (TF-IDF, coseno).
+  - NumPy                Operaciones matematicas para busqueda vectorial.
+  - Piper TTS            Sintesis de voz en espanol mediante modelos ONNX.
+  - ONNX Runtime         Motor de inferencia para el modelo de voz.
+  - SQLite               Base de datos relacional ligera (sin servidor).
+  - Python-dotenv        Gestion de variables de entorno.
+
+INTELIGENCIA ARTIFICIAL:
+  - Algoritmo TF-IDF + Similitud Coseno (scikit-learn)
+  - Modelo de voz ONNX: es_ES-sharvard-medium.onnx (Piper TTS)
+  - Web Speech API (reconocimiento de voz en el navegador)
+
+
+--------------------------------------------------------------------------------
+3. ARQUITECTURA DEL SISTEMA
+--------------------------------------------------------------------------------
+
+El sistema se divide en tres capas principales que se comunican entre si:
+
+  [NAVEGADOR WEB]  <-->  [API BACKEND (FastAPI)]  <-->  [BASE DE DATOS (SQLite)]
+                                   ^
+                                   |
+                          [MODELOS DE IA / CORPUS]
+
+  a) FRONTEND (React): Es la interfaz que ve el usuario. Muestra el portal
+     informativo, el chatbot DinoBot y el historial de conversaciones.
+     Se ejecuta en el navegador del usuario (puerto 5173 en desarrollo).
+
+  b) BACKEND (FastAPI): Es el servidor que recibe las preguntas, las procesa
+     con IA, consulta la base de datos y devuelve las respuestas. Se ejecuta
+     como un servicio en el puerto 8000.
+
+  c) BASE DE DATOS (SQLite): Almacena el conocimiento (articulos del
+     reglamento), el historial de conversaciones, el feedback de usuarios y
+     el contexto de cada sesion.
+
+  d) CORPUS DE DATOS (JSON): Archivos de texto con el contenido del
+     Reglamento de Tutorias. Se cargan a la base de datos al inicio del
+     sistema.
+
+
+--------------------------------------------------------------------------------
+4. ESTRUCTURA DE CARPETAS DEL PROYECTO
+--------------------------------------------------------------------------------
+
+Chat-bot_IIS/
+|
++-- backend/                   Codigo del servidor Python (FastAPI)
+|   +-- main.py                Punto de entrada principal del backend
+|   +-- config/
+|   |   +-- settings.py        Configuracion global (puertos, rutas, modelos)
+|   +-- routes/                Controladores de la API (endpoints HTTP)
+|   |   +-- chat.py            Rutas para procesar mensajes del chatbot
+|   |   +-- conversaciones.py  Rutas para gestionar historial de chat
+|   |   +-- feedback.py        Ruta para recibir valoraciones de respuestas
+|   |   +-- tts.py             Ruta para generar audio (voz)
+|   |   +-- reglamento.py      Ruta para consultar articulos por ID
+|   |   +-- admin.py           Ruta para exportar logs (panel administrativo)
+|   +-- services/              Logica de negocio del chatbot
+|   |   +-- conversation/
+|   |   |   +-- asistente.py   Motor principal del chatbot (ChatbotEngine)
+|   |   +-- knowledge/
+|   |   |   +-- base_conocimiento.py   Acceso a la BD de conocimiento
+|   |   |   +-- detector_intenciones.py Clasificador de intenciones
+|   |   |   +-- preprocesamiento.py    Limpieza y normalizacion de texto
+|   |   +-- retrieval/
+|   |   |   +-- motor_embeddings.py   Motor de busqueda semantica (TF-IDF)
+|   |   +-- memory/
+|   |   |   +-- sesion_conversacion.py Contexto por usuario
+|   |   +-- tts/
+|   |       +-- servicio_tts.py        Servicio de sintesis de voz
+|   |       +-- normalizador.py        Normaliza texto para lectura en voz
+|   +-- models/
+|   |   +-- modelos_chat.py            Modelos Pydantic para el chat
+|   |   +-- modelos_historial.py       Modelos Pydantic para historial
+|   +-- database/
+|   |   +-- bd_gestion.py             Creacion e inicializacion de tablas
+|   |   +-- bd_historial.py           Funciones CRUD para historial
+|   |   +-- migrar_datos.py           Carga datos JSON a SQLite
+|   |   +-- chatbot.db                Archivo de base de datos SQLite
+|   +-- assets/
+|       +-- models/                   Modelos TTS ONNX (descargados por el usuario)
+|
++-- frontend/                  Codigo de la interfaz web (React)
+|   +-- src/
+|   |   +-- App.jsx            Pagina principal (portal + chatbot integrado)
+|   |   +-- components/
+|   |   |   +-- Chatbot.jsx    Componente principal del chat DinoBot
+|   |   |   +-- MessageItem.jsx Mensaje individual con acciones (voz, copiar, valorar)
+|   |   |   +-- Sidebar.jsx    Panel lateral con historial de conversaciones
+|   |   +-- services/
+|   |   |   +-- api.js         Cliente HTTP para comunicarse con el backend
+|   |   +-- assets/            Imagenes (logo, avatares de DinoBot)
+|   |   +-- main.jsx           Punto de entrada de React
+|   +-- index.html             Archivo HTML base
+|   +-- package.json           Dependencias Node.js
+|   +-- vite.config.js         Configuracion de Vite
+|
++-- data/                      Corpus de conocimiento en formato JSON
+|   +-- faq/
+|   |   +-- faq.json           Preguntas frecuentes basicas
+|   +-- tutorias/
+|       +-- tutorias.json                          Preguntas sobre tutorias
+|       +-- corpus_normas_generales.json           Art. 1-7 del reglamento
+|       +-- corpus_estructura_tutorias.json        Art. 8-11 del reglamento
+|       +-- corpus_ejecucion_funcionamiento_tutoria.json  Art. 12-16
+|       +-- corpus_disposiciones_complementarias_transitorias.json
+|
++-- tests/                     Pruebas unitarias automatizadas
+|   +-- test_chatbot.py        Tests del motor del chatbot
+|   +-- test_intenciones.py    Tests del clasificador de intenciones
+|   +-- test_normalizacion.py  Tests del normalizador de texto para TTS
+|   +-- test_reglamento.py     Tests de busqueda en el reglamento
+|
++-- requirements.txt           Lista de dependencias Python
++-- README.md                  Documentacion tecnica del proyecto
++-- DESCRIPCION_PROYECTO.txt   Este archivo
+
+
+--------------------------------------------------------------------------------
+5. FUNCIONAMIENTO DEL CHATBOT (DinoBot)
+--------------------------------------------------------------------------------
+
+Cuando un usuario escribe una pregunta, el sistema sigue estos pasos:
+
+  PASO 1 - RECEPCION:
+    El frontend (React) captura el texto del usuario y lo envia al backend
+    mediante una solicitud HTTP POST a la ruta /chat/stream.
+
+  PASO 2 - PREPROCESAMIENTO:
+    El backend limpia el texto: convierte a minusculas, elimina acentos,
+    signos de puntuacion y palabras poco informativas (stopwords como
+    "el", "la", "de", "en", etc.).
+
+  PASO 3 - DETECCION DE INTENCION:
+    El sistema clasifica la pregunta en una de 7 categorias:
+      - Tutorias    (horarios, solicitudes, acompanamiento academico)
+      - Tramites    (solicitudes, matricula, constancias, certificados)
+      - Practicas   (practicas pre-profesionales, convenios, empresas)
+      - Bienestar   (psicologia, beca, comedor, salud universitaria)
+      - Movilidad   (intercambio, beca externa, movilidad estudiantil)
+      - Reglamentos (normas, estatutos, sanciones, derechos)
+      - Cursos      (asignaturas, silabos, creditos, prerrequisitos)
+      - General     (cuando no encaja en ninguna categoria anterior)
+
+  PASO 4 - BUSQUEDA SEMANTICA (TF-IDF + Coseno):
+    El motor de busqueda convierte la pregunta del usuario en un vector
+    matematico usando el algoritmo TF-IDF. Luego calcula la similitud
+    coseno entre ese vector y todos los documentos del corpus (~430 entradas).
+    Selecciona el documento con mayor similitud y lo retorna junto con un
+    puntaje de confianza (valor entre 0.0 y 1.0).
+
+  PASO 5 - VALIDACION DE CONFIANZA:
+    Si el puntaje de confianza supera el umbral de 0.5, se entrega la
+    respuesta encontrada. Si no, el chatbot responde con un mensaje de
+    "No tengo informacion precisa sobre eso, te recomiendo consultar
+    directamente a tu tutor o a la secretaria de la escuela."
+
+  PASO 6 - RESPUESTA EN TIEMPO REAL (Streaming SSE):
+    El backend envia la respuesta palabra por palabra al navegador mediante
+    Server-Sent Events (SSE). El frontend muestra cada palabra a medida que
+    llega, creando el efecto de "escritura en vivo".
+
+  PASO 7 - OPCIONES POST-RESPUESTA:
+    Una vez mostrada la respuesta, el usuario puede:
+      - Reproducir la respuesta en voz (TTS)
+      - Copiar el texto al portapapeles
+      - Valorar la respuesta (pulgar arriba / pulgar abajo)
+
+
+--------------------------------------------------------------------------------
+6. PORTAL WEB INFORMATIVO (App.jsx)
+--------------------------------------------------------------------------------
+
+Ademas del chatbot, la aplicacion incluye un portal web completo con las
+siguientes secciones:
+
+  ENCABEZADO:
+    Logo institucional de la EPIIS | UNSAAC con colores corporativos
+    (azul #010080 y amarillo dorado #DFB320).
+
+  SECCION HERO:
+    Presentacion del servicio de tutorias y del asistente DinoBot,
+    con botones de acceso rapido.
+
+  QUE ES LA TUTORIA:
+    Descripcion del programa de tutorias academicas y sus objetivos.
+    Muestra las tres dimensiones de la actividad tutorial:
+      - Academica: apoyo en el desempeno academico.
+      - Personal: orientacion en aspectos personales y sociales.
+      - Profesional: guia para el desarrollo profesional.
+
+  LINEA DE TIEMPO DEL SEMESTRE:
+    Representacion visual interactiva de los tres momentos clave
+    del proceso tutorial durante el semestre academico.
+
+  REGLAMENTO NAVEGABLE:
+    Los 16 articulos del Reglamento de Tutorias organizados en capitulos.
+    Incluye:
+      - Filtros por perfil: Completo, Estudiantes, Tutores, Comite.
+      - Vista escritorio: lista de articulos + detalle al lado.
+      - Vista movil: acordeon colapsable.
+
+  TUTORES DISPONIBLES:
+    Lista de docentes tutores de la EPIIS con su contacto por correo
+    electronico (5 docentes listados).
+
+  PREGUNTAS FRECUENTES (FAQ):
+    Seccion con las preguntas mas comunes sobre el sistema de tutorias.
+
+  CHATBOT DINOBOT:
+    - En escritorio: panel lateral derecho fijo.
+    - En movil: boton flotante animado que abre el chat en pantalla completa.
+
+
+--------------------------------------------------------------------------------
+7. BASE DE DATOS (SQLite)
+--------------------------------------------------------------------------------
+
+El sistema utiliza una base de datos SQLite (archivo: backend/database/chatbot.db)
+con las siguientes tablas:
+
+  CONOCIMIENTO:
+    Almacena todas las preguntas y respuestas del corpus.
+    Campos: id, categoria, pregunta, respuesta, pregunta_limpia (preprocesada).
+    Se puebla automaticamente desde los archivos JSON en /data/.
+
+  CONVERSACIONES:
+    Registro de cada sesion de chat del usuario.
+    Campos: id, titulo (autogenerado), fecha_creacion.
+
+  MENSAJES:
+    Historial completo de mensajes de todas las conversaciones.
+    Campos: id, conversacion_id, rol (usuario/asistente), contenido,
+            intencion (categoria detectada), fecha_creacion.
+
+  MEMORIA:
+    Almacena contexto adicional por usuario para personalizar la experiencia.
+    Campos: id, usuario_id, clave, valor, fecha_actualizacion.
+
+  VALORACIONES:
+    Registra el feedback dado por los usuarios a cada respuesta.
+    Campos: id, mensaje_id, puntuacion (+1 o -1), comentario, fecha_creacion.
+
+
+--------------------------------------------------------------------------------
+8. API REST (ENDPOINTS DISPONIBLES)
+--------------------------------------------------------------------------------
+
+  GET  /                          Health check (verifica que el servidor funciona)
+  POST /chat                      Procesa una pregunta y retorna respuesta completa
+  POST /chat/stream               Igual que /chat pero con respuesta en streaming SSE
+  POST /conversaciones/           Crea una nueva conversacion
+  GET  /conversaciones/           Lista todas las conversaciones del usuario
+  GET  /conversaciones/{id}       Obtiene detalle de una conversacion con sus mensajes
+  DELETE /conversaciones/{id}     Elimina una conversacion y todos sus mensajes
+  POST /conversaciones/{id}/mensajes  Guarda un mensaje en una conversacion
+  POST /feedback/                 Registra la valoracion de una respuesta
+  POST /tts/generar               Genera un archivo de audio WAV con la respuesta
+  GET  /reglamento/{id}           Consulta un articulo del reglamento por su ID
+  GET  /admin/exportar-logs       Descarga un CSV con el historial de interacciones
+
+
+--------------------------------------------------------------------------------
+9. SINTESIS DE VOZ (TTS - Text To Speech)
+--------------------------------------------------------------------------------
+
+El sistema incluye un motor de sintesis de voz para que las respuestas puedan
+ser escuchadas en espanol. Funciona de la siguiente manera:
+
+  MODELO: es_ES-sharvard-medium.onnx (Piper TTS, voz femenina, espanol de Espana)
+  FORMATO: ONNX (Open Neural Network Exchange) - inferencia solo en CPU
+  ORIGEN:  Proyecto Rhasspy/Piper de Hugging Face (descarga manual)
+
+  NORMALIZACION PREVIA AL AUDIO:
+    Antes de sintetizar, el texto pasa por un normalizador que:
+      - Expande siglas: UNSAAC -> Universidad Nacional de San Antonio Abad del Cusco
+      - Expande abreviaturas: art. -> articulo, nro. -> numero
+      - Reemplaza simbolos: % -> "por ciento", & -> " y ", + -> " mas "
+      - Elimina URLs y formato Markdown (asteriscos, guiones bajos, etc.)
+    Esto hace que el audio suene natural y fluido.
+
+  RESULTADO: Archivo WAV unico con nombre aleatorio (UUID) guardado en
+             backend/static/audio/. El frontend lo reproduce directamente.
+
+
+--------------------------------------------------------------------------------
+10. RECONOCIMIENTO DE VOZ (STT - Speech To Text)
+--------------------------------------------------------------------------------
+
+El usuario puede hablar en lugar de escribir. Esto usa la Web Speech API,
+que es una tecnologia nativa del navegador (disponible en Chrome, Edge, Safari).
+
+  - El usuario presiona el icono de microfono en el chat.
+  - El navegador solicita permiso para acceder al microfono.
+  - El usuario habla y el navegador transcribe el audio a texto.
+  - El texto se envia automaticamente como si el usuario lo hubiera escrito.
+  - Idioma configurado: espanol peruano (es-PE).
+
+
+--------------------------------------------------------------------------------
+11. SISTEMA DE HISTORIAL Y PERSISTENCIA
+--------------------------------------------------------------------------------
+
+Todas las conversaciones con DinoBot quedan guardadas en la base de datos.
+El usuario puede:
+  - Ver su historial de conversaciones en el panel lateral (Sidebar).
+  - Seleccionar una conversacion anterior para continuarla.
+  - Eliminar conversaciones que ya no necesite.
+  - El historial persiste aunque se cierre el navegador o se reinicie el sistema.
+
+
+--------------------------------------------------------------------------------
+12. SISTEMA DE FEEDBACK
+--------------------------------------------------------------------------------
+
+Cada respuesta de DinoBot incluye botones de valoracion:
+  - Pulgar arriba (+1): La respuesta fue util.
+  - Pulgar abajo (-1): La respuesta no fue util.
+
+Estas valoraciones se guardan en la base de datos y pueden ser exportadas
+por el administrador para analizar la calidad del sistema y mejorarlo.
+
+
+--------------------------------------------------------------------------------
+13. PANEL ADMINISTRATIVO
+--------------------------------------------------------------------------------
+
+Los administradores pueden acceder a:
+  GET /admin/exportar-logs
+    Descarga un archivo CSV con el historial completo de interacciones.
+    Columnas: Timestamp, Rol, Contenido del mensaje, Intencion detectada,
+              Valoracion del usuario.
+    Util para analizar el uso del sistema, identificar preguntas frecuentes
+    no resueltas y mejorar el corpus de conocimiento.
+
+
+--------------------------------------------------------------------------------
+14. CORPUS DE CONOCIMIENTO (DATOS DEL REGLAMENTO)
+--------------------------------------------------------------------------------
+
+El chatbot responde basandose en un corpus de conocimiento que contiene el
+Reglamento de Tutorias de la EPIIS-UNSAAC, organizado en archivos JSON:
+
+  Articulos 1-7   (Normas Generales):
+    Naturaleza, base legal, definicion de tutoria, fines, objetivos,
+    sujetos del proceso tutorial y caracter del servicio.
+
+  Articulos 8-11  (Estructura de Tutorias):
+    Organizacion del sistema, funciones del Comite Tutorial, actividades
+    del tutor asignado, mecanismos de supervision.
+
+  Articulos 12-16 (Ejecucion y Funcionamiento):
+    Periodicidad de sesiones, funciones de tutorias, asignacion de tutores,
+    confidencialidad de la informacion, evaluacion del proceso.
+
+  Disposiciones Complementarias y Transitorias:
+    Normas adicionales y transitorias del reglamento.
+
+  FAQ (Preguntas Frecuentes):
+    Preguntas directas sobre tutorias, bienestar estudiantil y practicas.
+
+  TOTAL: aproximadamente 430 entradas de pregunta-respuesta.
+
+Estos datos se cargan automaticamente a la base de datos SQLite al iniciar
+el sistema por primera vez, mediante el script backend/database/migrar_datos.py.
+
+
+--------------------------------------------------------------------------------
+15. PRUEBAS AUTOMATIZADAS
+--------------------------------------------------------------------------------
+
+El proyecto incluye una suite de pruebas unitarias (carpeta /tests/):
+
+  test_chatbot.py       Verifica el motor del chatbot y el preprocesamiento.
+  test_intenciones.py   Verifica que el clasificador de intenciones funciona.
+  test_normalizacion.py Verifica el normalizador de siglas y texto para TTS.
+  test_reglamento.py    Verifica la busqueda de articulos en el reglamento.
+
+Se ejecutan con: pytest tests/
+
+
+--------------------------------------------------------------------------------
+16. COMO EJECUTAR EL PROYECTO
+--------------------------------------------------------------------------------
+
+REQUISITOS PREVIOS:
+  - Python 3.12 o superior
+  - Node.js 18 o superior
+  - pip (gestor de paquetes Python)
+  - npm (gestor de paquetes Node)
+
+BACKEND:
+  1. cd backend
+  2. pip install -r requirements.txt
+  3. python database/migrar_datos.py   (solo la primera vez)
+  4. uvicorn main:app --reload         (inicia el servidor en puerto 8000)
+
+FRONTEND:
+  1. cd frontend
+  2. npm install
+  3. npm run dev                       (inicia el servidor en puerto 5173)
+
+ACCESO:
+  Abrir el navegador en: http://localhost:5173
+
+NOTA SOBRE EL MODELO TTS:
+  Para que la sintesis de voz funcione, se debe descargar manualmente el modelo
+  ONNX de Piper TTS (es_ES-sharvard-medium.onnx y su .json) y colocarlo en la
+  carpeta backend/assets/models/. Ver README.md para instrucciones detalladas.
+
+
+--------------------------------------------------------------------------------
+17. RESUMEN DE CARACTERISTICAS
+--------------------------------------------------------------------------------
+
+  [x] Chatbot academico con inteligencia artificial (RAG + TF-IDF)
+  [x] Deteccion automatica de intenciones del usuario (7 categorias)
+  [x] Busqueda semantica en corpus de 430+ entradas
+  [x] Respuestas garantizadas basadas en el reglamento oficial
+  [x] Sintesis de voz en espanol (TTS ONNX con Piper)
+  [x] Reconocimiento de voz en el navegador (Web Speech API)
+  [x] Historial de conversaciones persistente (SQLite)
+  [x] Sistema de feedback y valoracion de respuestas
+  [x] Portal web informativo con reglamento navegable y filtros
+  [x] Linea de tiempo interactiva del semestre
+  [x] Lista de docentes tutores con contacto
+  [x] Diseno responsive (escritorio y movil)
+  [x] Animacion de escritura en tiempo real (streaming SSE)
+  [x] Panel administrativo para exportar logs en CSV
+  [x] Normalizacion de texto para lectura natural en voz
+  [x] Suite de pruebas unitarias automatizadas
+  [x] Arquitectura limpia por capas (rutas, servicios, modelos, datos)
+
+
+--------------------------------------------------------------------------------
+18. IDENTIDAD VISUAL (DINOBOT)
+--------------------------------------------------------------------------------
+
+DinoBot es la mascota del chatbot academico:
+  - Nombre: DinoBot
+  - Apariencia: Dinosaurio amigable (imagenes PNG incluidas en el proyecto)
+  - Colores corporativos: Azul UNSAAC (#010080) y Amarillo Dorado (#DFB320)
+  - Personalidad: Academico, servicial, disponible 24/7
+  - Posicion en escritorio: Panel lateral derecho fijo
+  - Posicion en movil: Boton flotante animado (pildora con icono y nombre)
+
+
+================================================================================
+FIN DEL DOCUMENTO
+================================================================================

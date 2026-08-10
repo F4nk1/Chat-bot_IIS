@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 class Configuracion:
     NOMBRE_APP = os.getenv("NOMBRE_APP", "Chatbot Académico")
     HOST_API = os.getenv("API_HOST", "0.0.0.0")
-    PUERTO_API = int(os.getenv("API_PORT", 8000))
+    PUERTO_API = int(os.getenv("API_PORT", 8001))
     DEPURACION = os.getenv("DEBUG") == "True"
     RUTA_FAQ = os.path.abspath(os.getenv("FAQ_PATH", os.path.join(BASE_DIR, "data", "faq", "faq.json")))
     UMBRAL_SIMILITUD = float(os.getenv("SIMILARITY_THRESHOLD", 0.5))

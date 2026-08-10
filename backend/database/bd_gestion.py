@@ -29,6 +29,15 @@ def inicializar_base_de_datos():
         )
     """)
 
+    # CREATE TABLE IF NOT EXISTS no actualiza bases creadas con una version
+    # anterior del esquema. Agregar las columnas nuevas de forma incremental
+    # conserva los datos locales y permite ejecutar la migracion tras un pull.
+    columnas_conocimiento = {
+        fila["name"] for fila in cursor.execute("PRAGMA table_info(conocimiento)")
+    }
+    if "codigo_regla" not in columnas_conocimiento:
+        cursor.execute("ALTER TABLE conocimiento ADD COLUMN codigo_regla TEXT")
+
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS conversaciones (
             id INTEGER PRIMARY KEY AUTOINCREMENT,

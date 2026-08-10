@@ -3,7 +3,7 @@ const mensajeInput = document.getElementById("mensaje_input");
 const mensajesContenedor = document.getElementById("chatbot-mensajes");
 const micBtn = document.getElementById("chatbot-mic");
 
-const URL_API = "http://127.0.0.1:8000";
+const URL_API = "http://127.0.0.1:8001";
 let id_conversacion_activa = null;
 
 botonEnviar.addEventListener("click", enviarConsulta);

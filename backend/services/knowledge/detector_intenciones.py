@@ -234,6 +234,36 @@ class IntentDetector:
         if any(p == texto_norm for p in palabras_saludo) or any(texto_norm.startswith(p) for p in palabras_saludo):
             return "Saludo"
 
+        # Reglas de dominio para evitar que una coincidencia semantica generica
+        # (por ejemplo, la palabra "requisitos") desplace el tema explicito.
+        reglas_dominio = [
+            ("Movilidad", [
+                "movilidad", "intercambio", "pila", "alianza del pacifico",
+                "alianza del pacífico", "extranjero", "pasantia", "pasantía",
+            ]),
+            ("Practicas", [
+                "practica preprofesional", "práctica preprofesional",
+                "practicas preprofesionales", "prácticas preprofesionales",
+                "informe de practicas", "informe de prácticas",
+            ]),
+            ("Bienestar", [
+                "comedor", "bienestar", "psicologia", "psicología",
+                "centro de salud", "asistencia social", "vivienda universitaria",
+            ]),
+            ("Tutorias_General", [
+                "tutoria", "tutoría", "tutorias", "tutorías",
+            ]),
+            ("Tramites", [
+                "tramite", "trámite", "tramitar", "carne universitario",
+                "carné universitario", "certificado", "constancia",
+                "bachiller", "titulacion", "titulación", "duplicado",
+                "matricula extemporanea", "matrícula extemporánea",
+            ]),
+        ]
+        for categoria, terminos in reglas_dominio:
+            if any(termino in texto_norm for termino in terminos):
+                return categoria
+
         if not self.entrenado:
             self.entrenar(modelo_embeddings)
             

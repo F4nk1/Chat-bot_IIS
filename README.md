@@ -65,8 +65,10 @@ Si estás en Windows y no utilizas `make` (o Git Bash), ejecuta los siguientes c
 
 2. **Instalar dependencias del Frontend (Node.js):**
    ```powershell
-   npm --prefix frontend install
+   npm.cmd --prefix frontend install
    ```
+   > En PowerShell se usa `npm.cmd` para evitar el error de política de
+   > ejecución que puede bloquear el script `npm.ps1`.
 
 3. **Migrar la Base de Datos e Inicializar el Corpus:**
    ```powershell
@@ -75,20 +77,20 @@ Si estás en Windows y no utilizas `make` (o Git Bash), ejecuta los siguientes c
 
 4. **Ejecutar el Servidor Backend (FastAPI):**
    ```powershell
-   uvicorn backend.main:aplicacion --reload --host 0.0.0.0 --port 8000
+   uvicorn backend.main:aplicacion --reload --host 0.0.0.0 --port 8001
    ```
 
 5. **Ejecutar el Servidor Frontend (React / Vite en otra terminal):**
    ```powershell
-   npm --prefix frontend run dev
+   npm.cmd --prefix frontend run dev
    ```
 
 ---
 
 ## 🌐 Puertas y Acceso
 
-- **Aplicación Web Interactiva**: [http://localhost:5173](http://localhost:5173)
-- **API FastAPI (Swagger Docs)**: [http://localhost:8000/docs](http://localhost:8000/docs)
+- **Aplicación Web Interactiva**: [http://localhost:5174](http://localhost:5174)
+- **API FastAPI (Swagger Docs)**: [http://localhost:8001/docs](http://localhost:8001/docs)
 
 ---
 

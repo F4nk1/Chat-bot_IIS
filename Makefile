@@ -13,7 +13,7 @@ endif
 
 # Variables de entorno por defecto
 API_HOST ?= 0.0.0.0
-API_PORT ?= 8000
+API_PORT ?= 8001
 
 # Colores para mejorar la legibilidad en la consola
 BLUE   := \033[36m
@@ -81,10 +81,10 @@ run: ## Inicia de forma concurrente el servidor backend y el servidor frontend e
 	echo -e "$(GREEN)========================================================================$(RESET)"; \
 	echo -e " 🚀 $(GREEN)SERVIDORES DE DINOBOT INICIADOS EN LA RED LOCAL$(RESET)"; \
 	echo -e "------------------------------------------------------------------------"; \
-	echo -e " 👉 Acceso en esta PC:      $(BLUE)http://localhost:5173$(RESET)"; \
+	echo -e " 👉 Acceso en esta PC:      $(BLUE)http://localhost:5174$(RESET)"; \
 	if [ -n "$$IP" ]; then \
-		echo -e " 👉 Acceso en la red local: $(BLUE)http://$$IP:5173$(RESET)"; \
-		echo -e " 👉 API Backend en la red:  $(BLUE)http://$$IP:8000$(RESET)"; \
+		echo -e " 👉 Acceso en la red local: $(BLUE)http://$$IP:5174$(RESET)"; \
+		echo -e " 👉 API Backend en la red:  $(BLUE)http://$$IP:8001$(RESET)"; \
 	else \
 		echo -e " ⚠️ $(YELLOW)No se pudo determinar tu dirección IP local. Verifica tu red.$(RESET)"; \
 	fi; \
